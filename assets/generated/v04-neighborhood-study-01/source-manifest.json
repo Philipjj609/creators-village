@@ -1,0 +1,783 @@
+{
+  "version": "v04-neighborhood-study-01",
+  "studyOnly": true,
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 52,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "layers": [
+    {
+      "id": "hearth-home",
+      "anchor": [
+        862.2631072998047,
+        812.2271347045898
+      ],
+      "depth": -7,
+      "objects": 231
+    },
+    {
+      "id": "garden-home",
+      "anchor": [
+        897.0744323730469,
+        1039.354019165039
+      ],
+      "depth": 6,
+      "objects": 380
+    },
+    {
+      "id": "lane-home",
+      "anchor": [
+        1245.1885223388672,
+        1184.1422653198242
+      ],
+      "depth": 14,
+      "objects": 219
+    },
+    {
+      "id": "workshop",
+      "anchor": [
+        1593.3026123046875,
+        1044.8965644836426
+      ],
+      "depth": 6,
+      "objects": 493
+    },
+    {
+      "id": "hall",
+      "anchor": [
+        1314.8114013671875,
+        723.7701416015625
+      ],
+      "depth": -10,
+      "objects": 177
+    },
+    {
+      "id": "ground",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 0,
+      "objects": 362
+    },
+    {
+      "id": "bench--8.1",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -8.4,
+      "objects": 5
+    },
+    {
+      "id": "bench--1.5",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -1.9,
+      "objects": 5
+    },
+    {
+      "id": "bench--11.5",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -6.0,
+      "objects": 5
+    },
+    {
+      "id": "cart",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 14.0,
+      "objects": 7
+    },
+    {
+      "id": "linen",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 19,
+      "objects": 6
+    },
+    {
+      "id": "back-grove-0",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -23,
+      "objects": 13
+    },
+    {
+      "id": "back-grove-1",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -22,
+      "objects": 13
+    },
+    {
+      "id": "back-grove-2",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -18,
+      "objects": 13
+    },
+    {
+      "id": "back-grove-3",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -12,
+      "objects": 13
+    },
+    {
+      "id": "back-grove-4",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -3,
+      "objects": 13
+    },
+    {
+      "id": "back-grove-5",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -2,
+      "objects": 13
+    },
+    {
+      "id": "left-copse-0",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -19,
+      "objects": 13
+    },
+    {
+      "id": "left-copse-1",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -15,
+      "objects": 13
+    },
+    {
+      "id": "left-copse-2",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -11,
+      "objects": 13
+    },
+    {
+      "id": "left-copse-3",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -9,
+      "objects": 13
+    },
+    {
+      "id": "left-copse-4",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 0.8000000000000007,
+      "objects": 13
+    },
+    {
+      "id": "left-copse-5",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": -2,
+      "objects": 13
+    },
+    {
+      "id": "river-grove-0",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 6,
+      "objects": 13
+    },
+    {
+      "id": "river-grove-1",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 8.8,
+      "objects": 13
+    },
+    {
+      "id": "river-grove-2",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 14,
+      "objects": 13
+    },
+    {
+      "id": "commons-tree-0",
+      "anchor": [
+        1314.8114013671875,
+        942.594108581543
+      ],
+      "depth": 0.4,
+      "objects": 13
+    },
+    {
+      "id": "river-foreground-pair",
+      "anchor": [
+        0,
+        0
+      ],
+      "depth": 28.2,
+      "objects": 26
+    }
+  ],
+  "buildings": [
+    {
+      "id": "hearth-home",
+      "name": "Hearth House",
+      "kind": "home",
+      "skeleton": "home",
+      "assembly": "steep-gable-porch",
+      "body": [
+        4,
+        3.1,
+        2.25
+      ],
+      "roofRise": 1.7,
+      "position": [
+        -10,
+        3,
+        0.2
+      ],
+      "footprint": [
+        -2,
+        -1.55,
+        4,
+        4.35
+      ],
+      "entrance": [
+        0.3,
+        2.9
+      ],
+      "route": [
+        [
+          -9.7,
+          5.9
+        ],
+        [
+          -10,
+          7
+        ]
+      ],
+      "story": "A deep stoop and a small tended garden face the shared lane.",
+      "screenAnchor": [
+        862.2631072998047,
+        812.2271347045898
+      ]
+    },
+    {
+      "id": "garden-home",
+      "name": "Garden House",
+      "kind": "home",
+      "skeleton": "home",
+      "assembly": "cross-gabled-wing",
+      "body": [
+        3.8,
+        3.2,
+        2.05
+      ],
+      "roofRise": 1.55,
+      "position": [
+        -3,
+        9,
+        0.18
+      ],
+      "footprint": [
+        -3.6,
+        -1.6,
+        5.5,
+        3.2
+      ],
+      "entrance": [
+        0.3,
+        2
+      ],
+      "route": [
+        [
+          -2.7,
+          11
+        ],
+        [
+          -2.7,
+          12.8
+        ]
+      ],
+      "story": "A return wing shelters a kitchen garden; the front path joins the upper loop.",
+      "screenAnchor": [
+        897.0744323730469,
+        1039.354019165039
+      ]
+    },
+    {
+      "id": "lane-home",
+      "name": "Veranda House",
+      "kind": "home",
+      "skeleton": "home",
+      "assembly": "low-longhouse-veranda",
+      "body": [
+        5.2,
+        2.7,
+        1.65
+      ],
+      "roofRise": 1.15,
+      "position": [
+        6,
+        8,
+        0.05
+      ],
+      "footprint": [
+        -2.6,
+        -1.35,
+        5.2,
+        4
+      ],
+      "entrance": [
+        0.3,
+        2.9
+      ],
+      "route": [
+        [
+          6.3,
+          10.9
+        ],
+        [
+          6.3,
+          11.65
+        ]
+      ],
+      "story": "A long shaded veranda meets the loop beside a linen line and herb beds.",
+      "screenAnchor": [
+        1245.1885223388672,
+        1184.1422653198242
+      ]
+    },
+    {
+      "id": "workshop",
+      "name": "Timber Workshop",
+      "kind": "workshop",
+      "skeleton": "workshop",
+      "assembly": "orthogonal-L-and-workyard",
+      "body": [
+        4.6,
+        2.8,
+        2.3
+      ],
+      "roofRise": 1.25,
+      "position": [
+        7,
+        -1,
+        0.05
+      ],
+      "footprint": [
+        -3.3,
+        -1.4,
+        6.4,
+        4.5
+      ],
+      "entrance": [
+        -1.1,
+        3.2
+      ],
+      "route": [
+        [
+          5.9,
+          2.2
+        ],
+        [
+          5.9,
+          4.2
+        ],
+        [
+          3.5,
+          4.8
+        ]
+      ],
+      "story": "The goods entrance opens into a paved workyard with bench, timber and a handcart.",
+      "screenAnchor": [
+        1593.3026123046875,
+        1044.8965644836426
+      ]
+    },
+    {
+      "id": "hall",
+      "name": "The Commons Hall",
+      "kind": "hall",
+      "skeleton": "hall",
+      "assembly": "hipped-hall-lantern-gallery",
+      "body": [
+        6.6,
+        4,
+        2.7
+      ],
+      "roofRise": 1.55,
+      "position": [
+        -5,
+        -5,
+        1.05
+      ],
+      "footprint": [
+        -3.7,
+        -2.1,
+        8.2,
+        5.4
+      ],
+      "entrance": [
+        -0.4,
+        3.2
+      ],
+      "route": [
+        [
+          -5.4,
+          -1.8
+        ],
+        [
+          -4,
+          -0.5
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -1,
+          4.8
+        ]
+      ],
+      "story": "An open gallery overlooks the shared court, with seats, shade and a clear arrival.",
+      "screenAnchor": [
+        1314.8114013671875,
+        723.7701416015625
+      ]
+    }
+  ],
+  "roads": [
+    {
+      "id": "lower-lane",
+      "width": 1.6,
+      "points": [
+        [
+          -15,
+          8
+        ],
+        [
+          -10,
+          7
+        ],
+        [
+          -8.1,
+          6.8
+        ],
+        [
+          -6,
+          5.5
+        ],
+        [
+          -1,
+          4.8
+        ],
+        [
+          3.5,
+          4.8
+        ],
+        [
+          10.8,
+          5
+        ],
+        [
+          12,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "upper-loop",
+      "width": 1.25,
+      "points": [
+        [
+          -10,
+          7
+        ],
+        [
+          -10,
+          10.5
+        ],
+        [
+          -8,
+          11.8
+        ],
+        [
+          -2.7,
+          12.8
+        ],
+        [
+          6.3,
+          11.65
+        ],
+        [
+          11,
+          11.8
+        ],
+        [
+          10.8,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "public-arrival",
+      "width": 2,
+      "points": [
+        [
+          -1,
+          4.8
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -4,
+          -0.5
+        ],
+        [
+          -5.4,
+          -1.8
+        ]
+      ]
+    }
+  ],
+  "sourceSha256": "2f6de9cccb40d553a01f1ed6feeb964cfdc3daf731b8481045ae28dfa14b0b69",
+  "kitSha256": "9311f946c07689c48b52f92760e8ea20a55f06ad81edd862e78b490f78e81d68",
+  "recipeSha256": "f94991d700a96f0285a0034530ea3177139357126c5b7791aa757d42f3439244",
+  "blender": "4.5.15 LTS",
+  "buildHash": "5afeabba6097",
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 72,
+    "seed": 609,
+    "denoising": true,
+    "color": "AgX Medium High Contrast exposure +0.3; RGBA sRGB"
+  },
+  "outputs": [
+    {
+      "file": "source-overview.png",
+      "bytes": 3277224,
+      "sha256": "662889db4166a6b4a48bf8f3f58188f3bfeb248cdc623a4e51004a2c8c7d7f53"
+    },
+    {
+      "file": "hearth-home.png",
+      "bytes": 1226273,
+      "sha256": "66f2fc9e5d46f98d92fb32e7449872c23ad4eed0c4759a7243c953d9f60fcda6"
+    },
+    {
+      "file": "garden-home.png",
+      "bytes": 1252968,
+      "sha256": "5f1e1de04184f3bdc36697d78a956e89644cc289b03c335b99d3e112f310ae6a"
+    },
+    {
+      "file": "lane-home.png",
+      "bytes": 1199789,
+      "sha256": "5c1e6cd58fffedab25477e4586845d2b59888fa7265888fc8e96ef89cf3aac58"
+    },
+    {
+      "file": "workshop.png",
+      "bytes": 1266254,
+      "sha256": "23cfc950fa0bd1941f57fa093a95b4412749fee3c19887473ee5cc3b6f60e14c"
+    },
+    {
+      "file": "hall.png",
+      "bytes": 1329710,
+      "sha256": "b182e5aa23ed8baf7d71e3eb7b63f0527755f3b3c6a3722a96655552a8ac4404"
+    },
+    {
+      "file": "ground.png",
+      "bytes": 2581806,
+      "sha256": "a49c834a7b7d2202daac8d97ff6b296d766b06673db3b4b950c2800bf3f5dabc"
+    },
+    {
+      "file": "bench--8.1.png",
+      "bytes": 1069213,
+      "sha256": "613a400d8289fa2ae54f3c2c7b0982cdb7fc07734a399fd792551cb293c71771"
+    },
+    {
+      "file": "bench--1.5.png",
+      "bytes": 1068949,
+      "sha256": "8e3b64930f11dfc88cc5b0e91f360b447491bd17bf81089567d0443d490a14f5"
+    },
+    {
+      "file": "bench--11.5.png",
+      "bytes": 1067189,
+      "sha256": "6887303bc86e5eb2c0efe4b117770a2a56601b6322d0039f3068a09cca2b5772"
+    },
+    {
+      "file": "cart.png",
+      "bytes": 1071158,
+      "sha256": "8a5a26b7afc5c07cf1a09963899b177a63a891cebdf68a80e2a7ea80b915ac2b"
+    },
+    {
+      "file": "linen.png",
+      "bytes": 1078833,
+      "sha256": "5addc0541505ef47cceb750fb4a3d902e91160ac00a4b1343708374672474ad7"
+    },
+    {
+      "file": "back-grove-0.png",
+      "bytes": 1100416,
+      "sha256": "144ce1f2c90657b1ed93f70da0f167d84e99ed0bbc57715ecbc072289fa46148"
+    },
+    {
+      "file": "back-grove-1.png",
+      "bytes": 1102140,
+      "sha256": "d83413f1bb4b51fb75fbd94d6cf41ba341491a82236ccd5c63fe794809d58fd6"
+    },
+    {
+      "file": "back-grove-2.png",
+      "bytes": 1098734,
+      "sha256": "857d9d3b9cd5a28bc39972b8d20475444573da33145a0622a39ecbcfff983439"
+    },
+    {
+      "file": "back-grove-3.png",
+      "bytes": 1094786,
+      "sha256": "d4b71309961fd2756e6a3e87a0de5cb2e17534ec3c0dbbe2dd1af9ee303b8fbd"
+    },
+    {
+      "file": "back-grove-4.png",
+      "bytes": 1099894,
+      "sha256": "a4d9f8aaa7fc45ec430ee236d72147acf370cf1309342e1ad63e3d6b1e875bd7"
+    },
+    {
+      "file": "back-grove-5.png",
+      "bytes": 1092589,
+      "sha256": "ed732196d6a941c95e19e3f9a176bcadd6f1d402d138ba6a80c8ac7b8978b0cc"
+    },
+    {
+      "file": "left-copse-0.png",
+      "bytes": 1099513,
+      "sha256": "29c825854d9b4597886c30781ef5b0eb65d795c827f1d69b110f35cb33740006"
+    },
+    {
+      "file": "left-copse-1.png",
+      "bytes": 1094587,
+      "sha256": "fa7eec8d371c76870a1679ec477554380da907be0afd6a3ba006683e44f6b750"
+    },
+    {
+      "file": "left-copse-2.png",
+      "bytes": 1093336,
+      "sha256": "fa50df16872608d0cf8c0e29a64618f00f8aaae04978ebb5c93fe3eb383c1302"
+    },
+    {
+      "file": "left-copse-3.png",
+      "bytes": 1096513,
+      "sha256": "1359983eb0f4c9f2a4f5bf3c08dd3570a51928473a9eeb5a7a9630e1b9a6e8d3"
+    },
+    {
+      "file": "left-copse-4.png",
+      "bytes": 1097299,
+      "sha256": "d1a1a0d66bfc38d8ca1a15498d62629bcd4fd24acc5f60a87dd2a0bf726553a9"
+    },
+    {
+      "file": "left-copse-5.png",
+      "bytes": 1099185,
+      "sha256": "b50818d805591f58781032363388e9d756cef137a7ad5e0ddc620b7202990c24"
+    },
+    {
+      "file": "river-grove-0.png",
+      "bytes": 1098841,
+      "sha256": "7a3d0f193b40d7515bf7d34acf7390715fe029a5867c4d39b33bcd901d4de06e"
+    },
+    {
+      "file": "river-grove-1.png",
+      "bytes": 1094569,
+      "sha256": "8d5eb90c9d5c3337757f7be14ea162c1a3c9ac36fef7eb949933fef61a290238"
+    },
+    {
+      "file": "river-grove-2.png",
+      "bytes": 1095035,
+      "sha256": "a293a422883c159195094f086f97c9c510f79c225e93ecb21362f633db22633d"
+    },
+    {
+      "file": "commons-tree-0.png",
+      "bytes": 1093500,
+      "sha256": "31d6116f534f1113d8f23520532618c774d21f3a0a6cd4337c97608ee7bf3b0a"
+    },
+    {
+      "file": "hearth-home-detail.png",
+      "bytes": 2699023,
+      "sha256": "922bb07bbab94f3c46e6d6425ff4f2a3eabbdc5abce1e28a9a39970fdcb96bd0"
+    },
+    {
+      "file": "garden-home-detail.png",
+      "bytes": 2753964,
+      "sha256": "b6127996cb437f9808ed9f079c553ed0883505013645256d2e32e0e6a756100e"
+    },
+    {
+      "file": "lane-home-detail.png",
+      "bytes": 2644219,
+      "sha256": "5f69230ea45a6ad8a8895e16208bb69486dc7cb9acf0bc14ecf42c3d45a19943"
+    },
+    {
+      "file": "workshop-detail.png",
+      "bytes": 2777506,
+      "sha256": "7093b43b06b1c402688dd5ed18d25c0f804fda03e489874aef5278c8a16bc152"
+    },
+    {
+      "file": "hall-detail.png",
+      "bytes": 2899096,
+      "sha256": "a4cb0a38eab7df318491b572228d8b15f7ddf3d733bb1aa284d72dbc141250c7"
+    },
+    {
+      "file": "river-foreground-pair.png",
+      "bytes": 1131574,
+      "sha256": "2f894bae5b3ad0a0fe34b9cd23d0458bb511a3bc9fce23f793ee0ef1e2c5cff2"
+    }
+  ],
+  "elapsedSeconds": 710.55,
+  "provenance": "Original V04 modules derived from original retained V03 source; no third-party assets or services; release licensing pending",
+  "layerRepair": {
+    "reason": "Two crossing foreground canopies require one internally depth-correct bake",
+    "geometryMaterialsLayoutChanged": false,
+    "priorSourceSha256": "e1e218bd91048c07c432028e410afddc8dd2a58d7919483de63a7c50a13e3d33",
+    "seconds": 17.964
+  }
+}

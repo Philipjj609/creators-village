@@ -1,0 +1,83 @@
+diff --git a/apps/server/src/session-validation.ts b/apps/server/src/session-validation.ts
+index e77d505..ef85415 100644
+--- a/apps/server/src/session-validation.ts
++++ b/apps/server/src/session-validation.ts
+@@ -43,8 +43,8 @@ export async function validateSessionHash(
+       return row;
+     const lease = randomUUID();
+     const claim = await pool.query(
+-      "UPDATE sessions SET validation_lease=$1,validation_lease_until=now()+interval '30 seconds' WHERE session_hash=$2 AND encrypted_tokens=$3 AND expires_at>now() AND (validation_lease_until IS NULL OR validation_lease_until<now()) RETURNING session_hash",
+-      [lease, sessionHash, row.encrypted_tokens],
++      "UPDATE sessions SET validation_lease=$1,validation_lease_until=now()+interval '30 seconds' WHERE session_hash=$2 AND encrypted_tokens=$3 AND expires_at>now() AND (validation_lease_until IS NULL OR validation_lease_until<now()) AND ($4::boolean OR validated_at<clock_timestamp()-interval '55 minutes' OR token_expires_at<clock_timestamp()+interval '1 minute') RETURNING session_hash",
++      [lease, sessionHash, row.encrypted_tokens, force],
+     );
+     if (!claim.rowCount) {
+       force = false;
+diff --git a/tests/session-validation.test.ts b/tests/session-validation.test.ts
+index 083babb..262ac9e 100644
+--- a/tests/session-validation.test.ts
++++ b/tests/session-validation.test.ts
+@@ -92,6 +92,63 @@ it("E09: separate process pools coalesce refresh with a fenced lease, without ho
+     ).rows[0].validation_lease,
+   ).toBeNull();
+ });
++it("E09: a stale read cannot claim validation after another pool just completed it", async () => {
++  const f = await fixture();
++  let started!: () => void,
++    release!: () => void,
++    validations = 0;
++  const ready = new Promise<void>((resolve) => (started = resolve)),
++    gate = new Promise<void>((resolve) => (release = resolve));
++  const provider: TwitchGateway = {
++    exchange: async () => {
++      throw Error("unused");
++    },
++    refresh: async () => ({
++      access_token: "rotated",
++      refresh_token: "rotated",
++      expires_in: 7200,
++    }),
++    validate: async () => {
++      validations++;
++      started();
++      await gate;
++      return {
++        subject: f.id,
++        displayName: "Synthetic test",
++        login: "synthetic",
++      };
++    },
++  };
++  const first = validateSessionHash(pool, provider, key, f.session);
++  await ready;
++  const original = other.query;
++  let intercepted = false;
++  other.query = (async (...args: unknown[]) => {
++    if (
++      !intercepted &&
++      typeof args[0] === "string" &&
++      args[0].startsWith("UPDATE sessions SET validation_lease=$1")
++    ) {
++      intercepted = true;
++      release();
++      await first;
++    }
++    return (original as (...parameters: unknown[]) => unknown).apply(
++      other,
++      args,
++    );
++  }) as typeof other.query;
++  try {
++    const second = await validateSessionHash(other, provider, key, f.session);
++    expect(second?.person_id).toBe(f.id);
++    expect(intercepted).toBe(true);
++    expect(validations).toBe(1);
++  } finally {
++    release();
++    other.query = original;
++    await first;
++  }
++});
+ it("E09: outage after token rotation preserves rotated refresh token but never extends authorization freshness", async () => {
+   const f = await fixture();
+   let refreshes = 0,

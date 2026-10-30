@@ -1,0 +1,28 @@
+{
+  "name": "@creators-village/world",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./founding": {
+      "types": "./dist/founding.d.ts",
+      "default": "./dist/founding.js"
+    },
+    "./spatial": {
+      "types": "./dist/founding-spatial.d.ts",
+      "default": "./dist/founding-spatial.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@creators-village/contracts": "workspace:*",
+    "@creators-village/domain": "workspace:*"
+  }
+}

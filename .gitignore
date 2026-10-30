@@ -1,0 +1,33 @@
+# Dependencies and builds
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+.turbo/
+*.tsbuildinfo
+release-manifest.json
+__pycache__/
+*.py[cod]
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+secrets/
+CLAUDE.md
+
+# Runtime data and local-only artifacts
+.local/
+data/
+backups/
+*.log
+playwright-report/
+test-results/
+.DS_Store
+Thumbs.db
+
+# Keep reviewed source assets and deliberate screenshot baselines trackable.

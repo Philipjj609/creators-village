@@ -1,0 +1,30 @@
+{
+  "name": "creators-village",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@11.6.0",
+  "engines": {
+    "node": "24.22.1",
+    "pnpm": "11.6.0"
+  },
+  "scripts": {
+    "build": "node scripts/build-assets.mjs && pnpm -r build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "vitest run",
+    "test:browser": "playwright test",
+    "format:check": "prettier --check \"{apps,packages,scripts,tests}/**/*.{ts,tsx,js,mjs,css,json}\" \"*.{json,yaml}\"",
+    "dev": "pnpm --filter @creators-village/web dev",
+    "dev:server": "node --env-file=.env.local --env-file=.local/runtime.env scripts/start-server.mjs",
+    "db:up": "node scripts/local-setup.mjs && docker compose -p creators-village-s1 up -d --wait db"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.19.2",
+    "prettier": "3.9.10",
+    "sharp": "0.35.5",
+    "tsx": "4.23.15",
+    "typescript": "6.0.3",
+    "vitest": "5.0.5"
+  }
+}

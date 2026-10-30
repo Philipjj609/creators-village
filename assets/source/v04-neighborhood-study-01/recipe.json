@@ -1,0 +1,310 @@
+{
+  "version": "v04-neighborhood-study-01",
+  "seed": 609,
+  "scope": "Read-only authored V04 study; no live world, authority or navigation policy migration",
+  "buildings": [
+    {
+      "id": "hearth-home",
+      "name": "Hearth House",
+      "kind": "home",
+      "skeleton": "home",
+      "assembly": "steep-gable-porch",
+      "body": [
+        4,
+        3.1,
+        2.25
+      ],
+      "roofRise": 1.7,
+      "position": [
+        -10,
+        3,
+        0.2
+      ],
+      "footprint": [
+        -2,
+        -1.55,
+        4,
+        4.35
+      ],
+      "entrance": [
+        0.3,
+        2.9
+      ],
+      "route": [
+        [
+          -9.7,
+          5.9
+        ],
+        [
+          -10,
+          7
+        ]
+      ],
+      "story": "A deep stoop and a small tended garden face the shared lane."
+    },
+    {
+      "id": "garden-home",
+      "name": "Garden House",
+      "kind": "home",
+      "skeleton": "home",
+      "assembly": "cross-gabled-wing",
+      "body": [
+        3.8,
+        3.2,
+        2.05
+      ],
+      "roofRise": 1.55,
+      "position": [
+        -3,
+        9,
+        0.18
+      ],
+      "footprint": [
+        -3.6,
+        -1.6,
+        5.5,
+        3.2
+      ],
+      "entrance": [
+        0.3,
+        2
+      ],
+      "route": [
+        [
+          -2.7,
+          11
+        ],
+        [
+          -2.7,
+          12.8
+        ]
+      ],
+      "story": "A return wing shelters a kitchen garden; the front path joins the upper loop."
+    },
+    {
+      "id": "lane-home",
+      "name": "Veranda House",
+      "kind": "home",
+      "skeleton": "home",
+      "assembly": "low-longhouse-veranda",
+      "body": [
+        5.2,
+        2.7,
+        1.65
+      ],
+      "roofRise": 1.15,
+      "position": [
+        6,
+        8,
+        0.05
+      ],
+      "footprint": [
+        -2.6,
+        -1.35,
+        5.2,
+        4
+      ],
+      "entrance": [
+        0.3,
+        2.9
+      ],
+      "route": [
+        [
+          6.3,
+          10.9
+        ],
+        [
+          6.3,
+          11.65
+        ]
+      ],
+      "story": "A long shaded veranda meets the loop beside a linen line and herb beds."
+    },
+    {
+      "id": "workshop",
+      "name": "Timber Workshop",
+      "kind": "workshop",
+      "skeleton": "workshop",
+      "assembly": "orthogonal-L-and-workyard",
+      "body": [
+        4.6,
+        2.8,
+        2.3
+      ],
+      "roofRise": 1.25,
+      "position": [
+        7,
+        -1,
+        0.05
+      ],
+      "footprint": [
+        -3.3,
+        -1.4,
+        6.4,
+        4.5
+      ],
+      "entrance": [
+        -1.1,
+        3.2
+      ],
+      "route": [
+        [
+          5.9,
+          2.2
+        ],
+        [
+          5.9,
+          4.2
+        ],
+        [
+          3.5,
+          4.8
+        ]
+      ],
+      "story": "The goods entrance opens into a paved workyard with bench, timber and a handcart."
+    },
+    {
+      "id": "hall",
+      "name": "The Commons Hall",
+      "kind": "hall",
+      "skeleton": "hall",
+      "assembly": "hipped-hall-lantern-gallery",
+      "body": [
+        6.6,
+        4,
+        2.7
+      ],
+      "roofRise": 1.55,
+      "position": [
+        -5,
+        -5,
+        1.05
+      ],
+      "footprint": [
+        -3.7,
+        -2.1,
+        8.2,
+        5.4
+      ],
+      "entrance": [
+        -0.4,
+        3.2
+      ],
+      "route": [
+        [
+          -5.4,
+          -1.8
+        ],
+        [
+          -4,
+          -0.5
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -1,
+          4.8
+        ]
+      ],
+      "story": "An open gallery overlooks the shared court, with seats, shade and a clear arrival."
+    }
+  ],
+  "roads": [
+    {
+      "id": "lower-lane",
+      "width": 1.6,
+      "points": [
+        [
+          -15,
+          8
+        ],
+        [
+          -10,
+          7
+        ],
+        [
+          -8.1,
+          6.8
+        ],
+        [
+          -6,
+          5.5
+        ],
+        [
+          -1,
+          4.8
+        ],
+        [
+          3.5,
+          4.8
+        ],
+        [
+          10.8,
+          5
+        ],
+        [
+          12,
+          10
+        ]
+      ]
+    },
+    {
+      "id": "upper-loop",
+      "width": 1.25,
+      "points": [
+        [
+          -10,
+          7
+        ],
+        [
+          -10,
+          10.5
+        ],
+        [
+          -8,
+          11.8
+        ],
+        [
+          -2.7,
+          12.8
+        ],
+        [
+          6.3,
+          11.65
+        ],
+        [
+          11,
+          11.8
+        ],
+        [
+          10.8,
+          5
+        ]
+      ]
+    },
+    {
+      "id": "public-arrival",
+      "width": 2,
+      "points": [
+        [
+          -1,
+          4.8
+        ],
+        [
+          -2,
+          1
+        ],
+        [
+          -4,
+          -0.5
+        ],
+        [
+          -5.4,
+          -1.8
+        ]
+      ]
+    }
+  ]
+}

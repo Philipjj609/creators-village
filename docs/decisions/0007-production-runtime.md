@@ -1,0 +1,17 @@
+# ADR-0007 — PI2 production runtime
+
+2026-10-30. **Adopted for local deployment preparation; hosting and data transfer remain unapproved.** Source baseline: `d133add226f30a24085faaa08add94cc9eb7502a`. project owner authorized PI2 and INSTALL-PI2 v1. No new domain schema, ownership, economy, OAuth scope or saved-world interpretation.
+
+Use one HTTPS origin, one long-running non-root Node container and PostgreSQL17+ (18 preferred). Keep existing bounded workers and authenticated SSE/replay. The provider terminates TLS; Fastify serves compiled React routes and a fingerprinted runtime-asset allowlist. Authoring proof remains server-only. Unknown API/auth/static URLs never fall back to HTML.
+
+Use `scripts/production.mjs`: strict HTTPS/callback/credential checks, real Twitch gateway only, verified TLS by default, exact migration/reader/source/asset checks before listening. Private database transport is an explicit exception only for the isolated rehearsal or reviewed Render private hostname; internet database connections require certificate/hostname verification. Trust at most one ingress hop after provider validation, never all proxies.
+
+Run migrations separately as owner. Runtime has data permissions without schema creation; privileged setup credentials are refused in the serving process. Initial `provision-runtime` creates the fixed runtime role without silently rotating an existing one. Save setup credentials only for a migration job, not a running web process. Readiness tests PG connectivity after startup fences; provider outages do not trigger an unbounded startup session scan. Existing sessions become stale at startup and must validate with Twitch before their next authenticated success. Synthetic DB sessions are allowed only in the external isolated verification harness, never a production login endpoint.
+
+`GAMEPLAY_WRITES=paused` blocks gameplay commands and stops generation/completion work while preserving readers. Auth logout remains available. Operational retention and session validation still write; this is a gameplay freeze, not database read-only mode. SIGTERM closes SSE/workers/pool, bounded by30s; durable leases survive SIGKILL.
+
+Public onboarding stays closed in production pending RG1/RG2 review. Existing creation receipts can still replay with gameplay enabled; existing v1/v2 reads remain supported. This operational release gate does not settle the permanent legacy-v1 creation retirement policy. Private WF2 policy and its approved-world fence remain unchanged.
+
+Build from the pinned approved Node base and frozen lockfile, suppress lifecycle scripts, reuse immutable PNGs instead of rerendering them on Linux. Package the installed production dependency closure; pnpm's legacy deploy helper attempted a second graph resolution and is not used. No test servers, private boards, local orchestration, credentials or development dependencies enter the final runtime. Pixi's already-installed `unsafe-eval` compatibility import substitutes static sync code; CSP still forbids eval. No security header was relaxed to render the world.
+
+Render paid web+PG is the recommendation; zero-cost Render+Neon is a constrained fallback. Provider configuration is a proposal until project owner authorizes external actions. Physical devices, actual managed ingress/TLS, hosted OAuth and independent-person Twitch testing remain separate gates. See [runbook](../architecture/production-runbook.md) and verification (internal source record omitted).

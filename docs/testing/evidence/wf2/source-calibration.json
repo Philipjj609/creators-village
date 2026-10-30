@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "source": "assets/source/hearthside-hero-01/hero.blend",
+  "sourceSha256": "e1b0953db180cc495c980399886ce7394896af317eb699ad0c6d313773063f53",
+  "assetManifestSha256": "cb9c3041a50dc2cff9066d8e9ed8a815b72838ae15b63cb062b2c3ec97ab71c5",
+  "axisBridge": "Blender(x,y,z)=(logical_y,logical_x,logical_z)",
+  "template": "wf2-workshop-1",
+  "envelope": [
+    -3,
+    -3,
+    3,
+    3
+  ],
+  "evaluatedMeshObjects": 234,
+  "evaluatedVertices": 13912,
+  "logicalMin": [
+    -2.3310932397842405,
+    -1.9599998474121094,
+    0.015000010728836055
+  ],
+  "logicalMax": [
+    2.3700000762939455,
+    2.569999885559082,
+    3.436741704940796
+  ],
+  "fits": true,
+  "entrance": [
+    0,
+    3.5
+  ],
+  "pathCap": "Butt end cap at entrance; square interior joins. No path cap projects into the footprint.",
+  "limitations": [
+    "Source mesh envelope only; server terrain/navigation and runtime pixel/anchor tests are separate.",
+    "No artistic approval inferred."
+  ]
+}

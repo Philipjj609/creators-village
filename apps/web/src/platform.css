@@ -1,0 +1,227 @@
+/* Shared platform identity; authoritative world artwork remains independently versioned. */
+:root {
+  --cv-cream: #f7ebdd;
+  --cv-paper: #fff8ef;
+  --cv-navy: #19223a;
+  --cv-terracotta: #bc5541;
+  --cv-action-hover: #a34433;
+  --cv-sage: #718b5d;
+  --cv-sage-ink: #4e6540;
+  --cv-violet: #7853af;
+  --cv-honey: #e7b66b;
+  --cv-muted: #51505a;
+  --cv-line: #d8c6b3;
+  --cv-interactive-border: #8d7467;
+  --cv-radius: 10px;
+  --cv-space: 8px;
+  --cv-font-display: Georgia, "Times New Roman", serif;
+  --cv-font-ui: "Segoe UI", Arial, sans-serif;
+  --pi-bg: var(--cv-cream);
+  --pi-surface: var(--cv-paper);
+  --pi-ink: var(--cv-navy);
+  --pi-muted: var(--cv-muted);
+  --pi-line: var(--cv-line);
+  --pi-action: var(--cv-terracotta);
+  --pi-accent: var(--cv-sage-ink);
+  --pi-radius: var(--cv-radius);
+  --pi-space: var(--cv-space);
+}
+.pi-site,
+.pi-village {
+  font-family: var(--cv-font-ui);
+  color: var(--cv-navy);
+}
+.pi-header {
+  background: var(--cv-cream);
+}
+.pi-brand {
+  font-family: var(--cv-font-display);
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  min-height: 44px;
+  gap: 10px;
+}
+.pi-brand svg {
+  width: 34px;
+  height: 34px;
+}
+.cv-wordmark {
+  white-space: nowrap;
+}
+.cv-wordmark-tail {
+  display: inline;
+}
+.pi-communities .pi-page-heading h1,
+.pi-communities .pi-section-heading h2,
+.pi-account-page > h1 {
+  font-family: var(--cv-font-display);
+  font-weight: 700;
+}
+.pi-header .pi-button {
+  min-height: 44px;
+}
+.pi-button,
+.pi-panel-body button:not(.pi-icon),
+.pi-account-page button {
+  border-radius: var(--cv-radius);
+  border-color: var(--cv-interactive-border);
+  background: var(--cv-paper);
+  font-weight: 600;
+}
+.pi-button.primary,
+.pi-panel-body button.primary {
+  background: var(--cv-terracotta);
+  border-color: var(--cv-terracotta);
+  color: white;
+}
+.pi-button:hover,
+.pi-panel-body button:not(.pi-icon):hover,
+.pi-account-page button:hover {
+  filter: none;
+  background: var(--cv-cream);
+  border-color: var(--cv-navy);
+}
+.pi-button.primary:hover,
+.pi-panel-body button.primary:hover {
+  background: var(--cv-action-hover);
+  border-color: var(--cv-action-hover);
+}
+.pi-site :is(a, button, input, summary):focus-visible,
+.pi-village :is(a, button, input, summary, canvas):focus-visible {
+  outline: 3px solid var(--cv-violet);
+  outline-offset: 4px;
+}
+.pi-text-link,
+.pi-panel-body .wf2-project > p:first-of-type,
+.pi-eyebrow {
+  color: var(--cv-action-hover);
+}
+.pi-world-card:hover {
+  border-color: var(--cv-action-hover);
+}
+.pi-card-preview {
+  background: linear-gradient(145deg, #e9dfcd, #e1d1bd);
+}
+.pi-card-preview > span,
+.pi-preview-label {
+  background: var(--cv-paper);
+  color: var(--cv-navy);
+}
+.pi-follow-state > svg,
+.pi-empty svg {
+  color: var(--cv-sage-ink);
+}
+.pi-empty {
+  background: var(--cv-paper);
+  border-color: var(--cv-line);
+}
+.pi-notice {
+  background: var(--cv-paper);
+  border-color: var(--cv-line);
+  color: var(--cv-navy);
+  border-radius: var(--cv-radius);
+}
+.pi-notice.error {
+  color: #812e26;
+  background: #fff1e8;
+  border-color: #c99885;
+}
+.pi-world-nav {
+  background: var(--cv-cream);
+}
+.pi-world-title h1 {
+  font-family: var(--cv-font-ui);
+}
+.pi-icon {
+  border-radius: var(--cv-radius);
+}
+.pi-icon:hover {
+  background: var(--cv-cream);
+  border-color: var(--cv-interactive-border);
+}
+.pi-icon[aria-pressed="true"] {
+  color: var(--cv-action-hover);
+  background: #f2ded0;
+  border-color: var(--cv-action-hover);
+}
+.pi-map-tools {
+  background: var(--cv-paper);
+  border-color: var(--cv-line);
+  border-radius: var(--cv-radius);
+  box-shadow: 0 5px 20px #19223a20;
+}
+.pi-world-label {
+  background: var(--cv-paper);
+  color: var(--cv-navy);
+}
+.pi-panel {
+  background: var(--cv-paper);
+  border-color: var(--cv-line);
+  box-shadow: 0 12px 40px #19223a20;
+}
+.pi-panel > header {
+  background: var(--cv-cream);
+  border-radius: 12px 12px 0 0;
+}
+.pi-panel > header h2 {
+  font-family: var(--cv-font-ui);
+  font-weight: 650;
+}
+.pi-panel-body input:not([type="checkbox"]) {
+  border-color: var(--cv-interactive-border);
+  background: #fffdf9;
+  color: var(--cv-navy);
+  border-radius: var(--cv-radius);
+}
+.pi-pending,
+.pi-success {
+  background: var(--cv-paper);
+  border-color: var(--cv-line);
+  color: var(--cv-navy);
+}
+.pi-success {
+  border-left: 3px solid var(--cv-sage-ink);
+}
+.pi-world-loading {
+  background: linear-gradient(135deg, var(--cv-cream), #e6d9c7);
+}
+.pi-world-loading h2 {
+  color: var(--cv-navy);
+  font-family: var(--cv-font-display);
+}
+@media (max-width: 600px) {
+  .pi-brand {
+    font-size: 18px;
+    gap: 7px;
+  }
+  .pi-brand svg {
+    width: 30px;
+    height: 30px;
+  }
+  .pi-brand .cv-wordmark-tail {
+    display: block;
+  }
+  .pi-brand .cv-wordmark {
+    line-height: 1.05;
+  }
+  .pi-header .pi-button {
+    min-height: 44px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pi-site *,
+  .pi-village * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* Inset double ring stays visible inside the clipped canvas without changing its geometry. */
+.pi-canvas:has(canvas:focus-visible)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--cv-violet);
+  box-shadow: inset 0 0 0 3px var(--cv-paper);
+  pointer-events: none;
+  z-index: 3;
+}

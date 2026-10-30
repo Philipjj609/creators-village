@@ -1,0 +1,25 @@
+{
+  "name": "@creators-village/renderer",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./study": {
+      "types": "./dist/study.d.ts",
+      "default": "./dist/study.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@creators-village/contracts": "workspace:*",
+    "@creators-village/world": "workspace:*",
+    "pixi.js": "8.22.0"
+  }
+}

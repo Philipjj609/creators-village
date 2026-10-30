@@ -1,0 +1,38 @@
+# Local production rehearsal ONLY; no database port published. Secrets file is ignored.
+services:
+  migrate:
+    image: creators-village:pi2
+    profiles: [tools]
+    env_file: [.local/production/app.env, .local/production/migration.env]
+    command: [node, scripts/production.mjs, migrate]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+  app:
+    image: creators-village:pi2
+    build: .
+    init: true
+    env_file: .local/production/app.env
+    ports: ["127.0.0.1:10000:10000"]
+    read_only: true
+    tmpfs: [/tmp]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    stop_grace_period: 35s
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:18.6-bookworm@sha256:5c4783a8cc3f0074912164f94dfa1be4e043438f0f707cf968d7af9a0d31a2c8
+    env_file: .local/production/database.env
+    volumes: [production-rehearsal:/var/lib/postgresql]
+    healthcheck:
+      test:
+        [CMD-SHELL, 'pg_isready -U "$${POSTGRES_USER}" -d "$${POSTGRES_DB}"']
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  production-rehearsal:

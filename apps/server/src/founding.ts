@@ -237,7 +237,7 @@ export function foundingRunner(pool: Pool, enabled = true) {
     try {
       const job = (
         await pool.query(
-          "WITH next AS (SELECT id FROM founding_jobs WHERE status='pending' OR (status='working' AND lease_until<now()) ORDER BY created_at FOR UPDATE SKIP LOCKED LIMIT 1) UPDATE founding_jobs j SET status='working',lease_until=date_trunc('milliseconds',now()+interval '30 seconds'),error=NULL FROM next WHERE j.id=next.id RETURNING j.*",
+          "WITH next AS (SELECT id FROM founding_jobs WHERE origin='creator' AND (status='pending' OR (status='working' AND lease_until<now())) ORDER BY created_at FOR UPDATE SKIP LOCKED LIMIT 1) UPDATE founding_jobs j SET status='working',lease_until=date_trunc('milliseconds',now()+interval '30 seconds'),error=NULL FROM next WHERE j.id=next.id RETURNING j.*",
         )
       ).rows[0];
       if (!job) return;

@@ -14,6 +14,7 @@
 !scripts/build-release.mjs
 !scripts/package-runtime.mjs
 !scripts/production.mjs
+!scripts/hosted-bootstrap.mjs
 !db/
 !db/migrations/
 !db/migrations/*.sql

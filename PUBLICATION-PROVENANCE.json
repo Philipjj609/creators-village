@@ -1577,5 +1577,47 @@
       "patch": "publication-overlays/session-validation-freshness.patch",
       "patchSha256": "c9c90db4ab13bc4845ad25aca952d9648ee235268151e89fb0ed2cad0aa2c5c3"
     }
+  ],
+  "subsequentReleases": [
+    {
+      "basePublicationCommit": "2a9287c9e39902616277be7a28ab580d81dbadb4",
+      "scope": "Migration006 compatible reader and operator-only bootstrap preparation; no bootstrap applied",
+      "candidatePatchSha256": "3afe35b578835bf6838935929b8e8b4adc69b602851b838dab282249f6a2f666",
+      "addition": "Production HTTP absence regression test; all other candidate files retained exactly",
+      "files": [
+        {
+          "path": ".dockerignore",
+          "sha256": "cf125a45a46b366f9cc65f0eda5632e4716faee2f2e1c39f1428f1de0d757238"
+        },
+        {
+          "path": "apps/server/src/founding.ts",
+          "sha256": "0d5457257c44fac1d52f14eb786aa19f4b3d6cb5b81bda9067399531639250b0"
+        },
+        {
+          "path": "deploy/runtime-grants.sql",
+          "sha256": "b7e909ea6c12727f3a8708bda30b95fca64394a711a8647ee232353c62e5924e"
+        },
+        {
+          "path": "scripts/package-runtime.mjs",
+          "sha256": "be1e922c8c918cacad50d48f8202c9c0f7585c09a94a4053b1a4e5240cda6775"
+        },
+        {
+          "path": "apps/server/src/hosted-bootstrap.ts",
+          "sha256": "6584f4c5cb1a6687359b0df7e007d56928415832378d6a7b6243e2a94975e6b3"
+        },
+        {
+          "path": "db/migrations/006_hosted_test_bootstrap.sql",
+          "sha256": "a3f52e024c615f083325fce7e16a8c7fb049c20c79209061010d5a280ba5cb90"
+        },
+        {
+          "path": "scripts/hosted-bootstrap.mjs",
+          "sha256": "5d5ce1625762f1bca9148236b80e000455aaa97448e517c4380bf29009a53ae2"
+        },
+        {
+          "path": "tests/hosted-bootstrap.test.ts",
+          "sha256": "d025eab03747c27f0195b40d6ecfd507b0aaab5dcf0d05a2cd31ef6732935b1d"
+        }
+      ]
+    }
   ]
 }

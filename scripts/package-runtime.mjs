@@ -67,6 +67,7 @@ async function visit(input) {
 await visit(path.join(root, "apps/server"));
 for (const source of [
   "scripts/production.mjs",
+  "scripts/hosted-bootstrap.mjs",
   "scripts/server-runtime.mjs",
   "release-manifest.json",
   "db/migrations",

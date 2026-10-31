@@ -13,6 +13,7 @@ import {
 import { createSurface } from "./surface.js";
 import { attachCamera } from "./camera.js";
 import { terrainProject, pickGround } from "./founding-projection.js";
+import { attachResidents, type LivingViewState } from "./living.js";
 /** Fixed axes match Blender B(x,y,z)=(y,x,z), camera45/30. Height is logical units, never v1 elevation. */
 export async function mountFounding(
   host: HTMLElement,
@@ -26,6 +27,7 @@ export async function mountFounding(
     cover: string;
   }) => void,
   focusViewport?: () => { x: number; y: number; width: number; height: number },
+  onLiving?: (state: LivingViewState | null) => void,
 ) {
   delete host.dataset.terrainError;
   const bundle = "/assets/hearthside-hero-01/",
@@ -68,8 +70,10 @@ export async function mountFounding(
     sequence = 0,
     busy = false;
   const cache = new Map<string, TerrainChunk>();
+  let heightReader = terrainReader(world.baseline, []);
   const terrain = new Container(),
     objects = new Container();
+  objects.sortableChildren = true;
   scene.addChild(terrain, objects);
   const shelter = new Sprite(textures[baseUrls[0]!]!);
   objects.addChild(shelter);
@@ -147,6 +151,7 @@ export async function mountFounding(
           c !== detail &&
           c !== marker &&
           c !== extraDetail &&
+          !living.nodes().includes(c as Container) &&
           ![...extraSprites.values()].includes(c as Sprite)
         )
           c.destroy();
@@ -155,11 +160,13 @@ export async function mountFounding(
       objects.addChild(marker);
       for (const s of extraSprites.values()) objects.addChild(s);
       if (extraDetail) objects.addChild(extraDetail);
+      for (const node of living.nodes()) objects.addChild(node);
       renderedChunks = 0;
       triangles = 0;
       treeCount = 0;
       const read = terrainReader(world.baseline, [...cache.values()]),
         items: { node: Sprite; depth: number }[] = [];
+      heightReader = read;
       for (const k of needed) {
         const c = cache.get(k)!;
         const g = new Graphics();
@@ -269,7 +276,11 @@ export async function mountFounding(
           });
       }
       items.sort((a, b) => a.depth - b.depth);
-      for (const item of items) objects.addChild(item.node);
+      for (const item of items) {
+        item.node.zIndex = item.depth;
+        objects.addChild(item.node);
+      }
+      marker.zIndex = 10000;
       objects.addChild(marker);
       cpuRebuildMs = performance.now() - cpuBegan;
       maxCpuRebuildMs = Math.max(maxCpuRebuildMs, cpuRebuildMs);
@@ -291,7 +302,9 @@ export async function mountFounding(
     center: { x: 0, y: 0 },
     maxScale: 2.6,
     cover: true,
+    onExplore: () => living.cancelFollow(),
     onTap(p) {
+      if (living.pick(p)) return;
       const candidates = [...extraSprites.entries()].reverse();
       if (extraDetail)
         candidates.unshift([String(extraDetail.label), extraDetail]);
@@ -334,6 +347,17 @@ export async function mountFounding(
       }
     },
   });
+  const living = attachResidents(
+    app,
+    objects,
+    world,
+    host,
+    camera,
+    (id) => onSelect(id),
+    onLiving,
+    focusViewport,
+    (x, y) => heightReader.height(x, y),
+  );
   function select() {
     marker
       .clear()
@@ -347,6 +371,7 @@ export async function mountFounding(
   app.ticker.add(update);
   await refresh(true);
   if (host.dataset.terrainError) {
+    living.destroy();
     camera.destroy();
     app.destroy(true, { children: true });
     throw Error("Terrain unavailable");
@@ -367,6 +392,7 @@ export async function mountFounding(
     );
   }
   async function focus() {
+    living.cancelFollow();
     clearExtraDetail();
     select();
     camera.focus({ x: anchor.x, y: anchor.y - 35 }, 2.2);
@@ -393,6 +419,7 @@ export async function mountFounding(
     camera.invalidate();
   }
   function reset() {
+    living.cancelFollow();
     clearExtraDetail();
     ++detailRequest;
     shelter.visible = true;
@@ -407,6 +434,13 @@ export async function mountFounding(
     select,
     focus,
     reset,
+    focusResident: (id: string) => {
+      clearExtraDetail();
+      shelter.visible = !detail;
+      living.focus(id);
+    },
+    selectResident: (id: string) => living.select(id),
+    refreshResidents: () => living.reload(),
     previewPlan(plan: Wf2State["projects"][number] | null) {
       preview.clear();
       if (!plan) {
@@ -446,11 +480,13 @@ export async function mountFounding(
         throw Error("World/baseline mismatch");
       current = state;
       const geometry = JSON.stringify([
+        state.topologyEpoch,
         state.structures.map((s) => [s.id, s.revision]),
         state.paths.map((p) => [p.id, p.revision]),
       ]);
       if (geometry === currentGeometry) return;
       currentGeometry = geometry;
+      void living.reload();
       const extra = state.structures.filter((s) => s.id !== world.structure.id);
       for (const s of extra) {
         if (s.assetManifestHash !== manifestHash)
@@ -519,9 +555,13 @@ export async function mountFounding(
       lastKey = "";
       camera.invalidate();
     },
-    zoom: (factor: number) => camera.zoom(factor),
+    zoom: (factor: number) => {
+      living.cancelFollow();
+      camera.zoom(factor);
+    },
     stats: () => ({
       ...camera.stats(),
+      ...living.stats(),
       renderer: software ? "software WebGL2" : "WebGL2",
       renderedChunks,
       triangles,
@@ -545,6 +585,7 @@ export async function mountFounding(
       disposed = true;
       ++sequence;
       ++detailRequest;
+      living.destroy();
       app.ticker.remove(update);
       camera.destroy();
       app.destroy(true, {

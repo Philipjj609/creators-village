@@ -1,5 +1,6 @@
 import { validateSessionHash, type Session } from "./session-validation.js";
 import { registerProduct } from "./product-http.js";
+import { readLivingVillage } from "./living.js";
 import { registerProductionWeb } from "./production-web.js";
 import Fastify from "fastify";
 import { registerParticipation } from "./participation-http.js";
@@ -454,6 +455,16 @@ export async function buildApp(
     },
   );
   const IdParams = FoundingIdSchema;
+  app.get<{ Params: { id: string } }>(
+    "/api/founding/:id/residents",
+    { schema: { params: IdParams } },
+    async (req, reply) => {
+      reply.header("Cache-Control", "no-store");
+      const who = await session(req.cookies.cv_session);
+      const plan = await readLivingVillage(pool, req.params.id, who?.person_id);
+      return plan ?? reply.code(404).send({ error: "World unavailable" });
+    },
+  );
   app.get<{ Params: { id: string } }>(
     "/api/founding/:id",
     { schema: { params: IdParams } },

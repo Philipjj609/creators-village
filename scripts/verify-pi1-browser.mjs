@@ -1,6 +1,7 @@
 import { chromium, firefox, webkit, expect } from "@playwright/test";
 import fs from "node:fs/promises";
-const origin = "http://localhost:5174",
+const lw1 = process.argv.includes("--lw1");
+const origin = lw1 ? "http://localhost:5176" : "http://localhost:5174",
   out = process.env.CV_EVIDENCE_DIR ?? "docs/testing/evidence/pi1";
 await fs.mkdir(out, { recursive: true });
 const browser = await chromium.launch({
@@ -23,10 +24,14 @@ const op = await owner.newPage(),
 for (const p of [op, mp]) p.on("pageerror", (e) => errors.push(e.message));
 try {
   const response = await owner.request.get(
-      "http://localhost:3002/__wf2_test/login/owner",
+      (lw1 ? "http://localhost:3004" : "http://localhost:3002") +
+        "/__wf2_test/login/owner",
     ),
     fixture = await response.json();
-  await member.request.get("http://localhost:3002/__wf2_test/login/member");
+  await member.request.get(
+    (lw1 ? "http://localhost:3004" : "http://localhost:3002") +
+      "/__wf2_test/login/member",
+  );
   await op.goto(origin + "/");
   await expect(
     op.getByRole("heading", {
@@ -86,7 +91,15 @@ try {
   await op
     .getByRole("button", { name: "Refresh admission", exact: true })
     .click();
-  await op.getByRole("button", { name: "Approve", exact: true }).click();
+  await Promise.all([
+    op.waitForResponse(
+      (r) =>
+        r.request().method() === "POST" &&
+        r.request().postDataJSON()?.kind === "ApproveRequest" &&
+        r.status() === 200,
+    ),
+    op.getByRole("button", { name: "Approve", exact: true }).click(),
+  ]);
   await mp.getByRole("button", { name: "Check approval" }).click();
   await mp
     .getByRole("link", { name: "Enter approved development village" })
@@ -256,7 +269,10 @@ try {
       hasTouch: touch,
       ...(touch ? { isMobile: true, deviceScaleFactor: 2 } : {}),
     });
-    await c.request.get("http://localhost:3002/__wf2_test/login/owner");
+    await c.request.get(
+      (lw1 ? "http://localhost:3004" : "http://localhost:3002") +
+        "/__wf2_test/login/owner",
+    );
     const p = await c.newPage();
     p.on("pageerror", (e) => errors.push(e.message));
     await p.goto(origin + "/playtest?world=" + fixture.worldId);

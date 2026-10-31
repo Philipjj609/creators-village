@@ -7,7 +7,11 @@ import type {
   Wf2Batch,
   WorldEntry,
 } from "@creators-village/contracts";
-import type { mountFounding } from "@creators-village/renderer";
+import type {
+  mountFounding,
+  LivingViewState,
+} from "@creators-village/renderer";
+import { ResidentList, ResidentPanel } from "./ResidentPanel.js";
 import { applyWf2Batch, readWf2State } from "./wf2-state.js";
 import { api as wf2Api, HttpError as Wf2HttpError } from "./api.js";
 import { Link, navigate, usePanel } from "./routing.js";
@@ -96,9 +100,11 @@ export function ParticipationPage({
   const [selected, setSelected] = useState("founding-shelter");
   const selectPlace = (id = "founding-shelter") => {
     setSelected(id);
-    setPanel("inspect");
+    setPanel(id.includes(":lw1:") ? "resident" : "inspect");
+    view.current?.selectResident(id);
   };
   const panelRef = useRef(selectPlace);
+  const [living, setLiving] = useState<LivingViewState | null>(null);
   panelRef.current = selectPlace;
   const [lastAction, setLastAction] = useState("");
   const reloadWorld = useRef<() => Promise<void>>(async () => {});
@@ -377,6 +383,7 @@ export function ParticipationPage({
               qy: Math.round(sample.y * 2) * 128,
             }),
           () => visibleWorldFrame(node),
+          setLiving,
         ),
       )
       .then(async (v) => {
@@ -646,6 +653,7 @@ export function ParticipationPage({
   const panelTitle: Record<string, string> = {
     places: "Places",
     inspect: "Place inspection",
+    resident: "Resident inspection",
     projects: "Community projects",
     people: creator ? "Private admission" : "Your membership",
     settings: "Settings and management",
@@ -824,9 +832,7 @@ export function ParticipationPage({
           className="pi-canvas"
           aria-label="Explore the same persistent village"
         />
-        <div className="pi-world-label">
-          Private development world · art in development
-        </div>
+        <div className="pi-world-label">Private village</div>
         {!state && !founder && (
           <div className="pi-world-loading">
             <h2>
@@ -914,6 +920,7 @@ export function ParticipationPage({
                 <button onClick={() => view.current?.previewPlan(null)}>
                   Hide plan preview
                 </button>
+                <ResidentList living={living} select={selectPlace} />
               </>
             )}
             {panel === "inspect" && (
@@ -928,6 +935,50 @@ export function ParticipationPage({
                     ? "The village’s founding gathering place. Its identity stays with the world as the community builds."
                     : "A workshop built through the community’s approved shared project."}
                 </p>
+                {structures.some((s) => s.id === selected) && (
+                  <dl className="lw-facts">
+                    <dt>Function</dt>
+                    <dd>
+                      {selected === "founding-shelter"
+                        ? "Gathering and shelter"
+                        : "Mending and workshop space"}
+                    </dd>
+                    <dt>Saved status</dt>
+                    <dd>
+                      {selected === "founding-shelter"
+                        ? "Founded with this village"
+                        : "Completed structure"}
+                    </dd>
+                  </dl>
+                )}
+                {state?.projects
+                  .filter(
+                    (p) =>
+                      p.state === "completed" &&
+                      selected === "wf2-workshop-" + p.id,
+                  )
+                  .map((p) => (
+                    <section
+                      key={p.id}
+                      aria-label="Related construction project"
+                    >
+                      <h4>Construction record</h4>
+                      <p>
+                        {p.acceptedCount}/{p.goal} accepted contributions ·{" "}
+                        {p.state}
+                      </p>
+                      <p>
+                        {credits[p.id]?.length
+                          ? `With thanks to ${credits[p.id]!.join(", ")}`
+                          : credits[p.id]
+                            ? "No named attribution is currently displayed."
+                            : "Named recognition is refreshing or unavailable."}
+                      </p>
+                      <button onClick={() => setPanel("history")}>
+                        Related project history
+                      </button>
+                    </section>
+                  ))}
                 <button className="pi-button primary" onClick={inspect}>
                   Take a closer look
                 </button>
@@ -940,6 +991,14 @@ export function ParticipationPage({
                   </button>
                 )}
               </>
+            )}
+            {panel === "resident" && (
+              <ResidentPanel
+                living={living}
+                id={selected}
+                focus={() => view.current?.focusResident(selected)}
+                overview={() => view.current?.reset()}
+              />
             )}
             {panel === "projects" && state && (
               <>

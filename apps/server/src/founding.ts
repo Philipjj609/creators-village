@@ -303,7 +303,11 @@ export function foundingFixture(seed: string) {
   }
   return f;
 }
-export async function readFounding(pool: Pool, id: string, personId?: string) {
+export async function readFounding(
+  pool: Pick<Pool, "query">,
+  id: string,
+  personId?: string,
+) {
   if (id.startsWith("showcase-"))
     return foundingFixture(id.slice(9))?.header ?? null;
   const row = (
@@ -344,7 +348,7 @@ export async function readFounding(pool: Pool, id: string, personId?: string) {
   };
 }
 export async function readChunks(
-  pool: Pool,
+  pool: Pick<Pool, "query">,
   header: FoundingWorld,
   keys: string[],
 ) {

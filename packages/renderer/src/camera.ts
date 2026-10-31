@@ -1,4 +1,5 @@
 import type { Application, Container } from "pixi.js";
+import { dampedStep, deadZoneTarget } from "./camera-motion.js";
 type Point = { x: number; y: number };
 type Bounds = { x: number; y: number; width: number; height: number };
 
@@ -15,6 +16,7 @@ export function attachCamera(
     onTap: (point: Point) => void;
     maxScale?: number;
     cover?: boolean;
+    onExplore?: () => void;
   },
 ) {
   let x = 0,
@@ -26,12 +28,29 @@ export function attachCamera(
     total = 0,
     sampling = false;
   const intervals: number[] = [];
+  const motion = matchMedia("(prefers-reduced-motion: reduce)");
+  let vx = 0,
+    vy = 0,
+    vs = 0,
+    releaseX = 0,
+    releaseY = 0,
+    lastPointerTime = 0;
+  let overview: { x: number; y: number; scale: number } | null = null;
+  let focused = false;
   function invalidate() {
     if (disposed || document.hidden) return;
     if (!app.ticker.started) sampling = false;
     app.start();
   }
   function reset() {
+    focused = false;
+    releaseX = releaseY = 0;
+    if (overview) {
+      ({ x, y, scale } = overview);
+      overview = null;
+      invalidate();
+      return;
+    }
     app.resize();
     base = (options.cover ? Math.max : Math.min)(
       app.screen.width / options.fitWidth,
@@ -49,6 +68,7 @@ export function attachCamera(
       base * (options.cover ? 1 : 0.65),
       Math.min(scale * factor, options.maxScale ?? 2.1),
     );
+    at ??= { x: app.screen.width / 2, y: app.screen.height / 2 };
     if (at) {
       const ratio = scale / previous;
       x = at.x - (at.x - x) * ratio;
@@ -57,6 +77,11 @@ export function attachCamera(
     invalidate();
   }
   function focus(point: Point, requested: number, screenCenter?: Point) {
+    if (!focused) {
+      overview = { x, y, scale };
+      focused = true;
+    }
+    releaseX = releaseY = 0;
     scale = Math.max(base, Math.min(requested, options.maxScale ?? 2.1));
     x = (screenCenter?.x ?? app.screen.width * 0.5) - point.x * scale;
     y = (screenCenter?.y ?? app.screen.height * 0.48) - point.y * scale;
@@ -80,6 +105,7 @@ export function attachCamera(
     else if (event.key === "-") zoom(1 / 1.3);
     else if (event.key === "Home") reset();
     else return;
+    options.onExplore?.();
     event.preventDefault();
     invalidate();
   }
@@ -97,12 +123,15 @@ export function attachCamera(
     return { x: event.clientX - r.left, y: event.clientY - r.top };
   };
   function down(event: PointerEvent) {
+    options.onExplore?.();
     const p = local(event);
     pointers.set(event.pointerId, p);
     app.canvas.setPointerCapture(event.pointerId);
     start = p;
     last = p;
     moved = 0;
+    releaseX = releaseY = 0;
+    lastPointerTime = performance.now();
     if (pointers.size === 2) {
       const [a, b] = [...pointers.values()];
       distance = Math.hypot(a!.x - b!.x, a!.y - b!.y);
@@ -123,6 +152,11 @@ export function attachCamera(
     } else {
       x += p.x - last.x;
       y += p.y - last.y;
+      const now = performance.now(),
+        dt = Math.max(0.008, (now - lastPointerTime) / 1000);
+      releaseX = Math.max(-900, Math.min(900, (p.x - last.x) / dt));
+      releaseY = Math.max(-900, Math.min(900, (p.y - last.y) / dt));
+      lastPointerTime = now;
     }
     last = p;
     invalidate();
@@ -130,8 +164,11 @@ export function attachCamera(
   function up(event: PointerEvent) {
     const p = local(event);
     pointers.delete(event.pointerId);
+    if (moved < 7 || motion.matches || performance.now() - lastPointerTime > 80)
+      releaseX = releaseY = 0;
     if (moved < 7 && pointers.size === 0) options.onTap(p);
     distance = 0;
+    invalidate();
     if (pointers.size === 1) {
       last = [...pointers.values()][0]!;
       start = last;
@@ -141,8 +178,11 @@ export function attachCamera(
   function cancel(event: PointerEvent) {
     pointers.delete(event.pointerId);
     distance = 0;
+    releaseX = releaseY = 0;
   }
   function wheel(event: WheelEvent) {
+    options.onExplore?.();
+    releaseX = releaseY = 0;
     event.preventDefault();
     const r = app.canvas.getBoundingClientRect();
     zoom(Math.exp(-event.deltaY * 0.001), {
@@ -167,6 +207,8 @@ export function attachCamera(
     if (width !== host.clientWidth || height !== host.clientHeight) {
       width = host.clientWidth;
       height = host.clientHeight;
+      overview = null;
+      focused = false;
       reset();
     }
   });
@@ -180,6 +222,14 @@ export function attachCamera(
       if (intervals.length > 720) intervals.shift();
     }
     sampling = true;
+    const seconds = Math.min(0.05, t.elapsedMS / 1000);
+    if (!pointers.size && !motion.matches) {
+      const decay = Math.exp(-10 * seconds);
+      x += (releaseX * (1 - decay)) / 10;
+      y += (releaseY * (1 - decay)) / 10;
+      releaseX *= decay;
+      releaseY *= decay;
+    }
     const b = options.bounds;
     if (options.cover) {
       x = Math.max(
@@ -200,19 +250,29 @@ export function attachCamera(
         Math.min(y, app.screen.height - 60 - b.y * scale),
       );
     }
-    const ease = matchMedia("(prefers-reduced-motion: reduce)").matches
-      ? 1
-      : 0.14;
-    scene.x += (x - scene.x) * ease;
-    scene.y += (y - scene.y) * ease;
-    scene.scale.set(scene.scale.x + (scale - scene.scale.x) * ease);
+    if (motion.matches) {
+      scene.position.set(x, y);
+      scene.scale.set(scale);
+      vx = vy = vs = releaseX = releaseY = 0;
+    } else {
+      const sx = dampedStep(scene.x, vx, x, seconds),
+        sy = dampedStep(scene.y, vy, y, seconds),
+        sz = dampedStep(Math.log(scene.scale.x), vs, Math.log(scale), seconds);
+      scene.position.set(sx.value, sy.value);
+      scene.scale.set(Math.exp(sz.value));
+      vx = sx.velocity;
+      vy = sy.velocity;
+      vs = sz.velocity;
+    }
     if (
       Math.abs(x - scene.x) < 0.1 &&
       Math.abs(y - scene.y) < 0.1 &&
-      Math.abs(scale - scene.scale.x) < 0.0001
+      Math.abs(scale - scene.scale.x) < 0.0001 &&
+      Math.hypot(releaseX, releaseY) < 0.5
     ) {
       scene.position.set(x, y);
       scene.scale.set(scale);
+      vx = vy = vs = 0;
       app.stop();
     }
   };
@@ -226,6 +286,20 @@ export function attachCamera(
     reset,
     zoom,
     focus,
+    follow(point: Point, requested: number, screenCenter?: Point) {
+      if (!focused) {
+        focus(point, requested, screenCenter);
+        return;
+      }
+      const center = screenCenter ?? {
+        x: app.screen.width * 0.5,
+        y: app.screen.height * 0.48,
+      };
+      // Target-space dead zone avoids feeding spring lag back into the target.
+      x -= deadZoneTarget(point.x * scale + x, center.x, 36);
+      y -= deadZoneTarget(point.y * scale + y, center.y, 26);
+      invalidate();
+    },
     invalidate,
     stats: () => {
       const sorted = [...intervals].sort((a, b) => a - b);
@@ -235,6 +309,10 @@ export function attachCamera(
         p95Ms: sorted[Math.floor(sorted.length * 0.95)] ?? 0,
         activeSamples: sorted.length,
         scale: scene.scale.x,
+        position: { x: scene.x, y: scene.y },
+        target: { x, y, scale },
+        cameraVelocity: { x: vx, y: vy, zoom: vs },
+        savedOverview: overview,
         running: app.ticker.started,
       };
     },

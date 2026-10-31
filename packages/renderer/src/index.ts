@@ -192,3 +192,4 @@ export async function mountVillage(
 }
 
 export { mountFounding } from "./founding.js";
+export type { LivingViewState } from "./living.js";

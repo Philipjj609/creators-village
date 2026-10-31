@@ -11,13 +11,21 @@ if (process.env.NODE_ENV === "production")
     "Synthetic identities are forbidden in production; fixture startup refused.",
   );
 process.loadEnvFile(".local/runtime.env");
+// Separate LW1 fixture keeps an existing PI1/WF2 rehearsal available as fallback.
+const lw1 = process.argv.includes("--lw1");
 const url = new URL(process.env.DATABASE_URL),
   admin = createPool(url.toString());
 if (!["127.0.0.1", "localhost", "[::1]"].includes(url.hostname))
   throw Error("The synthetic fixture requires a loopback PostgreSQL host.");
-url.pathname = "/creators_village_wf2_browser_test";
+url.pathname = lw1
+  ? "/creators_village_lw1_browser_test"
+  : "/creators_village_wf2_browser_test";
 try {
-  await admin.query("CREATE DATABASE creators_village_wf2_browser_test");
+  await admin.query(
+    lw1
+      ? "CREATE DATABASE creators_village_lw1_browser_test"
+      : "CREATE DATABASE creators_village_wf2_browser_test",
+  );
 } catch (e) {
   if (e.code !== "42P04") throw e;
 }
@@ -32,8 +40,10 @@ const owner = randomUUID(),
     databaseUrl: url.toString(),
     clientId: "isolated-test",
     clientSecret: "not-real",
-    redirectUri: "http://localhost:3002/auth/twitch/callback",
-    webOrigin: "http://localhost:5174",
+    redirectUri: lw1
+      ? "http://localhost:3004/auth/twitch/callback"
+      : "http://localhost:3002/auth/twitch/callback",
+    webOrigin: lw1 ? "http://localhost:5176" : "http://localhost:5174",
     encryptionKey: "e".repeat(64),
     secureCookies: false,
     wf2WorldId: world,
@@ -111,9 +121,9 @@ app.get("/__wf2_test/login/:role", async (req, reply) => {
   });
   return { fixture: true, worldId: world };
 });
-await app.listen({ host: "127.0.0.1", port: 3002 });
+await app.listen({ host: "127.0.0.1", port: lw1 ? 3004 : 3002 });
 console.log(
-  "WF2 isolated browser fixture ready on port3002; identities are synthetic.",
+  `Isolated browser fixture ready on port${lw1 ? 3004 : 3002}; identities are synthetic.`,
 );
 for (const signal of ["SIGINT", "SIGTERM"])
   process.once(signal, () => {

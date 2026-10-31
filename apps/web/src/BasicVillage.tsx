@@ -4,7 +4,12 @@ import type {
   WorldSnapshot,
   WorldEntry,
 } from "@creators-village/contracts";
-import type { VillageView, mountFounding } from "@creators-village/renderer";
+import type {
+  VillageView,
+  mountFounding,
+  LivingViewState,
+} from "@creators-village/renderer";
+import { ResidentList, ResidentPanel } from "./ResidentPanel.js";
 import { api } from "./api.js";
 import { visibleWorldFrame } from "./viewport.js";
 import { Link, usePanel } from "./routing.js";
@@ -20,6 +25,7 @@ export function BasicVillage({ entry }: { entry: WorldEntry }) {
     [renderError, setRenderError] = useState(""),
     [retry, setRetry] = useState(0),
     [ready, setReady] = useState(false);
+  const [living, setLiving] = useState<LivingViewState | null>(null);
   const host = useRef<HTMLDivElement>(null),
     view = useRef<
       VillageView | Awaited<ReturnType<typeof mountFounding>> | null
@@ -28,7 +34,11 @@ export function BasicVillage({ entry }: { entry: WorldEntry }) {
   pick.current = (id) => {
     setFocused("");
     setSelected(id ?? "founding-shelter");
-    setPanel("inspect");
+    setPanel(id?.includes(":lw1:") ? "resident" : "inspect");
+    if (world?.schemaVersion === 2)
+      (
+        view.current as Awaited<ReturnType<typeof mountFounding>> | null
+      )?.selectResident(id ?? "");
   };
   useEffect(() => {
     let live = true;
@@ -66,6 +76,7 @@ export function BasicVillage({ entry }: { entry: WorldEntry }) {
               (id) => pick.current(id),
               undefined,
               () => visibleWorldFrame(node),
+              setLiving,
             ),
       )
       .then((v) => {
@@ -175,7 +186,9 @@ export function BasicVillage({ entry }: { entry: WorldEntry }) {
                 ? "Building inspection"
                 : panel === "places"
                   ? "Places"
-                  : "Village settings"
+                  : panel === "resident"
+                    ? "Resident inspection"
+                    : "Village settings"
             }
             onClose={() => setPanel("")}
           >
@@ -192,7 +205,26 @@ export function BasicVillage({ entry }: { entry: WorldEntry }) {
                     <span aria-hidden="true">↗</span>
                   </button>
                 ))}
+                {world?.schemaVersion === 2 && (
+                  <ResidentList
+                    living={living}
+                    select={(id) => pick.current(id)}
+                  />
+                )}
               </>
+            ) : panel === "resident" ? (
+              <ResidentPanel
+                living={living}
+                id={selected}
+                focus={() =>
+                  (
+                    view.current as Awaited<
+                      ReturnType<typeof mountFounding>
+                    > | null
+                  )?.focusResident(selected)
+                }
+                overview={() => view.current?.reset()}
+              />
             ) : panel === "inspect" && place ? (
               <>
                 <h3>{place.name}</h3>
@@ -223,10 +255,6 @@ export function BasicVillage({ entry }: { entry: WorldEntry }) {
                 <button onClick={() => view.current?.reset()}>
                   Village overview
                 </button>
-                <small className="pi-muted">
-                  Existing geometry and materials · visual direction in
-                  development
-                </small>
               </>
             ) : (
               <>

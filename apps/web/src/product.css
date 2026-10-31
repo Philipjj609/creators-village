@@ -1104,3 +1104,24 @@
   background: #eef0e6;
   border-radius: 10px;
 }
+/* LW1 contextual facts share the existing accessible Places panel. */
+.lw-role {
+  display: block;
+  font-weight: 400;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 0.2rem;
+}
+.lw-facts {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+.lw-facts dt {
+  font-weight: 600;
+}
+.lw-facts dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}

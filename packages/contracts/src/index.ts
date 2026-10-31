@@ -2,6 +2,7 @@ import { Type, type Static } from "@sinclair/typebox";
 export * from "./participation.js";
 export * from "./participation-wire.js";
 export * from "./product.js";
+export * from "./living.js";
 
 export const GENERATOR_VERSION = "woodland-1";
 export const ASSET_VERSION = "woodland-vector-1";

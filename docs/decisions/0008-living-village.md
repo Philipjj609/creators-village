@@ -1,0 +1,13 @@
+# LW1 — bounded fictional residents
+
+Adopted for local implementation by Philip's LW1 assignment, 31 October 2026. No release, hosted data, OAuth, art integration or publication authority is added.
+
+`lw1-routines-1` derives four stable fictional identities from a v2 world ID. It adds no saved rows, schema migration, person, membership, economy or construction commands. Existing readers and all saved geography remain compatible. v1 remains unchanged. This is a versioned read projection, not Twitch presence.
+
+The server returns a bounded itinerary from one repeatable-read snapshot of persisted terrain, structures and protected claims, plus authoritative UTC time and topology epoch. Routes use the existing half-cell terrain rules (water/tree/rock/slope/active boundary), conservative clearance around solids and protected reservations, cardinal edges and reachable external destinations. A workshop destination exists only when its structure exists. Activities never complete projects or mint resources. Unreachable assignments fall back to reachable clearing locations; absent walkable terrain yields an empty population and an explicit unavailable view.
+
+Time is absolute UTC milliseconds relative to the fixed rules epoch 2026-01-01, with resident phase offsets. Each closed itinerary alternates travel and finite idle/work/gather/rest dwell intervals. Evaluation uses modulo cycle duration, so long absences cost constant time and do not generate missed events. Topology changes reconstruct the itinerary immediately; relocation at that boundary is intentional, rather than interpolating across newly occupied space. Same rules/topology/time gives the same state. Clock is synchronized from server time using elapsed monotonic client time; reload/reconnect resynchronizes. No server loop runs without readers.
+
+Renderer uses four provisional original vector puppets with ground anchors, shared depth ordering, small bounded animations and pointer picking. Reduced motion removes decorative animation, snaps camera movement and samples navigation at discrete half-cell positions. Hidden tabs stop drawing. A readable resident list/panel supplies keyboard access. Resident focus follows until manual exploration or overview cancels it.
+
+Acceptance: deterministic/long-idle reconstruction; every route segment navigable including protected cells; workshop dependency and topology refresh; privacy/access denial; real isolated-PG compatibility; actual browser movement/picking/follow/overview/reload/reconnect/reduced-motion evidence and bounded renderer resource counts. Existing art and independent-human gates stay open. Stop at local product review.

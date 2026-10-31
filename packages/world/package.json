@@ -4,6 +4,10 @@
   "private": true,
   "type": "module",
   "exports": {
+    "./living": {
+      "types": "./dist/living.d.ts",
+      "default": "./dist/living.js"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"

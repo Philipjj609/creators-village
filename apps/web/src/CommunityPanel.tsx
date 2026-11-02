@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { api } from "./api.js";
 import { ConfirmAction } from "./village-panels.js";
 import { admissionPageCursor } from "./village-panel-state.js";
+import { CommunitySettings, MemberAccess } from "./CommunitySettings.js";
 type Admission = {
   requests: {
     requestId: string;
@@ -24,6 +25,7 @@ export function CommunityPanel({
   act,
   link,
   inviteId,
+  csrf,
 }: {
   world: string;
   creatorName: string;
@@ -31,6 +33,8 @@ export function CommunityPanel({
   act: (k: string, p?: object) => Promise<unknown>;
   link: string;
   inviteId: string | null;
+  /** Needed for creator-only settings and permission edits; omitted renders the R1 panel. */
+  csrf?: string | undefined;
 }) {
   const [data, setData] = useState<Admission | null>(null),
     [error, setError] = useState(""),
@@ -143,6 +147,7 @@ export function CommunityPanel({
           />
         )}
       </div>
+      {csrf && <CommunitySettings world={world} csrf={csrf} />}
       {error && (
         <p role="status">
           {error}
@@ -217,6 +222,14 @@ export function CommunityPanel({
               <strong data-private>{m.displayName}</strong>
               <details>
                 <summary>Manage access</summary>
+                {csrf && (
+                  <MemberAccess
+                    world={world}
+                    memberId={m.memberId}
+                    csrf={csrf}
+                    onChanged={() => void refresh()}
+                  />
+                )}
                 <ConfirmAction
                   label="Ban member"
                   description="Remove this member’s village access. Recorded contributions remain."

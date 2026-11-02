@@ -1379,6 +1379,7 @@ export function ParticipationPage({
                   act={act}
                   link={link}
                   inviteId={inviteId}
+                  csrf={person?.csrfToken}
                 />
               ) : (
                 <>

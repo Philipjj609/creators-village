@@ -1,5 +1,7 @@
 export type Config = {
   orbEconomy?: boolean;
+  /** Post-R1 follower discovery; off unless explicitly enabled (requires schema 10). */
+  followerDiscovery?: boolean;
   databaseUrl: string;
   clientId: string;
   clientSecret: string;
@@ -24,6 +26,9 @@ export function loadConfig(): Config {
   const orbVersion = process.env.COMMUNITY_ORBS;
   if (orbVersion && orbVersion !== "community-orbs-1")
     throw Error("Unsupported COMMUNITY_ORBS policy version");
+  const followerVersion = process.env.FOLLOWER_DISCOVERY;
+  if (followerVersion && followerVersion !== "follower-discovery-1")
+    throw Error("Unsupported FOLLOWER_DISCOVERY version");
   const webOrigin = process.env.WEB_ORIGIN ?? "http://localhost:5173";
   const redirectUri =
     process.env.TWITCH_REDIRECT_URI ??
@@ -74,6 +79,7 @@ export function loadConfig(): Config {
     secureCookies: production,
     production,
     orbEconomy: orbVersion === "community-orbs-1",
+    followerDiscovery: followerVersion === "follower-discovery-1",
     writesPaused: production && process.env.GAMEPLAY_WRITES === "paused",
     trustProxy: process.env.TRUST_PROXY_HOPS === "1" ? 1 : 0,
     ...(process.env.WF2_APPROVED_WORLD_ID

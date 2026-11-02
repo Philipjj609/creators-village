@@ -13,6 +13,7 @@ import {
   structureDto,
   pathDto,
   type Actor,
+  type Permission,
 } from "./participation-core.js";
 import { lockTopology, planAt } from "./participation-spatial.js";
 import { suppressCredit } from "./participation-admission.js";
@@ -67,6 +68,15 @@ export async function publishBatch(
   );
   return w.public_cursor as string;
 }
+/** Delegable project commands; any other creator-only kind stays creator-only. */
+const projectPermission: Record<string, Permission | Permission[] | undefined> =
+  {
+    CreateDraft: "can_create_projects",
+    ReviseDraft: ["can_create_projects", "can_manage_construction"],
+    PublishProject: "can_manage_construction",
+    CancelProject: "can_manage_construction",
+    RetryCompletion: "can_manage_construction",
+  };
 export async function projectCommand(
   pool: Pool,
   actor: Actor,
@@ -85,6 +95,7 @@ export async function projectCommand(
         Boolean(p.recognitionOptIn) ||
         command.kind === "CreateDraft",
       !["Contribute", "SetRecognition"].includes(command.kind),
+      projectPermission[command.kind],
     );
     if (command.kind === "Contribute" && !b.membership.can_contribute)
       fail("FORBIDDEN", 403);

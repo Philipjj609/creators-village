@@ -18,7 +18,10 @@ export function checkPlacement(
   return transaction(
     pool,
     async (db) => {
-      await authority(db, world, actor, false, true);
+      await authority(db, world, actor, false, true, [
+        "can_create_projects",
+        "can_manage_construction",
+      ]);
       try {
         const p = await planAt(
           db,

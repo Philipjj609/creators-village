@@ -1,5 +1,9 @@
 import { validateSessionHash, type Session } from "./session-validation.js";
 import { registerProduct } from "./product-http.js";
+import {
+  registerFollowerDiscovery,
+  upgradeFollowScope,
+} from "./follower-discovery.js";
 import { readLivingVillage } from "./living.js";
 import { registerProductionWeb } from "./production-web.js";
 import Fastify from "fastify";
@@ -240,13 +244,40 @@ export async function buildApp(
           error: "Authentication state did not match. Please start again.",
         });
       const used = await pool.query(
-        "DELETE FROM oauth_states WHERE state_hash=$1 AND expires_at>now() RETURNING state_hash,join_continuation_id",
+        "DELETE FROM oauth_states WHERE state_hash=$1 AND expires_at>now() RETURNING state_hash,join_continuation_id,purpose,session_hash",
         [hash(state)],
       );
       if (!used.rowCount)
         return reply.code(400).send({
           error: "Authentication request expired or was already used.",
         });
+      if (used.rows[0].purpose === "follows") {
+        // Optional second authorization: bound to the session that started it.
+        const raw = req.cookies.cv_session;
+        const back = config.webOrigin + "/communities";
+        if (
+          !config.followerDiscovery ||
+          !raw ||
+          hash(raw) !== used.rows[0].session_hash
+        )
+          return reply.redirect(back + "?follows=failed");
+        if (error || !code) return reply.redirect(back + "?follows=declined");
+        try {
+          const outcome = await upgradeFollowScope(
+            pool,
+            provider,
+            config,
+            hash(raw),
+            code,
+          );
+          return reply.redirect(
+            back +
+              (outcome === "ok" ? "?follows=connected" : "?follows=declined"),
+          );
+        } catch {
+          return reply.redirect(back + "?follows=failed");
+        }
+      }
       if (error || !code)
         return reply.redirect(config.webOrigin + "/?auth=declined");
       const tokens = await provider.exchange(code),
@@ -305,6 +336,10 @@ export async function buildApp(
     return { ok: true };
   });
   const participation = await registerParticipation(app, pool, config, {
+    session,
+    mutation: authorizeMutation,
+  });
+  await registerFollowerDiscovery(app, pool, config, provider, {
     session,
     mutation: authorizeMutation,
   });

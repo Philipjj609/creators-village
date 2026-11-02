@@ -387,7 +387,14 @@ export async function registerParticipation(
           const a = await auth.session(req.cookies.cv_session);
           if (!a) fail("NOT_FOUND", 404);
           return transaction(pool, async (db) => {
-            const b = await authority(db, req.params.worldId, a, false, true);
+            const b = await authority(
+              db,
+              req.params.worldId,
+              a,
+              false,
+              true,
+              "can_moderate",
+            );
             const after =
               req.query.after ?? "00000000-0000-0000-0000-000000000000";
             if (!/^[0-9a-f-]{36}$/i.test(after)) fail("INVALID_INPUT", 400);
@@ -484,7 +491,10 @@ export async function registerParticipation(
         const a = await auth.session(req.cookies.cv_session);
         if (!a) fail("NOT_FOUND", 404);
         return transaction(pool, async (db) => {
-          await authority(db, req.params.worldId, a, false, true);
+          await authority(db, req.params.worldId, a, false, true, [
+            "can_create_projects",
+            "can_manage_construction",
+          ]);
           if (req.query.state !== "draft") fail("INVALID_INPUT", 400);
           const after =
               req.query.after ?? "00000000-0000-0000-0000-000000000000",
@@ -520,7 +530,13 @@ export async function registerParticipation(
                 [req.params.worldId, req.params.projectId],
               )
             ).rows[0];
-            if (!p || (!p.published_at && b.creator_id !== a.person_id))
+            if (
+              !p ||
+              (!p.published_at &&
+                b.creator_id !== a.person_id &&
+                !b.membership.can_create_projects &&
+                !b.membership.can_manage_construction)
+            )
               fail("NOT_FOUND", 404);
             const { projectDto } = await import("./participation-core.js");
             return projectDto(p);

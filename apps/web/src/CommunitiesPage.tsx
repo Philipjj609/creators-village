@@ -11,6 +11,7 @@ import {
   requestView,
   type CommunityAccount,
 } from "./community-view.js";
+import { FollowDiscovery } from "./FollowDiscovery.js";
 import "./communities.css";
 
 function Header() {
@@ -649,16 +650,13 @@ export function MyCommunities() {
                   )}
                 </>
               )}
-              <div className="cui-discovery">
-                <Icon name="leaf" />
-                <p>
-                  Twitch-follow discovery isn’t connected yet. A follow doesn’t
-                  grant village access.
-                </p>
-                <Link className="cui-text-link" href="/villages/showcase-fern">
-                  Explore the public example ↗
-                </Link>
-              </div>
+              {data && (
+                <FollowDiscovery
+                  discovery={data.followDiscovery}
+                  csrf={actor}
+                  onChanged={() => void refreshRequests()}
+                />
+              )}
             </section>
           </>
         )}

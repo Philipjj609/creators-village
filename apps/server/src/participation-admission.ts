@@ -7,6 +7,7 @@ import {
   authority,
   fail,
   lockSession,
+  memberLimit,
   priorReceipt,
   receipt,
   transaction,
@@ -158,7 +159,7 @@ export async function admissionCommand(
       ).rows[0];
       if (!b.membership || !["active", "pending"].includes(b.membership.state))
         fail("NOT_FOUND", 404);
-    } else b = await authority(db, world, actor, true, true);
+    } else b = await authority(db, world, actor, true, true, "can_moderate");
     const input = { worldId: world, ...command },
       old = await priorReceipt(db, actor, command.commandId, input);
     if (old) return old;
@@ -223,16 +224,11 @@ export async function admissionCommand(
             [b.community_id, b.creator_id],
           )
         ).rows[0]!.n;
-        const cap = (
-          await db.query(
-            "SELECT max_non_creator_members FROM wf2_rulesets WHERE id=$1",
-            [b.ruleset_id],
-          )
-        ).rows[0]!.max_non_creator_members;
-        if (n >= cap) fail("COHORT_LIMIT");
+        // Legacy ruleset cap unless the creator configured community settings.
+        if (n >= (await memberLimit(db, b as never))) fail("COHORT_LIMIT");
       }
       await db.query(
-        "UPDATE wf2_memberships SET state=$1,revision=revision+1,changed_at=now() WHERE community_id=$2 AND person_id=$3",
+        "UPDATE wf2_memberships SET state=$1,join_source=CASE WHEN $1='active' THEN 'invitation' ELSE join_source END,revision=revision+1,changed_at=now() WHERE community_id=$2 AND person_id=$3",
         [approve ? "active" : "rejected", b.community_id, r.person_id],
       );
       await db.query(
@@ -259,6 +255,17 @@ export async function admissionCommand(
       if (!m || m.person_id === b.creator_id) fail("FORBIDDEN", 403);
       if (!leave && m.revision !== p.expectedMembershipRevision)
         fail("STALE_TARGET");
+      // A delegated moderator cannot act on another moderator; only the creator can.
+      if (!leave && actor.person_id !== b.creator_id) {
+        const target = (
+          await db.query(
+            "SELECT can_moderate FROM wf2_world_grants WHERE world_id=$1 AND person_id=$2",
+            [world, m.person_id],
+          )
+        ).rows[0];
+        if (m.person_id === actor.person_id || target?.can_moderate)
+          fail("FORBIDDEN", 403);
+      }
       if (command.kind === "UnbanMember" && m.state !== "banned")
         fail("STALE_TARGET");
       const state = command.kind === "BanMember" ? "banned" : "left";
@@ -267,7 +274,7 @@ export async function admissionCommand(
         [state, b.community_id, m.person_id],
       );
       await db.query(
-        "UPDATE wf2_world_grants SET can_view=false,can_contribute=false,revoked_at=now(),revision=revision+1 WHERE world_id=$1 AND person_id=$2",
+        "UPDATE wf2_world_grants SET can_view=false,can_contribute=false,can_create_projects=false,can_manage_construction=false,can_moderate=false,revoked_at=now(),revision=revision+1 WHERE world_id=$1 AND person_id=$2",
         [world, m.person_id],
       );
       await db.query(
@@ -354,7 +361,7 @@ export async function invitationLink(
   id: string,
 ) {
   return transaction(pool, async (db) => {
-    await authority(db, world, actor, false, true);
+    await authority(db, world, actor, false, true, "can_moderate");
     const r = (
       await db.query(
         "SELECT sealed_token,expires_at FROM wf2_invitations WHERE id=$1 AND world_id=$2 AND sealed_token IS NOT NULL AND consumed_request_id IS NULL AND revoked_at IS NULL AND expires_at>now()",

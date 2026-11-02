@@ -9,6 +9,7 @@ import { readFoundingWorld } from "@creators-village/world/founding";
 import type { Config } from "./config.js";
 import type { Session } from "./session-validation.js";
 import { foundingFixture } from "./founding.js";
+import { followDiscoveryView } from "./follower-discovery.js";
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const empty = () => ({
@@ -55,7 +56,7 @@ export async function productEntry(
     };
   const row = (
     await pool.query(
-      "SELECT w.id,w.header,w.creator_id,w.purpose,b.world_id AS bound,b.enabled,b.state_schema,m.state,g.can_view,g.can_contribute FROM founding_worlds w LEFT JOIN wf2_bindings b ON b.world_id=w.id LEFT JOIN wf2_world_grants g ON g.world_id=w.id AND g.person_id=$2 LEFT JOIN wf2_memberships m ON m.community_id=g.community_id AND m.person_id=g.person_id WHERE w.id=$1",
+      "SELECT w.id,w.header,w.creator_id,w.purpose,b.world_id AS bound,b.enabled,b.state_schema,m.state,g.can_view,g.can_contribute,g.can_create_projects,g.can_manage_construction,g.can_moderate FROM founding_worlds w LEFT JOIN wf2_bindings b ON b.world_id=w.id LEFT JOIN wf2_world_grants g ON g.world_id=w.id AND g.person_id=$2 LEFT JOIN wf2_memberships m ON m.community_id=g.community_id AND m.person_id=g.person_id WHERE w.id=$1",
       [id, person ?? null],
     )
   ).rows[0];
@@ -85,8 +86,13 @@ export async function productEntry(
     isCreator: owner,
     capabilities: {
       contribute: Boolean(configured && row.bound && row.can_contribute),
-      plan: Boolean(configured && row.bound && owner),
-      admit: Boolean(configured && row.bound && owner),
+      // Delegated permissions are separate from membership; the creator always holds all.
+      plan: Boolean(
+        configured &&
+        row.bound &&
+        (owner || row.can_create_projects || row.can_manage_construction),
+      ),
+      admit: Boolean(configured && row.bound && (owner || row.can_moderate)),
       enable: Boolean(
         configured && !row.bound && owner && row.purpose === "development",
       ),
@@ -191,10 +197,7 @@ export async function registerProduct(
         joined,
         nextJoinedCursor:
           granted.rows.length > 20 ? granted.rows[19]!.id : null,
-        followDiscovery: {
-          status: "not-connected",
-          requiredScope: "user:read:follows",
-        },
+        followDiscovery: await followDiscoveryView(pool, config, s),
         creation: {
           allowed: reason === "available",
           development: hasLegacy,

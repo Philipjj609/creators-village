@@ -14,6 +14,8 @@ export type Session = {
   twitch_subject: string;
   validation_lease: string | null;
   validation_lease_until: Date | null;
+  /** Empty for the default scope-free sign-in; set by the optional follow authorization. */
+  granted_scopes?: string[];
 };
 export async function validateSessionHash(
   pool: Pool,

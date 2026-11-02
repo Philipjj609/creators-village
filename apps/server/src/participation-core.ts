@@ -67,12 +67,33 @@ export async function lockSession(db: PoolClient, actor: Actor) {
   )
     fail("AUTH_REQUIRED", 403);
 }
+/**
+ * Membership is only the right to view. Everything else is a separate grant column:
+ * contribute Orbs, create projects, manage construction, moderate members. The creator is
+ * identified by the binding, never by a grant, and always holds every permission.
+ */
+export type Permission =
+  | "can_contribute"
+  | "can_create_projects"
+  | "can_manage_construction"
+  | "can_moderate";
+export const PERMISSIONS: readonly Permission[] = [
+  "can_contribute",
+  "can_create_projects",
+  "can_manage_construction",
+  "can_moderate",
+];
+/**
+ * `creatorOnly` keeps its R1 meaning when no permission is named. When permissions are
+ * named, the creator or a member holding any one of them passes.
+ */
 export async function authority(
   db: PoolClient,
   world: string,
   actor: Actor,
   exclusive = false,
   creatorOnly = false,
+  permission?: Permission | Permission[],
 ) {
   await lockSession(db, actor);
   const b = (
@@ -84,13 +105,35 @@ export async function authority(
   if (!b) fail("NOT_FOUND", 404);
   const m = (
     await db.query(
-      "SELECT m.*,g.can_view,g.can_contribute FROM wf2_memberships m JOIN wf2_world_grants g ON g.community_id=m.community_id AND g.person_id=m.person_id WHERE g.world_id=$1 AND m.person_id=$2 FOR SHARE OF m,g",
+      "SELECT m.*,g.can_view,g.can_contribute,g.can_create_projects,g.can_manage_construction,g.can_moderate FROM wf2_memberships m JOIN wf2_world_grants g ON g.community_id=m.community_id AND g.person_id=m.person_id WHERE g.world_id=$1 AND m.person_id=$2 FOR SHARE OF m,g",
       [world, actor.person_id],
     )
   ).rows[0];
   if (!m || m.state !== "active" || !m.can_view) fail("NOT_FOUND", 404);
-  if (creatorOnly && b.creator_id !== actor.person_id) fail("FORBIDDEN", 403);
+  if (creatorOnly && b.creator_id !== actor.person_id) {
+    const needed = permission === undefined ? [] : [permission].flat();
+    if (!needed.some((p) => m[p] === true)) fail("FORBIDDEN", 403);
+  }
   return { ...b, membership: m };
+}
+/** Effective non-creator membership bound: per-community setting if present, else the legacy ruleset cap. */
+export async function memberLimit(
+  db: PoolClient,
+  binding: { community_id: string; ruleset_id: string },
+) {
+  const configured = (
+    await db.query(
+      "SELECT member_limit FROM wf2_community_settings WHERE community_id=$1",
+      [binding.community_id],
+    )
+  ).rows[0];
+  if (configured) return configured.member_limit as number;
+  return (
+    await db.query(
+      "SELECT max_non_creator_members FROM wf2_rulesets WHERE id=$1",
+      [binding.ruleset_id],
+    )
+  ).rows[0]!.max_non_creator_members as number;
 }
 export function canonical(value: unknown): string {
   if (value === null || typeof value !== "object")

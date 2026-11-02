@@ -1,0 +1,893 @@
+{
+  "version": "cv-artlab-ap4-terrain-01",
+  "studyOnly": true,
+  "colorSpace": "sRGB",
+  "alpha": "straight (unpremultiplied)",
+  "projection": {
+    "sx": "(x - y) * 32",
+    "sy": "(x + y) * 16 - z * 32 * sqrt(1.5)",
+    "runtimeAssetScale": 0.3889087296526012
+  },
+  "files": [
+    {
+      "file": "grass.png",
+      "width": 1024,
+      "height": 512,
+      "bytes": 392608,
+      "sha256": "e6678b715fc5cd03c359b4b3bf8ddd94f53f632f286b4ec63987f214b1983a9c",
+      "decodedBytes": 2097152,
+      "kind": "ground-tile",
+      "periodWorld": 8,
+      "density": 2,
+      "screenPeriodPx": [
+        512,
+        256
+      ]
+    },
+    {
+      "file": "woodland.png",
+      "width": 1024,
+      "height": 512,
+      "bytes": 354183,
+      "sha256": "3ca56f33768c77f8a8140730e93501a73bd3f2bd10854f5ac7a95562ea450b79",
+      "decodedBytes": 2097152,
+      "kind": "ground-tile",
+      "periodWorld": 8,
+      "density": 2,
+      "screenPeriodPx": [
+        512,
+        256
+      ]
+    },
+    {
+      "file": "path-dirt.png",
+      "width": 1024,
+      "height": 512,
+      "bytes": 165525,
+      "sha256": "a43683e7bfdc0569e15ce6cfd28d09a04edb7b379a791877e7be006106d84f2d",
+      "decodedBytes": 2097152,
+      "kind": "ground-tile",
+      "periodWorld": 8,
+      "density": 2,
+      "screenPeriodPx": [
+        512,
+        256
+      ]
+    },
+    {
+      "file": "bank.png",
+      "width": 512,
+      "height": 256,
+      "bytes": 62004,
+      "sha256": "47576e2cf5b95be99dd92ae9e1d0970375ba59bcccdd6be90eea97cdf91c9be2",
+      "decodedBytes": 524288,
+      "kind": "ground-tile",
+      "periodWorld": 8,
+      "density": 1,
+      "screenPeriodPx": [
+        512,
+        256
+      ]
+    },
+    {
+      "file": "water.png",
+      "width": 512,
+      "height": 256,
+      "bytes": 21793,
+      "sha256": "b2747a7cb22396436ed62dd7b763bac215431b95e1d70ed16ae3e79298d0b243",
+      "decodedBytes": 524288,
+      "kind": "ground-tile",
+      "periodWorld": 8,
+      "density": 1,
+      "screenPeriodPx": [
+        512,
+        256
+      ]
+    },
+    {
+      "file": "path-fringe.png",
+      "width": 384,
+      "height": 55,
+      "bytes": 10013,
+      "sha256": "8905765427e6f747ba79ce66ca0d9e57ca4eecfe63ae6d4cdfda222a730b5a9d",
+      "decodedBytes": 84480,
+      "kind": "edge-strip",
+      "alongUnits": 4,
+      "acrossUnits": [
+        -0.15,
+        0.42
+      ],
+      "pxPerUnit": 96,
+      "u": "world distance along edge / alongUnits (repeat)",
+      "v": "0 at -inner (inside) .. 1 at +outer (outside)"
+    },
+    {
+      "file": "woodland-fringe.png",
+      "width": 384,
+      "height": 58,
+      "bytes": 8959,
+      "sha256": "c8ea82b81e1492145e06511eb93d5e068e2cd1266112959de07015eae4ba2319",
+      "decodedBytes": 89088,
+      "kind": "edge-strip",
+      "alongUnits": 4,
+      "acrossUnits": [
+        0,
+        0.6
+      ],
+      "pxPerUnit": 96,
+      "u": "world distance along edge / alongUnits (repeat)",
+      "v": "0 at -inner (inside) .. 1 at +outer (outside)"
+    },
+    {
+      "file": "path-joint.png",
+      "width": 225,
+      "height": 225,
+      "bytes": 23860,
+      "sha256": "5f1ba41e22adb0951b0128b0df3c92047986bd541f0891609d270bfadea3c90c",
+      "decodedBytes": 202500,
+      "kind": "joint",
+      "spanUnits": 2.34,
+      "pxPerUnit": 96
+    },
+    {
+      "file": "shore-strip.png",
+      "width": 192,
+      "height": 48,
+      "bytes": 7593,
+      "sha256": "1e6c867f85a9d84c8e303146c7687b32de54f6a05a690bfe77e7291443847f5d",
+      "decodedBytes": 36864,
+      "kind": "edge-strip",
+      "alongUnits": 2,
+      "acrossUnits": [
+        0,
+        0.5
+      ],
+      "pxPerUnit": 96,
+      "u": "world distance along edge / alongUnits (repeat)",
+      "v": "0 at -inner (inside) .. 1 at +outer (outside)"
+    },
+    {
+      "file": "shore-corner.png",
+      "width": 48,
+      "height": 48,
+      "bytes": 1397,
+      "sha256": "bbd228bc78d994dfe88ce7f6c4ad5b4d065c4110bf6bb404c1a65b42d93c50a7",
+      "decodedBytes": 9216,
+      "kind": "quarter",
+      "spanUnits": 0.5,
+      "pxPerUnit": 96
+    },
+    {
+      "file": "patch-clover.png",
+      "width": 227,
+      "height": 113,
+      "bytes": 32024,
+      "sha256": "69857eb9525e4ec28aa96560b0f934d864e5d56c043a165df6ea96d2486c7a26",
+      "decodedBytes": 102604,
+      "kind": "ground-patch",
+      "density": 2,
+      "worldRadius": [
+        1.4,
+        1.1
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "anchorRule": "sprite centre = projected patch centre on the ground"
+    },
+    {
+      "file": "patch-dry.png",
+      "width": 199,
+      "height": 101,
+      "bytes": 23580,
+      "sha256": "ecbfe0fa8352ecec1eb601eeb00b802e9f5696ca52f53a4e9ee289e54797f58c",
+      "decodedBytes": 80396,
+      "kind": "ground-patch",
+      "density": 2,
+      "worldRadius": [
+        1.2,
+        1.0
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "anchorRule": "sprite centre = projected patch centre on the ground"
+    },
+    {
+      "file": "patch-moss.png",
+      "width": 152,
+      "height": 75,
+      "bytes": 16199,
+      "sha256": "e0441567120bb11ada1a300df9e5bed61260b0624a605ff251bc00fd8f27d920",
+      "decodedBytes": 45600,
+      "kind": "ground-patch",
+      "density": 2,
+      "worldRadius": [
+        1.0,
+        0.9
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "anchorRule": "sprite centre = projected patch centre on the ground"
+    },
+    {
+      "file": "patch-worn.png",
+      "width": 125,
+      "height": 65,
+      "bytes": 12226,
+      "sha256": "9e45220acab34409221d74d3e643f243fd6acea62d8b18e8a4256639d706ca7b",
+      "decodedBytes": 32500,
+      "kind": "ground-patch",
+      "density": 2,
+      "worldRadius": [
+        0.8,
+        0.7
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "anchorRule": "sprite centre = projected patch centre on the ground"
+    },
+    {
+      "file": "water-glint.png",
+      "width": 160,
+      "height": 20,
+      "bytes": 237,
+      "sha256": "3a3aecf3d6a336f990eb73eb4267c7e8499cac1ec7385f8c29950b665b5b0b43",
+      "decodedBytes": 12800,
+      "kind": "frames",
+      "frames": 4,
+      "frameSize": [
+        40,
+        20
+      ],
+      "density": 2,
+      "fps": 6,
+      "stillFrame": 0
+    },
+    {
+      "file": "decor.png",
+      "width": 128,
+      "height": 262,
+      "bytes": 39409,
+      "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971",
+      "decodedBytes": 134144,
+      "kind": "atlas-page",
+      "spritesheet": "decor.json",
+      "spritesheetSha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459"
+    }
+  ],
+  "decor": {
+    "items": {
+      "tuft-a": {
+        "frame": "tuft-a",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.14271791279315948,
+            -0.11733104288578033,
+            -0.0070589459501206875
+          ],
+          [
+            0.12754999101161957,
+            0.17123180627822876,
+            0.3321380913257599
+          ]
+        ],
+        "shadowFrame": "tuft-a-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "tuft-b": {
+        "frame": "tuft-b",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.16866229474544525,
+            -0.22357426583766937,
+            -0.009016401134431362
+          ],
+          [
+            0.21388237178325653,
+            0.2302473783493042,
+            0.4375753700733185
+          ]
+        ],
+        "shadowFrame": "tuft-b-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "tuft-c": {
+        "frame": "tuft-c",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.19714303314685822,
+            -0.17544019222259521,
+            -0.00765201123431325
+          ],
+          [
+            0.16151472926139832,
+            0.17952866852283478,
+            0.24562019109725952
+          ]
+        ],
+        "shadowFrame": "tuft-c-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "flowers-daisy": {
+        "frame": "flowers-daisy",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.2004901021718979,
+            -0.19492968916893005,
+            -0.005910608451813459
+          ],
+          [
+            0.1307256519794464,
+            0.21561653912067413,
+            0.3031670153141022
+          ]
+        ],
+        "shadowFrame": "flowers-daisy-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "flowers-butter": {
+        "frame": "flowers-butter",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.15516561269760132,
+            -0.17090032994747162,
+            -0.006984816398471594
+          ],
+          [
+            0.19923147559165955,
+            0.13036024570465088,
+            0.3639112412929535
+          ]
+        ],
+        "shadowFrame": "flowers-butter-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "flowers-clover": {
+        "frame": "flowers-clover",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.15699726343154907,
+            -0.1805512011051178,
+            -0.006725604645907879
+          ],
+          [
+            0.15352466702461243,
+            0.15810821950435638,
+            0.2358471304178238
+          ]
+        ],
+        "shadowFrame": "flowers-clover-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "flowers-violet": {
+        "frame": "flowers-violet",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.1777341663837433,
+            -0.13509806990623474,
+            -0.0056474157609045506
+          ],
+          [
+            0.09560246020555496,
+            0.18392688035964966,
+            0.24792857468128204
+          ]
+        ],
+        "shadowFrame": "flowers-violet-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "pebbles-a": {
+        "frame": "pebbles-a",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.17120644450187683,
+            -0.18826241791248322,
+            -0.01924999989569187
+          ],
+          [
+            0.19284239411354065,
+            0.18600021302700043,
+            0.0507499985396862
+          ]
+        ],
+        "shadowFrame": "pebbles-a-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "pebbles-b": {
+        "frame": "pebbles-b",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.20693668723106384,
+            -0.15901221334934235,
+            -0.016499999910593033
+          ],
+          [
+            0.16255958378314972,
+            0.11365735530853271,
+            0.04349999874830246
+          ]
+        ],
+        "shadowFrame": "pebbles-b-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "rock-a": {
+        "frame": "rock-a",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.35429656505584717,
+            -0.351374089717865,
+            -0.12262683361768723
+          ],
+          [
+            0.3871643543243408,
+            0.3486563563346863,
+            0.344048410654068
+          ]
+        ],
+        "shadowFrame": "rock-a-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "rock-b": {
+        "frame": "rock-b",
+        "kind": "dry",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.2958482801914215,
+            -0.26838189363479614,
+            -0.15969055891036987
+          ],
+          [
+            0.22959771752357483,
+            0.26648834347724915,
+            0.4261143207550049
+          ]
+        ],
+        "shadowFrame": "rock-b-shadow",
+        "shadowRenderScale": 4.0
+      },
+      "reeds-a": {
+        "frame": "reeds-a",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.17013676464557648,
+            -0.14247365295886993,
+            -0.05262939631938934
+          ],
+          [
+            0.15462949872016907,
+            0.14015628397464752,
+            1.1068040132522583
+          ]
+        ]
+      },
+      "reeds-b": {
+        "frame": "reeds-b",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.23968257009983063,
+            -0.15312355756759644,
+            -0.05405586212873459
+          ],
+          [
+            0.3279776871204376,
+            0.1500297635793686,
+            0.6837036609649658
+          ]
+        ]
+      },
+      "lilypads-a": {
+        "frame": "lilypads-a",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.19945943355560303,
+            -0.19201421737670898,
+            0.006000000052154064
+          ],
+          [
+            0.4197308123111725,
+            0.42478853464126587,
+            0.006000000052154064
+          ]
+        ]
+      },
+      "lilypads-b": {
+        "frame": "lilypads-b",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.33168795704841614,
+            -0.20560741424560547,
+            0.006000000052154064
+          ],
+          [
+            0.15965862572193146,
+            0.16600409150123596,
+            0.006000000052154064
+          ]
+        ]
+      },
+      "waterlily-a": {
+        "frame": "waterlily-a",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.20148515701293945,
+            -0.264803409576416,
+            0.006000000052154064
+          ],
+          [
+            0.3919842541217804,
+            0.20638716220855713,
+            0.10999999940395355
+          ]
+        ]
+      },
+      "waterlily-b": {
+        "frame": "waterlily-b",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.17252381145954132,
+            -0.16320769488811493,
+            0.006000000052154064
+          ],
+          [
+            0.17134132981300354,
+            0.17534735798835754,
+            0.09350000321865082
+          ]
+        ]
+      },
+      "shore-stones": {
+        "frame": "shore-stones",
+        "kind": "water",
+        "renderScale": 2.0,
+        "boundsLogical": [
+          [
+            -0.2634264826774597,
+            -0.17304128408432007,
+            -0.1312999278306961
+          ],
+          [
+            0.3469557762145996,
+            0.23185785114765167,
+            0.14300000667572021
+          ]
+        ]
+      }
+    },
+    "atlas": [
+      {
+        "image": "decor.png",
+        "spritesheet": "decor.json",
+        "width": 128,
+        "height": 262,
+        "decodedBytes": 134144,
+        "pngBytes": 39409,
+        "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971",
+        "spritesheetSha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459",
+        "occupancy": 0.577,
+        "frames": 29
+      }
+    ],
+    "atlasCheck": {
+      "framesLossless": true,
+      "overlapsWithPadding": []
+    }
+  },
+  "materials": {
+    "mapping": "Global, world-anchored: in the terrain container's local (projected) coordinates, uv = (sx / 512, sy / 256) for every ground tile, where (sx, sy) is the drawn vertex position (z already applied). Tiles are one world period (8 x 8 units) of a world-periodic pattern, so they repeat on screen every 512 x 256 px at Pixi scale 1. No camera term, so no swimming; the same mapping on every chunk and LOD block, so no seams. Height shifts the pattern by z*32*sqrt(1.5) px, which is static and continuous.",
+    "sampler": {
+      "addressMode": "repeat",
+      "scaleMode": "linear",
+      "autoGenerateMipmaps": true,
+      "note": "power-of-two tiles; mipmaps prevent overview shimmer (Pixi otherwise minifies without them)"
+    },
+    "rules": [
+      {
+        "material": "water",
+        "file": "water.png",
+        "when": "flags != 255 && (flags & 1)",
+        "z": "fixed water plane 0.5"
+      },
+      {
+        "material": "woodland",
+        "file": "woodland.png",
+        "when": "flags != 255 && !(flags & 1) && (flags & (8 | 2))"
+      },
+      {
+        "material": "grass",
+        "file": "grass.png",
+        "when": "flags != 255 && !(flags & 1) (everything else, including ROCK cells)"
+      },
+      {
+        "material": "bank",
+        "file": "bank.png",
+        "when": "the existing coastEdges() bank faces"
+      },
+      {
+        "material": "none",
+        "when": "flags == 255 (missing): draw nothing, exactly as today"
+      }
+    ],
+    "tint": "Keep terrainMaterial()'s deterministic shade s = clamp(round(slope*9) + variation, -8, 9) but apply it as a multiplicative grey tint: rgb = 236 + 2*s per channel (range 220..254). Water: 0xF2FFFC when waterNeighbors < 4, else 0xFFFFFF.",
+    "classification": "Unchanged. The material is chosen from the persisted flags; nothing here alters flags, heights, the triangle split, walkability or LOD subdivision."
+  },
+  "edges": {
+    "path": {
+      "geometry": "Authoritative centreline points and width w = widthQ/256 (founding path: width 1.5). Segments are axis-aligned. Subdivide each segment into pieces no longer than 1 unit and project every vertex with terrainReader.height (as the current stroke does).",
+      "core": {
+        "file": "path-dirt.png",
+        "mapping": "global (same as materials)",
+        "shape": "per segment: rectangle of width w - 0.30 along the segment; per vertex: square of side w - 0.30 centred on it (covers joins, T-junctions and crossings)"
+      },
+      "fringe": {
+        "file": "path-fringe.png",
+        "shape": "per segment and side: quad from w/2 - 0.15 to w/2 + 0.42 off the centreline, outward",
+        "u": "distance along the segment from its first point / 4 (repeat)",
+        "v": "0 at the inner edge, 1 at the outer edge"
+      },
+      "joint": {
+        "file": "path-joint.png",
+        "shape": "per vertex (corners, junctions and both ends): square of side 2.34 * (w / 1.5) centred on the vertex",
+        "uv": "0..1 across the square"
+      },
+      "drawOrder": "joints, then fringes, then cores (cores opaque on top), all in the terrain layer below groundBand",
+      "result": "The 50% alpha line of the soft edge sits on the authoritative edge (w/2); the core never leaves the saved width; nothing links unconnected paths or invents curves.",
+      "entranceEnds": "WF2 paths end in a butt cap at the protected entrance. The end joint extends about 0.4 units under the apron and building step; it is a flat decal in the terrain layer and never changes occupancy."
+    },
+    "woodland": {
+      "strip": {
+        "file": "woodland-fringe.png",
+        "shape": "for every grass cell (dry, not flag 8/2) edge shared with a woodland cell (dry, flag 8 or 2): quad on the grass side spanning that unit edge and extending 0.6 units into the grass cell, heights from terrainReader.height",
+        "u": "world coordinate along the edge / 4 (repeat)",
+        "v": "0 at the shared edge, 1 at 0.6 units into the grass"
+      },
+      "purpose": "softens the cell-staircase boundary between the two ground materials; drawn right after the ground fill, before banks and paths",
+      "missing": "no strip against missing (255) or water cells"
+    },
+    "shore": {
+      "strip": {
+        "file": "shore-strip.png",
+        "shape": "for every land cell edge returned by coastEdges(x, y, read.cell): quad on the water plane (z 0.5) spanning that unit edge and extending 0.5 units into the water cell",
+        "u": "world coordinate along the edge / 2 (repeat)",
+        "v": "0 at the land edge, 1 at 0.5 units into the water"
+      },
+      "corner": {
+        "file": "shore-corner.png",
+        "shape": "for each water cell corner whose diagonal neighbour is land and whose two orthogonal neighbours sharing that corner are water: a 0.5 x 0.5 square in that corner on the water plane",
+        "uv": "(0,0) at the land corner, axes pointing into the water cell"
+      },
+      "concave": "Where a water cell has land on two orthogonal sides the two strips overlap in the corner square; this is intended (a slightly brighter shallow).",
+      "missing": "A neighbour with flags 255 is neither land nor water: emit no strip, corner or bank against it.",
+      "drawOrder": "water fill, then bank faces, then shore strips and corners",
+      "geometry": "Purely cosmetic overlays on the existing water plane: no bank height, collision, walkability or navigable land changes."
+    }
+  },
+  "placement": {
+    "hash": "h(x, y, salt) = (Math.imul(x, 73856093) ^ Math.imul(y, 19349663) ^ Math.imul(salt, 83492791)) >>> 0, with x, y the integer cell coordinates",
+    "excluded": "Never place on: missing cells (255); any structure, project/construction site or claim footprint including its entrance apron; any path rectangle expanded by 0.25 units; outside the active terrain window.",
+    "offsetInCell": "x + 0.2 + 0.6 * ((h >>> 12) & 255) / 255, y + 0.2 + 0.6 * ((h >>> 20) & 255) / 255",
+    "lod": "Decorations only when the chunk is drawn at step 1 (close zoom). Ground patches at every step. Water glints only at step 1.",
+    "dry": {
+      "eligible": "flags != 255 && (flags & 7) == 0 (dry, not tree, not rock)",
+      "salt": 1,
+      "rules": [
+        {
+          "range": [
+            0,
+            7
+          ],
+          "items": [
+            "tuft-a",
+            "tuft-b",
+            "tuft-c"
+          ],
+          "pick": "(h >>> 8) % 3"
+        },
+        {
+          "range": [
+            7,
+            12
+          ],
+          "items": [
+            "flowers-daisy",
+            "flowers-butter",
+            "flowers-clover"
+          ],
+          "pick": "(h >>> 8) % 3",
+          "woodland": [
+            "flowers-violet"
+          ]
+        },
+        {
+          "range": [
+            12,
+            14
+          ],
+          "items": [
+            "pebbles-a",
+            "pebbles-b"
+          ],
+          "pick": "(h >>> 8) % 2"
+        }
+      ],
+      "test": "h % 100 within range"
+    },
+    "rock": {
+      "eligible": "flags & 4 (authoritative ROCK cells, replacing the grey ellipse)",
+      "items": [
+        "rock-a",
+        "rock-b"
+      ],
+      "pick": "h(x,y,2) % 2",
+      "position": "cell centre (unchanged from today)"
+    },
+    "patches": {
+      "eligible": "dry cells as above",
+      "salt": 3,
+      "test": "h % 997 < 12",
+      "items": [
+        "patch-clover.png",
+        "patch-dry.png",
+        "patch-moss.png",
+        "patch-worn.png"
+      ],
+      "pick": "(h >>> 10) % 4",
+      "woodland": [
+        "patch-moss.png",
+        "patch-worn.png"
+      ],
+      "layer": "groundBand, before every shadow container",
+      "anchor": "sprite centre at the projected cell centre, sprite.scale = 0.5 (patches are authored at 2 px per runtime px, not on the Blender render scale)"
+    },
+    "water": {
+      "eligible": "flags & 1 and none of the 4 orthogonal neighbours is 255",
+      "salt": 4,
+      "shoreRule": {
+        "when": "at least one orthogonal neighbour is land",
+        "rules": [
+          {
+            "range": [
+              0,
+              22
+            ],
+            "items": [
+              "reeds-a",
+              "reeds-b"
+            ]
+          },
+          {
+            "range": [
+              22,
+              28
+            ],
+            "items": [
+              "shore-stones"
+            ]
+          }
+        ],
+        "position": "0.3 units from the first land edge in N, E, S, W order, centred along it"
+      },
+      "openRule": {
+        "when": "all 8 neighbours are water",
+        "rules": [
+          {
+            "range": [
+              0,
+              3
+            ],
+            "items": [
+              "lilypads-a",
+              "lilypads-b"
+            ]
+          },
+          {
+            "range": [
+              3,
+              4
+            ],
+            "items": [
+              "waterlily-a",
+              "waterlily-b"
+            ]
+          }
+        ]
+      },
+      "anchor": "terrainProject(x, y, 0.5): the frame anchor is the waterline"
+    },
+    "sprites": "artSprite(texture, renderScale) exactly as trees: scale ASSET_SCALE * renderScale; dry items also get their '-shadow' frame (renderScale 4) in naturalShadows at alpha 0.45. Depth key x + y like trees.",
+    "budgets": {
+      "maxDecorSprites": 700,
+      "maxPatches": 160,
+      "maxGlints": 24,
+      "rule": "stop placing when a cap is reached; caps never change world facts"
+    }
+  },
+  "animation": {
+    "waterGlint": {
+      "file": "water-glint.png",
+      "frames": 4,
+      "frameSize": [
+        40,
+        20
+      ],
+      "density": 2,
+      "fps": 6,
+      "sequence": [
+        1,
+        2,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "eligible": "open-water cells (all 8 neighbours water) with h(x,y,5) % 61 == 0",
+      "phase": "h(x,y,5) % 18 frames",
+      "reducedMotion": "do not create glints (frame 0 is the empty still)",
+      "emitter": "none; fixed sprites updated from the existing ticker, no per-frame texture creation"
+    }
+  },
+  "budgets": {
+    "maxSimultaneousTextures": 16,
+    "note": "5 ground tiles (mipmapped) + 2 path edge + 1 woodland edge + 2 shore edge + 4 patches + 1 glint strip + 1 decor atlas page; decoded RGBA totals are recorded in the manifest"
+  },
+  "decodedBytes": 8170224,
+  "sourceHashes": {
+    "terrain": "cc4b6b7163e25cc6c0046f609d14604aee647d37c2940cc8430a196b18cf8bef",
+    "build": "1922cab6e249a9051e1281dcb2e85a91c411308dc51759108bda36cb7e7e67fd",
+    "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "foliage": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "provenance": "Original art-lab geometry/materials/procedural textures (AP4). No third-party assets, no generative-model output; reference boards used as direction only. Release licence pending owner."
+}

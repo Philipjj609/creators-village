@@ -1,0 +1,149 @@
+{
+  "version": "cv-artlab-batch-c-vegetation-01",
+  "studyOnly": true,
+  "library": "vegetation",
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-batch-c-vegetation-01.png",
+      "spritesheet": "cv-artlab-batch-c-vegetation-01.json",
+      "width": 400,
+      "height": 295,
+      "decodedBytes": 472000,
+      "pngBytes": 82694,
+      "sha256": "a7ecce6d273637c99537127eb942786e3be7567b2c109f25f36b7df4931a6a43",
+      "spritesheetSha256": "d62046f06d723409b550f1e959d98e906254613e791ecd068d93deb448967bdb",
+      "occupancy": 0.796,
+      "frames": 6
+    }
+  ],
+  "placement": {
+    "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+    "anchor": "spritesheet frame anchor",
+    "scale": "assetScale * renderScale (per asset, per shadow)",
+    "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+  },
+  "assets": [
+    {
+      "id": "pine-tall",
+      "name": "Pine (tall)",
+      "kind": "foliage",
+      "frame": "pine-tall",
+      "shadowFrame": "pine-tall-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "boundsLogical": {
+        "min": [
+          -1.077610731124878,
+          -1.051156759262085,
+          -0.03975359722971916
+        ],
+        "max": [
+          1.0548369884490967,
+          1.0568660497665405,
+          4.570000171661377
+        ]
+      },
+      "triangles": 4590,
+      "anchorRule": "trunk base",
+      "decodedBytes": 128904,
+      "shadowDecodedBytes": 22304
+    },
+    {
+      "id": "pine-small",
+      "name": "Pine (small)",
+      "kind": "foliage",
+      "frame": "pine-small",
+      "shadowFrame": "pine-small-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "boundsLogical": {
+        "min": [
+          -0.8374614119529724,
+          -0.8461338877677917,
+          -0.03710414096713066
+        ],
+        "max": [
+          0.8403651118278503,
+          0.8584849238395691,
+          3.1700000762939453
+        ]
+      },
+      "triangles": 3870,
+      "anchorRule": "trunk base",
+      "decodedBytes": 74200,
+      "shadowDecodedBytes": 13056
+    },
+    {
+      "id": "blossom",
+      "name": "Blossom tree",
+      "kind": "foliage",
+      "frame": "blossom",
+      "shadowFrame": "blossom-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "boundsLogical": {
+        "min": [
+          -1.2369811534881592,
+          -1.2402681112289429,
+          -0.041376084089279175
+        ],
+        "max": [
+          1.2716246843338013,
+          1.0728901624679565,
+          3.274587631225586
+        ]
+      },
+      "triangles": 6956,
+      "anchorRule": "trunk base",
+      "decodedBytes": 121800,
+      "shadowDecodedBytes": 15520
+    }
+  ],
+  "memory": {
+    "pagesDecodedMiB": 0.45,
+    "framesDecodedMiBByKind": {
+      "foliage": 0.358
+    }
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_structures.py": "322e969127553531534b162fda7e4a63b2eb8e358b0f4da65a2997c719f63878",
+    "vegetation.py": "78287bdddc4695f843639a990d16378b44d58af9ffd52dd74cdc879323eef5cf",
+    "cv_arch.py": "752528c615713ef79dd9d36381d7ea13ed3352a940907229917ca7e0e2010191",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "freestylePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+}

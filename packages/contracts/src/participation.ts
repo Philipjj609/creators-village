@@ -52,6 +52,8 @@ export const Wf2ContinuationSchema = object({
 });
 export const WF2_TEST_RULESET = "cp1-wf2-test-1" as const;
 export type Wf2Project = {
+  fundingModel?: "community-orbs-1";
+  pathExtension?: { points: { qx: number; qy: number }[]; widthQ: number };
   id: string;
   revision: string;
   planRevision: string;

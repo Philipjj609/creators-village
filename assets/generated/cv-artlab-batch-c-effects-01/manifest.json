@@ -1,0 +1,93 @@
+{
+  "version": "cv-artlab-batch-c-effects-01",
+  "studyOnly": true,
+  "optional": true,
+  "pages": [
+    {
+      "image": "cv-artlab-batch-c-effects-01.png",
+      "spritesheet": "cv-artlab-batch-c-effects-01.json",
+      "width": 176,
+      "height": 60,
+      "decodedBytes": 42240,
+      "pngBytes": 10036,
+      "sha256": "02c5cef96145ff9a9f56a2d2567c444f54bc4bfdd01df75bf94a81a6c5cb9463",
+      "spritesheetSha256": "a69313fd8d9856c6d5bd9b8b9753eca58a632c4f7c7cfec3606c4887292269d2",
+      "occupancy": 0.655,
+      "frames": 9
+    }
+  ],
+  "effects": {
+    "butterfly": {
+      "flapFps": 12,
+      "frames": 4,
+      "flipXWhenMovingLeft": true,
+      "path": "x(t)=x0+Ax*sin(w1*t+p), y(t)=y0+Ay*sin(w2*t+q), z(t)=0.7+0.25*sin(w3*t); A~0.8-1.6 units, w~0.3-0.7 rad/s",
+      "placement": "sprite.position = terrainProject(x, y, z); sprite.anchor = frame anchor (body centre); scale = assetScale",
+      "budget": "<= 6 visible; only near flower beds/blossom trees in daylight",
+      "reducedMotion": "do not spawn (or show one resting sprite on a flower bed, frame 3, no path motion)",
+      "depth": "draw above all objects in the same tile band (x+y+0.5) - purely decorative, never occludes UI"
+    },
+    "firefly": {
+      "blend": "add",
+      "frames": 1,
+      "path": "x(t)=x0+0.6*sin(0.5t+p)+0.25*sin(1.3t+q), y likewise, z(t)=0.4+0.5*sin(0.7t+r)",
+      "alpha": "0.15 + 0.85*max(0, sin(1.1t + phase))^2  (slow pulse)",
+      "placement": "sprite.position = terrainProject(x, y, z); anchor (0.5,0.5); scale = assetScale * 2",
+      "budget": "<= 24 visible; evening/night presentation only; skip when zoomed below 0.45",
+      "reducedMotion": "static glows at fixed positions with constant alpha 0.6, no wander or pulse",
+      "depth": "a single top layer above objects (additive light, no sorting needed)"
+    }
+  },
+  "butterflyCell": [
+    39,
+    36
+  ],
+  "butterflyAnchor": [
+    0.461538,
+    0.341752
+  ],
+  "memory": {
+    "pagesDecodedMiB": 0.0403
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "source": {
+    "rect": [
+      1234,
+      824,
+      1326,
+      915
+    ],
+    "groundAnchor": [
+      1280.0,
+      959.9995422363281
+    ],
+    "renderHeightUnits": 0.9,
+    "phasesDeg": [
+      70,
+      30,
+      -10,
+      30
+    ],
+    "colourways": [
+      "amber",
+      "sky"
+    ],
+    "outputs": {
+      "butterfly-amber-0.png": "7d86a965b91d6c15744dc2c94aa7b41c2431e282cea0cd6673bef2ac2e515fb2",
+      "butterfly-amber-1.png": "f25de83669987fce9aac04c3efbac87bad9f459849392d05ca07a205d3da117e",
+      "butterfly-amber-2.png": "aca1226459352693fe1b91baf7ee485c81e6160f4e2f18518bfaec14c31c7c6c",
+      "butterfly-amber-3.png": "6e4c5b837d0ada2e270edd56f9ddd95f1f5dc76922fab2e99cb123f48907df5f",
+      "butterfly-sky-0.png": "c97a4be11b3cba44afacc2c2de7c3f3a6357e3995a00f2bee11d66849745d0a0",
+      "butterfly-sky-1.png": "cffc15e7e06e95a168b4173a27dccd31cb1adfb98672bf42f8a9e3c51ec75700",
+      "butterfly-sky-2.png": "ce7db0c7c9b874568cc18cb1c70b57e8c6bfabdf4b4b790c07a43d1962313a85",
+      "butterfly-sky-3.png": "cffc15e7e06e95a168b4173a27dccd31cb1adfb98672bf42f8a9e3c51ec75700"
+    },
+    "blender": "4.5.15 LTS",
+    "renderPxPerUnit": 82.2815163562528,
+    "sourceSha256": "e7e8400b2e623063cb24fc61fc841389b36b758bb9fa0ff5d577c0e4f1693512"
+  },
+  "provenance": "Original art-lab butterfly geometry; procedural firefly glow. No third-party assets."
+}

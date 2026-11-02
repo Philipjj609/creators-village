@@ -1,0 +1,192 @@
+{
+  "version": "cv-artlab-batch-a-structures-02",
+  "studyOnly": true,
+  "library": "buildings",
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-batch-a-structures-02.png",
+      "spritesheet": "cv-artlab-batch-a-structures-02.json",
+      "width": 624,
+      "height": 1124,
+      "decodedBytes": 2805504,
+      "pngBytes": 573590,
+      "sha256": "f73046aa262bcb7fce33ad128614ea8630a032f649a782a86cfb7a32eef1cc0e",
+      "spritesheetSha256": "fd6f46024b79d4ceda36eff8407615275e10aee956d1d5fa886c662bb575f15e",
+      "occupancy": 0.843,
+      "frames": 4
+    }
+  ],
+  "placement": {
+    "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+    "anchor": "spritesheet frame anchor",
+    "scale": "assetScale * renderScale (per asset, per shadow)",
+    "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+  },
+  "assets": [
+    {
+      "id": "lodge",
+      "name": "Founding Lodge",
+      "kind": "building",
+      "frame": "lodge",
+      "shadowFrame": "lodge-shadow",
+      "textureScale": 0.75,
+      "renderScale": 1.3333333333333333,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -3,
+          "minY": -3,
+          "width": 6,
+          "depth": 6
+        },
+        "entrance": [
+          0,
+          3.5
+        ],
+        "apron": {
+          "minX": -0.75,
+          "minY": 3,
+          "width": 1.5,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED (same envelope shape as wf2-workshop-1)"
+      },
+      "emitters": {
+        "chimney": [
+          [
+            2.5,
+            0.55,
+            3.98
+          ]
+        ],
+        "lantern": [
+          [
+            0.85,
+            2.3,
+            1.72
+          ]
+        ]
+      },
+      "boundsLogical": {
+        "min": [
+          -2.648099660873413,
+          -2.316901922225952,
+          0.0
+        ],
+        "max": [
+          2.8244705200195312,
+          2.3999998569488525,
+          4.133185386657715
+        ]
+      },
+      "triangles": 46334,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 1288672,
+      "shadowDecodedBytes": 111444
+    },
+    {
+      "id": "cottage",
+      "name": "Cottage",
+      "kind": "building",
+      "frame": "cottage",
+      "shadowFrame": "cottage-shadow",
+      "textureScale": 0.75,
+      "renderScale": 1.3333333333333333,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -2,
+          "minY": -2,
+          "width": 4,
+          "depth": 4
+        },
+        "entrance": [
+          0,
+          2.5
+        ],
+        "apron": {
+          "minX": -0.75,
+          "minY": 2,
+          "width": 1.5,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED new 4x4 residential template"
+      },
+      "emitters": {
+        "chimney": [
+          [
+            0.66,
+            -0.65,
+            4.760000000000001
+          ]
+        ],
+        "lantern": [
+          [
+            -0.62,
+            1.6099999999999999,
+            1.42
+          ]
+        ]
+      },
+      "boundsLogical": {
+        "min": [
+          -1.8423805236816406,
+          -1.9267964363098145,
+          0.0
+        ],
+        "max": [
+          1.8700000047683716,
+          1.9500000476837158,
+          4.7799296379089355
+        ]
+      },
+      "triangles": 43288,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 894816,
+      "shadowDecodedBytes": 69536
+    }
+  ],
+  "memory": {
+    "pagesDecodedMiB": 2.676,
+    "framesDecodedMiBByKind": {
+      "building": 2.255
+    }
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+    "buildings.py": "8ee8f0578183c364b3e8f0cdfed8507d65b878aa9a019c52ea8c4f4998da5c1c",
+    "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "freestylePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+}

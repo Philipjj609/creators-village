@@ -1,8 +1,10 @@
+import { connectRoad, roadPoints, connectedMask } from "./orb-path.js";
 import { createHash } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import type { PoolClient } from "pg";
 import { decodeChunk } from "@creators-village/world/founding";
+import { ORB_POLICY } from "@creators-village/contracts";
 import {
   terrainReader,
   halfClaims,
@@ -44,6 +46,12 @@ export async function spatialContext(db: PoolClient, world: string) {
       [world],
     )
   ).rows;
+  const paths = (
+    await db.query(
+      "SELECT id,width,geometry FROM founding_paths WHERE world_id=$1 ORDER BY id",
+      [world],
+    )
+  ).rows;
   const plans = (
     await db.query(
       "SELECT * FROM wf2_projects WHERE world_id=$1 AND state IN('open','ready','blocked') ORDER BY id",
@@ -55,6 +63,7 @@ export async function spatialContext(db: PoolClient, world: string) {
     chunks,
     structures,
     plans,
+    paths,
     baselineHash: w.baseline_hash as string,
   };
 }
@@ -105,6 +114,7 @@ export async function planAt(
   qx: number,
   qy: number,
   original?: Record<string, any>,
+  fundingModel?: "community-orbs-1",
 ) {
   const calibration = JSON.parse(
     await fs.readFile(
@@ -182,8 +192,21 @@ export async function planAt(
     h.path.points.map((p) => ({ qx: p.x * 256, qy: p.y * 256 })),
     h.path.width,
   );
+  // New and unpublished plans protect saved roads. A published reservation must
+  // retain its original contract; later paths already route around active claims.
+  const protectSavedRoads = !original || original.state === "draft";
   const protectedAreas = [
     ...founderPath,
+    ...c.paths
+      .filter((p) => protectSavedRoads && p.id !== "founding-path")
+      .flatMap((p) =>
+        pathRects(
+          p.geometry.map((v: any) =>
+            "qx" in v ? v : { qx: v.x * 256, qy: v.y * 256 },
+          ),
+          p.width / 256,
+        ),
+      ),
     ...c.structures.map((s) => ({
       x: s.entrance_qx / 256 - 0.75,
       y: s.entrance_qy / 256 - 0.5,
@@ -202,6 +225,8 @@ export async function planAt(
   )
     fail("INVALID_INPUT", 400);
   const baseHeight = Math.round(read.height(qx / 256, qy / 256)! * 16);
+  const orb = (original?.ruleset_id ?? fundingModel) === "community-orbs-1";
+  const grid = walkGrid(h.baseline, c.chunks, h.active, [...occupied, r]);
   const end = { qx, qy: qy + 896 },
     start = { qx: 0, qy: 2304 };
   const clear = (rect: Rect) =>
@@ -226,6 +251,20 @@ export async function planAt(
         }))
     );
   };
+  const connected = connectedMask(grid, start);
+  const sourceSet = orb
+    ? roadPoints(c.paths).filter(
+        (p) =>
+          connected(p) &&
+          clear({
+            x: p.qx / 256 - 0.75,
+            y: p.qy / 256 - 0.75,
+            width: 1.5,
+            depth: 1.5,
+          }),
+      )
+    : [start];
+  const sourceKeys = new Set(sourceSet.map((p) => p.qx + "," + p.qy));
   let points: Point[];
   if (original) {
     points = original.path_points;
@@ -234,13 +273,18 @@ export async function planAt(
       original.qy !== qy ||
       original.base_height !== baseHeight ||
       !points.length ||
-      points[0]!.qx !== 0 ||
-      points[0]!.qy !== 2304 ||
+      !(orb
+        ? sourceKeys.has(points[0]!.qx + "," + points[0]!.qy)
+        : points[0]!.qx === 0 && points[0]!.qy === 2304) ||
       points.at(-1)!.qx !== end.qx ||
       points.at(-1)!.qy !== end.qy ||
       !pathRects(points).every(clear)
     )
       fail("PLAN_CHANGED");
+  } else if (orb) {
+    const route = connectRoad(sourceSet, end, edge);
+    if (!route || route.length > 256) fail("INVALID_INPUT", 400);
+    points = route;
   } else {
     // Small bounded deterministic A*: f, h, insertion index; N,E,S,W expansion.
     const key = (p: Point) => p.qx + "," + p.qy,
@@ -308,7 +352,26 @@ export async function planAt(
     if (points.length > 256 || !pathRects(points).every(clear))
       fail("INVALID_INPUT", 400);
   }
-  const grid = walkGrid(h.baseline, c.chunks, h.active, [...occupied, r]);
+  let extension: Point[] | null = null;
+  if (orb) {
+    const center = { qx, qy: qy + 1152 },
+      left = { qx: qx - 1152, qy: qy + 1152 },
+      right = { qx: qx + 1152, qy: qy + 1152 };
+    const l = pathRects([left, center]).every(clear),
+      rr = pathRects([center, right]).every(clear);
+    extension =
+      l && rr
+        ? [left, right]
+        : l
+          ? [left, center]
+          : rr
+            ? [center, right]
+            : null;
+    if (original) {
+      extension = original.path_extension ?? null;
+      if (extension && !pathRects(extension).every(clear)) fail("PLAN_CHANGED");
+    }
+  }
   const goals = c.structures.map((s) => ({
     x: s.entrance_qx / 256,
     y: s.entrance_qy / 256,
@@ -332,9 +395,13 @@ export async function planAt(
     geometry_schema: "wf2-plan-1",
     world_id: world,
     baseline_hash: c.baselineHash,
-    ruleset_id: "cp1-wf2-test-1",
-    goal: 2,
-    minimum_non_creator: 1,
+    ruleset_id: original?.ruleset_id ?? fundingModel ?? "cp1-wf2-test-1",
+    goal:
+      (original?.ruleset_id ?? fundingModel) === "community-orbs-1"
+        ? ORB_POLICY.workshopCost
+        : 2,
+    minimum_non_creator:
+      (original?.ruleset_id ?? fundingModel) === "community-orbs-1" ? 0 : 1,
     template_id: "wf2-workshop-1",
     orientation: 0,
     qx,
@@ -346,6 +413,7 @@ export async function planAt(
     entrance_qy: end.qy,
     path_width_q: 384,
     path_points: points,
+    ...(orb ? { path_extension: extension } : {}),
     appearance: "hearthside-hero-01/workshop",
     asset_manifest_hash: assetHash,
   };

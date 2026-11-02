@@ -1,5 +1,7 @@
+import { selectionFrame } from "./selection.js";
 import type { Application, Container } from "pixi.js";
 import { dampedStep, deadZoneTarget } from "./camera-motion.js";
+import { clampCameraTranslation } from "./viewport-bounds.js";
 type Point = { x: number; y: number };
 type Bounds = { x: number; y: number; width: number; height: number };
 
@@ -14,6 +16,9 @@ export function attachCamera(
     fitHeight: number;
     center: Point;
     onTap: (point: Point) => void;
+    onHover?: (point: Point) => void;
+    onContextMenu?: () => boolean;
+    minOverviewScale?: number;
     maxScale?: number;
     cover?: boolean;
     onExplore?: () => void;
@@ -36,13 +41,15 @@ export function attachCamera(
     releaseY = 0,
     lastPointerTime = 0;
   let overview: { x: number; y: number; scale: number } | null = null;
-  let focused = false;
+  let focused = false,
+    autoFocus = false;
   function invalidate() {
     if (disposed || document.hidden) return;
     if (!app.ticker.started) sampling = false;
     app.start();
   }
   function reset() {
+    autoFocus = true;
     focused = false;
     releaseX = releaseY = 0;
     if (overview) {
@@ -65,7 +72,7 @@ export function attachCamera(
   function zoom(factor: number, at?: Point) {
     const previous = scale;
     scale = Math.max(
-      base * (options.cover ? 1 : 0.65),
+      options.minOverviewScale ?? base * (options.cover ? 1 : 0.65),
       Math.min(scale * factor, options.maxScale ?? 2.1),
     );
     at ??= { x: app.screen.width / 2, y: app.screen.height / 2 };
@@ -76,7 +83,19 @@ export function attachCamera(
     }
     invalidate();
   }
+  function interrupt() {
+    releaseX = releaseY = 0;
+    if (!autoFocus) return;
+    autoFocus = false;
+    x = scene.x;
+    y = scene.y;
+    scale = scene.scale.x;
+    vx = vy = vs = 0;
+    releaseX = releaseY = 0;
+  }
   function focus(point: Point, requested: number, screenCenter?: Point) {
+    autoFocus = true;
+    host.dataset.cameraState = "moving";
     if (!focused) {
       overview = { x, y, scale };
       focused = true;
@@ -97,6 +116,20 @@ export function attachCamera(
   );
   function keyboard(event: KeyboardEvent) {
     if (event.altKey || event.ctrlKey || event.metaKey) return;
+    if (
+      ![
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown",
+        "+",
+        "=",
+        "-",
+        "Home",
+      ].includes(event.key)
+    )
+      return;
+    interrupt();
     if (event.key === "ArrowLeft") x += 60;
     else if (event.key === "ArrowRight") x -= 60;
     else if (event.key === "ArrowUp") y += 60;
@@ -117,32 +150,50 @@ export function attachCamera(
   let start = { x: 0, y: 0 },
     last = { x: 0, y: 0 },
     distance = 0,
-    moved = 0;
+    moved = 0,
+    downTime = 0,
+    touch = false,
+    gesture = false;
   const local = (event: PointerEvent) => {
     const r = app.canvas.getBoundingClientRect();
     return { x: event.clientX - r.left, y: event.clientY - r.top };
   };
   function down(event: PointerEvent) {
-    options.onExplore?.();
+    if (event.button !== 0) return;
     const p = local(event);
     pointers.set(event.pointerId, p);
     app.canvas.setPointerCapture(event.pointerId);
     start = p;
     last = p;
     moved = 0;
+    downTime = performance.now();
+    touch = event.pointerType === "touch";
+    gesture = false;
     releaseX = releaseY = 0;
     lastPointerTime = performance.now();
     if (pointers.size === 2) {
+      gesture = true;
+      moved = 100;
+      interrupt();
+      options.onExplore?.();
       const [a, b] = [...pointers.values()];
       distance = Math.hypot(a!.x - b!.x, a!.y - b!.y);
     }
     invalidate();
   }
   function move(event: PointerEvent) {
-    if (!pointers.has(event.pointerId)) return;
+    if (!pointers.has(event.pointerId)) {
+      if (!pointers.size) options.onHover?.(local(event));
+      return;
+    }
     const p = local(event);
     pointers.set(event.pointerId, p);
     moved = Math.max(moved, Math.hypot(p.x - start.x, p.y - start.y));
+    if (!gesture && moved >= (touch ? 10 : 6)) {
+      gesture = true;
+      interrupt();
+      options.onExplore?.();
+    }
     if (pointers.size === 2) {
       const [a, b] = [...pointers.values()];
       const d = Math.hypot(a!.x - b!.x, a!.y - b!.y);
@@ -162,11 +213,18 @@ export function attachCamera(
     invalidate();
   }
   function up(event: PointerEvent) {
+    if (event.button !== 0) return;
     const p = local(event);
     pointers.delete(event.pointerId);
     if (moved < 7 || motion.matches || performance.now() - lastPointerTime > 80)
       releaseX = releaseY = 0;
-    if (moved < 7 && pointers.size === 0) options.onTap(p);
+    if (
+      !gesture &&
+      moved < (touch ? 10 : 6) &&
+      performance.now() - downTime < 500 &&
+      pointers.size === 0
+    )
+      options.onTap(p);
     distance = 0;
     invalidate();
     if (pointers.size === 1) {
@@ -176,12 +234,15 @@ export function attachCamera(
     }
   }
   function cancel(event: PointerEvent) {
+    gesture = true;
+    moved = 100;
     pointers.delete(event.pointerId);
     distance = 0;
     releaseX = releaseY = 0;
   }
   function wheel(event: WheelEvent) {
     options.onExplore?.();
+    interrupt();
     releaseX = releaseY = 0;
     event.preventDefault();
     const r = app.canvas.getBoundingClientRect();
@@ -190,7 +251,11 @@ export function attachCamera(
       y: event.clientY - r.top,
     });
   }
+  const contextMenu = (event: MouseEvent) => {
+    if (options.onContextMenu?.()) event.preventDefault();
+  };
   const events = [
+    ["contextmenu", contextMenu],
     ["pointerdown", down],
     ["pointermove", move],
     ["pointerup", up],
@@ -230,26 +295,14 @@ export function attachCamera(
       releaseX *= decay;
       releaseY *= decay;
     }
-    const b = options.bounds;
-    if (options.cover) {
-      x = Math.max(
-        app.screen.width - (b.x + b.width) * scale,
-        Math.min(x, -b.x * scale),
-      );
-      y = Math.max(
-        app.screen.height - (b.y + b.height) * scale,
-        Math.min(y, -b.y * scale),
-      );
-    } else {
-      x = Math.max(
-        60 - (b.x + b.width) * scale,
-        Math.min(x, app.screen.width - 60 - b.x * scale),
-      );
-      y = Math.max(
-        60 - (b.y + b.height) * scale,
-        Math.min(y, app.screen.height - 60 - b.y * scale),
-      );
-    }
+    ({ x, y } = clampCameraTranslation(
+      x,
+      y,
+      scale,
+      app.screen.width,
+      app.screen.height,
+      options.bounds,
+    ));
     if (motion.matches) {
       scene.position.set(x, y);
       scene.scale.set(scale);
@@ -264,17 +317,27 @@ export function attachCamera(
       vy = sy.velocity;
       vs = sz.velocity;
     }
+    const visible = clampCameraTranslation(
+      scene.x,
+      scene.y,
+      scene.scale.x,
+      app.screen.width,
+      app.screen.height,
+      options.bounds,
+    );
+    scene.position.set(visible.x, visible.y);
     if (
       Math.abs(x - scene.x) < 0.1 &&
       Math.abs(y - scene.y) < 0.1 &&
       Math.abs(scale - scene.scale.x) < 0.0001 &&
       Math.hypot(releaseX, releaseY) < 0.5
     ) {
+      host.dataset.cameraState = "settled";
       scene.position.set(x, y);
       scene.scale.set(scale);
       vx = vy = vs = 0;
       app.stop();
-    }
+    } else host.dataset.cameraState = "moving";
   };
   app.ticker.add(tick);
   const visibility = () => {
@@ -284,9 +347,43 @@ export function attachCamera(
   document.addEventListener("visibilitychange", visibility);
   return {
     reset,
-    zoom,
+    zoom: (factor: number) => {
+      interrupt();
+      zoom(factor);
+    },
     focus,
+    locate(
+      point: Point,
+      frame: Bounds,
+      mode: "frame" | "nudge" = "frame",
+      requested = 1.4,
+      extent = { width: 60, height: 70 },
+    ) {
+      if (mode === "frame") {
+        const fit = Math.min(
+          frame.width / (extent.width + 24),
+          frame.height / (extent.height + 24),
+        );
+        focus(
+          point,
+          Math.min(Math.max(scale, requested), fit),
+          selectionFrame(point, frame, extent, scale, "frame"),
+        );
+        return;
+      }
+      const screen = { x: point.x * scale + x, y: point.y * scale + y };
+      const { x: cx, y: cy } = selectionFrame(
+        screen,
+        frame,
+        extent,
+        scale,
+        "nudge",
+      );
+      if (cx !== screen.x || cy !== screen.y)
+        focus(point, scale, { x: cx, y: cy });
+    },
     follow(point: Point, requested: number, screenCenter?: Point) {
+      autoFocus = true;
       if (!focused) {
         focus(point, requested, screenCenter);
         return;

@@ -1,6 +1,8 @@
 /** Fictional residents are never provider identities, memberships or presence. */
 export const LIVING_RULES = "lw1-routines-1" as const;
 export const LIVING_GOAL_RULES = "lw1-goals-1" as const;
+export const LIVING_VISIBILITY_RULES = "cv-f2-goals-1" as const;
+export const LIVING_CONSTRUCTION_RULES = "cv-f1-goals-1" as const;
 export type ResidentActivity =
   "idle" | "travel" | "work" | "gather" | "rest" | "observe";
 export type ResidentPoint = { x: number; y: number; height: number };
@@ -34,7 +36,11 @@ export type ResidentGoal = {
   durationMs: number;
 };
 export type LivingVillage = {
-  rules: typeof LIVING_RULES | typeof LIVING_GOAL_RULES;
+  rules:
+    | typeof LIVING_RULES
+    | typeof LIVING_GOAL_RULES
+    | typeof LIVING_CONSTRUCTION_RULES
+    | typeof LIVING_VISIBILITY_RULES;
   worldId: string;
   baselineHash: string;
   topologyEpoch: string;

@@ -1,37 +1,40 @@
 import type { LivingViewState } from "@creators-village/renderer";
-
+import { VillageDirectory, type ListMemory } from "./VillageDirectory.js";
+import { residentActivity } from "./resident-copy.js";
 export function ResidentList({
   living,
   select,
+  memory,
+  following,
 }: {
   living: LivingViewState | null;
   select: (id: string) => void;
+  memory: ListMemory;
+  following: string | null;
 }) {
   return (
-    <section aria-label="Fictional residents">
-      <h3>Village residents</h3>
-      <p className="pi-muted">
-        Fictional inhabitants · separate from Twitch community members.
-      </p>
-      {living?.plan.residents.map((r) => (
-        <button
-          key={r.id}
-          className="pi-place-row"
-          onClick={() => select(r.id)}
-        >
-          <span>
-            {r.name}
-            <small className="lw-role">{r.role}</small>
-          </span>
-          <span aria-hidden="true">↗</span>
-        </button>
-      ))}
-      {!living && (
-        <p>Resident state is unavailable. Reconnect to refresh the village.</p>
-      )}
-      {living && !living.plan.residents.length && (
-        <p>No residents can reach this part of the village yet.</p>
-      )}
+    <section aria-label="Fictional inhabitants">
+      <p className="ux1-section-label">Fictional inhabitants</p>
+      <VillageDirectory
+        label="People"
+        memory={memory}
+        items={(living?.plan.residents ?? []).map((r) => ({
+          key: r.id,
+          name: r.name,
+          search: r.name + " " + r.role,
+          description:
+            r.role +
+            " · " +
+            residentActivity(living?.states.find((s) => s.id === r.id)),
+          status: following === r.id ? "Following" : undefined,
+        }))}
+        select={select}
+        empty={
+          living
+            ? "No inhabitants are available in this village."
+            : "Inhabitants are loading…"
+        }
+      />
     </section>
   );
 }
@@ -39,48 +42,33 @@ export function ResidentPanel({
   living,
   id,
   focus,
-  overview,
+  following,
 }: {
   living: LivingViewState | null;
   id: string;
   focus: () => void;
-  overview: () => void;
+  following: boolean;
 }) {
   const resident = living?.plan.residents.find((r) => r.id === id);
   const state = living?.states.find((s) => s.id === id);
-  if (!resident || !state)
-    return <p>Finding this resident… Reconnect if they remain unavailable.</p>;
+  if (!resident || !state) return <p>Loading this resident…</p>;
   return (
     <section aria-label="Resident information">
-      <p className="pi-muted">Fictional village resident</p>
       <h3>{resident.name}</h3>
+      <p className="ui4-role">Fictional inhabitant · {resident.role}</p>
       <dl className="lw-facts">
-        <dt>Role</dt>
-        <dd>{resident.role}</dd>
         <dt>Current activity</dt>
-        <dd>
-          {state.actionLabel ??
-            (state.activity === "travel"
-              ? `Travelling to ${state.location.toLowerCase()}`
-              : `${state.activity[0]!.toUpperCase()}${state.activity.slice(1)}`)}
-        </dd>
+        <dd>{residentActivity(state)}</dd>
         <dt>{state.activity === "travel" ? "Destination" : "Location"}</dt>
         <dd>{state.location}</dd>
-        {state.activity === "travel" && (
-          <>
-            <dt>On arrival</dt>
-            <dd>
-              {state.goalId === "social"
-                ? "Conversation"
-                : state.destinationActivity}
-            </dd>
-          </>
-        )}
       </dl>
-      <button className="pi-button primary" onClick={focus}>
-        Follow resident
+      <button
+        className="pi-button primary"
+        onClick={focus}
+        aria-pressed={following}
+      >
+        {following ? "Following" : "Follow"}
       </button>
-      <button onClick={overview}>Return to overview</button>
     </section>
   );
 }

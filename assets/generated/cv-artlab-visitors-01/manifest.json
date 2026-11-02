@@ -1,0 +1,190 @@
+{
+  "version": "cv-artlab-visitors-01",
+  "studyOnly": true,
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-visitors-01-wanderer-loco.png",
+      "spritesheet": "cv-artlab-visitors-01-wanderer-loco.json",
+      "width": 976,
+      "height": 473,
+      "decodedBytes": 1846592,
+      "pngBytes": 461707,
+      "sha256": "42a2ca7095f6dade0300e00d462bcf1aff227687e6233841fd00a9b83f599879",
+      "spritesheetSha256": "a8e1bef55ae240365b2194feb04f7e2a4e55581b75306e490de53ade9b846116",
+      "occupancy": 0.825,
+      "frames": 68,
+      "character": "wanderer",
+      "group": "loco"
+    },
+    {
+      "image": "cv-artlab-visitors-01-traveller-loco.png",
+      "spritesheet": "cv-artlab-visitors-01-traveller-loco.json",
+      "width": 496,
+      "height": 755,
+      "decodedBytes": 1497920,
+      "pngBytes": 463814,
+      "sha256": "374e259e40018323eac5b1f4c75a094e3ae3deb5eb380bcff13e92cbc3ba1034",
+      "spritesheetSha256": "b2c4008ffe090dd426e39400d4f83c060c12a3d323617e66f91f58e13d1accb4",
+      "occupancy": 0.839,
+      "frames": 68,
+      "character": "traveller",
+      "group": "loco"
+    }
+  ],
+  "cast": [
+    {
+      "id": "wanderer",
+      "name": "Vesper, the lantern wanderer",
+      "role": "visitor",
+      "cell": [
+        72,
+        119
+      ],
+      "anchor": [
+        0.5,
+        0.878149
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.4944,
+        "cycleSeconds": 1.0,
+        "strideUnits": 0.4944,
+        "stanceFootDriftUnits": 0.00158,
+        "stanceFootDriftPxAtZoom1": 0.057
+      },
+      "framesDecodedBytes": 1523844,
+      "idleFeetStableWithin1px": true
+    },
+    {
+      "id": "traveller",
+      "name": "Juniper, travelling artisan",
+      "role": "visitor",
+      "cell": [
+        69,
+        96
+      ],
+      "anchor": [
+        0.5,
+        0.901039
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 6,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.6101,
+        "cycleSeconds": 0.8,
+        "strideUnits": 0.4881,
+        "stanceFootDriftUnits": 0.0028,
+        "stanceFootDriftPxAtZoom1": 0.1
+      },
+      "framesDecodedBytes": 1256536,
+      "idleFeetStableWithin1px": true
+    }
+  ],
+  "directions": {
+    "se": "+x, screen down-right",
+    "sw": "+y, screen down-left",
+    "nw": "-x, back, screen up-left",
+    "ne": "-y, back, screen up-right"
+  },
+  "placement": {
+    "anchor": "per-character cell anchor (feet centre)",
+    "position": "terrainProject(ground point)",
+    "scale": "assetScale * renderScale",
+    "shadow": "<char>/shadow-<dir> in the ground band, scale assetScale * shadowRenderScale",
+    "animationSpeed": "fps / 60 for Pixi AnimatedSprite",
+    "depth": "x+y of the ground point"
+  },
+  "memory": {
+    "pagesDecodedMiB": 3.19,
+    "residentLocomotionMiB": 3.19,
+    "lazyActivityMiB": 0.0
+  },
+  "activityMap": {
+    "travel": "walk-<dir>",
+    "idle": "idle-<dir>",
+    "work": "work-<se|sw>",
+    "observe": "observe-<se|sw>",
+    "gather": "gather-<dir>",
+    "rest": "rest-<se|sw>",
+    "react": "react-<se|sw> (optional one-shot, e.g. on completedActions increment)",
+    "frontFacingRule": "stationary activities use se/sw only: pick se when face.x >= face.y else sw; back-facing goals are drawn facing the camera"
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_characters.py": "fd49f02ecf5446af6824c1b16b3780cbd816722a815434808b3bf992bedbcb17",
+    "characters.py": "66656b28993e7a30e86b1e3f1381de2d6d263ba787a71969a61f9c626f605988",
+    "cv_rig.py": "0f962bbac68e79426405e623c7aa078e73eedd431030258d806046ff003c8050",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 48,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35"
+  },
+  "blender": "4.5.15 LTS",
+  "provenance": "Original art-lab characters (procedural geometry + puppet rig); no third-party assets or generative-model output. Release license pending owner."
+}

@@ -1,0 +1,572 @@
+{
+  "version": "cv-artlab-batch-c-props-01",
+  "studyOnly": true,
+  "library": "props",
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-batch-c-props-01.png",
+      "spritesheet": "cv-artlab-batch-c-props-01.json",
+      "width": 192,
+      "height": 589,
+      "decodedBytes": 452352,
+      "pngBytes": 108506,
+      "sha256": "cbf3a0aacdc633e9eb01e01455ea9dbb90b37ad2889e19693ea4337632be6e77",
+      "spritesheetSha256": "c7ac8336caa115d1c57fb2ce4c1f2c99dfad1005cfc2b129b832319136888b4b",
+      "occupancy": 0.726,
+      "frames": 28
+    }
+  ],
+  "placement": {
+    "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+    "anchor": "spritesheet frame anchor",
+    "scale": "assetScale * renderScale (per asset, per shadow)",
+    "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+  },
+  "assets": [
+    {
+      "id": "flowerbed-round",
+      "name": "Round flower bed",
+      "kind": "prop",
+      "frame": "flowerbed-round",
+      "shadowFrame": "flowerbed-round-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.6,
+          "minY": -0.6,
+          "width": 1.2,
+          "depth": 1.2
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.5900000333786011,
+          -0.5900000333786011,
+          -0.009999999776482582
+        ],
+        "max": [
+          0.5900000333786011,
+          0.5900000333786011,
+          0.2800000011920929
+        ]
+      },
+      "triangles": 4266,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 14592,
+      "shadowDecodedBytes": 2664
+    },
+    {
+      "id": "flowerbed-long",
+      "name": "Raised flower bed",
+      "kind": "prop",
+      "frame": "flowerbed-long",
+      "shadowFrame": "flowerbed-long-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -1.0,
+          "minY": -0.5,
+          "width": 2,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.8350000381469727,
+          -0.33500000834465027,
+          0.0
+        ],
+        "max": [
+          0.8350000381469727,
+          0.33500000834465027,
+          0.30000001192092896
+        ]
+      },
+      "triangles": 3684,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 25048,
+      "shadowDecodedBytes": 5100
+    },
+    {
+      "id": "lantern-post",
+      "name": "Lantern post",
+      "kind": "prop",
+      "frame": "lantern-post",
+      "shadowFrame": "lantern-post-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.5,
+          "minY": -0.5,
+          "width": 1,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.15000000596046448,
+          -0.15000000596046448,
+          0.0
+        ],
+        "max": [
+          0.46000000834465027,
+          0.15000000596046448,
+          1.899999976158142
+        ]
+      },
+      "triangles": 660,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 18480,
+      "shadowDecodedBytes": 3248
+    },
+    {
+      "id": "signpost",
+      "name": "Signpost (blank boards)",
+      "kind": "prop",
+      "frame": "signpost",
+      "shadowFrame": "signpost-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.9,
+          "minY": -0.9,
+          "width": 1.8,
+          "depth": 1.8
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.27268341183662415,
+          -0.4628070890903473,
+          0.0
+        ],
+        "max": [
+          0.7431724071502686,
+          0.6295940279960632,
+          1.9500000476837158
+        ]
+      },
+      "triangles": 903,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 37632,
+      "shadowDecodedBytes": 3584
+    },
+    {
+      "id": "bench",
+      "name": "Bench",
+      "kind": "prop",
+      "frame": "bench",
+      "shadowFrame": "bench-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.75,
+          "minY": -0.5,
+          "width": 1.5,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.6000000238418579,
+          -0.1550000011920929,
+          0.0
+        ],
+        "max": [
+          0.6000000238418579,
+          0.15000000596046448,
+          0.8500000238418579
+        ]
+      },
+      "triangles": 756,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 21488,
+      "shadowDecodedBytes": 4000
+    },
+    {
+      "id": "fence-x",
+      "name": "Fence segment along x",
+      "kind": "prop",
+      "frame": "fence-x",
+      "shadowFrame": "fence-x-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.5,
+          "minY": -0.125,
+          "width": 1.0,
+          "depth": 0.25
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.4800207316875458,
+          -0.05417528748512268,
+          -0.0006369471084326506
+        ],
+        "max": [
+          0.4800207316875458,
+          0.05417528748512268,
+          0.7606369256973267
+        ]
+      },
+      "triangles": 432,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 13200,
+      "shadowDecodedBytes": 2340
+    },
+    {
+      "id": "fence-y",
+      "name": "Fence segment along y",
+      "kind": "prop",
+      "frame": "fence-y",
+      "shadowFrame": "fence-y-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.125,
+          "minY": -0.5,
+          "width": 0.25,
+          "depth": 1.0
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.05544315278530121,
+          -0.4800260066986084,
+          -0.000565946102142334
+        ],
+        "max": [
+          0.05544315278530121,
+          0.4800260066986084,
+          0.7605659365653992
+        ]
+      },
+      "triangles": 432,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 13464,
+      "shadowDecodedBytes": 2400
+    },
+    {
+      "id": "planter-box",
+      "name": "Planter box",
+      "kind": "prop",
+      "frame": "planter-box",
+      "shadowFrame": "planter-box-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.5,
+          "minY": -0.5,
+          "width": 1,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.3041214048862457,
+          -0.30000001192092896,
+          0.0
+        ],
+        "max": [
+          0.30000001192092896,
+          0.30000001192092896,
+          0.8799999952316284
+        ]
+      },
+      "triangles": 1110,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 14784,
+      "shadowDecodedBytes": 2220
+    },
+    {
+      "id": "planter-pot",
+      "name": "Clay planter",
+      "kind": "prop",
+      "frame": "planter-pot",
+      "shadowFrame": "planter-pot-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.375,
+          "minY": -0.375,
+          "width": 0.75,
+          "depth": 0.75
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.2683022916316986,
+          -0.2683022916316986,
+          0.0
+        ],
+        "max": [
+          0.2683022916316986,
+          0.2683022916316986,
+          0.6600000262260437
+        ]
+      },
+      "triangles": 1460,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 7800,
+      "shadowDecodedBytes": 972
+    },
+    {
+      "id": "supplies-crates",
+      "name": "Stacked crates",
+      "kind": "prop",
+      "frame": "supplies-crates",
+      "shadowFrame": "supplies-crates-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.5,
+          "minY": -0.5,
+          "width": 1,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.4099999964237213,
+          -0.24798135459423065,
+          0.0
+        ],
+        "max": [
+          0.4479813575744629,
+          0.3100000023841858,
+          0.7599999904632568
+        ]
+      },
+      "triangles": 2436,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 16384,
+      "shadowDecodedBytes": 2220
+    },
+    {
+      "id": "supplies-barrels",
+      "name": "Barrels",
+      "kind": "prop",
+      "frame": "supplies-barrels",
+      "shadowFrame": "supplies-barrels-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.5,
+          "minY": -0.5,
+          "width": 1,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.43140918016433716,
+          -0.2514091730117798,
+          0.0
+        ],
+        "max": [
+          0.4586166739463806,
+          0.33861666917800903,
+          0.6399999856948853
+        ]
+      },
+      "triangles": 2624,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 11904,
+      "shadowDecodedBytes": 2112
+    },
+    {
+      "id": "supplies-logs-sacks",
+      "name": "Log pile and sacks",
+      "kind": "prop",
+      "frame": "supplies-logs-sacks",
+      "shadowFrame": "supplies-logs-sacks-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.8,
+          "minY": -0.6,
+          "width": 1.6,
+          "depth": 1.2
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.44999998807907104,
+          -0.42527079582214355,
+          0.0
+        ],
+        "max": [
+          0.6672550439834595,
+          0.42527079582214355,
+          0.4952707886695862
+        ]
+      },
+      "triangles": 3658,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 19520,
+      "shadowDecodedBytes": 6996
+    },
+    {
+      "id": "garden-pumpkins",
+      "name": "Pumpkin and cabbage patch",
+      "kind": "prop",
+      "frame": "garden-pumpkins",
+      "shadowFrame": "garden-pumpkins-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.8,
+          "minY": -0.6,
+          "width": 1.6,
+          "depth": 1.2
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.7624300122261047,
+          -0.5206815004348755,
+          -0.019999999552965164
+        ],
+        "max": [
+          0.7579547762870789,
+          0.546578049659729,
+          0.3959999978542328
+        ]
+      },
+      "triangles": 2652,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 18360,
+      "shadowDecodedBytes": 3116
+    },
+    {
+      "id": "well",
+      "name": "Small well",
+      "kind": "prop",
+      "frame": "well",
+      "shadowFrame": "well-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.7,
+          "minY": -0.7,
+          "width": 1.4,
+          "depth": 1.4
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "boundsLogical": {
+        "min": [
+          -0.6000000238418579,
+          -0.5321115255355835,
+          0.0
+        ],
+        "max": [
+          0.6000000238418579,
+          0.5321115255355835,
+          1.7814483642578125
+        ]
+      },
+      "triangles": 2004,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 47000,
+      "shadowDecodedBytes": 7884
+    }
+  ],
+  "memory": {
+    "pagesDecodedMiB": 0.431,
+    "framesDecodedMiBByKind": {
+      "prop": 0.313
+    }
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_structures.py": "322e969127553531534b162fda7e4a63b2eb8e358b0f4da65a2997c719f63878",
+    "props.py": "9c164f8b56d30a839a38249b6681f2e4a81da4a0aed3d632fbf6f1c21b1a5726",
+    "cv_arch.py": "752528c615713ef79dd9d36381d7ea13ed3352a940907229917ca7e0e2010191",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "freestylePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+}

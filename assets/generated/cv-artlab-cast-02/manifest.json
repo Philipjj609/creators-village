@@ -1,0 +1,681 @@
+{
+  "version": "cv-artlab-cast-02",
+  "studyOnly": true,
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-cast-02-maker-loco.png",
+      "spritesheet": "cv-artlab-cast-02-maker-loco.json",
+      "width": 240,
+      "height": 1259,
+      "decodedBytes": 1208640,
+      "pngBytes": 426281,
+      "sha256": "a3076dabee2c2aa26d86282c73fe025c486f73f6f3fe03e0231941405db335d9",
+      "spritesheetSha256": "3796823a503ed5be252006498bfb242e24c2b7fd6bf038b3dcda20c98c11d3c8",
+      "occupancy": 0.835,
+      "frames": 68,
+      "character": "maker",
+      "group": "loco"
+    },
+    {
+      "image": "cv-artlab-cast-02-maker-act.png",
+      "spritesheet": "cv-artlab-cast-02-maker-act.json",
+      "width": 1248,
+      "height": 239,
+      "decodedBytes": 1193088,
+      "pngBytes": 395880,
+      "sha256": "0cbb30dccbcdd0ba3c365668dccdb2d631c27dd6f015f4e0d0dd24afced2c279",
+      "spritesheetSha256": "7caea2f0db2c7f0b046f02c0621adbf0476ace3657ca32a88ec693ca2edd1fbd",
+      "occupancy": 0.856,
+      "frames": 60,
+      "character": "maker",
+      "group": "act"
+    },
+    {
+      "image": "cv-artlab-cast-02-gardener-loco.png",
+      "spritesheet": "cv-artlab-cast-02-gardener-loco.json",
+      "width": 1072,
+      "height": 324,
+      "decodedBytes": 1389312,
+      "pngBytes": 448449,
+      "sha256": "f993d943b1d31b08bdc9c9cb25567bb5ad30c3c1d375b98eedb966226aba088a",
+      "spritesheetSha256": "3ee49176a29b0d5c3ba053ec1ebd5e2a9caedaf746418dfb7612646097bdf5d7",
+      "occupancy": 0.83,
+      "frames": 68,
+      "character": "gardener",
+      "group": "loco"
+    },
+    {
+      "image": "cv-artlab-cast-02-gardener-act.png",
+      "spritesheet": "cv-artlab-cast-02-gardener-act.json",
+      "width": 1360,
+      "height": 247,
+      "decodedBytes": 1343680,
+      "pngBytes": 348708,
+      "sha256": "417a2320b218a9d5d4c2d4ee34b618a2fb8ada8980de5e17518b6d0a574441b5",
+      "spritesheetSha256": "fdeccb3b88c211efbbe05fc825c728e01ec7f9b1eea50d94d5d3f22b7d5995a8",
+      "occupancy": 0.865,
+      "frames": 60,
+      "character": "gardener",
+      "group": "act"
+    },
+    {
+      "image": "cv-artlab-cast-02-courier-loco.png",
+      "spritesheet": "cv-artlab-cast-02-courier-loco.json",
+      "width": 416,
+      "height": 603,
+      "decodedBytes": 1003392,
+      "pngBytes": 330020,
+      "sha256": "47444242fc01d359c5321ffcdf6d4b41031331c8b5529b00264ed93414d336bf",
+      "spritesheetSha256": "b3befff0466f07466bb0cb13f6df97970712d527d8bea213cc0be231d9d86b12",
+      "occupancy": 0.842,
+      "frames": 68,
+      "character": "courier",
+      "group": "loco"
+    },
+    {
+      "image": "cv-artlab-cast-02-courier-act.png",
+      "spritesheet": "cv-artlab-cast-02-courier-act.json",
+      "width": 656,
+      "height": 381,
+      "decodedBytes": 999744,
+      "pngBytes": 296006,
+      "sha256": "55c8ba798076bf805ba5eba676f0a6cfa4503ec5e9ee45fc602c1e8b4ac64fd6",
+      "spritesheetSha256": "3f03a477f628c76a5b0a02ebf5a1aed827015d3c4ed92372efe9648682b5a91b",
+      "occupancy": 0.844,
+      "frames": 60,
+      "character": "courier",
+      "group": "act"
+    },
+    {
+      "image": "cv-artlab-cast-02-caretaker-loco.png",
+      "spritesheet": "cv-artlab-cast-02-caretaker-loco.json",
+      "width": 432,
+      "height": 867,
+      "decodedBytes": 1498176,
+      "pngBytes": 467130,
+      "sha256": "a8146b769bdfa2b6b9b84a82e014a47ae73b599369c26ffa461fc589dadc73b9",
+      "spritesheetSha256": "49cbaebd30a164cd6b59fc1424fd2bb5329062292ec897e9ccb39529fd3272b2",
+      "occupancy": 0.834,
+      "frames": 68,
+      "character": "caretaker",
+      "group": "loco"
+    },
+    {
+      "image": "cv-artlab-cast-02-caretaker-act.png",
+      "spritesheet": "cv-artlab-cast-02-caretaker-act.json",
+      "width": 1072,
+      "height": 386,
+      "decodedBytes": 1655168,
+      "pngBytes": 466510,
+      "sha256": "18747d0bf412cf95069e61a07c9dbb8103e15aec888ef3ed09773603ee5e9357",
+      "spritesheetSha256": "b963ac7430e78a5acde0490bd91db6468a927d8b1bd9ac774ac11dd8d18756d2",
+      "occupancy": 0.859,
+      "frames": 60,
+      "character": "caretaker",
+      "group": "act"
+    },
+    {
+      "image": "cv-artlab-cast-02-builder-loco.png",
+      "spritesheet": "cv-artlab-cast-02-builder-loco.json",
+      "width": 336,
+      "height": 1312,
+      "decodedBytes": 1763328,
+      "pngBytes": 476107,
+      "sha256": "2f18ea5873311b5bbd694284567dafbb440091d189628fb6df5aea2b48933df1",
+      "spritesheetSha256": "f2f46b86d26b0d57a78b196b61816f636c2277f5f92845e907db83fc6df2d5dd",
+      "occupancy": 0.844,
+      "frames": 68,
+      "character": "builder",
+      "group": "loco"
+    },
+    {
+      "image": "cv-artlab-cast-02-builder-act.png",
+      "spritesheet": "cv-artlab-cast-02-builder-act.json",
+      "width": 1008,
+      "height": 403,
+      "decodedBytes": 1624896,
+      "pngBytes": 415953,
+      "sha256": "8b5592764dc49cb2d932d575d4e9a79a59f26f483f392cf2ee03486cf21c8214",
+      "spritesheetSha256": "f12898b77fb379cf06c801df3e64cf41a14af0eb91cafe7697f90e892a570324",
+      "occupancy": 0.865,
+      "frames": 60,
+      "character": "builder",
+      "group": "act"
+    }
+  ],
+  "cast": [
+    {
+      "id": "maker",
+      "name": "Tamsin, dormouse-folk maker",
+      "role": "maker",
+      "cell": [
+        75,
+        93
+      ],
+      "anchor": [
+        0.54,
+        0.865589
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 6,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "work": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "observe": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "gather": {
+          "frames": 4,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "rest": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "react": {
+          "frames": 6,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.5243,
+        "cycleSeconds": 0.8,
+        "strideUnits": 0.4194,
+        "stanceFootDriftUnits": 0.00283,
+        "stanceFootDriftPxAtZoom1": 0.101
+      },
+      "framesDecodedBytes": 2029996,
+      "idleFeetStableWithin1px": true
+    },
+    {
+      "id": "gardener",
+      "name": "Moss, toad-folk gardener",
+      "role": "gardener",
+      "cell": [
+        92,
+        95
+      ],
+      "anchor": [
+        0.434783,
+        0.863155
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 6,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 9,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "work": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "observe": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "gather": {
+          "frames": 4,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "rest": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "react": {
+          "frames": 6,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.3709,
+        "cycleSeconds": 0.8888888888888888,
+        "strideUnits": 0.3297,
+        "stanceFootDriftUnits": 0.00158,
+        "stanceFootDriftPxAtZoom1": 0.057
+      },
+      "framesDecodedBytes": 2315020,
+      "idleFeetStableWithin1px": true
+    },
+    {
+      "id": "courier",
+      "name": "Pip, sparrow-folk courier",
+      "role": "courier",
+      "cell": [
+        63,
+        88
+      ],
+      "anchor": [
+        0.5,
+        0.892043
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 6,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 12,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "work": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "observe": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "gather": {
+          "frames": 4,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "rest": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "react": {
+          "frames": 6,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.6,
+        "cycleSeconds": 0.6666666666666666,
+        "strideUnits": 0.4,
+        "stanceFootDriftUnits": 0.00362,
+        "stanceFootDriftPxAtZoom1": 0.129
+      },
+      "framesDecodedBytes": 1688348,
+      "idleFeetStableWithin1px": true
+    },
+    {
+      "id": "caretaker",
+      "name": "Hazel, badger-folk caretaker",
+      "role": "caretaker",
+      "cell": [
+        106,
+        130
+      ],
+      "anchor": [
+        0.466981,
+        0.799998
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "work": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "observe": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "gather": {
+          "frames": 4,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "rest": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "react": {
+          "frames": 6,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.4104,
+        "cycleSeconds": 1.0,
+        "strideUnits": 0.4104,
+        "stanceFootDriftUnits": 0.00162,
+        "stanceFootDriftPxAtZoom1": 0.058
+      },
+      "framesDecodedBytes": 2670196,
+      "idleFeetStableWithin1px": true
+    },
+    {
+      "id": "builder",
+      "name": "Tuck, beaver-folk builder",
+      "role": "builder",
+      "cell": [
+        103,
+        93
+      ],
+      "anchor": [
+        0.490291,
+        0.84946
+      ],
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "animations": {
+        "idle": {
+          "frames": 8,
+          "fps": 6,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "walk": {
+          "frames": 8,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "work": {
+          "frames": 8,
+          "fps": 8,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "observe": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "gather": {
+          "frames": 4,
+          "fps": 5,
+          "directions": [
+            "se",
+            "sw",
+            "nw",
+            "ne"
+          ],
+          "loop": true
+        },
+        "rest": {
+          "frames": 4,
+          "fps": 3,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        },
+        "react": {
+          "frames": 6,
+          "fps": 10,
+          "directions": [
+            "se",
+            "sw"
+          ],
+          "loop": true
+        }
+      },
+      "locomotion": {
+        "groundSpeedUnitsPerSecond": 0.4881,
+        "cycleSeconds": 0.8,
+        "strideUnits": 0.3905,
+        "stanceFootDriftUnits": 0.00224,
+        "stanceFootDriftPxAtZoom1": 0.08
+      },
+      "framesDecodedBytes": 2895308,
+      "idleFeetStableWithin1px": true
+    }
+  ],
+  "directions": {
+    "se": "+x, screen down-right",
+    "sw": "+y, screen down-left",
+    "nw": "-x, back, screen up-left",
+    "ne": "-y, back, screen up-right"
+  },
+  "placement": {
+    "anchor": "per-character cell anchor (feet centre)",
+    "position": "terrainProject(ground point)",
+    "scale": "assetScale * renderScale",
+    "shadow": "<char>/shadow-<dir> in the ground band, scale assetScale * shadowRenderScale",
+    "animationSpeed": "fps / 60 for Pixi AnimatedSprite",
+    "depth": "x+y of the ground point"
+  },
+  "memory": {
+    "pagesDecodedMiB": 13.046,
+    "residentLocomotionMiB": 6.545,
+    "lazyActivityMiB": 6.501
+  },
+  "activityMap": {
+    "travel": "walk-<dir>",
+    "idle": "idle-<dir>",
+    "work": "work-<se|sw>",
+    "observe": "observe-<se|sw>",
+    "gather": "gather-<dir>",
+    "rest": "rest-<se|sw>",
+    "react": "react-<se|sw> (optional one-shot, e.g. on completedActions increment)",
+    "frontFacingRule": "stationary activities use se/sw only: pick se when face.x >= face.y else sw; back-facing goals are drawn facing the camera"
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_characters.py": "3ba1a517b013414e23470cd3c660660e3461d7b9709119e8d0291a6c116de0b8",
+    "characters.py": "a0ac54c6992f0935b6ecfbd1bdc3909857e8c58159344a8950582c62edfd318b",
+    "cv_rig.py": "0f962bbac68e79426405e623c7aa078e73eedd431030258d806046ff003c8050",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 48,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35"
+  },
+  "blender": "4.5.15 LTS",
+  "provenance": "Original art-lab characters (procedural geometry + puppet rig); no third-party assets or generative-model output. Release license pending owner."
+}

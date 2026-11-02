@@ -1,0 +1,111 @@
+{
+  "frames": {
+    "footbridge": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 223,
+        "h": 153
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 223,
+        "h": 153
+      },
+      "sourceSize": {
+        "w": 223,
+        "h": 153
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.630717
+      }
+    },
+    "footbridge-shadow": {
+      "frame": {
+        "x": 62,
+        "y": 159,
+        "w": 120,
+        "h": 58
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 58
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 58
+      },
+      "anchor": {
+        "x": 0.44375,
+        "y": 0.487067
+      }
+    },
+    "reeds": {
+      "frame": {
+        "x": 2,
+        "y": 159,
+        "w": 56,
+        "h": 67
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 56,
+        "h": 67
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 67
+      },
+      "anchor": {
+        "x": 0.526786,
+        "y": 0.783579
+      }
+    },
+    "reeds-shadow": {
+      "frame": {
+        "x": 186,
+        "y": 159,
+        "w": 42,
+        "h": 15
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 42,
+        "h": 15
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 15
+      },
+      "anchor": {
+        "x": 0.309524,
+        "y": 0.499992
+      }
+    }
+  },
+  "meta": {
+    "app": "creators-village-art-lab atlas.py",
+    "version": "1.0",
+    "image": "cv-artlab-zone-samples-01.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 240,
+      "h": 228
+    },
+    "scale": "1"
+  }
+}

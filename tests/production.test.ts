@@ -9,6 +9,7 @@ import { loadConfig } from "../apps/server/src/config.js";
 import { registerProductionWeb } from "../apps/server/src/production-web.js";
 afterEach(() => vi.unstubAllEnvs());
 function environment() {
+  vi.stubEnv("COMMUNITY_ORBS", "");
   for (const [key, value] of Object.entries({
     NODE_ENV: "production",
     DATABASE_URL: "postgres://unused",
@@ -22,6 +23,15 @@ function environment() {
   }))
     vi.stubEnv(key, value);
 }
+it("requires explicit version-pinned Orb activation without changing default production policy", () => {
+  environment();
+  expect(loadConfig().orbEconomy).toBe(false);
+  vi.stubEnv("COMMUNITY_ORBS", "community-orbs-1");
+  expect(loadConfig().orbEconomy).toBe(true);
+  expect(loadConfig().writesPaused).toBe(true);
+  vi.stubEnv("COMMUNITY_ORBS", "future-orbs");
+  expect(() => loadConfig()).toThrow("Unsupported COMMUNITY_ORBS");
+});
 it("PI2 production configuration requires exact HTTPS callback, credentials and real auth", () => {
   environment();
   expect(loadConfig()).toMatchObject({

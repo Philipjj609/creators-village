@@ -223,7 +223,11 @@ export function evaluateResidents(
   reducedMotion = false,
 ): ResidentState[] {
   if (!Number.isFinite(timeMs)) throw Error("Unsupported living state/time");
-  if (plan.rules === "lw1-goals-1")
+  if (
+    plan.rules === "lw1-goals-1" ||
+    plan.rules === "cv-f1-goals-1" ||
+    plan.rules === "cv-f2-goals-1"
+  )
     return evaluateGoalResidents(plan, timeMs, reducedMotion);
   if (plan.rules !== LIVING_RULES) throw Error("Unsupported living state/time");
   return plan.residents.map((r) => {

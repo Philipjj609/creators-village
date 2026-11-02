@@ -67,6 +67,13 @@ const footprint = object({
   depthQ: Type.Integer({ minimum: 1, maximum: 131072 }),
 });
 export const Wf2ProjectWire = object({
+  fundingModel: Type.Optional(Type.Literal("community-orbs-1")),
+  pathExtension: Type.Optional(
+    object({
+      points: Type.Array(point, { minItems: 2, maxItems: 256 }),
+      widthQ: Type.Literal(384),
+    }),
+  ),
   id,
   revision: rev,
   planRevision: rev,

@@ -1,3 +1,6 @@
+import { registerOrbs } from "./orbs.js";
+import { PlacementRequest, PlacementResult } from "@creators-village/contracts";
+import { checkPlacement } from "./placement.js";
 import type { FastifyInstance, FastifyRequest } from "fastify";
 import type { Pool } from "pg";
 import type { Config } from "./config.js";
@@ -142,6 +145,7 @@ export async function registerParticipation(
       api.setNotFoundHandler(async () => {
         fail("NOT_FOUND", 404);
       });
+      await registerOrbs(api, pool, config, auth, runner.wake);
       api.get<{
         Params: { worldId: string };
         Querystring: { after: string; limit?: string };
@@ -209,9 +213,30 @@ export async function registerParticipation(
                     actor,
                     req.params.worldId,
                     req.body,
+                    config.orbEconomy,
                   );
           runner.wake();
           return { commandId: req.body.commandId, status: "committed", result };
+        },
+      );
+      api.post<{
+        Params: { worldId: string };
+        Body: { site: { qx: number; qy: number } };
+      }>(
+        "/worlds/:worldId/placement-check",
+        {
+          schema: {
+            params: Wf2WorldParams,
+            body: PlacementRequest,
+            response: { 200: PlacementResult },
+          },
+          config: { rateLimit: { max: 90, timeWindow: "1 minute" } },
+        },
+        async (req) => {
+          const actor = await auth.mutation(req);
+          if (!actor) fail("AUTH_REQUIRED", 403);
+          if (req.params.worldId !== config.wf2WorldId) fail("NOT_FOUND", 404);
+          return checkPlacement(pool, actor, req.params.worldId, req.body.site);
         },
       );
       api.get<{ Params: { worldId: string } }>(
@@ -322,7 +347,7 @@ export async function registerParticipation(
             ).rows,
             receipts: (
               await pool.query(
-                'SELECT command_id AS "commandId",project_id AS "projectId" FROM wf2_contributions WHERE person_id=$1 ORDER BY accepted_at DESC,id DESC LIMIT 20',
+                'SELECT command_id AS "commandId",project_id AS "projectId" FROM (SELECT command_id,project_id,accepted_at,id FROM wf2_contributions WHERE person_id=$1 UNION ALL SELECT command_id,project_id,at AS accepted_at,id FROM f3_orb_contributions WHERE person_id=$1) receipts ORDER BY accepted_at DESC,id DESC LIMIT 20',
                 [a.person_id],
               )
             ).rows,

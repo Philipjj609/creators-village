@@ -1,4 +1,4 @@
-import { Application, Assets, type Texture } from "pixi.js";
+import { Application, Assets, type Texture, type WebGLRenderer } from "pixi.js";
 
 /** Shared by the legacy village and candidate studies; no authoritative state here. */
 export async function createSurface(host: HTMLElement) {
@@ -25,7 +25,75 @@ export async function createSurface(host: HTMLElement) {
     autoStart: false,
   });
   host.appendChild(app.canvas);
-  return { app, software };
+  const gl = (app.renderer as WebGLRenderer).gl;
+  let calls = 0,
+    lastCalls = 0,
+    maxCalls = 0,
+    renderBegan = 0,
+    cpuMs = 0,
+    lastRender = 0;
+  const intervals: number[] = [],
+    movingIntervals: number[] = [];
+  // Count actual calls on this scene's context, not estimated sprite batches.
+  for (const method of [
+    "drawElements",
+    "drawArrays",
+    "drawElementsInstanced",
+    "drawArraysInstanced",
+  ] as const) {
+    const original = gl[method].bind(gl) as (...args: number[]) => void;
+    (gl[method] as (...args: number[]) => void) = (...args: number[]) => {
+      calls++;
+      original(...args);
+    };
+  }
+  const renderProbe = {
+    prerender() {
+      calls = 0;
+      renderBegan = performance.now();
+    },
+    postrender() {
+      const now = performance.now();
+      cpuMs = now - renderBegan;
+      lastCalls = calls;
+      maxCalls = Math.max(maxCalls, calls);
+      if (lastRender && !document.hidden) {
+        const dt = now - lastRender;
+        intervals.push(dt);
+        if (intervals.length > 240) intervals.shift();
+        if (host.dataset.cameraState === "moving") {
+          movingIntervals.push(dt);
+          if (movingIntervals.length > 240) movingIntervals.shift();
+        }
+      }
+      lastRender = now;
+    },
+  };
+  app.renderer.runners.prerender!.add(renderProbe);
+  app.renderer.runners.postrender!.add(renderProbe);
+  const distribution = (values: number[]) => {
+    const sorted = [...values].sort((a, b) => a - b);
+    return {
+      samples: values.length,
+      meanMs: values.length
+        ? values.reduce((n, v) => n + v, 0) / values.length
+        : 0,
+      p95Ms: sorted[Math.floor(sorted.length * 0.95)] ?? 0,
+      maxMs: sorted.at(-1) ?? 0,
+    };
+  };
+  return {
+    app,
+    software,
+    renderStats: () => ({
+      glDrawCalls: lastCalls,
+      glMaxDrawCalls: maxCalls,
+      cpuRenderMs: cpuMs,
+      renderPacing: distribution(intervals),
+      cameraPacing: distribution(movingIntervals),
+      resolution: app.renderer.resolution,
+    }),
+  };
 }
 
 export async function loadTextures(urls: string[]) {

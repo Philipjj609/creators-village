@@ -1,0 +1,439 @@
+{
+  "version": "cv-artlab-ve02-broadleaf-01",
+  "studyOnly": true,
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "atlas": {
+    "image": "vegetation-atlas.png",
+    "spritesheet": "vegetation-atlas.json",
+    "width": 736,
+    "height": 720,
+    "decodedBytes": 2119680,
+    "occupancy": 0.824,
+    "padding": 2,
+    "bleed": "RGB of transparent padding filled from edge pixels"
+  },
+  "textureScale": 0.5,
+  "shadowTextureScale": 0.25,
+  "placement": {
+    "position": "terrainProject(x, y, height) of the placement point (trunk base)",
+    "spriteScale": "assetScale / textureScale = 0.777817 (trees), 1.555635 (shadows)",
+    "anchor": "frame anchor from the spritesheet (trunk base)",
+    "drawOrder": "shadows in the ground band below all objects; trees in objects sorted by x+y of the trunk base"
+  },
+  "variants": [
+    {
+      "id": "oak-round",
+      "kind": "round",
+      "season": "summer",
+      "frame": "oak-round",
+      "shadowFrame": "oak-round-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.793,
+      "height": 3.54,
+      "boundsLogical": {
+        "min": [
+          -1.4443836212158203,
+          -1.6230098009109497,
+          -0.05253158137202263
+        ],
+        "max": [
+          1.7925885915756226,
+          1.3896278142929077,
+          3.5401315689086914
+        ]
+      },
+      "overviewFrameOffset": [
+        1070,
+        555
+      ],
+      "shadowOverviewFrameOffset": [
+        1133.0,
+        458.0
+      ]
+    },
+    {
+      "id": "oak-tall",
+      "kind": "tall",
+      "season": "summer",
+      "frame": "oak-tall",
+      "shadowFrame": "oak-tall-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.203,
+      "height": 3.691,
+      "boundsLogical": {
+        "min": [
+          -1.2028104066848755,
+          -1.0002716779708862,
+          -0.051055338233709335
+        ],
+        "max": [
+          1.1534451246261597,
+          1.1147780418395996,
+          3.6909592151641846
+        ]
+      },
+      "overviewFrameOffset": [
+        1159,
+        569
+      ],
+      "shadowOverviewFrameOffset": [
+        1218.0,
+        836.0
+      ]
+    },
+    {
+      "id": "oak-wide",
+      "kind": "wide",
+      "season": "summer",
+      "frame": "oak-wide",
+      "shadowFrame": "oak-wide-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.981,
+      "height": 3.104,
+      "boundsLogical": {
+        "min": [
+          -1.8783329725265503,
+          -1.669655442237854,
+          -0.08000752329826355
+        ],
+        "max": [
+          1.7733485698699951,
+          1.9814636707305908,
+          3.1035821437835693
+        ]
+      },
+      "overviewFrameOffset": [
+        1071,
+        597
+      ],
+      "shadowOverviewFrameOffset": [
+        1057.0,
+        805.0
+      ]
+    },
+    {
+      "id": "oak-twin",
+      "kind": "twin",
+      "season": "summer",
+      "frame": "oak-twin",
+      "shadowFrame": "oak-twin-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.552,
+      "height": 3.31,
+      "boundsLogical": {
+        "min": [
+          -1.4849933385849,
+          -1.2406799793243408,
+          -0.06727583706378937
+        ],
+        "max": [
+          1.551726222038269,
+          1.1641343832015991,
+          3.3104066848754883
+        ]
+      },
+      "overviewFrameOffset": [
+        1096,
+        613
+      ],
+      "shadowOverviewFrameOffset": [
+        1173.0,
+        844.0
+      ]
+    },
+    {
+      "id": "oak-young",
+      "kind": "young",
+      "season": "summer",
+      "frame": "oak-young",
+      "shadowFrame": "oak-young-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 0.825,
+      "height": 2.255,
+      "boundsLogical": {
+        "min": [
+          -0.6987374424934387,
+          -0.6785751581192017,
+          -0.04633475840091705
+        ],
+        "max": [
+          0.8254948854446411,
+          0.6247040033340454,
+          2.254507541656494
+        ]
+      },
+      "overviewFrameOffset": [
+        1196,
+        724
+      ],
+      "shadowOverviewFrameOffset": [
+        1244.0,
+        882.0
+      ]
+    },
+    {
+      "id": "oak-old",
+      "kind": "old",
+      "season": "summer",
+      "frame": "oak-old",
+      "shadowFrame": "oak-old-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.983,
+      "height": 3.263,
+      "boundsLogical": {
+        "min": [
+          -1.7202867269515991,
+          -1.806634783744812,
+          -0.14320409297943115
+        ],
+        "max": [
+          1.9828603267669678,
+          1.5798656940460205,
+          3.262711524963379
+        ]
+      },
+      "overviewFrameOffset": [
+        1061,
+        572
+      ],
+      "shadowOverviewFrameOffset": [
+        1067.0,
+        813.0
+      ]
+    },
+    {
+      "id": "oak-round-autumn",
+      "kind": "round",
+      "season": "autumn",
+      "frame": "oak-round-autumn",
+      "shadowFrame": "oak-round-autumn-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.755,
+      "height": 3.395,
+      "boundsLogical": {
+        "min": [
+          -1.4788881540298462,
+          -1.6224849224090576,
+          -0.05266687646508217
+        ],
+        "max": [
+          1.7551246881484985,
+          1.3576961755752563,
+          3.394650459289551
+        ]
+      },
+      "overviewFrameOffset": [
+        1088,
+        569
+      ],
+      "shadowOverviewFrameOffset": [
+        1164.0,
+        472.0
+      ]
+    },
+    {
+      "id": "oak-wide-autumn",
+      "kind": "wide",
+      "season": "autumn",
+      "frame": "oak-wide-autumn",
+      "shadowFrame": "oak-wide-autumn-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 1.982,
+      "height": 3.267,
+      "boundsLogical": {
+        "min": [
+          -1.8350578546524048,
+          -1.8266586065292358,
+          -0.05418086051940918
+        ],
+        "max": [
+          1.872931957244873,
+          1.9817107915878296,
+          3.2668449878692627
+        ]
+      },
+      "overviewFrameOffset": [
+        1070,
+        595
+      ],
+      "shadowOverviewFrameOffset": [
+        1079.0,
+        461.0
+      ]
+    },
+    {
+      "id": "bush-round",
+      "kind": "bush",
+      "season": "summer",
+      "frame": "bush-round",
+      "shadowFrame": "bush-round-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 0.764,
+      "height": 0.98,
+      "boundsLogical": {
+        "min": [
+          -0.6202206611633301,
+          -0.6189287304878235,
+          -0.02079763263463974
+        ],
+        "max": [
+          0.7637362480163574,
+          0.5655985474586487,
+          0.9803752303123474
+        ]
+      },
+      "overviewFrameOffset": [
+        1195,
+        849
+      ],
+      "shadowOverviewFrameOffset": [
+        1192.0,
+        914.0
+      ]
+    },
+    {
+      "id": "bush-flowering",
+      "kind": "bush-flowers",
+      "season": "summer",
+      "frame": "bush-flowering",
+      "shadowFrame": "bush-flowering-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 0.727,
+      "height": 1.05,
+      "boundsLogical": {
+        "min": [
+          -0.659098744392395,
+          -0.644573986530304,
+          0.0044827586971223354
+        ],
+        "max": [
+          0.7269446849822998,
+          0.5630958080291748,
+          1.0500199794769287
+        ]
+      },
+      "overviewFrameOffset": [
+        1192,
+        843
+      ],
+      "shadowOverviewFrameOffset": [
+        1188.0,
+        915.0
+      ]
+    },
+    {
+      "id": "bush-low",
+      "kind": "bush-low",
+      "season": "summer",
+      "frame": "bush-low",
+      "shadowFrame": "bush-low-shadow",
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "canopyRadius": 0.774,
+      "height": 0.728,
+      "boundsLogical": {
+        "min": [
+          -0.726800799369812,
+          -0.6727678179740906,
+          -0.0464617982506752
+        ],
+        "max": [
+          0.773585319519043,
+          0.5720622539520264,
+          0.7278106212615967
+        ]
+      },
+      "overviewFrameOffset": [
+        1205,
+        880
+      ],
+      "shadowOverviewFrameOffset": [
+        1196.0,
+        912.0
+      ]
+    }
+  ],
+  "foliageOutline": {
+    "method": "alpha dilation drawn behind the sprite at full resolution (sprite_ops.outline)",
+    "radiusPx": 3.0,
+    "rgb": [
+      52,
+      30,
+      20
+    ]
+  },
+  "sourceHashes": {
+    "build": "f8507e12962ac6aebc26fcf03752c558b7d936015892334f8173dad330cb604b",
+    "recipe": "ff76c20ab7d8bec8f010c766af90888774b794ea6c5af9af0aa7fc2a322cecd3",
+    "foliage": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "outlinePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "outputs": [
+    {
+      "file": "vegetation-atlas.png",
+      "bytes": 346276,
+      "sha256": "b38689bacf0f3fb6d59caed01c6c15a0d5f146a291ebb8259488b8b05d83de7a",
+      "width": 736,
+      "height": 720
+    },
+    {
+      "file": "vegetation-atlas.json",
+      "sha256": "c315af00a62e9d9606549e0aa6117cce40ade08add6223f992f8477ee6380fab"
+    }
+  ],
+  "provenance": "Original art-lab procedural geometry (VE-02). No third-party assets or generative-model output. Release license pending owner."
+}

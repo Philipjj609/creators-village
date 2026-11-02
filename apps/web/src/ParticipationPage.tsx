@@ -1,3 +1,15 @@
+import { useOrbWallet, OrbHUD, OrbFunding } from "./Orbs.js";
+import { CommunityPanel } from "./CommunityPanel.js";
+import { AccountRecognition } from "./AccountRecognition.js";
+import { canonicalPlace, projectForPlace } from "./place-project.js";
+import { WorkshopPlanner, type PlacementPhase } from "./WorkshopPlanner.js";
+import { snappedSite } from "./placement-state.js";
+import { VillageAtmosphere } from "./VillageAtmosphere.js";
+import { VillageDirectory } from "./VillageDirectory.js";
+import { describePlace, villagePlaces } from "./place-descriptor.js";
+import { useVillageInteraction } from "./use-village-interaction.js";
+import { objectRef } from "./village-selection.js";
+import { useSelectionProjection } from "./use-selection-projection.js";
 import { useEffect, useRef, useState } from "react";
 import type {
   FoundingWorld,
@@ -12,32 +24,21 @@ import type {
   LivingViewState,
 } from "@creators-village/renderer";
 import { ResidentList, ResidentPanel } from "./ResidentPanel.js";
+import { villageActionError } from "./village-panel-state.js";
+import { ConfirmAction, ProjectInspector } from "./village-panels.js";
+import { constructionView } from "@creators-village/contracts";
 import { applyWf2Batch, readWf2State } from "./wf2-state.js";
 import { api as wf2Api, HttpError as Wf2HttpError } from "./api.js";
-import { Link, navigate, usePanel } from "./routing.js";
+import { Link, navigate } from "./routing.js";
 import { useSession } from "./session.js";
 import { visibleWorldFrame } from "./viewport.js";
-import { Header, WorldNav, CameraControls, Panel, Notice } from "./ui.js";
+import { Header, Notice } from "./ui.js";
+import { WorldNav, CameraControls, Panel } from "./VillageChrome.js";
 export { api as wf2Api } from "./api.js";
 type Me = {
   grants: { worldId: string; canContribute: boolean }[];
   requests: { requestId: string; state: string; worldId: string }[];
   receipts: { commandId: string; projectId: string }[];
-};
-type Admission = {
-  requests: {
-    requestId: string;
-    revision: string;
-    login: string | null;
-    displayName: string;
-  }[];
-  members: {
-    memberId: string;
-    revision: string;
-    state: string;
-    login: string | null;
-    displayName: string;
-  }[];
 };
 let joinStart: Promise<{ continuationId: string; expiresAt: string }> | null =
   null;
@@ -59,7 +60,7 @@ function foundingHeader(s: Wf2State): FoundingWorld {
   return {
     schemaVersion: 2,
     id: s.worldId,
-    name: "Private development village",
+    name: "Village",
     source: "creator",
     purpose: "development",
     createdAt: "2026-10-29T00:00:00Z",
@@ -96,16 +97,28 @@ export function ParticipationPage({
   const world = worldId ?? null,
     joining = location.pathname === "/join";
   const session = useSession(),
-    [panel, setPanel] = usePanel();
-  const [selected, setSelected] = useState("founding-shelter");
-  const selectPlace = (id = "founding-shelter") => {
-    setSelected(id);
-    setPanel(id.includes(":lw1:") ? "resident" : "inspect");
-    view.current?.selectResident(id);
+    interaction = useVillageInteraction(),
+    { panel, setPanel, selected } = interaction;
+  const selectPlace = (id: string) => {
+    const ref = canonicalPlace(objectRef(id), state);
+    if (ref)
+      interaction.send({
+        type: "listPick",
+        ref,
+        view:
+          panel === "projects" || panel === "history"
+            ? "projects"
+            : panel === "people"
+              ? "people"
+              : "places",
+      });
   };
-  const panelRef = useRef(selectPlace);
+  const panelRef = useRef((id?: string) => {});
+  panelRef.current = (id) =>
+    interaction.send({ type: "worldPick", ref: objectRef(id) });
+  const interactionRef = useRef(interaction);
+  interactionRef.current = interaction;
   const [living, setLiving] = useState<LivingViewState | null>(null);
-  panelRef.current = selectPlace;
   const [lastAction, setLastAction] = useState("");
   const reloadWorld = useRef<() => Promise<void>>(async () => {});
   const person = session.person,
@@ -116,10 +129,8 @@ export function ParticipationPage({
     [error, setError] = useState(""),
     [status, setStatus] = useState("Loading account"),
     [busy, setBusy] = useState(false),
-    [admission, setAdmission] = useState<Admission | null>(null),
     [drafts, setDrafts] = useState<Wf2Project[]>([]),
     [site, setSite] = useState({ qx: 1792, qy: 1280 }),
-    [optIn, setOptIn] = useState<Record<string, boolean>>({}),
     [link, setLink] = useState(""),
     [receipt, setReceipt] = useState<{
       commandId: string;
@@ -143,6 +154,7 @@ export function ParticipationPage({
     view = useRef<Awaited<ReturnType<typeof mountFounding>> | null>(null),
     current = useRef<Wf2State | null>(null),
     updateChain = useRef(Promise.resolve());
+  const orbs = useOrbWallet(world, person?.csrfToken, state?.cursor);
   const creator = Boolean(
     person?.developmentWorldId && person.developmentWorldId === world,
   );
@@ -202,16 +214,16 @@ export function ParticipationPage({
       cancelled = true;
     };
   }, [joining, continuation, person]);
+  const draftVersion = useRef(0);
   async function refreshPrivate() {
     if (!world || !creator) return;
-    const [a, d] = await Promise.all([
-      wf2Api<Admission>(`/api/wf2/worlds/${world}/admission`),
-      wf2Api<{ projects: Wf2Project[] }>(
-        `/api/wf2/worlds/${world}/projects?state=draft`,
-      ),
-    ]);
-    setAdmission(a);
+    const version = ++draftVersion.current;
+    const d = await wf2Api<{ projects: Wf2Project[] }>(
+      `/api/wf2/worlds/${world}/projects?state=draft`,
+    );
+    if (version !== draftVersion.current) return;
     setDrafts(d.projects);
+    return d.projects;
   }
   useEffect(() => {
     if (!world || !person) return;
@@ -291,7 +303,10 @@ export function ParticipationPage({
         setStatus("Access changed — sign in or request approval");
       });
       stream.onopen = () => {
-        if (!cancelled) setStatus("Connected");
+        if (!cancelled) {
+          setStatus("Connected");
+          void orbs.refresh();
+        }
       };
       stream.onerror = () => {
         if (!cancelled) setStatus("Disconnected — recovering");
@@ -354,6 +369,35 @@ export function ParticipationPage({
       current.current = null;
     };
   }, [world, person, creator]);
+  const [placementPhase, setPlacementPhase] =
+    useState<PlacementPhase>("catalogue");
+  const busyRef = useRef(busy);
+  busyRef.current = busy;
+  const placementRef = useRef(placementPhase);
+  placementRef.current = placementPhase;
+  useEffect(() => {
+    if (panel !== "plan") setPlacementPhase("catalogue");
+  }, [panel]);
+  const hoverSite = (sample: { x: number; y: number }) => {
+    if (
+      !interactionRef.current.state.planMode ||
+      placementRef.current !== "placing"
+    )
+      return;
+    const next = snappedSite(sample.x, sample.y);
+    setSite((previous) =>
+      previous.qx === next.qx && previous.qy === next.qy ? previous : next,
+    );
+  };
+  const chooseSite = (sample: { x: number; y: number }) => {
+    if (
+      interactionRef.current.state.planMode &&
+      placementRef.current === "placing"
+    ) {
+      hoverSite(sample);
+      setPlacementPhase("confirm");
+    }
+  };
   const renderKey = state
     ? state.worldId + ":" + state.baseline.hash
     : founder
@@ -373,17 +417,29 @@ export function ParticipationPage({
           current.current
             ? {
                 ...foundingHeader(current.current),
-                name: entry?.name ?? "Private development village",
+                name: entry?.name ?? "Village",
               }
             : founder!,
           (id) => panelRef.current(id),
-          (sample) =>
-            setSite({
-              qx: Math.round(sample.x * 2) * 128,
-              qy: Math.round(sample.y * 2) * 128,
-            }),
+          chooseSite,
           () => visibleWorldFrame(node),
           setLiving,
+          (id) => {
+            if (!id && interactionRef.current.state.following)
+              interactionRef.current.send({ type: "cameraManual" });
+          },
+          () =>
+            interactionRef.current.state.planMode &&
+            placementRef.current !== "catalogue",
+          hoverSite,
+          () => {
+            if (interactionRef.current.state.planMode) {
+              if (busyRef.current) return true;
+              interactionRef.current.send({ type: "close" });
+              return true;
+            }
+            return false;
+          },
         ),
       )
       .then(async (v) => {
@@ -422,7 +478,7 @@ export function ParticipationPage({
     setCredits({});
     void Promise.all(
       state.projects
-        .filter((p) => p.state !== "draft")
+        .filter((p) => p.state !== "draft" && !p.fundingModel)
         .map(async (p) => {
           const r = await wf2Api<{
             creditRevision: string;
@@ -448,7 +504,13 @@ export function ParticipationPage({
     if (!person || busy) return;
     setBusy(true);
     setError("");
-    const url = route ?? `/api/wf2/worlds/${world}/commands`,
+    const orbDraft =
+      Boolean(orbs.supported) && ["CreateDraft", "ReviseDraft"].includes(kind);
+    const url =
+        route ??
+        (orbDraft
+          ? `/api/wf2/worlds/${world}/orbs/drafts`
+          : `/api/wf2/worlds/${world}/commands`),
       input = { kind, payload, route: url };
     const key = "wf2-pending-command";
     let pending: { input: string; commandId: string } | null = null;
@@ -478,7 +540,7 @@ export function ParticipationPage({
         },
         body: JSON.stringify({
           commandId,
-          commandSchema: "wf2-command-1",
+          commandSchema: orbDraft ? "f3-command-1" : "wf2-command-1",
           kind,
           payload,
         }),
@@ -488,10 +550,12 @@ export function ParticipationPage({
         kind === "Contribute"
           ? "Your contribution is recorded."
           : kind === "PublishProject"
-            ? "The fixed project is published."
+            ? "Your community project is ready to build."
             : kind === "SetRecognition"
               ? "Your recognition preference is saved."
-              : "Change saved.",
+              : kind === "CreateDraft" || kind === "ReviseDraft"
+                ? "Your private plan is saved. Review it before starting the project."
+                : "Change saved.",
       );
       if (kind === "Contribute")
         setOwn((value) =>
@@ -534,9 +598,47 @@ export function ParticipationPage({
         setStatus("You have left. Rejoining requires creator approval.");
         setOwn(await wf2Api<Me>("/api/wf2/me"));
       }
-      if (creator && kind !== "EnablePlaytest") await refreshPrivate();
+      if (
+        creator &&
+        (panel !== "admission" ||
+          [
+            "CreateDraft",
+            "ReviseDraft",
+            "PublishProject",
+            "CancelProject",
+          ].includes(kind)) &&
+        [
+          "CreateDraft",
+          "ReviseDraft",
+          "PublishProject",
+          "CancelProject",
+          "IssueInvitation",
+          "RevokeInvitation",
+          "ApproveRequest",
+          "RejectRequest",
+          "BanMember",
+          "UnbanMember",
+        ].includes(kind)
+      ) {
+        const updatedDrafts = await refreshPrivate();
+        if (kind === "CreateDraft" || kind === "ReviseDraft")
+          view.current?.previewPlan(
+            updatedDrafts?.find((p) => p.id === r.result.projectId) ?? null,
+          );
+      }
+      if (kind === "PublishProject") {
+        view.current?.previewPlan(null);
+        await reloadWorld.current();
+        interactionRef.current.send({
+          type: "listPick",
+          ref: { kind: "site", id: r.result.projectId as string },
+          view: "projects",
+        });
+      }
+      if (kind === "CancelProject") view.current?.previewPlan(null);
+      return r;
     } catch (e) {
-      setError((e as Error).message);
+      setError(villageActionError(e));
     } finally {
       setBusy(false);
     }
@@ -565,6 +667,14 @@ export function ParticipationPage({
   const receiptContent = (
     <>
       {" "}
+      {own?.receipts?.length ? (
+        <AccountRecognition
+          grants={own.grants}
+          receipts={own.receipts}
+          act={act}
+          busy={busy}
+        />
+      ) : null}
       {own?.receipts?.length ? (
         <section data-private>
           <h2>Your accepted contributions</h2>
@@ -650,14 +760,54 @@ export function ParticipationPage({
       )}
     </>
   );
+  useEffect(() => {
+    const previous = interaction.state.selection,
+      next = canonicalPlace(previous, state);
+    if (
+      previous &&
+      next &&
+      (previous.kind !== next.kind || previous.id !== next.id)
+    )
+      interactionRef.current.send({ type: "replaceSelection", ref: next });
+  }, [selected, state]);
+  useSelectionProjection(view, interaction.state, mapReady);
+  useEffect(() => {
+    if (panel !== "plan") {
+      view.current?.previewPlan(null);
+      view.current?.previewPlacement(null);
+    }
+  }, [panel, mapReady]);
+  useEffect(() => {
+    const ref = interactionRef.current.state.selection;
+    if (!ref) return;
+    const missing =
+      ref.kind === "resident"
+        ? living?.plan
+          ? !living.plan.residents.some((r) => r.id === ref.id)
+          : false
+        : ref.kind === "structure"
+          ? state
+            ? !state.structures.some((s) => s.id === ref.id)
+            : founder
+              ? founder.structure.id !== ref.id
+              : false
+          : ref.kind === "site"
+            ? state
+              ? !state.projects.some((p) => p.id === ref.id)
+              : false
+            : true;
+    if (missing)
+      interactionRef.current.send({ type: "objectRemoved", id: ref.id });
+  }, [selected, state, founder, living?.plan]);
   const panelTitle: Record<string, string> = {
     places: "Places",
-    inspect: "Place inspection",
-    resident: "Resident inspection",
-    projects: "Community projects",
-    people: creator ? "Private admission" : "Your membership",
-    settings: "Settings and management",
-    plan: "Plan a workshop",
+    inspect: "Building",
+    resident: "Inhabitant",
+    projects: "Projects",
+    people: "People",
+    admission: creator ? "Community" : "Your membership",
+    settings: "Village settings",
+    plan: "Build",
     privacy: "Receipts and recognition",
     history: "Village milestones",
   };
@@ -674,17 +824,41 @@ export function ParticipationPage({
   const canContribute = Boolean(
     state && own?.grants.some((g) => g.worldId === world && g.canContribute),
   );
-  const name = entry?.name ?? "Development village";
+  const name = entry?.name ?? "Village";
   const structures =
     state?.structures ??
     (founder
       ? [{ id: founder.structure.id, template: founder.structure.template }]
       : []);
-  const close = () => setPanel("");
-  const inspect = () =>
-    void view.current
-      ?.focusStructure(selected)
-      .catch((e) => setRenderError(e.message));
+  const placeRows = villagePlaces(state, founder);
+  const selectedProject = projectForPlace(interaction.state.selection, state);
+  // A contribution from another session can change this account's eligibility.
+  // Refresh only its own receipts, never a participant directory.
+  useEffect(() => {
+    if (!person || !selectedProject || selectedProject.acceptedCount === 0)
+      return;
+    const c = new AbortController();
+    void wf2Api<Me>("/api/wf2/me", { signal: c.signal })
+      .then((v) => {
+        if (!c.signal.aborted) setOwn(v);
+      })
+      .catch(() => {});
+    return () => c.abort();
+  }, [person, selectedProject?.id, selectedProject?.acceptedCount]);
+  const selectedPlace = placeRows.find(
+    (p) => p.ref.id === interaction.state.selection?.id || p.key === selected,
+  );
+  const projectDescription = (p: Wf2Project) =>
+    describePlace(
+      {
+        id: "wf2-workshop-" + p.id,
+        name: "Mending Shed",
+        x: p.site.qx / 256,
+        y: p.site.qy / 256,
+      },
+      placeRows,
+    );
+  const close = () => interaction.send({ type: "close" });
   if (!world)
     return (
       <div className="pi-site">
@@ -818,12 +992,32 @@ export function ParticipationPage({
       </div>
     );
   return (
-    <div className="pi-village">
+    <div
+      className="pi-village ui3-shell"
+      data-placement-phase={panel === "plan" ? placementPhase : undefined}
+    >
+      <span className="ux1-announcement" role="status">
+        {interaction.notice
+          ? "Stopped following " +
+            (living?.plan.residents.find((r) => r.id === interaction.notice)
+              ?.name ?? "the inhabitant") +
+            "."
+          : ""}
+      </span>
       <WorldNav
+        activePanel={
+          interaction.state.selection &&
+          interaction.state.returnView === "projects"
+            ? "projects"
+            : panel
+        }
+        onTab={(view) => interaction.send({ type: "tab", view })}
+        entry={entry}
         name={name}
         status={status}
         projects={Boolean(state)}
-        people={Boolean(state && person)}
+        people={Boolean(state || founder)}
+        community={Boolean(state && person)}
         manage={Boolean(person)}
       />
       <main className="pi-world-stage">
@@ -860,7 +1054,6 @@ export function ParticipationPage({
             disabled={!mapReady}
             reset={() => view.current?.reset()}
             zoom={(f) => view.current?.zoom(f)}
-            places={() => setPanel("places")}
           />
         )}
         {renderError && (
@@ -900,469 +1093,311 @@ export function ParticipationPage({
             </button>
           </div>
         )}
+        {creator &&
+          new URLSearchParams(location.search).get("tools") === "renderer" &&
+          /^(127\.|localhost$)/.test(location.hostname) && (
+            <details className="f2-developer">
+              <summary>Developer renderer tools</summary>
+              <button onClick={() => setMetrics(view.current?.stats() ?? null)}>
+                Measure renderer
+              </button>
+              {metrics && <pre>{JSON.stringify(metrics, null, 2)}</pre>}
+            </details>
+          )}
+        {orbs.wallet && <OrbHUD wallet={orbs.wallet} error={orbs.error} />}
         {panel && (
-          <Panel title={panelTitle[panel] ?? "Village tools"} onClose={close}>
+          <Panel
+            contextKey={
+              ["inspect", "resident", "projects"].includes(panel)
+                ? selected
+                : panel
+            }
+            title={panelTitle[panel] ?? "Village tools"}
+            onClose={() => {
+              if (panel !== "plan" || !busy) close();
+            }}
+            onEscape={() => {
+              if (panel === "plan" && !busy) close();
+              else if (panel !== "plan") interaction.send({ type: "escape" });
+            }}
+            back={
+              interaction.state.selection
+                ? {
+                    label:
+                      interaction.state.returnView === "projects"
+                        ? "Projects"
+                        : interaction.state.returnView === "people"
+                          ? "People"
+                          : "Places",
+                    onBack: () => interaction.send({ type: "back" }),
+                  }
+                : undefined
+            }
+            locate={
+              interaction.state.selection &&
+              mapReady &&
+              (interaction.state.selection.kind !== "site" ||
+                state?.projects.some(
+                  (p) =>
+                    p.id === interaction.state.selection!.id &&
+                    !["cancelled", "draft"].includes(p.state),
+                ))
+                ? () =>
+                    view.current?.focusSelection(interaction.state.selection!)
+                : undefined
+            }
+            memory={
+              interaction.memories[panel as "people" | "places" | "projects"]
+            }
+          >
             {panel === "places" && (
               <>
-                <p>Choose a place to inspect.</p>
-                {structures.map((s) => (
-                  <button
-                    className="pi-place-row"
-                    key={s.id}
-                    onClick={() => selectPlace(s.id)}
-                  >
-                    {s.template === "wf2-workshop-1"
-                      ? "Inspect the Mending Shed"
-                      : "Inspect the Gathering Shelter"}
-                    <span aria-hidden="true">↗</span>
-                  </button>
-                ))}
-                <button onClick={() => view.current?.previewPlan(null)}>
-                  Hide plan preview
-                </button>
-                <ResidentList living={living} select={selectPlace} />
-              </>
-            )}
-            {panel === "inspect" && (
-              <>
-                <h3>
-                  {selected === "founding-shelter"
-                    ? "The Gathering Shelter"
-                    : "The Mending Shed"}
-                </h3>
-                <p>
-                  {selected === "founding-shelter"
-                    ? "The village’s founding gathering place. Its identity stays with the world as the community builds."
-                    : "A workshop built through the community’s approved shared project."}
-                </p>
-                {structures.some((s) => s.id === selected) && (
-                  <dl className="lw-facts">
-                    <dt>Function</dt>
-                    <dd>
-                      {selected === "founding-shelter"
-                        ? "Gathering and shelter"
-                        : "Mending and workshop space"}
-                    </dd>
-                    <dt>Saved status</dt>
-                    <dd>
-                      {selected === "founding-shelter"
-                        ? "Founded with this village"
-                        : "Completed structure"}
-                    </dd>
-                  </dl>
-                )}
-                {state?.projects
-                  .filter(
-                    (p) =>
-                      p.state === "completed" &&
-                      selected === "wf2-workshop-" + p.id,
-                  )
-                  .map((p) => (
-                    <section
-                      key={p.id}
-                      aria-label="Related construction project"
-                    >
-                      <h4>Construction record</h4>
-                      <p>
-                        {p.acceptedCount}/{p.goal} accepted contributions ·{" "}
-                        {p.state}
-                      </p>
-                      <p>
-                        {credits[p.id]?.length
-                          ? `With thanks to ${credits[p.id]!.join(", ")}`
-                          : credits[p.id]
-                            ? "No named attribution is currently displayed."
-                            : "Named recognition is refreshing or unavailable."}
-                      </p>
-                      <button onClick={() => setPanel("history")}>
-                        Related project history
-                      </button>
-                    </section>
-                  ))}
-                <button className="pi-button primary" onClick={inspect}>
-                  Take a closer look
-                </button>
-                <button onClick={() => view.current?.reset()}>
-                  Village overview
-                </button>
-                {state && (
-                  <button onClick={() => setPanel("projects")}>
-                    View community projects
-                  </button>
-                )}
-              </>
-            )}
-            {panel === "resident" && (
-              <ResidentPanel
-                living={living}
-                id={selected}
-                focus={() => view.current?.focusResident(selected)}
-                overview={() => view.current?.reset()}
-              />
-            )}
-            {panel === "projects" && state && (
-              <>
-                <p className="pi-muted">
-                  Private test policy · one deliberate contribution per account
-                  per project. Two people for this test, no wallet or passive
-                  rewards.
-                </p>{" "}
-                {state.projects.map((p) => (
-                  <section key={p.id} className="wf2-project">
-                    <h2>Community workshop</h2>
-                    <p>
-                      {p.acceptedCount}/{p.goal} contributions · {p.state}
-                    </p>
-                    <p>
-                      Location {p.site.qx / 256}, {p.site.qy / 256}. Workshop
-                      and connecting path are fixed after publication.
-                    </p>
-                    {p.state === "open" &&
-                      canContribute &&
-                      !own?.receipts?.some((r) => r.projectId === p.id) && (
-                        <>
-                          <label>
-                            <input
-                              type="checkbox"
-                              checked={optIn[p.id] ?? false}
-                              onChange={(e) => {
-                                const checked = e.target.checked;
-                                setOptIn((previous) => ({
-                                  ...previous,
-                                  [p.id]: checked,
-                                }));
-                              }}
-                            />{" "}
-                            Name me on this project and its resulting building
-                            (optional)
-                          </label>
-                          <button
-                            className="pi-button primary"
-                            disabled={busy}
-                            onClick={() =>
-                              void act("Contribute", {
-                                projectId: p.id,
-                                planHash: p.planHash,
-                                recognitionOptIn: optIn[p.id] ?? false,
-                              })
-                            }
-                          >
-                            Contribute once to this project
-                          </button>
-                        </>
-                      )}
-                    {own?.receipts?.some((r) => r.projectId === p.id) && (
-                      <p>
-                        Your contribution is recorded. Current project status is
-                        shown above.
-                      </p>
-                    )}
-                    {p.blockedCode && (
-                      <p role="status">
-                        Construction blocked: {p.blockedCode}. Accepted
-                        contributions are retained.
-                      </p>
-                    )}
-                    {creator && p.state === "blocked" && (
-                      <button
-                        disabled={busy}
-                        onClick={() =>
-                          void act("RetryCompletion", {
-                            projectId: p.id,
-                            expectedProjectRevision: p.revision,
-                            planHash: p.planHash,
-                          })
-                        }
-                      >
-                        Retry the same plan
-                      </button>
-                    )}
-                    {creator &&
-                      !["cancelled", "completed"].includes(p.state) && (
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act("CancelProject", {
-                              projectId: p.id,
-                              expectedProjectRevision: p.revision,
-                            })
-                          }
-                        >
-                          Cancel project and release reservations
-                        </button>
-                      )}
-                    {own?.receipts?.some((r) => r.projectId === p.id) && (
-                      <>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act(
-                              "SetRecognition",
-                              { projectId: p.id, optedIn: false },
-                              "/api/wf2/privacy/commands",
-                            )
-                          }
-                        >
-                          Withdraw my named credit
-                        </button>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act("SetRecognition", {
-                              projectId: p.id,
-                              optedIn: true,
-                            })
-                          }
-                        >
-                          Opt into named credit for this project/building
-                        </button>
-                      </>
-                    )}
-                    {credits[p.id]?.length ? (
-                      <p data-private>
-                        With thanks to {credits[p.id]!.join(", ")}
-                      </p>
-                    ) : null}
-                  </section>
-                ))}
-                {state.projects.length === 0 && (
-                  <p>
-                    No published projects yet. The creator can plan a workshop.
-                  </p>
-                )}
+                <VillageDirectory
+                  label="Places"
+                  memory={interaction.memories.places}
+                  items={placeRows.map((p) => ({
+                    key: p.key,
+                    name: p.name,
+                    description: p.kind + " · " + p.description,
+                    status: p.status,
+                  }))}
+                  select={(key) => {
+                    const place = placeRows.find((p) => p.key === key);
+                    if (place)
+                      interaction.send({
+                        type: "listPick",
+                        ref: place.ref,
+                        view: "places",
+                      });
+                  }}
+                  empty="No places are available in this saved world."
+                />
                 {canManage && (
                   <button
                     className="pi-button primary"
                     onClick={() => setPanel("plan")}
                   >
-                    Plan a workshop
+                    Build
                   </button>
                 )}
-                <button onClick={() => setPanel("history")}>
-                  Village milestones
-                </button>
               </>
             )}
-            {panel === "plan" &&
-              state &&
-              (canManage ? (
+            {panel === "inspect" &&
+              (selectedProject && state ? (
                 <>
                   {" "}
-                  <section>
-                    <h2>Plan a workshop</h2>
-                    <p>
-                      Tap terrain to choose a center, then preview a draft. The
-                      server validates terrain, footprint, entrance and a
-                      connecting path; it reserves nothing until publication.
-                    </p>
-                    <label>
-                      East coordinate
-                      <input
-                        type="number"
-                        step="0.5"
-                        value={site.qx / 256}
-                        onChange={(e) =>
-                          setSite({
-                            ...site,
-                            qx: Math.round(Number(e.target.value) * 2) * 128,
-                          })
-                        }
-                      />
-                    </label>
-                    <label>
-                      South coordinate
-                      <input
-                        type="number"
-                        step="0.5"
-                        value={site.qy / 256}
-                        onChange={(e) =>
-                          setSite({
-                            ...site,
-                            qy: Math.round(Number(e.target.value) * 2) * 128,
-                          })
-                        }
-                      />
-                    </label>
-                    <button
-                      disabled={busy}
-                      onClick={() => void act("CreateDraft", { site })}
-                    >
-                      Preview workshop plan
-                    </button>
-                    {drafts.map((p) => (
-                      <div key={p.id}>
-                        <p>
-                          Draft at {p.site.qx / 256}, {p.site.qy / 256}; 6×6
-                          footprint and {p.path.points.length}-point path. Goal:{" "}
-                          {p.goal} deliberate contributions.
-                        </p>
-                        <button onClick={() => view.current?.previewPlan(p)}>
-                          Show this draft on the map
-                        </button>
-                        <button
-                          className="pi-button primary"
-                          disabled={busy}
-                          onClick={() =>
-                            void act("PublishProject", {
+                  {state.projects
+                    .filter((p) => p.id === selectedProject?.id)
+                    .map((p) => {
+                      const construction = constructionView(
+                        p,
+                        state.structures,
+                      );
+                      const worker =
+                        living?.plan.topologyEpoch === state.topologyEpoch
+                          ? living.plan.residents.find((r) =>
+                              r.goals?.some(
+                                (g) =>
+                                  g.activity === "work" &&
+                                  g.structureId === construction.structureId,
+                              ),
+                            )
+                          : undefined;
+                      return (
+                        <ProjectInspector
+                          key={p.id}
+                          project={p}
+                          description={projectDescription(p)}
+                          construction={construction}
+                          creator={creator}
+                          canContribute={canContribute}
+                          accessLoaded={Boolean(own)}
+                          alreadyContributed={Boolean(
+                            own?.receipts?.some((r) => r.projectId === p.id),
+                          )}
+                          busy={busy}
+                          onContribute={() =>
+                            void act("Contribute", {
+                              projectId: p.id,
+                              planHash: p.planHash,
+                              recognitionOptIn: false,
+                            })
+                          }
+                          onRetry={() =>
+                            void act("RetryCompletion", {
                               projectId: p.id,
                               expectedProjectRevision: p.revision,
                               planHash: p.planHash,
                             })
                           }
-                        >
-                          Publish this fixed plan
-                        </button>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act("ReviseDraft", {
-                              projectId: p.id,
-                              expectedProjectRevision: p.revision,
-                              site,
-                            })
-                          }
-                        >
-                          Move draft to selected site
-                        </button>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
+                          onCancel={() =>
                             void act("CancelProject", {
                               projectId: p.id,
                               expectedProjectRevision: p.revision,
                             })
                           }
-                        >
-                          Discard draft
-                        </button>
-                      </div>
-                    ))}
-                  </section>
+                          workerName={worker?.name}
+                          findWorker={() => {
+                            if (worker) {
+                              selectPlace(worker.id);
+                              view.current?.focusResident(worker.id);
+                            }
+                          }}
+                          funding={
+                            p.fundingModel && person ? (
+                              <OrbFunding
+                                world={world!}
+                                project={p}
+                                csrf={person.csrfToken}
+                                wallet={orbs.wallet}
+                                canContribute={canContribute}
+                                refresh={orbs.refresh}
+                                creditRevision={state.creditRevision}
+                              />
+                            ) : undefined
+                          }
+                          credits={credits[p.id]}
+                        />
+                      );
+                    })}
                 </>
+              ) : (
+                <>
+                  <h3>Gathering Shelter</h3>
+                  <p className="ux1-meta">Gathering place · Founded</p>
+                  <p>A shared place to meet and care for the village.</p>
+                </>
+              ))}
+            {panel === "resident" && (
+              <ResidentPanel
+                living={living}
+                id={selected}
+                following={interaction.state.following === selected}
+                focus={() => interaction.send({ type: "followToggle" })}
+              />
+            )}
+            {panel === "projects" && state && (
+              <>
+                {!selected.startsWith("project:") && (
+                  <VillageDirectory
+                    label="Projects"
+                    memory={interaction.memories.projects}
+                    items={state.projects
+                      .filter((p) => p.state !== "draft")
+                      .map((p) => ({
+                        key: "project:" + p.id,
+                        name: "Mending Shed",
+                        description: projectDescription(p),
+                        status:
+                          constructionView(p, state.structures).label +
+                          " · " +
+                          p.acceptedCount +
+                          "/" +
+                          p.goal +
+                          (p.fundingModel ? " Orbs" : ""),
+                        group: ["completed", "cancelled"].includes(p.state)
+                          ? "History"
+                          : "Current",
+                      }))}
+                    select={selectPlace}
+                    empty="No published projects yet."
+                  />
+                )}
+                {!selected.startsWith("project:") && canManage && (
+                  <button
+                    className="pi-button primary"
+                    onClick={() => setPanel("plan")}
+                  >
+                    Build
+                  </button>
+                )}
+                {!selected.startsWith("project:") &&
+                  state.projects.some((p) => p.state !== "draft") && (
+                    <button onClick={() => setPanel("history")}>
+                      Project history
+                    </button>
+                  )}
+              </>
+            )}
+            {panel === "plan" &&
+              state &&
+              (canManage ? (
+                <WorkshopPlanner
+                  phase={placementPhase}
+                  setPhase={setPlacementPhase}
+                  world={world!}
+                  csrf={person!.csrfToken}
+                  topology={state.topologyEpoch}
+                  site={site}
+                  setSite={setSite}
+                  drafts={drafts.filter(
+                    (d) => Boolean(d.fundingModel) === Boolean(orbs.supported),
+                  )}
+                  orbMode={Boolean(orbs.supported)}
+                  busy={busy}
+                  ready={mapReady && orbs.supported !== undefined}
+                  command={act}
+                  preview={(value) => view.current?.previewPlacement(value)}
+                  showDraft={(value) => view.current?.previewPlan(value)}
+                  cancel={() => setPanel("projects")}
+                  activeProject={
+                    state.projects.find((p) =>
+                      ["open", "ready", "blocked"].includes(p.state),
+                    )?.id
+                  }
+                  openProject={(id) =>
+                    interaction.send({
+                      type: "listPick",
+                      ref: { kind: "site", id },
+                      view: "projects",
+                    })
+                  }
+                />
               ) : (
                 <p>
                   Project planning is available only to the authorised creator.
                 </p>
               ))}
-            {panel === "people" &&
+            {panel === "people" && (
+              <>
+                <ResidentList
+                  living={living}
+                  select={selectPlace}
+                  memory={interaction.memories.people}
+                  following={interaction.state.following}
+                />
+              </>
+            )}
+            {panel === "admission" &&
               state &&
               (creator && canAdmit ? (
-                <>
-                  {" "}
-                  <section>
-                    <h2>Private admission</h2>
-                    <button
-                      disabled={busy}
-                      onClick={() => void act("IssueInvitation")}
-                    >
-                      Create one-use, 24-hour request link
-                    </button>
-                    <button
-                      onClick={() =>
-                        void refreshPrivate().catch((e) => setError(e.message))
-                      }
-                    >
-                      Refresh admission
-                    </button>
-                    {link && (
-                      <label>
-                        Share this privately
-                        <input
-                          readOnly
-                          data-private
-                          value={link}
-                          onFocus={(e) => e.target.select()}
-                        />
-                      </label>
-                    )}
-                    {inviteId && (
-                      <button
-                        disabled={busy}
-                        onClick={() =>
-                          void act("RevokeInvitation", { inviteId })
-                        }
-                      >
-                        Revoke unused request link
-                      </button>
-                    )}
-                    {admission?.requests.map((r) => (
-                      <div key={r.requestId}>
-                        <p>
-                          <span data-private>
-                            {r.displayName}{" "}
-                            {r.login ? "(@" + r.login + ")" : ""}
-                          </span>
-                        </p>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act("ApproveRequest", {
-                              requestId: r.requestId,
-                              expectedRequestRevision: r.revision,
-                            })
-                          }
-                        >
-                          Approve
-                        </button>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act("RejectRequest", {
-                              requestId: r.requestId,
-                              expectedRequestRevision: r.revision,
-                            })
-                          }
-                        >
-                          Decline
-                        </button>
-                      </div>
-                    ))}
-                    {admission?.members.map((m) => (
-                      <div key={m.memberId}>
-                        <p>
-                          <span data-private>{m.displayName}</span> · {m.state}
-                        </p>
-                        <button
-                          disabled={busy}
-                          onClick={() =>
-                            void act(
-                              m.state === "banned"
-                                ? "UnbanMember"
-                                : "BanMember",
-                              {
-                                memberId: m.memberId,
-                                expectedMembershipRevision: m.revision,
-                              },
-                            )
-                          }
-                        >
-                          {m.state === "banned"
-                            ? "Unban — approval still required"
-                            : "Ban member"}
-                        </button>
-                      </div>
-                    ))}
-                  </section>
-                </>
+                <CommunityPanel
+                  key={world + ":" + person?.csrfToken}
+                  world={world!}
+                  creatorName={person?.displayName ?? "Creator"}
+                  busy={busy}
+                  act={act}
+                  link={link}
+                  inviteId={inviteId}
+                />
               ) : (
                 <>
                   <p>
                     Your access is approved for this private village. Other
                     members’ identities are not listed here.
                   </p>
-                  <button
+                  <ConfirmAction
+                    label="Leave this community"
+                    description="You will lose village access. Your contribution receipts remain in your account."
+                    confirmLabel="Confirm leaving"
                     disabled={busy}
-                    onClick={() => void act("LeaveCommunity")}
-                  >
-                    Leave this community
-                  </button>
+                    onConfirm={() => void act("LeaveCommunity")}
+                  />
                 </>
               ))}
             {panel === "settings" && (
               <>
-                <p className="pi-muted">
-                  {creator ? "Creator controls" : "Your village settings"}
-                </p>{" "}
+                <p className="pi-muted">Appearance and account</p>{" "}
                 {founder && creator && entry?.capabilities.enable && (
                   <section>
                     <h2>Enable the approved private playtest</h2>
@@ -1382,44 +1417,10 @@ export function ParticipationPage({
                     </button>
                   </section>
                 )}
-                {state && canManage && (
-                  <button onClick={() => setPanel("plan")}>
-                    Plan a workshop
-                  </button>
-                )}
-                {state && canAdmit && (
-                  <button onClick={() => setPanel("people")}>
-                    Manage admission
-                  </button>
-                )}
-                <button onClick={() => setPanel("privacy")}>
-                  Receipts and recognition
-                </button>
                 <Link className="pi-text-link" href="/settings">
                   Account and privacy settings
                 </Link>
-                {privacyContent}
-                {state && (
-                  <details>
-                    <summary>Technical diagnostics</summary>
-                    <button
-                      onClick={() => {
-                        const stats = view.current?.stats();
-                        if (stats) {
-                          const { baselineHash: _hash, ...safe } = stats;
-                          setMetrics(safe);
-                        }
-                      }}
-                    >
-                      Measure renderer
-                    </button>
-                    {metrics && (
-                      <pre data-wf2-metrics>
-                        {JSON.stringify(metrics, null, 2)}
-                      </pre>
-                    )}
-                  </details>
-                )}
+                <VillageAtmosphere />
               </>
             )}
             {panel === "privacy" && (
@@ -1441,7 +1442,8 @@ export function ParticipationPage({
                           : "A workshop project"}
                       </h3>
                       <p>
-                        {p.acceptedCount}/{p.goal} contributions · {p.state}
+                        {p.acceptedCount}/{p.goal}{" "}
+                        {p.fundingModel ? "Orbs" : "contributions"} · {p.state}
                       </p>
                       {p.state === "completed" && (
                         <button

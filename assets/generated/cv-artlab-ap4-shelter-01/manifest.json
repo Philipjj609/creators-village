@@ -1,0 +1,234 @@
+{
+  "version": "cv-artlab-ap4-shelter-01",
+  "studyOnly": true,
+  "width": 2560,
+  "height": 1920,
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "layers": [
+    {
+      "id": "shelter-shadow",
+      "url": "shelter-shadow.png",
+      "left": 1046,
+      "top": 784,
+      "width": 313,
+      "height": 151,
+      "scale": 2,
+      "kind": "shadow",
+      "blend": "normal",
+      "defaultAlpha": 1.0,
+      "tint": "#3a283e",
+      "alphaFloor": 6,
+      "decodedBytes": 189052
+    },
+    {
+      "id": "shelter",
+      "url": "shelter.png",
+      "left": 1081.0,
+      "top": 591.0,
+      "width": 298,
+      "height": 348,
+      "scale": 1.3333333333333333,
+      "kind": "building",
+      "decodedBytes": 414816,
+      "mask": [
+        "00000000000000000000111000000000",
+        "00000000000000000011111000000000",
+        "00000000000000011111111100000000",
+        "00000000000001111111111110000000",
+        "00000000000111111111111110000000",
+        "00000000011111111111111111000000",
+        "00000001111111111111111111100000",
+        "00000111111111111111111111110000",
+        "00111111111111111111111111110000",
+        "11111111111111111111111111111000",
+        "11111111111111111111111111111100",
+        "00011111101111111111111111111110",
+        "00011111111111111111111111111111",
+        "00011111111111111111111111111111",
+        "00011111011111111111111111111110",
+        "00011111110111111111111111111000",
+        "00011111001111111111111111111000",
+        "00011100111111111111111111111000",
+        "00011111111111111111111111111000",
+        "01111111111111111111111111111000",
+        "11111111111111111111111111111000",
+        "01111111111111111111111111111000",
+        "01111111111111111111111111111000",
+        "01111111111111111111111111111000",
+        "01111111111111111111111111111100",
+        "00001111111111111111111111111110",
+        "00000011111111111111111111111110",
+        "00000000111111111111111111111100",
+        "00000000000111111111111111110000",
+        "00000000000001111111111111000000",
+        "00000000000000011111111000000000",
+        "00000000000000000011100000000000"
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "id": "shelter",
+      "name": "The Gathering Shelter",
+      "template": "gathering-shelter-1",
+      "footprintReference": {
+        "envelope": {
+          "minX": -1.5,
+          "minY": -1.0,
+          "width": 3,
+          "depth": 2
+        },
+        "entrance": [
+          0,
+          1.5
+        ],
+        "orientation": 0,
+        "units": "logical tiles relative to footprint centre; source packages/world/src/founding-spatial.ts foundingStructure() x=-1.5 y=-1 width=3 depth=2 entrance (0,1.5)"
+      },
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "anchorRule": "rendered px of footprint centre (0,0) at base height (z=0)",
+      "layer": "shelter",
+      "shadow": "shelter-shadow",
+      "detail": {
+        "id": "shelter-detail",
+        "url": "shelter-detail.png",
+        "left": 1082.0,
+        "top": 591.3333333333334,
+        "width": 594,
+        "height": 694,
+        "scale": 0.6666666666666666,
+        "kind": "building",
+        "decodedBytes": 1648944,
+        "mask": [
+          "00000000000000000000111000000000",
+          "00000000000000000011111000000000",
+          "00000000000000011111111100000000",
+          "00000000000001111111111110000000",
+          "00000000000111111111111110000000",
+          "00000000011111111111111111000000",
+          "00000001111111111111111111100000",
+          "00000111111111111111111111110000",
+          "00111111111111111111111111110000",
+          "11111111111111111111111111111000",
+          "11111111111111111111111111111100",
+          "00011111101111111111111111111110",
+          "00011111111111111111111111111111",
+          "00011111111111111111111111111111",
+          "00011111011111111111111111111110",
+          "00011111110111111111111111111000",
+          "00011111001111111111111111111000",
+          "00011100111111111111111111111000",
+          "00011111101111111111111111111000",
+          "01111110111111111111111111111000",
+          "11111111111111111111111111111000",
+          "01111111111111111111111111111000",
+          "01111111111111111111111111111000",
+          "01111111111111111111111111111000",
+          "01111111111111111111111111111100",
+          "00001111111111111111111111111110",
+          "00000011111111111111111111111110",
+          "00000000111111111111111111111100",
+          "00000000000111111111111111110000",
+          "00000000000001111111111111000000",
+          "00000000000000011111111100000000",
+          "00000000000000000011100000000000"
+        ]
+      },
+      "envelopeAudit": {
+        "min": [
+          -1.4798133373260498,
+          -0.9574477076530457,
+          0.0
+        ],
+        "max": [
+          1.4991732835769653,
+          0.9800000190734863,
+          3.2531850337982178
+        ],
+        "triangles": 27564,
+        "fitsEnvelope": true
+      },
+      "emitters": {
+        "lantern": [
+          [
+            1.1400000000000001,
+            0.88,
+            1.42
+          ]
+        ]
+      },
+      "drawOrder": [
+        "shelter-shadow",
+        "shelter"
+      ],
+      "depthRule": "one sort key per structure (footprint centre x+y, as workshop-03); ground decal and shadow go in the ground band beneath every depth-sorted object"
+    }
+  ],
+  "baseDecodedBytes": 603868,
+  "focusDecodedBytes": 1648944,
+  "identity": {
+    "structureId": "founding-shelter",
+    "template": "gathering-shelter-1",
+    "name": "The Gathering Shelter",
+    "replaces": "hearthside-hero-01/commons (open notice shelter) as presentation only",
+    "keeps": "saved footprint x=-1.5 y=-1 3x2, entrance (0,1.5), height, appearance string unchanged"
+  },
+  "sourceHashes": {
+    "build": "a3e34bd8a1e633dfa241c51bf78b2b990ded5d85e9449c642a89d81ac382bbb5",
+    "recipe": "d6f9f4f51aa1a36ccc5ef279b98bfb2c5685f6de6d59baedf019a28c07c680f2",
+    "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "arch": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+    "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 96,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "outlinePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "outputs": [
+    {
+      "file": "shelter.png",
+      "width": 298,
+      "height": 348,
+      "bytes": 133225,
+      "sha256": "5e1cac6cfb996b496e003c61c08da2013d07292034e7dda9ce9a57c4dab97797",
+      "decodedBytes": 414816
+    },
+    {
+      "file": "shelter-detail.png",
+      "width": 594,
+      "height": 694,
+      "bytes": 406386,
+      "sha256": "a174f21e2c24f1eb2e474abb996431ce5fac39dcccfc7f0f9826f3bc2f6b0078",
+      "decodedBytes": 1648944
+    },
+    {
+      "file": "shelter-shadow.png",
+      "width": 313,
+      "height": 151,
+      "bytes": 12193,
+      "sha256": "544f735e7976656bde0eee7404d493a8359ea420c52829fb317c30ca715c3b9f",
+      "decodedBytes": 189052
+    }
+  ],
+  "provenance": "Original art-lab geometry/materials/procedural textures (AP4). No third-party assets, no generative-model output; reference boards used as direction only. Release licence pending owner."
+}

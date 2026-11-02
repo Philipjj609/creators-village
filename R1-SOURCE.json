@@ -1,0 +1,1654 @@
+{
+  "format": 1,
+  "release": "hackathon-2026-11-02-r1",
+  "acceptedCandidate": "F3.1-RC1",
+  "acceptedSourceSetSha256": "44a72e045f94707f5f59c57a26dac18c0f3644b712fbca63dd9867e9f31ed273",
+  "sourceFiles": [
+    {
+      "path": ".dockerignore",
+      "sha256": "0aabd976faae7ad2d6dd70cde84532ed0583371dc523380aac0f498c7c42fe39"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "6a345a1964c59de914e79e0f558ba059d0b3e017aebf3a88ace9cabaef3aeb78"
+    },
+    {
+      "path": ".gitattributes",
+      "sha256": "bdee6be3d289c6a0313ac4114645d2207fd9fe2d7a1980911b6d7fc936b1d954"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "87c4499c9f5a70a1deebd04b643bbc13d14ab3d51c63332eb7eebc19e8a0a8d6"
+    },
+    {
+      "path": ".npmrc",
+      "sha256": "f50419e7a6126072d5a757795727661079b3e30ac6fbca02aea6f4b613486284"
+    },
+    {
+      "path": "Dockerfile",
+      "sha256": "8fba9990cc6db79325d6f77a7e48a1be96cd3e2f7c2090db25235fd6b98965ea"
+    },
+    {
+      "path": "apps/server/package.json",
+      "sha256": "480b515db00ac5fc9f76efff7f2b3f121daf06e010df50bd2f0a0a440d0623cd"
+    },
+    {
+      "path": "apps/server/src/app.ts",
+      "sha256": "ab4ab74935aa750088b6f601df01f75f04599902ce5e79d4ba2e5c726068e4de"
+    },
+    {
+      "path": "apps/server/src/config.ts",
+      "sha256": "d18ada66764e1f687981cb93c8998404cc09982259d656e1d7ddd71c8df55a94"
+    },
+    {
+      "path": "apps/server/src/database.ts",
+      "sha256": "2f3906bb8f93b11160a943c8ad3b52ea63395322ff7e1e7d28134b79061558cb"
+    },
+    {
+      "path": "apps/server/src/founding-worker.ts",
+      "sha256": "864f246b2db940cd76f312bce5e7693ec93516c4161a957158851a75b297bcfb"
+    },
+    {
+      "path": "apps/server/src/founding.ts",
+      "sha256": "ac5a05924dba473c50df42cd8388bcf7b1d2b43bd42a858810be550f7e3d2a22"
+    },
+    {
+      "path": "apps/server/src/hosted-bootstrap.ts",
+      "sha256": "6584f4c5cb1a6687359b0df7e007d56928415832378d6a7b6243e2a94975e6b3"
+    },
+    {
+      "path": "apps/server/src/index.ts",
+      "sha256": "71b570e7dc76820c9e4855b9fd61aefeb638d8f091b8aaf1b79e60245874fc63"
+    },
+    {
+      "path": "apps/server/src/living.ts",
+      "sha256": "bd2397aa0701db4c414fa76beb7adef59da2afdc641f4ef2c66529ecd299be3d"
+    },
+    {
+      "path": "apps/server/src/orb-path.ts",
+      "sha256": "13b278ed83c2b130f0d293296da8056bc9f7fe05e9bd16bebc7a0c49f3538a0b"
+    },
+    {
+      "path": "apps/server/src/orb-storage.ts",
+      "sha256": "4c563c28682a68ea920fc8a78b758ac43ff1b5582dc24c0a8012fc628f03a75e"
+    },
+    {
+      "path": "apps/server/src/orbs.ts",
+      "sha256": "5a8e5130b11e1d3caa52a77dddebd183189820128e0224964489b162809f0a8e"
+    },
+    {
+      "path": "apps/server/src/participation-admission.ts",
+      "sha256": "f3a009922dde8315cb2089ef88e74d07e64ecb8f71a0e8430d6c11a54ee32cff"
+    },
+    {
+      "path": "apps/server/src/participation-core.ts",
+      "sha256": "e456b80a522f7e15f9fa3af280b9584da99b7b86724c44e9c04e897157c226b1"
+    },
+    {
+      "path": "apps/server/src/participation-events.ts",
+      "sha256": "373f9280888aac21960218af7e3ede0958a61626ce83985a85bd593b1c930d48"
+    },
+    {
+      "path": "apps/server/src/participation-http.ts",
+      "sha256": "eed188c05ebce06b8bb6d532ebe1385dd87299bf2bcda630f80c4ad0f6dd841f"
+    },
+    {
+      "path": "apps/server/src/participation-projects.ts",
+      "sha256": "ad6e5cbec33da96d8ba326cfd4bbaeb464d5e0de56c952691b4ed8f07974056b"
+    },
+    {
+      "path": "apps/server/src/participation-spatial.ts",
+      "sha256": "90e5e3c5d06f32e9d0a6ff9e9c045f72f003f734b5f07ba5c99a4728e0178c9f"
+    },
+    {
+      "path": "apps/server/src/placement.ts",
+      "sha256": "70a6cfe1b4151f8a10791391674454426b8f3b65883e906a5c00ee44adea8193"
+    },
+    {
+      "path": "apps/server/src/product-http.ts",
+      "sha256": "97590fe5ad242561b513aa1e30935284d692c3f3929c293f957eac00d9b954d5"
+    },
+    {
+      "path": "apps/server/src/production-web.ts",
+      "sha256": "3cff6060f0d26ad98b94f75e83e69c6d92a608ca17a2ae351cfe33096681c42e"
+    },
+    {
+      "path": "apps/server/src/security.ts",
+      "sha256": "f98c7f4dda1e25705e54eaba8422385484fcac888c57cae0e1b61104c92ad9e1"
+    },
+    {
+      "path": "apps/server/src/session-startup.ts",
+      "sha256": "f02789f14ed03ea368d3c8ee58e526bdcbd647ade57c812d64ce174d075967c6"
+    },
+    {
+      "path": "apps/server/src/session-validation.ts",
+      "sha256": "630d15622081253ce9595b1fd958f62b7385a83317042d343565a17e7b9411b6"
+    },
+    {
+      "path": "apps/server/src/twitch.ts",
+      "sha256": "714c66f2de790c8101fdd3b1495d3de8af476e6b1d507ed69dcc43040911eb6d"
+    },
+    {
+      "path": "apps/server/tsconfig.json",
+      "sha256": "b1df01c7b3ffbfde2f65f433286f600e3ff181d47db39bce8337daea3c30a2c7"
+    },
+    {
+      "path": "apps/web/index.html",
+      "sha256": "b99a286d1ee396eea57e4a6d402b063e095cec5b72814b39631152e3fab69f77"
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "866f2d9330bd85153fcd4d2be5ff6075a5fffc7fe672d036b47262c030e4a832"
+    },
+    {
+      "path": "apps/web/public/landing-art/community-corner-301.webp",
+      "sha256": "7f9242486e447cea8d47a1073a73b816754a4c1e6fee19704fe38d9d083a2c42"
+    },
+    {
+      "path": "apps/web/public/landing-art/gathering-312.webp",
+      "sha256": "deb08b68f39c48e47db990a87d7840cbd7399cd25cd77f8a533a25195f7d90f2"
+    },
+    {
+      "path": "apps/web/public/landing-art/shared-place-315.webp",
+      "sha256": "eba6bfcde6499a48e012ba26c351606c3e02929a99312f7a764af67697f6b06c"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/belong-720.webp",
+      "sha256": "8ae5eada4b9c41f95f9fa3cc53bea403e514c178ff93534fca172c3fe982efb2"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/build-720.webp",
+      "sha256": "1a0889b5bbdad3f01f7d02a58c6b9af3aedcd04179051cbb2999a839e027f411"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/cv-hero-village-1200.webp",
+      "sha256": "8b3d744bcbaab1401e420b3b1c01a2b863691355d55839fe697043a6a793403f"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/cv-hero-village-1600.webp",
+      "sha256": "b69929db3bb1dec374a9eec3d1cd2c6bc2fd7fc49396a51050552f0988b049e6"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/cv-hero-village-2400.webp",
+      "sha256": "0ea857fb424c1e8e3a2268bc4a1900e6889ac3d6241471a6f597dff341dcbc84"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/cv-hero-village-800.webp",
+      "sha256": "c34511888c94d7654af94b4805b49de204896242a07ab7635dc22118bf7b3f9a"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/cv-hero-village-mobile-1100.webp",
+      "sha256": "1637d9a6482b932307eee7bfc1ec9535dc03a3f60f16da2560be84868318f868"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/cv-hero-village-mobile-800.webp",
+      "sha256": "2eb62ce9227cb207cf3d123bbee6c956922a680f3e03665f0e726eed130fb0af"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/remember-720.webp",
+      "sha256": "60e42965f9f5b0df72d66d9b15776d803842345dc5c050475e678964970dfff9"
+    },
+    {
+      "path": "apps/web/public/landing-art/ui1-01/twitch-glitch-white.svg",
+      "sha256": "cac532fa9bbe3ba1df462c5efcdda9bd03b3f0397c1b0d7464ee549e67ed25ac"
+    },
+    {
+      "path": "apps/web/public/landing-art/village-plaza-400.webp",
+      "sha256": "2d167b1a881eacc3585e0bc14570086e924f17981258dc8b59c05fbba24c8a11"
+    },
+    {
+      "path": "apps/web/public/landing-art/village-plaza-554.webp",
+      "sha256": "961677debc1337ec01651e8032d29361f7f83fd0a692483bc2f4e8bb7fba64ae"
+    },
+    {
+      "path": "apps/web/src/AccountRecognition.tsx",
+      "sha256": "84686e19362f1762525e24756b74962c155b88cce3a8fca27fefd643de6c061e"
+    },
+    {
+      "path": "apps/web/src/App.tsx",
+      "sha256": "962ea287d4cd4b5adc56c11c5bfabcebcf731e80e202a9723a468edeffb2d5fc"
+    },
+    {
+      "path": "apps/web/src/BasicVillage.tsx",
+      "sha256": "722a85be5bd7ce18bcbc503ec0a465b96b900e72a6f3a5b0e76f2a1507d6a52e"
+    },
+    {
+      "path": "apps/web/src/CommunitiesPage.tsx",
+      "sha256": "df854c4254f6b985b6ae35848d1e448df047d8dae27ff79b138680ef4f488fa0"
+    },
+    {
+      "path": "apps/web/src/CommunityPanel.tsx",
+      "sha256": "49814476ad9e224c101c313df4e11e1f6fd9884e58bc2720b7e2cc2b02261272"
+    },
+    {
+      "path": "apps/web/src/FoundingPage.tsx",
+      "sha256": "4cbd55a012eca69473fbae1784342ffec07571db37af56a5ef7a44d52290d94b"
+    },
+    {
+      "path": "apps/web/src/HomePages.tsx",
+      "sha256": "7e23ed85f4b459f27255eeae380551c71d33b93c3cdab0cdf3ae86a515cc62e5"
+    },
+    {
+      "path": "apps/web/src/LandingPage.tsx",
+      "sha256": "5880c0a4a1d619aa6c630a356fc6aa6f2726f80bced5730afbabe913dc5db862"
+    },
+    {
+      "path": "apps/web/src/Orbs.tsx",
+      "sha256": "f6ef9119b9526101497cf286f1c04ab321ba5b001fafead032dc5ddf28d2f827"
+    },
+    {
+      "path": "apps/web/src/ParticipationPage.tsx",
+      "sha256": "0553d16501641973db1fb35c3b7ac0336c706608c75891c22a7198f013ce7cc0"
+    },
+    {
+      "path": "apps/web/src/ProductApp.tsx",
+      "sha256": "ae075702df676db0ab348593c34667309b4ef38c22ad611b6dc3d5c885d08828"
+    },
+    {
+      "path": "apps/web/src/ResidentPanel.tsx",
+      "sha256": "9515c2b9b6985f79706e238bc6117bb58a110fece28c46d99d7d12afae3560c6"
+    },
+    {
+      "path": "apps/web/src/VillageAtmosphere.tsx",
+      "sha256": "b1c5ec95fc2d882b805b8ec7c51f17d06384c0554526b62df026520990ab7198"
+    },
+    {
+      "path": "apps/web/src/VillageChrome.tsx",
+      "sha256": "abc6a5dfcc8ec312666d553f4c258cce8c18c5dfdcb812dea25c49214dd6caf1"
+    },
+    {
+      "path": "apps/web/src/VillageDirectory.tsx",
+      "sha256": "1784abd77aa825d3675ee104d91768913d0afbb00fd79d035cb213de85a5eb47"
+    },
+    {
+      "path": "apps/web/src/WorkshopPlanner.tsx",
+      "sha256": "4ffe29d89b57e86fcc3dac8552de3675a81cacdc0e8eeb1647b6cd863625d09f"
+    },
+    {
+      "path": "apps/web/src/api.ts",
+      "sha256": "f8f2f25e99ed9a4072d4d24d8dd21a1c6946751ad45074baa2506090adf5efd3"
+    },
+    {
+      "path": "apps/web/src/brand.tsx",
+      "sha256": "5e26012b1ce9f51f89f7667772735121e2831358a98486c9a13a15e49967df0d"
+    },
+    {
+      "path": "apps/web/src/communities.css",
+      "sha256": "669b30ed6097a53a97af6f4d86b73a36a4498d9f98368e0d14f7146c5fbb73d1"
+    },
+    {
+      "path": "apps/web/src/community-view.ts",
+      "sha256": "493c49b71d1e63f62963780d92ae01badec8230cee7e37524801e24553f04155"
+    },
+    {
+      "path": "apps/web/src/landing.css",
+      "sha256": "669f85aa8561c658486a5fff0c1efa9ec967f9111fe3d35d927784120809e370"
+    },
+    {
+      "path": "apps/web/src/main.tsx",
+      "sha256": "cef8be98ccf4912c3038632b6671e674182a5b09c73f2e0587a8ba2455ff81fe"
+    },
+    {
+      "path": "apps/web/src/orb-sync.ts",
+      "sha256": "5b6310d5b00589100d13126ed0ec67b1b40953b52cab0b67fa8104c8bae6bcde"
+    },
+    {
+      "path": "apps/web/src/place-descriptor.ts",
+      "sha256": "3c071521c03596d7a0cc09162cc4de73783e7cbbfcc3c2a7cefb2bef3517b01b"
+    },
+    {
+      "path": "apps/web/src/place-project.ts",
+      "sha256": "11203fda4970544764409a694d88ac51af9edea12f3453232196fd3ae847403f"
+    },
+    {
+      "path": "apps/web/src/placement-state.ts",
+      "sha256": "56c91ecb0e5ca54d8b8e34c65b498c65aa4fb9a9169247085fb7f6ba3eb5e389"
+    },
+    {
+      "path": "apps/web/src/platform.css",
+      "sha256": "d53af52986511bab007fe4c4fb84e2f9800aced203680f0aae18de74e8dbafc5"
+    },
+    {
+      "path": "apps/web/src/product.css",
+      "sha256": "5e33cd2fbe46fecd5cd3a9dc3307e40ba255dd98ca0b906fbffc35a947dff717"
+    },
+    {
+      "path": "apps/web/src/resident-copy.ts",
+      "sha256": "404b98939ec01e293aae64962f4f4bc5d16887b41b15741de67f5fe6af201b10"
+    },
+    {
+      "path": "apps/web/src/routing.tsx",
+      "sha256": "873dfc909cf75105aa6329c09331b65825b7dd4fd52a8b069992e1081cc920d4"
+    },
+    {
+      "path": "apps/web/src/section-link.tsx",
+      "sha256": "fabf87466a58fcc64aaf51a1a1408d3b6244c61f299ee10b250d323c8975f5d8"
+    },
+    {
+      "path": "apps/web/src/session.tsx",
+      "sha256": "b92b10b240d9f68d2d1f1f97b2e9cdd1b12aa3fa4ea2bec26a59bece66140f44"
+    },
+    {
+      "path": "apps/web/src/style.css",
+      "sha256": "cf28e12c6d5ad7f7b288b9c21e0b5cdf114bd2254a0261cd29310e9e4517e112"
+    },
+    {
+      "path": "apps/web/src/ui.tsx",
+      "sha256": "36b880e148f8aeac7e24f9815f5d1f22ddd884834ca53ed1cca179ca2bb83f71"
+    },
+    {
+      "path": "apps/web/src/use-selection-projection.ts",
+      "sha256": "1a75b89c79c78faa352b1e5a2b883921f4232393de866ab4f1603c89e083bd33"
+    },
+    {
+      "path": "apps/web/src/use-village-interaction.ts",
+      "sha256": "6bb38d0b34e081757ef35cc20f3c7a32c4edeca2026162aa02ad16bfa258e2d6"
+    },
+    {
+      "path": "apps/web/src/viewport.ts",
+      "sha256": "885f84d2d7606c96b0dc2c5b89a0fb359be16aca2f6eddd4ac44801373721e02"
+    },
+    {
+      "path": "apps/web/src/village-panel-state.ts",
+      "sha256": "707f518958aaed2298301dce3c7c96079dfafa4198896ce03ab398a8238eccfd"
+    },
+    {
+      "path": "apps/web/src/village-panels.tsx",
+      "sha256": "df140adcf16a5dc964a3cf630964aa6b5ddf900b01cf3128104d9a71a88554c8"
+    },
+    {
+      "path": "apps/web/src/village-selection.ts",
+      "sha256": "e0e763edcce37caf3ce14e8bce314ec91aac166f883280d714df2059170fda14"
+    },
+    {
+      "path": "apps/web/src/village-shell.css",
+      "sha256": "9bc221ce67b3d5a1baebef92c20df8646fe7f2d95c6aee6286bf9c0646ca0bd5"
+    },
+    {
+      "path": "apps/web/src/wf2-state.ts",
+      "sha256": "718a4a1e81781a23a6950f3fee611bf8120190a0ccd6cd824cf9268c87ded530"
+    },
+    {
+      "path": "apps/web/studies/h01.html",
+      "sha256": "57e1a7eb65b19003abc527e791cca5370cd149361cf90ef997f4cd5eb11c153b"
+    },
+    {
+      "path": "apps/web/studies/h01.ts",
+      "sha256": "47956bfb1cdbeee01e92f204ebdc5e6694a652ee42a11aa0693252a1875b98d1"
+    },
+    {
+      "path": "apps/web/studies/v04.css",
+      "sha256": "08401c2aaa29ac406e1131b53c20c95947d3f9e919bbd514576b093bf400aad9"
+    },
+    {
+      "path": "apps/web/studies/v04.html",
+      "sha256": "2296ec01d0e3c564cb1075c37b61831f62b7604fd0a3cbca5f5a85f1f14a877e"
+    },
+    {
+      "path": "apps/web/studies/v04.ts",
+      "sha256": "c62d55ad65a526a315b40e2a41653d010f3a42b9636e924c068cecd43c533442"
+    },
+    {
+      "path": "apps/web/tsconfig.json",
+      "sha256": "e054bab7f2af9b514fa051b681a386a79cd9e6dfc3e331fda5429058828c382b"
+    },
+    {
+      "path": "apps/web/vite.config.ts",
+      "sha256": "43c66e34c28b830d076ce2a6dbfa5669753f217f64b54ea2e61b57b196db846a"
+    },
+    {
+      "path": "assets/generated/cv-ap4-01/catalog.json",
+      "sha256": "76fd98157da1a0d96b83ab9ba8c18bafef2d69beb54b9f07ba7367a5a055e24c"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ambient-02/cv-artlab-ambient-02.json",
+      "sha256": "733d3671fe4dd4cdadab753c0de953357787f1f85ffdd14e5bae06178d02bc89"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ambient-02/cv-artlab-ambient-02.png",
+      "sha256": "be6da1780bc0b26c048a02ca7d90c9b9e7bfcae501d2e590d9d5d789f2a97897"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ambient-02/manifest.json",
+      "sha256": "eabc94eb91e856ce18602e2a77838e7f930791e59d30ebd313ec84f306d4526a"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/foundation-detail.png",
+      "sha256": "c3714c3b5e012d464bbb3faf7555c420c7dad65af1784607362dba704d90a114"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/foundation-ground.png",
+      "sha256": "329ba83abbd75dc0b221c1ed855df0bcce34013ee82e2c9a775c5d4932046658"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/foundation-shadow.png",
+      "sha256": "2094eddcc8ac5055f6c00b78bb6bd25976772426f69261de370574e9a144cfbe"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/foundation.png",
+      "sha256": "7c4b31915f92af93dd80bd613b983a2f7eeb356f3bd6887696f8c018b0d1a54f"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/framing-detail.png",
+      "sha256": "fef2113b38239f1ee324e5ebe17ede464c3ae0880601ad82da446d69bbb0f405"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/framing-ground.png",
+      "sha256": "7a1e1a1686d469ce8fd15762bc4177d9479b5f17c8954679b6e39ac87f0e85c1"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/framing-shadow.png",
+      "sha256": "c9a78e49e3946cd60864feb1f277e8a4f4cd1b4189d18ab0050ab3b9f8df1a64"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/framing.png",
+      "sha256": "4a72a4eeb7b55167d618226f54272fe2b9e14fb845de5442e1f23ae8158b623c"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-construction-01/manifest.json",
+      "sha256": "6379bc8f316490b7556417412420f94fbd93429ebef0b6f8fcf8a5117034a337"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-shelter-01/manifest.json",
+      "sha256": "b9a28dab8d2656aba186f3fbcfd05c5e640953dcf3b951f9157c031adecb09f3"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-shelter-01/shelter-detail.png",
+      "sha256": "a174f21e2c24f1eb2e474abb996431ce5fac39dcccfc7f0f9826f3bc2f6b0078"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-shelter-01/shelter-shadow.png",
+      "sha256": "544f735e7976656bde0eee7404d493a8359ea420c52829fb317c30ca715c3b9f"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-shelter-01/shelter.png",
+      "sha256": "5e1cac6cfb996b496e003c61c08da2013d07292034e7dda9ce9a57c4dab97797"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/bank.png",
+      "sha256": "47576e2cf5b95be99dd92ae9e1d0970375ba59bcccdd6be90eea97cdf91c9be2"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/decor.json",
+      "sha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/decor.png",
+      "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/grass.png",
+      "sha256": "e6678b715fc5cd03c359b4b3bf8ddd94f53f632f286b4ec63987f214b1983a9c"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/manifest.json",
+      "sha256": "e50bff761225c407013f350692c8525c9ea4a350be8c68b389ec65d04487bac3"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/patch-clover.png",
+      "sha256": "69857eb9525e4ec28aa96560b0f934d864e5d56c043a165df6ea96d2486c7a26"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/patch-dry.png",
+      "sha256": "ecbfe0fa8352ecec1eb601eeb00b802e9f5696ca52f53a4e9ee289e54797f58c"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/patch-moss.png",
+      "sha256": "e0441567120bb11ada1a300df9e5bed61260b0624a605ff251bc00fd8f27d920"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/patch-worn.png",
+      "sha256": "9e45220acab34409221d74d3e643f243fd6acea62d8b18e8a4256639d706ca7b"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/path-dirt.png",
+      "sha256": "a43683e7bfdc0569e15ce6cfd28d09a04edb7b379a791877e7be006106d84f2d"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/path-fringe.png",
+      "sha256": "8905765427e6f747ba79ce66ca0d9e57ca4eecfe63ae6d4cdfda222a730b5a9d"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/path-joint.png",
+      "sha256": "5f1ba41e22adb0951b0128b0df3c92047986bd541f0891609d270bfadea3c90c"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/shore-corner.png",
+      "sha256": "bbd228bc78d994dfe88ce7f6c4ad5b4d065c4110bf6bb404c1a65b42d93c50a7"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/shore-strip.png",
+      "sha256": "1e6c867f85a9d84c8e303146c7687b32de54f6a05a690bfe77e7291443847f5d"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/water-glint.png",
+      "sha256": "3a3aecf3d6a336f990eb73eb4267c7e8499cac1ec7385f8c29950b665b5b0b43"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/water.png",
+      "sha256": "b2747a7cb22396436ed62dd7b763bac215431b95e1d70ed16ae3e79298d0b243"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/woodland-fringe.png",
+      "sha256": "c8ea82b81e1492145e06511eb93d5e068e2cd1266112959de07015eae4ba2319"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ap4-terrain-01/woodland.png",
+      "sha256": "3ca56f33768c77f8a8140730e93501a73bd3f2bd10854f5ac7a95562ea450b79"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-a-structures-02/cv-artlab-batch-a-structures-02.json",
+      "sha256": "fd6f46024b79d4ceda36eff8407615275e10aee956d1d5fa886c662bb575f15e"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-a-structures-02/cv-artlab-batch-a-structures-02.png",
+      "sha256": "f73046aa262bcb7fce33ad128614ea8630a032f649a782a86cfb7a32eef1cc0e"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-a-structures-02/manifest.json",
+      "sha256": "bc5768f860f683513037035b155eeff6a3995cb18fdcc65d2645b24f6d636564"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-b-structures-02/cv-artlab-batch-b-structures-02.json",
+      "sha256": "4aab3712edaff9daa7530002a7e9a7a115abfff061e77ed8bb468f865d6e6a83"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-b-structures-02/cv-artlab-batch-b-structures-02.png",
+      "sha256": "f9f706b11c1e0a705393ea43b5d63a1a4dbad89d0e345ed6650ab0b96f4edbce"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-b-structures-02/manifest.json",
+      "sha256": "3ec3388eaeda14292047f0d320ac57154dced57d2e42732ec9228f68786b9606"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-effects-01/cv-artlab-batch-c-effects-01.json",
+      "sha256": "a69313fd8d9856c6d5bd9b8b9753eca58a632c4f7c7cfec3606c4887292269d2"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-effects-01/cv-artlab-batch-c-effects-01.png",
+      "sha256": "02c5cef96145ff9a9f56a2d2567c444f54bc4bfdd01df75bf94a81a6c5cb9463"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-effects-01/manifest.json",
+      "sha256": "c9ad950bcecf929d4b40a7d06105e98b0cf8eb6a64f84c87baf28916c4c7c1e1"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-props-01/cv-artlab-batch-c-props-01.json",
+      "sha256": "c7ac8336caa115d1c57fb2ce4c1f2c99dfad1005cfc2b129b832319136888b4b"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-props-01/cv-artlab-batch-c-props-01.png",
+      "sha256": "cbf3a0aacdc633e9eb01e01455ea9dbb90b37ad2889e19693ea4337632be6e77"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-props-01/manifest.json",
+      "sha256": "2fee4e20e37e6d1830762723bf93143ec1dd3eb21d826a04b136b27ac72402d9"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-vegetation-01/cv-artlab-batch-c-vegetation-01.json",
+      "sha256": "d62046f06d723409b550f1e959d98e906254613e791ecd068d93deb448967bdb"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-vegetation-01/cv-artlab-batch-c-vegetation-01.png",
+      "sha256": "a7ecce6d273637c99537127eb942786e3be7567b2c109f25f36b7df4931a6a43"
+    },
+    {
+      "path": "assets/generated/cv-artlab-batch-c-vegetation-01/manifest.json",
+      "sha256": "76f2ab2d91686bde3939f64513daf0d80c1f4711be887b6cbce4f45f26121ee5"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-act.json",
+      "sha256": "f12898b77fb379cf06c801df3e64cf41a14af0eb91cafe7697f90e892a570324"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-act.png",
+      "sha256": "8b5592764dc49cb2d932d575d4e9a79a59f26f483f392cf2ee03486cf21c8214"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-loco.json",
+      "sha256": "f2f46b86d26b0d57a78b196b61816f636c2277f5f92845e907db83fc6df2d5dd"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-loco.png",
+      "sha256": "2f18ea5873311b5bbd694284567dafbb440091d189628fb6df5aea2b48933df1"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-act.json",
+      "sha256": "b963ac7430e78a5acde0490bd91db6468a927d8b1bd9ac774ac11dd8d18756d2"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-act.png",
+      "sha256": "18747d0bf412cf95069e61a07c9dbb8103e15aec888ef3ed09773603ee5e9357"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-loco.json",
+      "sha256": "49cbaebd30a164cd6b59fc1424fd2bb5329062292ec897e9ccb39529fd3272b2"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-loco.png",
+      "sha256": "a8146b769bdfa2b6b9b84a82e014a47ae73b599369c26ffa461fc589dadc73b9"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-act.json",
+      "sha256": "3f03a477f628c76a5b0a02ebf5a1aed827015d3c4ed92372efe9648682b5a91b"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-act.png",
+      "sha256": "55c8ba798076bf805ba5eba676f0a6cfa4503ec5e9ee45fc602c1e8b4ac64fd6"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-loco.json",
+      "sha256": "b3befff0466f07466bb0cb13f6df97970712d527d8bea213cc0be231d9d86b12"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-loco.png",
+      "sha256": "47444242fc01d359c5321ffcdf6d4b41031331c8b5529b00264ed93414d336bf"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-act.json",
+      "sha256": "fdeccb3b88c211efbbe05fc825c728e01ec7f9b1eea50d94d5d3f22b7d5995a8"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-act.png",
+      "sha256": "417a2320b218a9d5d4c2d4ee34b618a2fb8ada8980de5e17518b6d0a574441b5"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-loco.json",
+      "sha256": "3ee49176a29b0d5c3ba053ec1ebd5e2a9caedaf746418dfb7612646097bdf5d7"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-loco.png",
+      "sha256": "f993d943b1d31b08bdc9c9cb25567bb5ad30c3c1d375b98eedb966226aba088a"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-act.json",
+      "sha256": "7caea2f0db2c7f0b046f02c0621adbf0476ace3657ca32a88ec693ca2edd1fbd"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-act.png",
+      "sha256": "0cbb30dccbcdd0ba3c365668dccdb2d631c27dd6f015f4e0d0dd24afced2c279"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-loco.json",
+      "sha256": "3796823a503ed5be252006498bfb242e24c2b7fd6bf038b3dcda20c98c11d3c8"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-loco.png",
+      "sha256": "a3076dabee2c2aa26d86282c73fe025c486f73f6f3fe03e0231941405db335d9"
+    },
+    {
+      "path": "assets/generated/cv-artlab-cast-02/manifest.json",
+      "sha256": "cc25ace24d4db45b6fdcb568340ec4fd910dd001f4b8f38b9b4c6798d38bfd90"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve01-workshop-03/manifest.json",
+      "sha256": "9034acb25a701b41b56e96fc0da5927179d9fe90fd3b9de480f40911a318c907"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve01-workshop-03/workshop-detail.png",
+      "sha256": "b5427b8b1ab9fd77cdf7a9b3a8ead40fc00ee097363abdc7405b7701f063a67f"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve01-workshop-03/workshop-shadow.png",
+      "sha256": "547fafb0021f935f2e1144c3fb947d606386e9a1c9b497dd3fc950f1dc2f46af"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve01-workshop-03/workshop.png",
+      "sha256": "881edcad3550e01ffb73f2d6ab6bf0eacaae4ffa141dfa2ada3cf2bf3fc3ca6b"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve02-broadleaf-01/manifest.json",
+      "sha256": "f80868c75815c1a83343a91ff2643e49481efcde70c0f5ff4a156d433131652a"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve02-broadleaf-01/vegetation-atlas.json",
+      "sha256": "c315af00a62e9d9606549e0aa6117cce40ade08add6223f992f8477ee6380fab"
+    },
+    {
+      "path": "assets/generated/cv-artlab-ve02-broadleaf-01/vegetation-atlas.png",
+      "sha256": "b38689bacf0f3fb6d59caed01c6c15a0d5f146a291ebb8259488b8b05d83de7a"
+    },
+    {
+      "path": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-traveller-loco.json",
+      "sha256": "b2c4008ffe090dd426e39400d4f83c060c12a3d323617e66f91f58e13d1accb4"
+    },
+    {
+      "path": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-traveller-loco.png",
+      "sha256": "374e259e40018323eac5b1f4c75a094e3ae3deb5eb380bcff13e92cbc3ba1034"
+    },
+    {
+      "path": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-wanderer-loco.json",
+      "sha256": "a8e1bef55ae240365b2194feb04f7e2a4e55581b75306e490de53ade9b846116"
+    },
+    {
+      "path": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-wanderer-loco.png",
+      "sha256": "42a2ca7095f6dade0300e00d462bcf1aff227687e6233841fd00a9b83f599879"
+    },
+    {
+      "path": "assets/generated/cv-artlab-visitors-01/manifest.json",
+      "sha256": "8037a1f34a5ab32a2447a4083838546c2dd8621ee5881d510042e3456d3c80a5"
+    },
+    {
+      "path": "assets/generated/cv-artlab-windmill-01/cv-artlab-windmill-01.json",
+      "sha256": "14742843dfd57c8d30cbe78a43af08d65e6b0ad686e6bcb640993fa03b236aab"
+    },
+    {
+      "path": "assets/generated/cv-artlab-windmill-01/cv-artlab-windmill-01.png",
+      "sha256": "b7b4f11828cacb33451719df8aabfb306997762a5149c4250f9f205bfd2c9a9a"
+    },
+    {
+      "path": "assets/generated/cv-artlab-windmill-01/manifest.json",
+      "sha256": "f966c0de93012d8c6bcca8d37de7ad3095f8d9334ee6cc640115210e63c3a4dd"
+    },
+    {
+      "path": "assets/generated/cv-artlab-zone-samples-01/cv-artlab-zone-samples-01.json",
+      "sha256": "a4ee8689be6e37b48d585c2fc9ad311b8e52e888d9b6c08724b98e4fceefed00"
+    },
+    {
+      "path": "assets/generated/cv-artlab-zone-samples-01/cv-artlab-zone-samples-01.png",
+      "sha256": "6cf3615cb670bad4d40d9dd511e725964c23d02fd5292ed624c9ea30f0ff699d"
+    },
+    {
+      "path": "assets/generated/cv-artlab-zone-samples-01/manifest.json",
+      "sha256": "1552e853b61b23a9987706c03ffc0e0b53a0dd460dde2042b509cc72590bce91"
+    },
+    {
+      "path": "assets/generated/cv-ui5-01/catalog.json",
+      "sha256": "2f08a015e49ed0542bf3fe082a2cec7c43e12f6cd4df5c4ffae95cf36dea1272"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/apple-tree.png",
+      "sha256": "40b0e41d96130e292841ef0676e6ca0d4f556eb900e154705abef0e83ce63027"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/commons-detail.png",
+      "sha256": "194d3336b807a9383916bc87e715f68329c0eb67986aeeb38484ff421d691257"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/commons.png",
+      "sha256": "fa14aea9c26d8cea34f73302bcf3e544d01ec4d4eab303d9bef7ec77cf439e85"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/gathering-thread.png",
+      "sha256": "1c22276ce2dd4fbfacb69b4f26c8048509dd5c4ce9e5d4d9b5b00015927064e4"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/ground-0-0.png",
+      "sha256": "55b2d6f598f6dbfb73a201255c822c734df5fdfdfded49635a7253a9080b6a30"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/ground-0-1.png",
+      "sha256": "40aa3e26eccd2916c77b636d149ca9018bc50b608269672f4c9d45dfef9fb22d"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/ground-1-0.png",
+      "sha256": "fd549a0b8f28a997bf18f51cfd70a23152d10799fe1cd57c4cf41ddedf2edcf2"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/ground-1-1.png",
+      "sha256": "af57ad5470c8e535f5570cf4cc74fb2d8f5ce80c3062448869a6bc03562e1e7a"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/home-detail.png",
+      "sha256": "7d089f4ee872a7b5355f94df052007a2538d48acef93291a5cb5ba5c7a7537e8"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/home.png",
+      "sha256": "57d48e0c0650283fdaab6c021233a5821a1801dcd134dd7c9ba8b2561a7ef4d0"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/long-table.png",
+      "sha256": "79d23d34dc9c16da0579dbbf7ca936bf55e4f08afc13c3e4569d85a452912af5"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/manifest.json",
+      "sha256": "cb9c3041a50dc2cff9066d8e9ed8a815b72838ae15b63cb062b2c3ec97ab71c5"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/source-manifest.json",
+      "sha256": "927f4971f22893dabfda73635926d73ddc73a854a4c92fd970fb6a18499d32c9"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/workshop-detail.png",
+      "sha256": "1016f193d4424c96b66d379411d2278aad5a6561ef120e9589d2d365f1f2b51d"
+    },
+    {
+      "path": "assets/generated/hearthside-hero-01/workshop.png",
+      "sha256": "89d66a103bed9f14bb321c7ce2bb069cfbcaf18747a455faf4e52fbe57e8fc88"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/back-grove-0.png",
+      "sha256": "3c16f118345424ff3072b0f1aec5a80cc33c40cc1e35d7ce9fc374782115a31c"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/back-grove-1.png",
+      "sha256": "84a82d26f43b62788ce5ef56e9c50f118db53a0190722ac7b90ba7526b50869c"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/back-grove-2.png",
+      "sha256": "e04ee85b5a7697b3f30e4d92e8c100c902fc8ff91f7708a62043126010cad66b"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/back-grove-3.png",
+      "sha256": "adc8774ea2305441e0faeca46cee618e900975574658f4b26fd779fad514cc83"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/back-grove-4.png",
+      "sha256": "0225f7d168d839cfbceee0e70176b0544bff15f3abe38973a86d6d121d3b0f20"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/back-grove-5.png",
+      "sha256": "fd25eb1259315b9fdec3bcab0e8136c966662c82267aa45c403ac2d4c53f4af2"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/bench--1.5.png",
+      "sha256": "0df1a4f3f04ecd5ae3313169ef401a861be6a07d7baf3c0fd7a659be078a1ff3"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/bench--11.5.png",
+      "sha256": "37c778601360bdead491da0b6e4098317ec6317d73c5ba2394e7a55ac5900bac"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/bench--8.1.png",
+      "sha256": "9e8a1ba36f1f56981c69d2b347208dd12abd227f216ff36cfe4078acf0d8ee38"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/cart.png",
+      "sha256": "5c5406068e5cd996045d3db7205f9ac08ab235f5a8688fa59174964e885e65d8"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/commons-tree-0.png",
+      "sha256": "a8be11d137809eb9d9ca9792f8f1ea05d37545978fc4e48495c2a03074a82791"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/garden-home-detail.png",
+      "sha256": "7faa5d5af7c950b30c487ba7f172dedbdb6654deffd881e6a00ca5391a713a30"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/garden-home.png",
+      "sha256": "0478c979a250308886c024b5e93dfd6d2ae5e4913a9734a6964d4b5aa4aa1dac"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/ground-0-0.png",
+      "sha256": "2d3c4ddfd48ed53f4bfc95b14dc8143876bd5fc65446beaa87a30bb54e0a5011"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/ground-0-1.png",
+      "sha256": "e2d688992157683536200cdf4a855fdb1259d1530723bce55fcf6f630d0d31e9"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/ground-1-0.png",
+      "sha256": "92cbef17e6ca0e67e1549e880fc29c02c37ec7787444bc18e965ebbc8108986c"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/ground-1-1.png",
+      "sha256": "10207d35211acccb8d17da339f7ec05fcfc03fce33e5f9cc6c987cf1240db3fa"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/hall-detail.png",
+      "sha256": "715ca19c02596ce5a58119f347ff3eeec2ab99f6ab8650844435ec48cd8d21ea"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/hall.png",
+      "sha256": "e92e622c8ea6f9de00c0a56d89b0b49aaad9ef56171192c12cfb88630a22f69d"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/hearth-home-detail.png",
+      "sha256": "679a2fafcf6cfab899c234314fabfa0058b6a8d73a94d2b46f429f1119a0cb89"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/hearth-home.png",
+      "sha256": "98c6dcd02c542237511cf2d5a7f28002fe5202f7056838ee2ed6fd8a9d572cc3"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/lane-home-detail.png",
+      "sha256": "553b429e26c1e28ed0247407d04ff4aaea251d3c99b63232b692608e9a31b6ff"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/lane-home.png",
+      "sha256": "2ae4d95cf6f43a1ee646e8656a6b717870eb1933f8095c17dcb02aa15f06f3b4"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/left-copse-0.png",
+      "sha256": "0933ffa69d2861b2c6e3e82aebcc5ad438dc08c2ab8df075a50454e53e48a811"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/left-copse-1.png",
+      "sha256": "20d811ad14bdbbdb5b557fa1f67c8c4c71d5faa8b84f20dd7c617774de59c7ad"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/left-copse-2.png",
+      "sha256": "217393d30956f877f41317d525c57a9442735171e9e5affc10b7342b837a34ff"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/left-copse-3.png",
+      "sha256": "d4ba26be76a95d7a3c7fea7924bf7674fa7187d8c558688eb4cff2b5a09f62c9"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/left-copse-4.png",
+      "sha256": "7bc2eb35968b057fef96c5f63d2a2276ddf0d28426251f64cac8378964e0d36f"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/left-copse-5.png",
+      "sha256": "c98cd0e0489965363ac01873501b832cad5db4deb896bbe744055a03e76aca23"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/linen.png",
+      "sha256": "8aa873e42bd8d6818a2c89ff00413730c498d25e4af26c656b1d4b184de1ec9b"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/manifest.json",
+      "sha256": "ba60a5d7074b15c16d7d6acb445a6d00a1a6b24af69f16f8499d1a4358ca0cbd"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/river-foreground-pair.png",
+      "sha256": "2bbd2e628da8b69dbd3c006813ca21d492f9b7cca0089a23b72c2cecee4a436b"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/river-grove-0.png",
+      "sha256": "21b954e5e7394c9a21eeb3a3e3b086ca2cbfa098488edd553a156c8744111ce7"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/river-grove-1.png",
+      "sha256": "f0e96db121dea83f40f44635601aaaa850a226e57f64808805cd19723e8e65d6"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/river-grove-2.png",
+      "sha256": "02539771f9833dbcb44c245035a9a907b19e66cdd9420fce0d62c3d412286536"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/source-manifest.json",
+      "sha256": "469f3c2c75eaa775103ad5c9cc42e8cbc08cdf508fa8d9f520293b5172c84810"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/workshop-detail.png",
+      "sha256": "dedf406de68b54052a21dab9db117aef93e43b2faf7143b9607a348a47f41d9b"
+    },
+    {
+      "path": "assets/generated/v04-neighborhood-study-01/workshop.png",
+      "sha256": "caaf8e03633738fea92a6d94145ba2323dadc93056c54c747b3539db15c1f2fd"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/cottage-0-front.png",
+      "sha256": "06e2ec14643b9e5e6d5c96c85f8192026b5025afd8d38f25766e7b2885c7181a"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/cottage-0-iso.png",
+      "sha256": "f8abe1da4408ee8bbf2889e616b55906ec77e4d43d36453a543947541df95531"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/cottage-1-front.png",
+      "sha256": "dfd043d60fc3f351c5eb3d39347d6531b91fefd89b4b17fe6e656703b736d394"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/cottage-1-iso.png",
+      "sha256": "e54e5b353db8fca8703781903d7569724cb928316764eca52261e55aa37dee9c"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/cottage-2-front.png",
+      "sha256": "20656e64714b05d3f50098785810a0d79c6b17e07ff85430e83f681a75ff5ef5"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/cottage-2-iso.png",
+      "sha256": "8a31a2f9e3fc929bf039261123f234a215421c680ce0f8f33036045b9ea3252e"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/gable-0-front.png",
+      "sha256": "c56d91b3d3981f04d5af73a45ab8b0e2de888e4f8a0034e7dd012f6773761a1b"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/gable-0-iso.png",
+      "sha256": "f5ea1b12e7b68e9ef4c7b0f65be24055d512bd82ea55eefea59e57435277632e"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/gable-1-front.png",
+      "sha256": "a698c3b590b95984f58b2a02a4e8d8270e0d7e6e194a273a2030fabee69f88cd"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/gable-1-iso.png",
+      "sha256": "01da639b1bc3f19610125c63bb61376544e41b7703615ecc6f6e23bcdf5cfd15"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/gable-2-front.png",
+      "sha256": "05482ec04a36ca53e458939a80bd986adcc52665b3e4dbf353ccc6f3150e3353"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/gable-2-iso.png",
+      "sha256": "ab574ded5ea50b2f709643dc0b0d597662690362a171d9aaac163bd5d3196226"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/hall-0-front.png",
+      "sha256": "73af0ca28ffaac9b0d72f2afde9d5b0ae75b47af78b510daf946595d2d9dfdf6"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/hall-0-iso.png",
+      "sha256": "7cacf81464080f67d62e35198c32b2b76d58529bdfd04768fe285fb052e01cee"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/hall-1-front.png",
+      "sha256": "bb56008da4a873062f24f4359cc172ae63e5b8175468abc92c7a5e96bf35c647"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/hall-1-iso.png",
+      "sha256": "0b78b51d3faee907bb73594d6d526732c6897556c590dc01117dc8afe9ebd502"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/hall-2-front.png",
+      "sha256": "051fa21d5d6ada680a702840374b6a822d2698ec98fe6cce87eadabcf3543ba5"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/hall-2-iso.png",
+      "sha256": "a6a1bc49cdb85ca27d2418f945dec372c265698e52e643f923fcfae6ea456d46"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/manifest.json",
+      "sha256": "f012204378c2d70e0496c204f72223f00c5ac36c25dec1d46537453a81b56102"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/mill-0-front.png",
+      "sha256": "2b47fe50114aa744ad36f881f13d9b6ea5f119a5381354dcbdc6a6422a78fd68"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/mill-0-iso.png",
+      "sha256": "ad65d781afafc99e54cb7b0014cba70f6f39c2c6c81eb24fdf4658d7e70f8b93"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/mill-1-front.png",
+      "sha256": "8dc24ed4c880ae9aee3d442e063818147d15ff6036ad058449919cfa354c638f"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/mill-1-iso.png",
+      "sha256": "edadb16e37e3d7ef97cdede6c41a9095cea7b4a866183a2550674d6808beae96"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/mill-2-front.png",
+      "sha256": "20c6016b6b8b17df63c2c322c7217d5ed1b18eae097801b0b4cd65e315abbfa4"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/mill-2-iso.png",
+      "sha256": "c011c1494e934b5d9a9895553dbfb4c1e9ff34190227043c546bad9dcf8e469e"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tower-0-front.png",
+      "sha256": "9c5d86d7ae4283d1501caa852e6e8ca52ec72f1642060aedb8aaf86716b6d25e"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tower-0-iso.png",
+      "sha256": "1c4fcf34f775df13a491d23dd1a09bfbbacd2077368701a580c197ea8520cefd"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tower-1-front.png",
+      "sha256": "77c6ed79527a502c4a929fa9e72795f96f568639b260962b9f2e71640cf44f1e"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tower-1-iso.png",
+      "sha256": "dbcd72c32851b01eadc5d7b5b2a0093e80c5ea062904d7c6f5240504869af19f"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tower-2-front.png",
+      "sha256": "8d251b1b01fa030c29b6c35474045f1bd8089a43d6d564a1df711d60fc881e42"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tower-2-iso.png",
+      "sha256": "548f72ee6f230890998a7033b966f78fb8efcd9c514329597a3ba1f9007cef39"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tree-0.png",
+      "sha256": "0be37f84958ba65d843eca810b2a6d050a69791728c86d0297c648e2e59f393c"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tree-1.png",
+      "sha256": "d11805724def4ce3af05f32c9e6f951ed57770926ede010ae54b25a274a16be4"
+    },
+    {
+      "path": "assets/generated/woodland-vector-1/tree-2.png",
+      "sha256": "9e82afebba942f2088e280c98c1a8e8ab5e59a34f8d9fe24d454d2cc0973b245"
+    },
+    {
+      "path": "assets/source/hearthside-hero-01/README.md",
+      "sha256": "4a8544eb855134a1e2f21a79e6fb4ab41e8adfd978ac5b285b554c0aec418c25"
+    },
+    {
+      "path": "assets/source/hearthside-hero-01/build.py",
+      "sha256": "be952497ebf809d8188c08cfcb85ebf4f19e5489a0ba3a65cf423416dfa44637"
+    },
+    {
+      "path": "assets/source/hearthside-hero-01/hero.blend",
+      "sha256": "e1b0953db180cc495c980399886ce7394896af317eb699ad0c6d313773063f53"
+    },
+    {
+      "path": "assets/source/hearthside-hero-01/recipe.json",
+      "sha256": "e75e66198f60c6176ddb1b0ea35bc22cd40f6b56449597e480df919d4559e990"
+    },
+    {
+      "path": "assets/source/v04-neighborhood-study-01/README.md",
+      "sha256": "77ce1d4156528778d6b7a3c76dc4242854d2edd39a77aa2e3497a856fd87038e"
+    },
+    {
+      "path": "assets/source/v04-neighborhood-study-01/build.py",
+      "sha256": "2f6de9cccb40d553a01f1ed6feeb964cfdc3daf731b8481045ae28dfa14b0b69"
+    },
+    {
+      "path": "assets/source/v04-neighborhood-study-01/kit.py",
+      "sha256": "9311f946c07689c48b52f92760e8ea20a55f06ad81edd862e78b490f78e81d68"
+    },
+    {
+      "path": "assets/source/v04-neighborhood-study-01/neighborhood.blend",
+      "sha256": "b1986a25f4e80ec4d2e6b8e0a715a3afe7fbda1676733c29ababe913e5c31371"
+    },
+    {
+      "path": "assets/source/v04-neighborhood-study-01/recipe.json",
+      "sha256": "f94991d700a96f0285a0034530ea3177139357126c5b7791aa757d42f3439244"
+    },
+    {
+      "path": "compose.production.yaml",
+      "sha256": "78fb3b55fa88f892b2c161e6f42e4acfe4f527b7a4e6768df2d82541907aa2db"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "96be118af0ec3d234f48f9a78cc6749daf04e54fb2d093420e18d70264ccf810"
+    },
+    {
+      "path": "db/migrations/001_identity_world.sql",
+      "sha256": "ff37bd80f398d4764fc1e181c8ff16e60db5d0b18d4493aaf4c04a201b458eb3"
+    },
+    {
+      "path": "db/migrations/002_founding_worlds.sql",
+      "sha256": "4bb9c99ad8795663e02ab5bd9f090040177053f9abdc2a47e69bf74f772f18a6"
+    },
+    {
+      "path": "db/migrations/003_founding_slot_policy.sql",
+      "sha256": "58df499657c87f342877a1e2b1b7b73dca4e88ed4ccda7467236a97c137120a9"
+    },
+    {
+      "path": "db/migrations/004_wf2_participation.sql",
+      "sha256": "1583c7a931e928f3788f46b2073ff8e399765ad51f0457a4b152e65c2a170a5c"
+    },
+    {
+      "path": "db/migrations/005_wf2_session_validation.sql",
+      "sha256": "ca14d7c8724b36a07c64a267d5abd42469457005da9a64f98a5a0c5d5818ece1"
+    },
+    {
+      "path": "db/migrations/006_hosted_test_bootstrap.sql",
+      "sha256": "a3f52e024c615f083325fce7e16a8c7fb049c20c79209061010d5a280ba5cb90"
+    },
+    {
+      "path": "db/migrations/007_f3_community_orbs.sql",
+      "sha256": "947db969ceb64b581433ddee9539cfc3d58a940397d1cd67bcbf63cb7d560dff"
+    },
+    {
+      "path": "db/migrations/008_f3_road_connections.sql",
+      "sha256": "9e9493b41c3f6c2febb53d3e71e0841954303b8a36eaa2f10904996dcafc8a92"
+    },
+    {
+      "path": "db/migrations/009_f3_orb_policy.sql",
+      "sha256": "0b96bbdbbb912b8b8b3ccb9b4041dcbfff9e9d228828f39c78019a5bb5018c42"
+    },
+    {
+      "path": "deploy/production.env.example",
+      "sha256": "07e2b08e8ba71f433e847a4f0a18f5323d9f71543b24e2b7e35db3e6312a354e"
+    },
+    {
+      "path": "deploy/runtime-grants.sql",
+      "sha256": "b7e909ea6c12727f3a8708bda30b95fca64394a711a8647ee232353c62e5924e"
+    },
+    {
+      "path": "docs/testing/evidence/wf2/source-calibration.json",
+      "sha256": "12ee4454fae1f7a71f3ffe5c10bfe2e9b27130aaa06bcd6dda7921c8966325ad"
+    },
+    {
+      "path": "package.json",
+      "sha256": "4bb948107e6bd73a5ff906443873b1957b7fb298845083fad6bcb1b27b04b1d4"
+    },
+    {
+      "path": "packages/contracts/package.json",
+      "sha256": "9caa5c82d123c65f787f11f36daa48b11c22ae3f16340ef13ef1d5985299dcfc"
+    },
+    {
+      "path": "packages/contracts/src/construction.ts",
+      "sha256": "db814648234e41c4b67dd08f8ff72f5b71ccd9bd3175abce039715405f8fe839"
+    },
+    {
+      "path": "packages/contracts/src/founding.ts",
+      "sha256": "90ba6d5a88ac4fa8e38a21265bad780c06c1a1ccd9a9f7dfcfef1d849a2d51f3"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "5e04d35b3bf9a391e4f50bdb7559d9b69c1d42e57edfd96c1db55c3bcb99f058"
+    },
+    {
+      "path": "packages/contracts/src/living.ts",
+      "sha256": "c91a7753945c8ca3a00b3ff2caf85629d6eb6e0b86701ac2715b1d91cebe2ba6"
+    },
+    {
+      "path": "packages/contracts/src/orbs.ts",
+      "sha256": "e7027deb019260e8fc599e636a0127541ead6abcd2166b06cf1da89f4565c580"
+    },
+    {
+      "path": "packages/contracts/src/participation-wire.ts",
+      "sha256": "049ca3895126a2d3b411d3b373525a6b6395c96b28a3f002453519dca2f19a53"
+    },
+    {
+      "path": "packages/contracts/src/participation.ts",
+      "sha256": "ea9e5edff4cd03f3c590dac2c45c915f6bcbfa998968c0db1359c581e00c7a2d"
+    },
+    {
+      "path": "packages/contracts/src/placement.ts",
+      "sha256": "761ed4d1ec48a142cc5768deb6de6567719c2233ce1016ecc9710cafdfe4af2f"
+    },
+    {
+      "path": "packages/contracts/src/product.ts",
+      "sha256": "3240005df35e48e3e07bb22842f8518dc5c83613a69bc0512f526afec72bde9c"
+    },
+    {
+      "path": "packages/contracts/tsconfig.json",
+      "sha256": "b1df01c7b3ffbfde2f65f433286f600e3ff181d47db39bce8337daea3c30a2c7"
+    },
+    {
+      "path": "packages/domain/package.json",
+      "sha256": "e974a4e460b924263c06c1416197294407c11c8d4a91af63f00658f4220099cd"
+    },
+    {
+      "path": "packages/domain/src/index.ts",
+      "sha256": "08908e41204359b7519eb07dffed8dd2e960ce5eabfc1c204c22bceaa36e92b8"
+    },
+    {
+      "path": "packages/domain/tsconfig.json",
+      "sha256": "b1df01c7b3ffbfde2f65f433286f600e3ff181d47db39bce8337daea3c30a2c7"
+    },
+    {
+      "path": "packages/renderer/package.json",
+      "sha256": "07af109426c3507e7ed4d043648157de35a32d78617fc5b070b6ae3f1ae722a3"
+    },
+    {
+      "path": "packages/renderer/src/ambient.ts",
+      "sha256": "70b1f89232e8e57b85aad5901b582436035436575822684e90bfc71e0b080db7"
+    },
+    {
+      "path": "packages/renderer/src/art.ts",
+      "sha256": "35e90d3c6622f6d590bfe42e7d8d402719286ae76c2319ca1fde1da9631ff5c2"
+    },
+    {
+      "path": "packages/renderer/src/camera-motion.ts",
+      "sha256": "1075bdef147137dcb834b4afc339cfdd281f4204dbb58a40512bcdec23de674e"
+    },
+    {
+      "path": "packages/renderer/src/camera.ts",
+      "sha256": "05e4c50242e1438d1187994317957309cbc14ff957d2e5a026cf43394fc906e9"
+    },
+    {
+      "path": "packages/renderer/src/construction.ts",
+      "sha256": "a447a3f956d752f4f2afbd29534f92168e67a0336ffd54cf2fc2c5c13167dd1f"
+    },
+    {
+      "path": "packages/renderer/src/environment-art.ts",
+      "sha256": "aedbbc515b92fb9870ce6a6d40886ce49c7b9947baa668b7380737d9d2a5f008"
+    },
+    {
+      "path": "packages/renderer/src/founding-projection.ts",
+      "sha256": "22528909a29228f190a66248c8cf9cc25175feb76d1ce18e96876e747dc32835"
+    },
+    {
+      "path": "packages/renderer/src/founding.ts",
+      "sha256": "8f4406b557a4cfbf6c604c261385625a2f4437dc320e4b6584365f7d0b454a36"
+    },
+    {
+      "path": "packages/renderer/src/index.ts",
+      "sha256": "d2999a1f1b416aafaf29adcd0e53910d20ac1c9a0cbbc7a5683a1a5c82128e2c"
+    },
+    {
+      "path": "packages/renderer/src/living.ts",
+      "sha256": "2db71e43f03d0719f85c92a371844a60b84718a2a298823056c8a1d779c40222"
+    },
+    {
+      "path": "packages/renderer/src/picking.ts",
+      "sha256": "b58afaeafed692e7bc7efe6e3fd4cf9145e38f1f32cb4207aee28b8bd4d4332b"
+    },
+    {
+      "path": "packages/renderer/src/placement.ts",
+      "sha256": "bbe898a25113aa498a380edef2f5abf7a5b0e9e2f67fb295d8efdf5adda062a5"
+    },
+    {
+      "path": "packages/renderer/src/reconcile.ts",
+      "sha256": "376eaa38dc452ceb70aee11824c517b9259d0ad931379a83644ced65a3968a59"
+    },
+    {
+      "path": "packages/renderer/src/resident-art.ts",
+      "sha256": "4f2599a2e3c7110dc7ceab48b32f261af01de56fac1581fe401dd9041478bba5"
+    },
+    {
+      "path": "packages/renderer/src/selection.ts",
+      "sha256": "5e68b349e132f62ec649323e31cff8e7fd4c8180843cec2b832d329e11aad302"
+    },
+    {
+      "path": "packages/renderer/src/study.ts",
+      "sha256": "bbd46713bad4b6e1956e151e57936867af573e25376a5abcd8fc3b5ccd1830a8"
+    },
+    {
+      "path": "packages/renderer/src/surface.ts",
+      "sha256": "d6cc05bd9e35334c307919dd61002ec86edd208c27eaed998ec4b8327a44c358"
+    },
+    {
+      "path": "packages/renderer/src/terrain-art.ts",
+      "sha256": "f74431949ed6bf67e608286e092b00cba951aeaab2f2b0bd358626e59ff1defe"
+    },
+    {
+      "path": "packages/renderer/src/terrain-style.ts",
+      "sha256": "b022d84222d7f15b8d1e433287f002526f2d9284096c2e7e9d5d5fae61302756"
+    },
+    {
+      "path": "packages/renderer/src/vegetation.ts",
+      "sha256": "65d94be5b4b09a4029b10eed8ce07d8be48ff2b40f7327257542eae404b5c481"
+    },
+    {
+      "path": "packages/renderer/src/viewport-bounds.ts",
+      "sha256": "441f50cca90b9f53ab9d952adaab8add219cf1ea1e641aeb7c43b1cebd347abe"
+    },
+    {
+      "path": "packages/renderer/tsconfig.json",
+      "sha256": "a5158e5cfa469290aa6f93705413db586f8722d3d62cf2c3266824c29a220fdd"
+    },
+    {
+      "path": "packages/world/package.json",
+      "sha256": "0052053e73b24be45d63e4abf7dbd1e2121e0b2ca099b142a67c49704876755d"
+    },
+    {
+      "path": "packages/world/src/founding-spatial.ts",
+      "sha256": "f8924c1da638c9b3e7d6c71f828671d7784766b80a951859e8ce9d3be6e4f582"
+    },
+    {
+      "path": "packages/world/src/founding.ts",
+      "sha256": "a0db1b272a20e0962fc268bc54801588862b8a708473aa677b240017315b2240"
+    },
+    {
+      "path": "packages/world/src/index.ts",
+      "sha256": "f36da52e7746012d10be747e2a3ab1e82ceb94be07f14196eb80d17b39f8ce97"
+    },
+    {
+      "path": "packages/world/src/living-goals.ts",
+      "sha256": "028f3f0ee36081ce32114f3ad9bed606ed07b254eb4721a57e8b99f069363adc"
+    },
+    {
+      "path": "packages/world/src/living.ts",
+      "sha256": "68c7362e90e91bfba0a4d99581c55c0cf927b86eb6fe48b20148b3ac96d25201"
+    },
+    {
+      "path": "packages/world/tsconfig.json",
+      "sha256": "b1df01c7b3ffbfde2f65f433286f600e3ff181d47db39bce8337daea3c30a2c7"
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "3de180a62e1811de3b1e6724daeba10a93611a37bd6e4d6cf026546e3de0a98b"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "e485458823435a88f8bb3f28209be0dd7e746da1957061a40fe00bba09ea5667"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "sha256": "12c11d09b3a288ded093b0c439b2b5e640f04890d81f6f8329c24aba42237828"
+    },
+    {
+      "path": "scripts/build-assets.mjs",
+      "sha256": "f5f401ea7b1dbfc289c2f8a796511debd32ca33436ba2ff0e86cb8f386ea5cd7"
+    },
+    {
+      "path": "scripts/build-release.mjs",
+      "sha256": "ed71a57a3a07247978be538264aa37ea6c449303ee1e79129fb0c604ab5053e9"
+    },
+    {
+      "path": "scripts/f1-demo-fixture.mjs",
+      "sha256": "4baa58119434e78fa48a0e504e86773756dd62977b5a50591296e22b4f18c036"
+    },
+    {
+      "path": "scripts/hosted-bootstrap.mjs",
+      "sha256": "5d5ce1625762f1bca9148236b80e000455aaa97448e517c4380bf29009a53ae2"
+    },
+    {
+      "path": "scripts/local-setup.mjs",
+      "sha256": "b623662dd053a8c3bf98c210494f96458aac50dcfdeef2bb62ff77897cd2f8f9"
+    },
+    {
+      "path": "scripts/package-runtime.mjs",
+      "sha256": "be1e922c8c918cacad50d48f8202c9c0f7585c09a94a4053b1a4e5240cda6775"
+    },
+    {
+      "path": "scripts/production.mjs",
+      "sha256": "9b3ef7ec0406bfd69ad3ff33487ed1d7fcd88e4972d6f4315e07db58d006d892"
+    },
+    {
+      "path": "scripts/server-runtime.mjs",
+      "sha256": "9717b756562b2239f798ff4d0d2e90222e81041c1437543632862dc3ae146d87"
+    },
+    {
+      "path": "scripts/start-server.mjs",
+      "sha256": "442be7fe78b4f3e680f5532f2c60615c75c64a45bbf13fda74e140a93f75395b"
+    },
+    {
+      "path": "scripts/ui2-fixture.mjs",
+      "sha256": "d3098ed135e1b11ff4bd5030e1014ccefa8725140aed0706dc768fbc41bf63a4"
+    },
+    {
+      "path": "scripts/wf2-crash-child.mjs",
+      "sha256": "4613b89c79c9b9eb14118420bc6d36151e47d1fe9b8426dfdb9a26e1d05fb3b6"
+    },
+    {
+      "path": "scripts/wf2-test-server.mjs",
+      "sha256": "e623a663df08ab6ff24616b53be0d206c12551d4ac7de827ea323ce2796a8848"
+    },
+    {
+      "path": "tests/ap4-art.test.ts",
+      "sha256": "6bcfeab5b8cfdb99a8cb96aae595d3df9eea20b5475143ce0b5598d36f8b6225"
+    },
+    {
+      "path": "tests/browser/founding.spec.ts",
+      "sha256": "262636b4eae62ae4eb1e83e70351796e76d98d61a8de2f6ddac64be7b0797637"
+    },
+    {
+      "path": "tests/browser/h01.spec.ts",
+      "sha256": "6602ec27497ff0e572cd6b40aee05be5c31da3fc62d4f0b603c2f815ed24b802"
+    },
+    {
+      "path": "tests/browser/v04.spec.ts",
+      "sha256": "1624bc4a23293b03ae1d4edc8764320897dc6b675bb755d32f485cb2ecee95e6"
+    },
+    {
+      "path": "tests/browser/village.spec.ts",
+      "sha256": "99e51a834a86da0e59e279ebee1576e26ce85c519e65c940c2dfe89957263479"
+    },
+    {
+      "path": "tests/camera-motion.test.ts",
+      "sha256": "53fd4e8801b2d1814aef740b9ef009dada96735c9f67ea423c0eb3bc7afbb0d0"
+    },
+    {
+      "path": "tests/construction-view.test.ts",
+      "sha256": "91d4b46ef60a8ad997de6ae734cf1d78bf40d42a22463b4aa3e08381069e61a4"
+    },
+    {
+      "path": "tests/database.test.ts",
+      "sha256": "d0c6b0b718dcbe1682b8513b8baee41c8e1c1a88c725da195d5383f4430b6b61"
+    },
+    {
+      "path": "tests/f1-functional.test.ts",
+      "sha256": "b1719c3d255514cb352c59523cb5767e8b90e9e274c974794414fd093342c6f3"
+    },
+    {
+      "path": "tests/f2-interactions.test.ts",
+      "sha256": "6ab5972d06a3b654189bbe7f73c37446f61516dab9df73c1358d45ab5a3c7f9b"
+    },
+    {
+      "path": "tests/f3-orbs.test.ts",
+      "sha256": "6f91f0342c06e524404eb13633fd634eec290345a67aca604df45eb66325584e"
+    },
+    {
+      "path": "tests/f31-orb-sync.test.ts",
+      "sha256": "9f12e658ae1b4f8c7079956c631cef386c4f4d19c805be86c01192b9a406904e"
+    },
+    {
+      "path": "tests/fixtures/world-v1.json",
+      "sha256": "3a697bc34b922a97297329a594be95dc3d351c0826a7e07f80cb049c2b44e8f8"
+    },
+    {
+      "path": "tests/founding-database.test.ts",
+      "sha256": "11f80bfe754c640623b8c83ca4a87d2b0fb4f3551739baa024cfe3d2cf37f7ac"
+    },
+    {
+      "path": "tests/founding-projection.test.ts",
+      "sha256": "ba5dbf09a110f6459c51762abd7af0bd3e9f0c2f00eddfeffe34896946362b53"
+    },
+    {
+      "path": "tests/founding.test.ts",
+      "sha256": "a07d9581d140ca6e5ba2366c37270156630dc6ab29ef53daad974fc9f801a66d"
+    },
+    {
+      "path": "tests/h01-assets.test.ts",
+      "sha256": "b0b16e72e8f128e9c4ec03993380e8db18542f447b76df5a4dd4adc10296fa98"
+    },
+    {
+      "path": "tests/hosted-bootstrap.test.ts",
+      "sha256": "d025eab03747c27f0195b40d6ecfd507b0aaab5dcf0d05a2cd31ef6732935b1d"
+    },
+    {
+      "path": "tests/living-database.test.ts",
+      "sha256": "c1745b28896baf285314e5849966d939ec6c49306daafc52d0fc98bcfb8643a7"
+    },
+    {
+      "path": "tests/living-goals.test.ts",
+      "sha256": "20940a51f9f236e35945bed0398a2f942574a1c27f023326d335701cdf9b3795"
+    },
+    {
+      "path": "tests/living.test.ts",
+      "sha256": "e8b9e725870a739ee8cafc504c919c37166897597f32f411a8049afd68215f49"
+    },
+    {
+      "path": "tests/participation-reconciliation.test.ts",
+      "sha256": "0fd3e2959a6c56dd99659f0aabbf7a9e0ff7ee3ebbbc2138e01353331be5d96e"
+    },
+    {
+      "path": "tests/participation-spatial-safety.test.ts",
+      "sha256": "972d6389a522fc1232076f2454338e889657b544d2f1a9a55fd8df6edb52b223"
+    },
+    {
+      "path": "tests/participation.test.ts",
+      "sha256": "12ad4a58d62a7115a1319b75d4e63ffba74abdf5867a3dc47f4c26e244161ae7"
+    },
+    {
+      "path": "tests/production.test.ts",
+      "sha256": "30f3a43eaab187da0ba91518c606919d1599cccaf9a8397973f61f36e86709ea"
+    },
+    {
+      "path": "tests/runtime-compatibility.test.ts",
+      "sha256": "9fde786049f38ddf3e75ac443bfedcc72c4c6d8ffba1710912caed8d549c593c"
+    },
+    {
+      "path": "tests/security.test.ts",
+      "sha256": "7562b403128591ab27d4578469e36e0dc5f1f12ea135422172da9df413561130"
+    },
+    {
+      "path": "tests/session-validation.test.ts",
+      "sha256": "0d804852704a5f58b8339fc7285ad2224d1069f4e85d2d788c5868de6acb61a1"
+    },
+    {
+      "path": "tests/spatial.test.ts",
+      "sha256": "5b97cf6c3e1fc46a1801cef7e17f2a25b0f98535b2fb5876e0ded7afceeebc86"
+    },
+    {
+      "path": "tests/twitch-adapter.test.ts",
+      "sha256": "e81dfa88b481e1a6aee2b7a859293fd4b2e924b798bad7f46a20530da4db7080"
+    },
+    {
+      "path": "tests/ui2-communities.test.ts",
+      "sha256": "cc510013f70d4aa2f6377a38d709a8b3ea202c54b1669c30472ca33dfb27f9b3"
+    },
+    {
+      "path": "tests/ui3-viewport.test.ts",
+      "sha256": "9f80e9c19978acd418e9db9c14c2c5595de2800af64729e3081f6457f74af20a"
+    },
+    {
+      "path": "tests/ui4-panels.test.ts",
+      "sha256": "b8641fc38c68557b50f408769e515438a89c10bcf01d0f2cbe63881a45e13feb"
+    },
+    {
+      "path": "tests/ui5-art.test.ts",
+      "sha256": "5d82428d660b7fa3f912d9baa6cca543ca6461490d8a8f345f2ee9c8a955e630"
+    },
+    {
+      "path": "tests/ui51-rendering.test.ts",
+      "sha256": "c2d14ddd04be127811ab51e1bc55cf725bdce65681bf83509d42c48481705178"
+    },
+    {
+      "path": "tests/ux1-context.test.ts",
+      "sha256": "4687ee85c6ff2e312a43358f672285415dddf2487a040b645fc154b341ffafa1"
+    },
+    {
+      "path": "tests/v04-assets.test.ts",
+      "sha256": "2d055b4d685522eeb0fe3557267c7824e486b744f7c38df6803311daa7784116"
+    },
+    {
+      "path": "tests/v04-layout.test.ts",
+      "sha256": "1a013be724a682db70ee7ae9e22e0ea4d52b8e2d5be3de03efdc2880f1c34a15"
+    },
+    {
+      "path": "tests/village-selection.test.ts",
+      "sha256": "394c04d261c3a9610a1c1601ac2ecc9c983fa7594316af5d53d195724d401be3"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "sha256": "6e8171276d2d1535c3fccc2cdedd61017c3aff3671d7203d42edfc0ca3bad4df"
+    },
+    {
+      "path": "vitest.config.ts",
+      "sha256": "55ffb994b9981290d8a7a7ddbf4c466b4fedf4403944881a9953733ab699219f"
+    }
+  ],
+  "omittedTemporaryScripts": [
+    "scripts/ap4-demo-server.mjs",
+    "scripts/ap4-import-art.mjs",
+    "scripts/ap4-snapshot-demo.mjs",
+    "scripts/ap4-verify-demo.mjs",
+    "scripts/blender-health.py",
+    "scripts/f1-demo-server.mjs",
+    "scripts/f1-snapshot-demo.mjs",
+    "scripts/f1-verify-demo.mjs",
+    "scripts/f2-demo-fixture.mjs",
+    "scripts/f2-demo-server.mjs",
+    "scripts/f2-snapshot-demo.mjs",
+    "scripts/f2-verify-demo.mjs",
+    "scripts/f3-demo-fixture.mjs",
+    "scripts/f3-demo-server.mjs",
+    "scripts/f3-verify-demo.mjs",
+    "scripts/f3-verify-history.mjs",
+    "scripts/f31-demo-fixture.mjs",
+    "scripts/f31-demo-server.mjs",
+    "scripts/pack-h01.mjs",
+    "scripts/pack-v04.mjs",
+    "scripts/prepare-ui1-art.mjs",
+    "scripts/rebake-v04-foreground.py",
+    "scripts/runtime-inventory.mjs",
+    "scripts/ui2-review-server.mjs",
+    "scripts/ui3-construction-review.mjs",
+    "scripts/ui5-import-art.mjs",
+    "scripts/use-local-node.ps1",
+    "scripts/verify-h01-source.py",
+    "scripts/verify-landing-accessibility.mjs",
+    "scripts/verify-landing-redesign.mjs",
+    "scripts/verify-lw1-browser.mjs",
+    "scripts/verify-lw11-browser.mjs",
+    "scripts/verify-pi1-browser.mjs",
+    "scripts/verify-pi1-focus.mjs",
+    "scripts/verify-pi1-navigation.mjs",
+    "scripts/verify-platform-refinements.mjs",
+    "scripts/verify-production.mjs",
+    "scripts/verify-v04-source.py",
+    "scripts/verify-wf1-backup.mjs",
+    "scripts/verify-wf1-flow.mjs",
+    "scripts/verify-wf2-backup.mjs",
+    "scripts/verify-wf2-browser.mjs",
+    "scripts/verify-wf2-source.py",
+    "scripts/wf1-test-server.mjs"
+  ],
+  "sourceSetSha256": "122f572b9ffb58b66b152ceaa089322457fabb6be9506b74d49233985350b92d",
+  "dependenciesChanged": false,
+  "assetsChanged": false,
+  "lineEndingPolicy": "Canonical LF for code/documentation; exact bytes for hash-pinned assets. PUBLICATION-PROVENANCE maps accepted inputs to published bytes."
+}

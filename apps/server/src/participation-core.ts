@@ -252,6 +252,19 @@ export async function activate(
 }
 export function projectDto(p: Record<string, any>) {
   return {
+    ...(p.ruleset_id === "community-orbs-1"
+      ? {
+          fundingModel: "community-orbs-1" as const,
+          ...(p.path_extension
+            ? {
+                pathExtension: {
+                  points: p.path_extension,
+                  widthQ: p.path_width_q,
+                },
+              }
+            : {}),
+        }
+      : {}),
     id: p.id,
     revision: p.revision,
     planRevision: p.plan_revision,

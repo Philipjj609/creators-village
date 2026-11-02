@@ -1125,3 +1125,16 @@
   margin: 0;
   overflow-wrap: anywhere;
 }
+
+/* CV-C1 uses the shared panel typography and controls. */
+.wf2-project progress {
+  width: 100%;
+  height: 0.75rem;
+  accent-color: var(--pi-accent, #b85740);
+}
+.cv-construction-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}

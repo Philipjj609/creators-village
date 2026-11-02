@@ -1,5 +1,7 @@
 import {
   LIVING_GOAL_RULES,
+  LIVING_CONSTRUCTION_RULES,
+  LIVING_VISIBILITY_RULES,
   type FoundingWorld,
   type TerrainChunk,
   type LivingVillage,
@@ -33,6 +35,7 @@ export function planResidentGoals(
   solids: Rect[],
   places: Place[],
   serverTimeMs: number,
+  construction: { id: string; entrance: { x: number; y: number } }[] = [],
 ): LivingVillage {
   const g = walkGrid(
     world.baseline,
@@ -46,10 +49,15 @@ export function planResidentGoals(
     })),
   );
   const read = terrainReader(world.baseline, chunks);
+  const points = new Map<number, ResidentPoint>();
   const point = (i: number): ResidentPoint => {
+    const cached = points.get(i);
+    if (cached) return cached;
     const x = ((i % g.n) + g.min + 0.5) / 2,
       y = (Math.floor(i / g.n) + g.min + 0.5) / 2;
-    return { x, y, height: read.height(x, y)! };
+    const p = { x, y, height: read.height(x, y)! };
+    points.set(i, p);
+    return p;
   };
   const neighbours = (i: number) =>
     [
@@ -95,7 +103,7 @@ export function planResidentGoals(
     }
   }
   const result: LivingVillage = {
-    rules: LIVING_GOAL_RULES,
+    rules: LIVING_VISIBILITY_RULES,
     worldId: world.id,
     baselineHash: world.baseline.hash,
     topologyEpoch: world.topologyEpoch,
@@ -118,27 +126,87 @@ export function planResidentGoals(
     while (out.at(-1) !== a) out.push(parent[out.at(-1)!]!);
     return out.reverse().map(point);
   };
+  const reserved: ResidentPoint[] = [];
+  // Screen-facing preference only: all destinations and routes still come from the walkable graph.
+  const shadows = solids.map((s) => {
+    const cx = s.x + s.width / 2,
+      cy = s.y + s.depth / 2,
+      z = read.height(cx, cy) ?? 1;
+    return {
+      x: (cx - cy) * 32,
+      base: (cx + cy) * 16 - z * 32 * Math.sqrt(1.5),
+      radius: (s.width + s.depth) * 16,
+      height: (s.width <= 3 ? 3.25 : 4.3) * 32 * Math.sqrt(1.5),
+    };
+  });
+  const hiddenCache = new Map<number, boolean>();
+  const goalPoint = (x: number, y: number, choices: number[]) => {
+    let best = -1,
+      bestScore = Infinity;
+    for (const i of choices) {
+      const p = point(i),
+        distance = (p.x - x) ** 2 + (p.y - y) ** 2;
+      if (distance > bestScore) continue;
+      let hidden = hiddenCache.get(i);
+      if (hidden === undefined) {
+        const px = (p.x - p.y) * 32,
+          py = (p.x + p.y) * 16 - p.height * 32 * Math.sqrt(1.5);
+        hidden = shadows.some(
+          (s) =>
+            Math.abs(px - s.x) < s.radius &&
+            py < s.base + s.radius / 2 &&
+            py > s.base - s.height,
+        );
+        hiddenCache.set(i, hidden);
+      }
+      const score =
+        distance +
+        (hidden ? 160 : 0) +
+        (reserved.some((r) => (p.x - r.x) ** 2 + (p.y - r.y) ** 2 < 0.64)
+          ? 240
+          : 0);
+      if (score < bestScore) {
+        best = i;
+        bestScore = score;
+      }
+    }
+    if (best >= 0) reserved.push(point(best));
+    return best;
+  };
   const shelter = places.find((p) => p.id === world.structure.id),
     workshop = places.find((p) => p.template === "wf2-workshop-1");
   result.residents = PEOPLE.map(([slug, name, role, color], i) => {
-    const rest = nearest(-3 + i * 2, 6 + (i % 2) * 1.5, reachable),
-      social = nearest(
+    const rest = goalPoint(-3 + i * 2, 8.5 + (i % 2) * 1.5, reachable),
+      social = goalPoint(
         i < 2 ? -3 + i * 1.5 : 1.5 + (i - 2) * 1.5,
         4.5,
         reachable,
       );
     const building = i === 2 && workshop ? workshop : shelter;
     const work = building
-      ? nearest(
+      ? goalPoint(
           building.entrance.x + (i === 2 ? 0 : i - 1.5),
-          building.entrance.y + 0.5,
-          reachable,
+          building.entrance.y + 1.25,
+          reachable.filter((j) => {
+            const p = point(j);
+            return (
+              p.y >= building.entrance.y + 0.5 &&
+              Math.hypot(p.x - building.entrance.x, p.y - building.entrance.y) <
+                2
+            );
+          }),
         )
       : -1;
-    const observe = building
-      ? nearest(
-          building.entrance.x - 2.5 + (i % 2) * 5,
-          building.entrance.y + 1 + Math.floor(i / 2) * 0.5,
+    const site =
+      i === 0 || i === 3
+        ? [...construction].sort((a, b) => a.id.localeCompare(b.id))[0]
+        : undefined;
+    const subject = site ?? building;
+    const observe = subject
+      ? goalPoint(
+          subject.entrance.x +
+            (site ? (i === 0 ? -1.5 : 1.5) : -2.5 + (i % 2) * 5),
+          subject.entrance.y + 1 + Math.floor(i / 2) * 0.5,
           reachable,
         )
       : -1;
@@ -184,25 +252,29 @@ export function planResidentGoals(
       });
     }
     if (
-      building &&
+      subject &&
       observe >= 0 &&
       Math.hypot(
-        point(observe).x - building.entrance.x,
-        point(observe).y - building.entrance.y,
+        point(observe).x - subject.entrance.x,
+        point(observe).y - subject.entrance.y,
       ) < 5
     )
       goals.push({
         id: "observe",
         activity: "observe",
-        label:
-          i === 0 ? "Checking the entrance path" : "Inspecting the village",
-        location:
-          building === workshop
+        label: site
+          ? "Checking the construction site"
+          : i === 0
+            ? "Checking the entrance path"
+            : "Inspecting the village",
+        location: site
+          ? "Mending Shed construction edge"
+          : building === workshop
             ? "Beside the Mending Shed"
             : "Beside the Gathering Shelter",
-        structureId: building.id,
+        structureId: site ? null : building!.id,
         position: point(observe),
-        face: building.entrance,
+        face: subject.entrance,
         priority: [65, 44, 38, 72][i]!,
         durationMs: 14000 + i * 1600,
       });

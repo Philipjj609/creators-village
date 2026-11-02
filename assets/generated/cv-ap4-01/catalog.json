@@ -1,0 +1,5537 @@
+{
+  "version": "cv-ap4-01",
+  "assetScale": 0.3889087296526012,
+  "bundles": {
+    "cv-artlab-batch-a-structures-02": {
+      "version": "cv-artlab-batch-a-structures-02",
+      "studyOnly": true,
+      "library": "buildings",
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-batch-a-structures-02.png",
+          "spritesheet": "cv-artlab-batch-a-structures-02.json",
+          "width": 624,
+          "height": 1124,
+          "decodedBytes": 2805504,
+          "pngBytes": 573590,
+          "sha256": "f73046aa262bcb7fce33ad128614ea8630a032f649a782a86cfb7a32eef1cc0e",
+          "spritesheetSha256": "fd6f46024b79d4ceda36eff8407615275e10aee956d1d5fa886c662bb575f15e",
+          "occupancy": 0.843,
+          "frames": 4
+        }
+      ],
+      "placement": {
+        "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+        "anchor": "spritesheet frame anchor",
+        "scale": "assetScale * renderScale (per asset, per shadow)",
+        "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+      },
+      "assets": [
+        {
+          "id": "lodge",
+          "name": "Founding Lodge",
+          "kind": "building",
+          "frame": "lodge",
+          "shadowFrame": "lodge-shadow",
+          "textureScale": 0.75,
+          "renderScale": 1.3333333333333333,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -3,
+              "minY": -3,
+              "width": 6,
+              "depth": 6
+            },
+            "entrance": [
+              0,
+              3.5
+            ],
+            "apron": {
+              "minX": -0.75,
+              "minY": 3,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED (same envelope shape as wf2-workshop-1)"
+          },
+          "emitters": {
+            "chimney": [
+              [
+                2.5,
+                0.55,
+                3.98
+              ]
+            ],
+            "lantern": [
+              [
+                0.85,
+                2.3,
+                1.72
+              ]
+            ]
+          },
+          "boundsLogical": {
+            "min": [
+              -2.648099660873413,
+              -2.316901922225952,
+              0
+            ],
+            "max": [
+              2.8244705200195312,
+              2.3999998569488525,
+              4.133185386657715
+            ]
+          },
+          "triangles": 46334,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 1288672,
+          "shadowDecodedBytes": 111444
+        },
+        {
+          "id": "cottage",
+          "name": "Cottage",
+          "kind": "building",
+          "frame": "cottage",
+          "shadowFrame": "cottage-shadow",
+          "textureScale": 0.75,
+          "renderScale": 1.3333333333333333,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -2,
+              "minY": -2,
+              "width": 4,
+              "depth": 4
+            },
+            "entrance": [
+              0,
+              2.5
+            ],
+            "apron": {
+              "minX": -0.75,
+              "minY": 2,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED new 4x4 residential template"
+          },
+          "emitters": {
+            "chimney": [
+              [
+                0.66,
+                -0.65,
+                4.760000000000001
+              ]
+            ],
+            "lantern": [
+              [
+                -0.62,
+                1.6099999999999999,
+                1.42
+              ]
+            ]
+          },
+          "boundsLogical": {
+            "min": [
+              -1.8423805236816406,
+              -1.9267964363098145,
+              0
+            ],
+            "max": [
+              1.8700000047683716,
+              1.9500000476837158,
+              4.7799296379089355
+            ]
+          },
+          "triangles": 43288,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 894816,
+          "shadowDecodedBytes": 69536
+        }
+      ],
+      "memory": {
+        "pagesDecodedMiB": 2.676,
+        "framesDecodedMiBByKind": {
+          "building": 2.255
+        }
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+        "buildings.py": "8ee8f0578183c364b3e8f0cdfed8507d65b878aa9a019c52ea8c4f4998da5c1c",
+        "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "freestylePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+    },
+    "cv-artlab-batch-b-structures-02": {
+      "version": "cv-artlab-batch-b-structures-02",
+      "studyOnly": true,
+      "library": "buildings",
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-batch-b-structures-02.png",
+          "spritesheet": "cv-artlab-batch-b-structures-02.json",
+          "width": 720,
+          "height": 1142,
+          "decodedBytes": 3288960,
+          "pngBytes": 648121,
+          "sha256": "f9f706b11c1e0a705393ea43b5d63a1a4dbad89d0e345ed6650ab0b96f4edbce",
+          "spritesheetSha256": "4aab3712edaff9daa7530002a7e9a7a115abfff061e77ed8bb468f865d6e6a83",
+          "occupancy": 0.828,
+          "frames": 4
+        }
+      ],
+      "placement": {
+        "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+        "anchor": "spritesheet frame anchor",
+        "scale": "assetScale * renderScale (per asset, per shadow)",
+        "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+      },
+      "assets": [
+        {
+          "id": "hall",
+          "name": "Community Hall",
+          "kind": "building",
+          "frame": "hall",
+          "shadowFrame": "hall-shadow",
+          "textureScale": 0.75,
+          "renderScale": 1.3333333333333333,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -4,
+              "minY": -4,
+              "width": 8,
+              "depth": 8
+            },
+            "entrance": [
+              0,
+              4.5
+            ],
+            "apron": {
+              "minX": -1,
+              "minY": 4,
+              "width": 2,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED new 8x8 civic template"
+          },
+          "emitters": {
+            "chimney": [
+              [
+                -1.63,
+                -1,
+                5.88
+              ]
+            ],
+            "lantern": []
+          },
+          "boundsLogical": {
+            "min": [
+              -3.1968023777008057,
+              -2.480358123779297,
+              -0.019999999552965164
+            ],
+            "max": [
+              3.1968023777008057,
+              3.2467763423919678,
+              6.960000038146973
+            ]
+          },
+          "triangles": 96248,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 1982460,
+          "shadowDecodedBytes": 144000
+        },
+        {
+          "id": "market",
+          "name": "Market Stall",
+          "kind": "building",
+          "frame": "market",
+          "shadowFrame": "market-shadow",
+          "textureScale": 0.75,
+          "renderScale": 1.3333333333333333,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -2,
+              "minY": -1.5,
+              "width": 4,
+              "depth": 3
+            },
+            "entrance": [
+              0,
+              2
+            ],
+            "apron": {
+              "minX": -1,
+              "minY": 1.5,
+              "width": 2,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED new 4x3 open-structure template"
+          },
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -1.7000000476837158,
+              -1.3890124559402466,
+              -0.0011413751635700464
+            ],
+            "max": [
+              1.7000000476837158,
+              1.4600000381469727,
+              2.8030340671539307
+            ]
+          },
+          "triangles": 18134,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 548120,
+          "shadowDecodedBytes": 49824
+        }
+      ],
+      "memory": {
+        "pagesDecodedMiB": 3.137,
+        "framesDecodedMiBByKind": {
+          "building": 2.598
+        }
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+        "buildings.py": "8ee8f0578183c364b3e8f0cdfed8507d65b878aa9a019c52ea8c4f4998da5c1c",
+        "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "freestylePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+    },
+    "cv-artlab-ve01-workshop-03": {
+      "version": "cv-artlab-ve01-workshop-03",
+      "studyOnly": true,
+      "width": 2560,
+      "height": 1920,
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "layers": [
+        {
+          "id": "workshop-shadow",
+          "url": "workshop-shadow.png",
+          "left": 768,
+          "top": 145,
+          "width": 566,
+          "height": 540,
+          "scale": 2,
+          "kind": "shadow",
+          "blend": "normal",
+          "defaultAlpha": 1,
+          "tint": "#3a283e",
+          "alphaFloor": 6,
+          "decodedBytes": 1222560
+        },
+        {
+          "id": "workshop",
+          "url": "workshop.png",
+          "left": 826,
+          "top": 258,
+          "width": 616,
+          "height": 680,
+          "scale": 1.3333333333333333,
+          "kind": "building",
+          "decodedBytes": 1675520,
+          "mask": [
+            "00000000000000011000000000000000",
+            "00000000000001111110000000000000",
+            "00000000000000111100000000000000",
+            "00000000000000111100000000000000",
+            "00000000000000111100000000000000",
+            "00000000001000011110000000000000",
+            "00000000011110011110000000000000",
+            "00000000011111111110000000000000",
+            "00000000111111111110000000000000",
+            "00000000111111111111000000000000",
+            "00000001111111111111110000000000",
+            "00000011111111111111111100000000",
+            "00000011111111111111111111000000",
+            "00000111111111111111111111100000",
+            "00001111111111111111111111111000",
+            "00011111111111111111111111111110",
+            "00001111111111111111111111111111",
+            "00000111111111111111111111111100",
+            "00000111111111111111111111111100",
+            "00000111111111111111111111111110",
+            "00000111111111111111111111111111",
+            "00000111111111111111111111111111",
+            "11111111111111111111111111111101",
+            "11111111111111111111111111111111",
+            "11111111111111111111111111111101",
+            "00001111111111111111111111111101",
+            "00000011111111111111111111111001",
+            "00000000011111111111111111100000",
+            "00000000000011111111111101000000",
+            "00000000000011101111110001000000",
+            "00000000000000000011111000000000",
+            "00000000000000000001100000000000"
+          ]
+        }
+      ],
+      "buildings": [
+        {
+          "id": "workshop",
+          "name": "The Maker's Workshop",
+          "kind": "workshop",
+          "template": "wf2-workshop-1",
+          "orientation": 0,
+          "footprintReference": {
+            "envelope": {
+              "minX": -3,
+              "minY": -3,
+              "width": 6,
+              "depth": 6
+            },
+            "entrance": [
+              0,
+              3.5
+            ],
+            "apron": {
+              "minX": -0.75,
+              "minY": 3,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "units": "logical tiles relative to footprint centre; source apps/server/src/participation-spatial.ts"
+          },
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "anchorRule": "rendered px of footprint centre (0,0) at base height (z=0)",
+          "layer": "workshop",
+          "shadow": "workshop-shadow",
+          "detail": {
+            "id": "workshop-detail",
+            "url": "workshop-detail.png",
+            "left": 826,
+            "top": 258,
+            "width": 1233,
+            "height": 1359,
+            "scale": 0.6666666666666666,
+            "kind": "building",
+            "decodedBytes": 6702588,
+            "mask": [
+              "00000000000000011000000000000000",
+              "00000000000001111110000000000000",
+              "00000000000000111100000000000000",
+              "00000000000000111100000000000000",
+              "00000000000000111110000000000000",
+              "00000000001000011110000000000000",
+              "00000000011110011110000000000000",
+              "00000000011111111110000000000000",
+              "00000000111111111110000000000000",
+              "00000000111111111111000000000000",
+              "00000001111111111111110000000000",
+              "00000011111111111111111100000000",
+              "00000011111111111111111111000000",
+              "00000111111111111111111111100000",
+              "00001111111111111111111111111000",
+              "00011111111111111111111111111110",
+              "00001111111111111111111111111111",
+              "00000111111111111111111111111100",
+              "00000111111111111111111111111100",
+              "00000111111111111111111111111110",
+              "00000111111111111111111111111111",
+              "00000111111111111111111111111111",
+              "11011111111111111111111111111101",
+              "11111111111111111111111111111111",
+              "11111111111111111111111111111101",
+              "00001111111111111111111111111101",
+              "00000011111111111111111111111001",
+              "00000000001111111111111111100000",
+              "00000000000011111111111101000000",
+              "00000000000011101111110001000000",
+              "00000000000000000011111000000000",
+              "00000000000000000001100000000000"
+            ]
+          },
+          "drawOrder": [
+            "workshop-shadow",
+            "workshop"
+          ],
+          "depthRule": "unchanged: one sort key per building; shadow is drawn in the ground band beneath all structures",
+          "emitters": {
+            "chimney": [
+              [
+                -1.48,
+                -0.95,
+                5.8
+              ]
+            ],
+            "lantern": [
+              [
+                -1.03,
+                2.77,
+                1.7
+              ]
+            ]
+          }
+        }
+      ],
+      "baseDecodedBytes": 2898080,
+      "focusDecodedBytes": 6702588,
+      "sourceHashes": {
+        "build": "962e51a6eeca8599f82940168cffd39e33c287973476ca757cb0f408aee76e5f",
+        "recipe": "2ecb3d7dee17fb3cb8695b8da84f40ec9692236371aed10e13f1e2aab0af2fab",
+        "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 96,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "outlinePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "envelopeAudit": {
+        "min": [
+          -2.9747884273529053,
+          -2.0956501960754395,
+          -0.017000000923871994
+        ],
+        "max": [
+          2.9637656211853027,
+          2.869999885559082,
+          5.8026838302612305
+        ],
+        "triangles": 83620,
+        "fitsEnvelope": true,
+        "clearOfApron": true
+      },
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "outputs": [
+        {
+          "file": "workshop-shadow.png",
+          "bytes": 35448,
+          "sha256": "547fafb0021f935f2e1144c3fb947d606386e9a1c9b497dd3fc950f1dc2f46af"
+        },
+        {
+          "file": "workshop.png",
+          "bytes": 387399,
+          "sha256": "881edcad3550e01ffb73f2d6ab6bf0eacaae4ffa141dfa2ada3cf2bf3fc3ca6b"
+        },
+        {
+          "file": "workshop-detail.png",
+          "bytes": 1330112,
+          "sha256": "b5427b8b1ab9fd77cdf7a9b3a8ead40fc00ee097363abdc7405b7701f063a67f"
+        }
+      ],
+      "provenance": "Original art-lab geometry/materials (VE-01). No third-party assets, no generative-model output; reference boards used as direction only. Release license pending owner.",
+      "lineage": {
+        "derivedFrom": "cv-artlab-ve01-workshop-02",
+        "change": "v03 geometry: knee walls to the roof underside, gable walls following the real roof profile, gable overhang .5->.28, eave overhang .58->.45, corbels and braces under the overhangs; overview at 0.75 scale like -02",
+        "source": "experiments/ve01-workshop/build.py (v01 source archived in experiments/ve01-workshop/archive/)"
+      }
+    },
+    "cv-artlab-cast-02": {
+      "version": "cv-artlab-cast-02",
+      "studyOnly": true,
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-cast-02-maker-loco.png",
+          "spritesheet": "cv-artlab-cast-02-maker-loco.json",
+          "width": 240,
+          "height": 1259,
+          "decodedBytes": 1208640,
+          "pngBytes": 426281,
+          "sha256": "a3076dabee2c2aa26d86282c73fe025c486f73f6f3fe03e0231941405db335d9",
+          "spritesheetSha256": "3796823a503ed5be252006498bfb242e24c2b7fd6bf038b3dcda20c98c11d3c8",
+          "occupancy": 0.835,
+          "frames": 68,
+          "character": "maker",
+          "group": "loco"
+        },
+        {
+          "image": "cv-artlab-cast-02-maker-act.png",
+          "spritesheet": "cv-artlab-cast-02-maker-act.json",
+          "width": 1248,
+          "height": 239,
+          "decodedBytes": 1193088,
+          "pngBytes": 395880,
+          "sha256": "0cbb30dccbcdd0ba3c365668dccdb2d631c27dd6f015f4e0d0dd24afced2c279",
+          "spritesheetSha256": "7caea2f0db2c7f0b046f02c0621adbf0476ace3657ca32a88ec693ca2edd1fbd",
+          "occupancy": 0.856,
+          "frames": 60,
+          "character": "maker",
+          "group": "act"
+        },
+        {
+          "image": "cv-artlab-cast-02-gardener-loco.png",
+          "spritesheet": "cv-artlab-cast-02-gardener-loco.json",
+          "width": 1072,
+          "height": 324,
+          "decodedBytes": 1389312,
+          "pngBytes": 448449,
+          "sha256": "f993d943b1d31b08bdc9c9cb25567bb5ad30c3c1d375b98eedb966226aba088a",
+          "spritesheetSha256": "3ee49176a29b0d5c3ba053ec1ebd5e2a9caedaf746418dfb7612646097bdf5d7",
+          "occupancy": 0.83,
+          "frames": 68,
+          "character": "gardener",
+          "group": "loco"
+        },
+        {
+          "image": "cv-artlab-cast-02-gardener-act.png",
+          "spritesheet": "cv-artlab-cast-02-gardener-act.json",
+          "width": 1360,
+          "height": 247,
+          "decodedBytes": 1343680,
+          "pngBytes": 348708,
+          "sha256": "417a2320b218a9d5d4c2d4ee34b618a2fb8ada8980de5e17518b6d0a574441b5",
+          "spritesheetSha256": "fdeccb3b88c211efbbe05fc825c728e01ec7f9b1eea50d94d5d3f22b7d5995a8",
+          "occupancy": 0.865,
+          "frames": 60,
+          "character": "gardener",
+          "group": "act"
+        },
+        {
+          "image": "cv-artlab-cast-02-courier-loco.png",
+          "spritesheet": "cv-artlab-cast-02-courier-loco.json",
+          "width": 416,
+          "height": 603,
+          "decodedBytes": 1003392,
+          "pngBytes": 330020,
+          "sha256": "47444242fc01d359c5321ffcdf6d4b41031331c8b5529b00264ed93414d336bf",
+          "spritesheetSha256": "b3befff0466f07466bb0cb13f6df97970712d527d8bea213cc0be231d9d86b12",
+          "occupancy": 0.842,
+          "frames": 68,
+          "character": "courier",
+          "group": "loco"
+        },
+        {
+          "image": "cv-artlab-cast-02-courier-act.png",
+          "spritesheet": "cv-artlab-cast-02-courier-act.json",
+          "width": 656,
+          "height": 381,
+          "decodedBytes": 999744,
+          "pngBytes": 296006,
+          "sha256": "55c8ba798076bf805ba5eba676f0a6cfa4503ec5e9ee45fc602c1e8b4ac64fd6",
+          "spritesheetSha256": "3f03a477f628c76a5b0a02ebf5a1aed827015d3c4ed92372efe9648682b5a91b",
+          "occupancy": 0.844,
+          "frames": 60,
+          "character": "courier",
+          "group": "act"
+        },
+        {
+          "image": "cv-artlab-cast-02-caretaker-loco.png",
+          "spritesheet": "cv-artlab-cast-02-caretaker-loco.json",
+          "width": 432,
+          "height": 867,
+          "decodedBytes": 1498176,
+          "pngBytes": 467130,
+          "sha256": "a8146b769bdfa2b6b9b84a82e014a47ae73b599369c26ffa461fc589dadc73b9",
+          "spritesheetSha256": "49cbaebd30a164cd6b59fc1424fd2bb5329062292ec897e9ccb39529fd3272b2",
+          "occupancy": 0.834,
+          "frames": 68,
+          "character": "caretaker",
+          "group": "loco"
+        },
+        {
+          "image": "cv-artlab-cast-02-caretaker-act.png",
+          "spritesheet": "cv-artlab-cast-02-caretaker-act.json",
+          "width": 1072,
+          "height": 386,
+          "decodedBytes": 1655168,
+          "pngBytes": 466510,
+          "sha256": "18747d0bf412cf95069e61a07c9dbb8103e15aec888ef3ed09773603ee5e9357",
+          "spritesheetSha256": "b963ac7430e78a5acde0490bd91db6468a927d8b1bd9ac774ac11dd8d18756d2",
+          "occupancy": 0.859,
+          "frames": 60,
+          "character": "caretaker",
+          "group": "act"
+        },
+        {
+          "image": "cv-artlab-cast-02-builder-loco.png",
+          "spritesheet": "cv-artlab-cast-02-builder-loco.json",
+          "width": 336,
+          "height": 1312,
+          "decodedBytes": 1763328,
+          "pngBytes": 476107,
+          "sha256": "2f18ea5873311b5bbd694284567dafbb440091d189628fb6df5aea2b48933df1",
+          "spritesheetSha256": "f2f46b86d26b0d57a78b196b61816f636c2277f5f92845e907db83fc6df2d5dd",
+          "occupancy": 0.844,
+          "frames": 68,
+          "character": "builder",
+          "group": "loco"
+        },
+        {
+          "image": "cv-artlab-cast-02-builder-act.png",
+          "spritesheet": "cv-artlab-cast-02-builder-act.json",
+          "width": 1008,
+          "height": 403,
+          "decodedBytes": 1624896,
+          "pngBytes": 415953,
+          "sha256": "8b5592764dc49cb2d932d575d4e9a79a59f26f483f392cf2ee03486cf21c8214",
+          "spritesheetSha256": "f12898b77fb379cf06c801df3e64cf41a14af0eb91cafe7697f90e892a570324",
+          "occupancy": 0.865,
+          "frames": 60,
+          "character": "builder",
+          "group": "act"
+        }
+      ],
+      "cast": [
+        {
+          "id": "maker",
+          "name": "Tamsin, dormouse-folk maker",
+          "role": "maker",
+          "cell": [
+            75,
+            93
+          ],
+          "anchor": [
+            0.54,
+            0.865589
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 6,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "work": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "observe": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "gather": {
+              "frames": 4,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "rest": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "react": {
+              "frames": 6,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.5243,
+            "cycleSeconds": 0.8,
+            "strideUnits": 0.4194,
+            "stanceFootDriftUnits": 0.00283,
+            "stanceFootDriftPxAtZoom1": 0.101
+          },
+          "framesDecodedBytes": 2029996,
+          "idleFeetStableWithin1px": true
+        },
+        {
+          "id": "gardener",
+          "name": "Moss, toad-folk gardener",
+          "role": "gardener",
+          "cell": [
+            92,
+            95
+          ],
+          "anchor": [
+            0.434783,
+            0.863155
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 6,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 9,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "work": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "observe": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "gather": {
+              "frames": 4,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "rest": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "react": {
+              "frames": 6,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.3709,
+            "cycleSeconds": 0.8888888888888888,
+            "strideUnits": 0.3297,
+            "stanceFootDriftUnits": 0.00158,
+            "stanceFootDriftPxAtZoom1": 0.057
+          },
+          "framesDecodedBytes": 2315020,
+          "idleFeetStableWithin1px": true
+        },
+        {
+          "id": "courier",
+          "name": "Pip, sparrow-folk courier",
+          "role": "courier",
+          "cell": [
+            63,
+            88
+          ],
+          "anchor": [
+            0.5,
+            0.892043
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 6,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 12,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "work": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "observe": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "gather": {
+              "frames": 4,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "rest": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "react": {
+              "frames": 6,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.6,
+            "cycleSeconds": 0.6666666666666666,
+            "strideUnits": 0.4,
+            "stanceFootDriftUnits": 0.00362,
+            "stanceFootDriftPxAtZoom1": 0.129
+          },
+          "framesDecodedBytes": 1688348,
+          "idleFeetStableWithin1px": true
+        },
+        {
+          "id": "caretaker",
+          "name": "Hazel, badger-folk caretaker",
+          "role": "caretaker",
+          "cell": [
+            106,
+            130
+          ],
+          "anchor": [
+            0.466981,
+            0.799998
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "work": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "observe": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "gather": {
+              "frames": 4,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "rest": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "react": {
+              "frames": 6,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.4104,
+            "cycleSeconds": 1,
+            "strideUnits": 0.4104,
+            "stanceFootDriftUnits": 0.00162,
+            "stanceFootDriftPxAtZoom1": 0.058
+          },
+          "framesDecodedBytes": 2670196,
+          "idleFeetStableWithin1px": true
+        },
+        {
+          "id": "builder",
+          "name": "Tuck, beaver-folk builder",
+          "role": "builder",
+          "cell": [
+            103,
+            93
+          ],
+          "anchor": [
+            0.490291,
+            0.84946
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 6,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "work": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "observe": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "gather": {
+              "frames": 4,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "rest": {
+              "frames": 4,
+              "fps": 3,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            },
+            "react": {
+              "frames": 6,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.4881,
+            "cycleSeconds": 0.8,
+            "strideUnits": 0.3905,
+            "stanceFootDriftUnits": 0.00224,
+            "stanceFootDriftPxAtZoom1": 0.08
+          },
+          "framesDecodedBytes": 2895308,
+          "idleFeetStableWithin1px": true
+        }
+      ],
+      "directions": {
+        "se": "+x, screen down-right",
+        "sw": "+y, screen down-left",
+        "nw": "-x, back, screen up-left",
+        "ne": "-y, back, screen up-right"
+      },
+      "placement": {
+        "anchor": "per-character cell anchor (feet centre)",
+        "position": "terrainProject(ground point)",
+        "scale": "assetScale * renderScale",
+        "shadow": "<char>/shadow-<dir> in the ground band, scale assetScale * shadowRenderScale",
+        "animationSpeed": "fps / 60 for Pixi AnimatedSprite",
+        "depth": "x+y of the ground point"
+      },
+      "memory": {
+        "pagesDecodedMiB": 13.046,
+        "residentLocomotionMiB": 6.545,
+        "lazyActivityMiB": 6.501
+      },
+      "activityMap": {
+        "travel": "walk-<dir>",
+        "idle": "idle-<dir>",
+        "work": "work-<se|sw>",
+        "observe": "observe-<se|sw>",
+        "gather": "gather-<dir>",
+        "rest": "rest-<se|sw>",
+        "react": "react-<se|sw> (optional one-shot, e.g. on completedActions increment)",
+        "frontFacingRule": "stationary activities use se/sw only: pick se when face.x >= face.y else sw; back-facing goals are drawn facing the camera"
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_characters.py": "3ba1a517b013414e23470cd3c660660e3461d7b9709119e8d0291a6c116de0b8",
+        "characters.py": "a0ac54c6992f0935b6ecfbd1bdc3909857e8c58159344a8950582c62edfd318b",
+        "cv_rig.py": "0f962bbac68e79426405e623c7aa078e73eedd431030258d806046ff003c8050",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 48,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35"
+      },
+      "blender": "4.5.15 LTS",
+      "provenance": "Original art-lab characters (procedural geometry + puppet rig); no third-party assets or generative-model output. Release license pending owner."
+    },
+    "cv-artlab-visitors-01": {
+      "version": "cv-artlab-visitors-01",
+      "studyOnly": true,
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-visitors-01-wanderer-loco.png",
+          "spritesheet": "cv-artlab-visitors-01-wanderer-loco.json",
+          "width": 976,
+          "height": 473,
+          "decodedBytes": 1846592,
+          "pngBytes": 461707,
+          "sha256": "42a2ca7095f6dade0300e00d462bcf1aff227687e6233841fd00a9b83f599879",
+          "spritesheetSha256": "a8e1bef55ae240365b2194feb04f7e2a4e55581b75306e490de53ade9b846116",
+          "occupancy": 0.825,
+          "frames": 68,
+          "character": "wanderer",
+          "group": "loco"
+        },
+        {
+          "image": "cv-artlab-visitors-01-traveller-loco.png",
+          "spritesheet": "cv-artlab-visitors-01-traveller-loco.json",
+          "width": 496,
+          "height": 755,
+          "decodedBytes": 1497920,
+          "pngBytes": 463814,
+          "sha256": "374e259e40018323eac5b1f4c75a094e3ae3deb5eb380bcff13e92cbc3ba1034",
+          "spritesheetSha256": "b2c4008ffe090dd426e39400d4f83c060c12a3d323617e66f91f58e13d1accb4",
+          "occupancy": 0.839,
+          "frames": 68,
+          "character": "traveller",
+          "group": "loco"
+        }
+      ],
+      "cast": [
+        {
+          "id": "wanderer",
+          "name": "Vesper, the lantern wanderer",
+          "role": "visitor",
+          "cell": [
+            72,
+            119
+          ],
+          "anchor": [
+            0.5,
+            0.878149
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 5,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 8,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.4944,
+            "cycleSeconds": 1,
+            "strideUnits": 0.4944,
+            "stanceFootDriftUnits": 0.00158,
+            "stanceFootDriftPxAtZoom1": 0.057
+          },
+          "framesDecodedBytes": 1523844,
+          "idleFeetStableWithin1px": true
+        },
+        {
+          "id": "traveller",
+          "name": "Juniper, travelling artisan",
+          "role": "visitor",
+          "cell": [
+            69,
+            96
+          ],
+          "anchor": [
+            0.5,
+            0.901039
+          ],
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "animations": {
+            "idle": {
+              "frames": 8,
+              "fps": 6,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            },
+            "walk": {
+              "frames": 8,
+              "fps": 10,
+              "directions": [
+                "se",
+                "sw",
+                "nw",
+                "ne"
+              ],
+              "loop": true
+            }
+          },
+          "locomotion": {
+            "groundSpeedUnitsPerSecond": 0.6101,
+            "cycleSeconds": 0.8,
+            "strideUnits": 0.4881,
+            "stanceFootDriftUnits": 0.0028,
+            "stanceFootDriftPxAtZoom1": 0.1
+          },
+          "framesDecodedBytes": 1256536,
+          "idleFeetStableWithin1px": true
+        }
+      ],
+      "directions": {
+        "se": "+x, screen down-right",
+        "sw": "+y, screen down-left",
+        "nw": "-x, back, screen up-left",
+        "ne": "-y, back, screen up-right"
+      },
+      "placement": {
+        "anchor": "per-character cell anchor (feet centre)",
+        "position": "terrainProject(ground point)",
+        "scale": "assetScale * renderScale",
+        "shadow": "<char>/shadow-<dir> in the ground band, scale assetScale * shadowRenderScale",
+        "animationSpeed": "fps / 60 for Pixi AnimatedSprite",
+        "depth": "x+y of the ground point"
+      },
+      "memory": {
+        "pagesDecodedMiB": 3.19,
+        "residentLocomotionMiB": 3.19,
+        "lazyActivityMiB": 0
+      },
+      "activityMap": {
+        "travel": "walk-<dir>",
+        "idle": "idle-<dir>",
+        "work": "work-<se|sw>",
+        "observe": "observe-<se|sw>",
+        "gather": "gather-<dir>",
+        "rest": "rest-<se|sw>",
+        "react": "react-<se|sw> (optional one-shot, e.g. on completedActions increment)",
+        "frontFacingRule": "stationary activities use se/sw only: pick se when face.x >= face.y else sw; back-facing goals are drawn facing the camera"
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_characters.py": "fd49f02ecf5446af6824c1b16b3780cbd816722a815434808b3bf992bedbcb17",
+        "characters.py": "66656b28993e7a30e86b1e3f1381de2d6d263ba787a71969a61f9c626f605988",
+        "cv_rig.py": "0f962bbac68e79426405e623c7aa078e73eedd431030258d806046ff003c8050",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 48,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35"
+      },
+      "blender": "4.5.15 LTS",
+      "provenance": "Original art-lab characters (procedural geometry + puppet rig); no third-party assets or generative-model output. Release license pending owner."
+    },
+    "cv-artlab-windmill-01": {
+      "version": "cv-artlab-windmill-01",
+      "studyOnly": true,
+      "library": "buildings",
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-windmill-01.png",
+          "spritesheet": "cv-artlab-windmill-01.json",
+          "width": 592,
+          "height": 1458,
+          "decodedBytes": 3452544,
+          "pngBytes": 414480,
+          "sha256": "b7b4f11828cacb33451719df8aabfb306997762a5149c4250f9f205bfd2c9a9a",
+          "spritesheetSha256": "14742843dfd57c8d30cbe78a43af08d65e6b0ad686e6bcb640993fa03b236aab",
+          "occupancy": 0.77,
+          "frames": 14
+        }
+      ],
+      "placement": {
+        "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+        "anchor": "spritesheet frame anchor",
+        "scale": "assetScale * renderScale (per asset, per shadow)",
+        "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+      },
+      "assets": [
+        {
+          "id": "windmill",
+          "name": "Windmill",
+          "kind": "building",
+          "frame": "windmill",
+          "shadowFrame": "windmill-shadow",
+          "textureScale": 0.75,
+          "renderScale": 1.3333333333333333,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -2,
+              "minY": -2,
+              "width": 4,
+              "depth": 4
+            },
+            "entrance": [
+              0,
+              2.5
+            ],
+            "apron": {
+              "minX": -0.75,
+              "minY": 2,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED new 4x4 landmark template; sails overhang the envelope above 2.2 units height"
+          },
+          "emitters": {
+            "rotorHub": [
+              [
+                1.02,
+                1.02,
+                4.55
+              ]
+            ]
+          },
+          "boundsLogical": {
+            "min": [
+              -1.3360416889190674,
+              -1.3360416889190674,
+              -0.12000000476837158
+            ],
+            "max": [
+              1.861209511756897,
+              1.8680474758148193,
+              5.938575267791748
+            ]
+          },
+          "triangles": 6198,
+          "animation": null,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 806780,
+          "shadowDecodedBytes": 50432
+        },
+        {
+          "id": "windmill-rotor-0",
+          "name": "Windmill rotor frame 0",
+          "kind": "rotor",
+          "frame": "windmill-rotor-0",
+          "shadowFrame": "windmill-rotor-0-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.4825367331504822,
+              -0.6121582984924316,
+              2.2657246589660645
+            ],
+            "max": [
+              2.691188097000122,
+              2.8208093643188477,
+              6.860987186431885
+            ]
+          },
+          "triangles": 1180,
+          "animation": {
+            "frame": 0,
+            "frames": 6,
+            "stepDeg": 15,
+            "fps": 6
+          },
+          "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+          "decodedBytes": 282624,
+          "shadowDecodedBytes": 25620
+        },
+        {
+          "id": "windmill-rotor-1",
+          "name": "Windmill rotor frame 1",
+          "kind": "rotor",
+          "frame": "windmill-rotor-1",
+          "shadowFrame": "windmill-rotor-1-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.2532748281955719,
+              -0.45122841000556946,
+              2.5519919395446777
+            ],
+            "max": [
+              2.518845796585083,
+              2.6598799228668213,
+              6.57472038269043
+            ]
+          },
+          "triangles": 1180,
+          "animation": {
+            "frame": 1,
+            "frames": 6,
+            "stepDeg": 15,
+            "fps": 6
+          },
+          "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+          "decodedBytes": 218700,
+          "shadowDecodedBytes": 23188
+        },
+        {
+          "id": "windmill-rotor-2",
+          "name": "Windmill rotor frame 2",
+          "kind": "rotor",
+          "frame": "windmill-rotor-2",
+          "shadowFrame": "windmill-rotor-2-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.4705534875392914,
+              -0.2930799722671509,
+              2.4492897987365723
+            ],
+            "max": [
+              2.7361247539520264,
+              2.5586509704589844,
+              6.687438488006592
+            ]
+          },
+          "triangles": 1180,
+          "animation": {
+            "frame": 2,
+            "frames": 6,
+            "stepDeg": 15,
+            "fps": 6
+          },
+          "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+          "decodedBytes": 240640,
+          "shadowDecodedBytes": 23892
+        },
+        {
+          "id": "windmill-rotor-3",
+          "name": "Windmill rotor frame 3",
+          "kind": "rotor",
+          "frame": "windmill-rotor-3",
+          "shadowFrame": "windmill-rotor-3-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.5795487761497498,
+              -0.49455270171165466,
+              2.2310028076171875
+            ],
+            "max": [
+              2.8456058502197266,
+              2.7589941024780273,
+              6.905725955963135
+            ]
+          },
+          "triangles": 1180,
+          "animation": {
+            "frame": 3,
+            "frames": 6,
+            "stepDeg": 15,
+            "fps": 6
+          },
+          "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+          "decodedBytes": 294320,
+          "shadowDecodedBytes": 23616
+        },
+        {
+          "id": "windmill-rotor-4",
+          "name": "Windmill rotor frame 4",
+          "kind": "rotor",
+          "frame": "windmill-rotor-4",
+          "shadowFrame": "windmill-rotor-4-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.6567909121513367,
+              -0.5910982489585876,
+              2.1598904132843018
+            ],
+            "max": [
+              2.8654417991638184,
+              2.8502728939056396,
+              6.966821193695068
+            ]
+          },
+          "triangles": 1180,
+          "animation": {
+            "frame": 4,
+            "frames": 6,
+            "stepDeg": 15,
+            "fps": 6
+          },
+          "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+          "decodedBytes": 308652,
+          "shadowDecodedBytes": 22200
+        },
+        {
+          "id": "windmill-rotor-5",
+          "name": "Windmill rotor frame 5",
+          "kind": "rotor",
+          "frame": "windmill-rotor-5",
+          "shadowFrame": "windmill-rotor-5-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.6268174648284912,
+              -0.6592954993247986,
+              2.134226083755493
+            ],
+            "max": [
+              2.8354692459106445,
+              2.8679466247558594,
+              6.992485523223877
+            ]
+          },
+          "triangles": 1180,
+          "animation": {
+            "frame": 5,
+            "frames": 6,
+            "stepDeg": 15,
+            "fps": 6
+          },
+          "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+          "decodedBytes": 314192,
+          "shadowDecodedBytes": 25308
+        }
+      ],
+      "memory": {
+        "pagesDecodedMiB": 3.293,
+        "framesDecodedMiBByKind": {
+          "building": 0.818,
+          "rotor": 1.719
+        }
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+        "buildings.py": "dbf7ec5bdcb580da8351ec81f3cbcd94627f3ddda2b30b3d1e0d11351fd0b9e5",
+        "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "freestylePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+    },
+    "cv-artlab-ve02-broadleaf-01": {
+      "version": "cv-artlab-ve02-broadleaf-01",
+      "studyOnly": true,
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "atlas": {
+        "image": "vegetation-atlas.png",
+        "spritesheet": "vegetation-atlas.json",
+        "width": 736,
+        "height": 720,
+        "decodedBytes": 2119680,
+        "occupancy": 0.824,
+        "padding": 2,
+        "bleed": "RGB of transparent padding filled from edge pixels"
+      },
+      "textureScale": 0.5,
+      "shadowTextureScale": 0.25,
+      "placement": {
+        "position": "terrainProject(x, y, height) of the placement point (trunk base)",
+        "spriteScale": "assetScale / textureScale = 0.777817 (trees), 1.555635 (shadows)",
+        "anchor": "frame anchor from the spritesheet (trunk base)",
+        "drawOrder": "shadows in the ground band below all objects; trees in objects sorted by x+y of the trunk base"
+      },
+      "variants": [
+        {
+          "id": "oak-round",
+          "kind": "round",
+          "season": "summer",
+          "frame": "oak-round",
+          "shadowFrame": "oak-round-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.793,
+          "height": 3.54,
+          "boundsLogical": {
+            "min": [
+              -1.4443836212158203,
+              -1.6230098009109497,
+              -0.05253158137202263
+            ],
+            "max": [
+              1.7925885915756226,
+              1.3896278142929077,
+              3.5401315689086914
+            ]
+          },
+          "overviewFrameOffset": [
+            1070,
+            555
+          ],
+          "shadowOverviewFrameOffset": [
+            1133,
+            458
+          ]
+        },
+        {
+          "id": "oak-tall",
+          "kind": "tall",
+          "season": "summer",
+          "frame": "oak-tall",
+          "shadowFrame": "oak-tall-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.203,
+          "height": 3.691,
+          "boundsLogical": {
+            "min": [
+              -1.2028104066848755,
+              -1.0002716779708862,
+              -0.051055338233709335
+            ],
+            "max": [
+              1.1534451246261597,
+              1.1147780418395996,
+              3.6909592151641846
+            ]
+          },
+          "overviewFrameOffset": [
+            1159,
+            569
+          ],
+          "shadowOverviewFrameOffset": [
+            1218,
+            836
+          ]
+        },
+        {
+          "id": "oak-wide",
+          "kind": "wide",
+          "season": "summer",
+          "frame": "oak-wide",
+          "shadowFrame": "oak-wide-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.981,
+          "height": 3.104,
+          "boundsLogical": {
+            "min": [
+              -1.8783329725265503,
+              -1.669655442237854,
+              -0.08000752329826355
+            ],
+            "max": [
+              1.7733485698699951,
+              1.9814636707305908,
+              3.1035821437835693
+            ]
+          },
+          "overviewFrameOffset": [
+            1071,
+            597
+          ],
+          "shadowOverviewFrameOffset": [
+            1057,
+            805
+          ]
+        },
+        {
+          "id": "oak-twin",
+          "kind": "twin",
+          "season": "summer",
+          "frame": "oak-twin",
+          "shadowFrame": "oak-twin-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.552,
+          "height": 3.31,
+          "boundsLogical": {
+            "min": [
+              -1.4849933385849,
+              -1.2406799793243408,
+              -0.06727583706378937
+            ],
+            "max": [
+              1.551726222038269,
+              1.1641343832015991,
+              3.3104066848754883
+            ]
+          },
+          "overviewFrameOffset": [
+            1096,
+            613
+          ],
+          "shadowOverviewFrameOffset": [
+            1173,
+            844
+          ]
+        },
+        {
+          "id": "oak-young",
+          "kind": "young",
+          "season": "summer",
+          "frame": "oak-young",
+          "shadowFrame": "oak-young-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 0.825,
+          "height": 2.255,
+          "boundsLogical": {
+            "min": [
+              -0.6987374424934387,
+              -0.6785751581192017,
+              -0.04633475840091705
+            ],
+            "max": [
+              0.8254948854446411,
+              0.6247040033340454,
+              2.254507541656494
+            ]
+          },
+          "overviewFrameOffset": [
+            1196,
+            724
+          ],
+          "shadowOverviewFrameOffset": [
+            1244,
+            882
+          ]
+        },
+        {
+          "id": "oak-old",
+          "kind": "old",
+          "season": "summer",
+          "frame": "oak-old",
+          "shadowFrame": "oak-old-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.983,
+          "height": 3.263,
+          "boundsLogical": {
+            "min": [
+              -1.7202867269515991,
+              -1.806634783744812,
+              -0.14320409297943115
+            ],
+            "max": [
+              1.9828603267669678,
+              1.5798656940460205,
+              3.262711524963379
+            ]
+          },
+          "overviewFrameOffset": [
+            1061,
+            572
+          ],
+          "shadowOverviewFrameOffset": [
+            1067,
+            813
+          ]
+        },
+        {
+          "id": "oak-round-autumn",
+          "kind": "round",
+          "season": "autumn",
+          "frame": "oak-round-autumn",
+          "shadowFrame": "oak-round-autumn-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.755,
+          "height": 3.395,
+          "boundsLogical": {
+            "min": [
+              -1.4788881540298462,
+              -1.6224849224090576,
+              -0.05266687646508217
+            ],
+            "max": [
+              1.7551246881484985,
+              1.3576961755752563,
+              3.394650459289551
+            ]
+          },
+          "overviewFrameOffset": [
+            1088,
+            569
+          ],
+          "shadowOverviewFrameOffset": [
+            1164,
+            472
+          ]
+        },
+        {
+          "id": "oak-wide-autumn",
+          "kind": "wide",
+          "season": "autumn",
+          "frame": "oak-wide-autumn",
+          "shadowFrame": "oak-wide-autumn-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 1.982,
+          "height": 3.267,
+          "boundsLogical": {
+            "min": [
+              -1.8350578546524048,
+              -1.8266586065292358,
+              -0.05418086051940918
+            ],
+            "max": [
+              1.872931957244873,
+              1.9817107915878296,
+              3.2668449878692627
+            ]
+          },
+          "overviewFrameOffset": [
+            1070,
+            595
+          ],
+          "shadowOverviewFrameOffset": [
+            1079,
+            461
+          ]
+        },
+        {
+          "id": "bush-round",
+          "kind": "bush",
+          "season": "summer",
+          "frame": "bush-round",
+          "shadowFrame": "bush-round-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 0.764,
+          "height": 0.98,
+          "boundsLogical": {
+            "min": [
+              -0.6202206611633301,
+              -0.6189287304878235,
+              -0.02079763263463974
+            ],
+            "max": [
+              0.7637362480163574,
+              0.5655985474586487,
+              0.9803752303123474
+            ]
+          },
+          "overviewFrameOffset": [
+            1195,
+            849
+          ],
+          "shadowOverviewFrameOffset": [
+            1192,
+            914
+          ]
+        },
+        {
+          "id": "bush-flowering",
+          "kind": "bush-flowers",
+          "season": "summer",
+          "frame": "bush-flowering",
+          "shadowFrame": "bush-flowering-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 0.727,
+          "height": 1.05,
+          "boundsLogical": {
+            "min": [
+              -0.659098744392395,
+              -0.644573986530304,
+              0.0044827586971223354
+            ],
+            "max": [
+              0.7269446849822998,
+              0.5630958080291748,
+              1.0500199794769287
+            ]
+          },
+          "overviewFrameOffset": [
+            1192,
+            843
+          ],
+          "shadowOverviewFrameOffset": [
+            1188,
+            915
+          ]
+        },
+        {
+          "id": "bush-low",
+          "kind": "bush-low",
+          "season": "summer",
+          "frame": "bush-low",
+          "shadowFrame": "bush-low-shadow",
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "canopyRadius": 0.774,
+          "height": 0.728,
+          "boundsLogical": {
+            "min": [
+              -0.726800799369812,
+              -0.6727678179740906,
+              -0.0464617982506752
+            ],
+            "max": [
+              0.773585319519043,
+              0.5720622539520264,
+              0.7278106212615967
+            ]
+          },
+          "overviewFrameOffset": [
+            1205,
+            880
+          ],
+          "shadowOverviewFrameOffset": [
+            1196,
+            912
+          ]
+        }
+      ],
+      "foliageOutline": {
+        "method": "alpha dilation drawn behind the sprite at full resolution (sprite_ops.outline)",
+        "radiusPx": 3,
+        "rgb": [
+          52,
+          30,
+          20
+        ]
+      },
+      "sourceHashes": {
+        "build": "f8507e12962ac6aebc26fcf03752c558b7d936015892334f8173dad330cb604b",
+        "recipe": "ff76c20ab7d8bec8f010c766af90888774b794ea6c5af9af0aa7fc2a322cecd3",
+        "foliage": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "outlinePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "outputs": [
+        {
+          "file": "vegetation-atlas.png",
+          "bytes": 346276,
+          "sha256": "b38689bacf0f3fb6d59caed01c6c15a0d5f146a291ebb8259488b8b05d83de7a",
+          "width": 736,
+          "height": 720
+        },
+        {
+          "file": "vegetation-atlas.json",
+          "sha256": "c315af00a62e9d9606549e0aa6117cce40ade08add6223f992f8477ee6380fab"
+        }
+      ],
+      "provenance": "Original art-lab procedural geometry (VE-02). No third-party assets or generative-model output. Release license pending owner."
+    },
+    "cv-artlab-batch-c-vegetation-01": {
+      "version": "cv-artlab-batch-c-vegetation-01",
+      "studyOnly": true,
+      "library": "vegetation",
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-batch-c-vegetation-01.png",
+          "spritesheet": "cv-artlab-batch-c-vegetation-01.json",
+          "width": 400,
+          "height": 295,
+          "decodedBytes": 472000,
+          "pngBytes": 82694,
+          "sha256": "a7ecce6d273637c99537127eb942786e3be7567b2c109f25f36b7df4931a6a43",
+          "spritesheetSha256": "d62046f06d723409b550f1e959d98e906254613e791ecd068d93deb448967bdb",
+          "occupancy": 0.796,
+          "frames": 6
+        }
+      ],
+      "placement": {
+        "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+        "anchor": "spritesheet frame anchor",
+        "scale": "assetScale * renderScale (per asset, per shadow)",
+        "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+      },
+      "assets": [
+        {
+          "id": "pine-tall",
+          "name": "Pine (tall)",
+          "kind": "foliage",
+          "frame": "pine-tall",
+          "shadowFrame": "pine-tall-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "boundsLogical": {
+            "min": [
+              -1.077610731124878,
+              -1.051156759262085,
+              -0.03975359722971916
+            ],
+            "max": [
+              1.0548369884490967,
+              1.0568660497665405,
+              4.570000171661377
+            ]
+          },
+          "triangles": 4590,
+          "anchorRule": "trunk base",
+          "decodedBytes": 128904,
+          "shadowDecodedBytes": 22304
+        },
+        {
+          "id": "pine-small",
+          "name": "Pine (small)",
+          "kind": "foliage",
+          "frame": "pine-small",
+          "shadowFrame": "pine-small-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "boundsLogical": {
+            "min": [
+              -0.8374614119529724,
+              -0.8461338877677917,
+              -0.03710414096713066
+            ],
+            "max": [
+              0.8403651118278503,
+              0.8584849238395691,
+              3.1700000762939453
+            ]
+          },
+          "triangles": 3870,
+          "anchorRule": "trunk base",
+          "decodedBytes": 74200,
+          "shadowDecodedBytes": 13056
+        },
+        {
+          "id": "blossom",
+          "name": "Blossom tree",
+          "kind": "foliage",
+          "frame": "blossom",
+          "shadowFrame": "blossom-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": null,
+          "boundsLogical": {
+            "min": [
+              -1.2369811534881592,
+              -1.2402681112289429,
+              -0.041376084089279175
+            ],
+            "max": [
+              1.2716246843338013,
+              1.0728901624679565,
+              3.274587631225586
+            ]
+          },
+          "triangles": 6956,
+          "anchorRule": "trunk base",
+          "decodedBytes": 121800,
+          "shadowDecodedBytes": 15520
+        }
+      ],
+      "memory": {
+        "pagesDecodedMiB": 0.45,
+        "framesDecodedMiBByKind": {
+          "foliage": 0.358
+        }
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_structures.py": "322e969127553531534b162fda7e4a63b2eb8e358b0f4da65a2997c719f63878",
+        "vegetation.py": "78287bdddc4695f843639a990d16378b44d58af9ffd52dd74cdc879323eef5cf",
+        "cv_arch.py": "752528c615713ef79dd9d36381d7ea13ed3352a940907229917ca7e0e2010191",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "freestylePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+    },
+    "cv-artlab-batch-c-props-01": {
+      "version": "cv-artlab-batch-c-props-01",
+      "studyOnly": true,
+      "library": "props",
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-batch-c-props-01.png",
+          "spritesheet": "cv-artlab-batch-c-props-01.json",
+          "width": 192,
+          "height": 589,
+          "decodedBytes": 452352,
+          "pngBytes": 108506,
+          "sha256": "cbf3a0aacdc633e9eb01e01455ea9dbb90b37ad2889e19693ea4337632be6e77",
+          "spritesheetSha256": "c7ac8336caa115d1c57fb2ce4c1f2c99dfad1005cfc2b129b832319136888b4b",
+          "occupancy": 0.726,
+          "frames": 28
+        }
+      ],
+      "placement": {
+        "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+        "anchor": "spritesheet frame anchor",
+        "scale": "assetScale * renderScale (per asset, per shadow)",
+        "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+      },
+      "assets": [
+        {
+          "id": "flowerbed-round",
+          "name": "Round flower bed",
+          "kind": "prop",
+          "frame": "flowerbed-round",
+          "shadowFrame": "flowerbed-round-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.6,
+              "minY": -0.6,
+              "width": 1.2,
+              "depth": 1.2
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.5900000333786011,
+              -0.5900000333786011,
+              -0.009999999776482582
+            ],
+            "max": [
+              0.5900000333786011,
+              0.5900000333786011,
+              0.2800000011920929
+            ]
+          },
+          "triangles": 4266,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 14592,
+          "shadowDecodedBytes": 2664
+        },
+        {
+          "id": "flowerbed-long",
+          "name": "Raised flower bed",
+          "kind": "prop",
+          "frame": "flowerbed-long",
+          "shadowFrame": "flowerbed-long-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -1,
+              "minY": -0.5,
+              "width": 2,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.8350000381469727,
+              -0.33500000834465027,
+              0
+            ],
+            "max": [
+              0.8350000381469727,
+              0.33500000834465027,
+              0.30000001192092896
+            ]
+          },
+          "triangles": 3684,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 25048,
+          "shadowDecodedBytes": 5100
+        },
+        {
+          "id": "lantern-post",
+          "name": "Lantern post",
+          "kind": "prop",
+          "frame": "lantern-post",
+          "shadowFrame": "lantern-post-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.5,
+              "minY": -0.5,
+              "width": 1,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.15000000596046448,
+              -0.15000000596046448,
+              0
+            ],
+            "max": [
+              0.46000000834465027,
+              0.15000000596046448,
+              1.899999976158142
+            ]
+          },
+          "triangles": 660,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 18480,
+          "shadowDecodedBytes": 3248
+        },
+        {
+          "id": "signpost",
+          "name": "Signpost (blank boards)",
+          "kind": "prop",
+          "frame": "signpost",
+          "shadowFrame": "signpost-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.9,
+              "minY": -0.9,
+              "width": 1.8,
+              "depth": 1.8
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.27268341183662415,
+              -0.4628070890903473,
+              0
+            ],
+            "max": [
+              0.7431724071502686,
+              0.6295940279960632,
+              1.9500000476837158
+            ]
+          },
+          "triangles": 903,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 37632,
+          "shadowDecodedBytes": 3584
+        },
+        {
+          "id": "bench",
+          "name": "Bench",
+          "kind": "prop",
+          "frame": "bench",
+          "shadowFrame": "bench-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.75,
+              "minY": -0.5,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.6000000238418579,
+              -0.1550000011920929,
+              0
+            ],
+            "max": [
+              0.6000000238418579,
+              0.15000000596046448,
+              0.8500000238418579
+            ]
+          },
+          "triangles": 756,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 21488,
+          "shadowDecodedBytes": 4000
+        },
+        {
+          "id": "fence-x",
+          "name": "Fence segment along x",
+          "kind": "prop",
+          "frame": "fence-x",
+          "shadowFrame": "fence-x-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.5,
+              "minY": -0.125,
+              "width": 1,
+              "depth": 0.25
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.4800207316875458,
+              -0.05417528748512268,
+              -0.0006369471084326506
+            ],
+            "max": [
+              0.4800207316875458,
+              0.05417528748512268,
+              0.7606369256973267
+            ]
+          },
+          "triangles": 432,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 13200,
+          "shadowDecodedBytes": 2340
+        },
+        {
+          "id": "fence-y",
+          "name": "Fence segment along y",
+          "kind": "prop",
+          "frame": "fence-y",
+          "shadowFrame": "fence-y-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.125,
+              "minY": -0.5,
+              "width": 0.25,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.05544315278530121,
+              -0.4800260066986084,
+              -0.000565946102142334
+            ],
+            "max": [
+              0.05544315278530121,
+              0.4800260066986084,
+              0.7605659365653992
+            ]
+          },
+          "triangles": 432,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 13464,
+          "shadowDecodedBytes": 2400
+        },
+        {
+          "id": "planter-box",
+          "name": "Planter box",
+          "kind": "prop",
+          "frame": "planter-box",
+          "shadowFrame": "planter-box-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.5,
+              "minY": -0.5,
+              "width": 1,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.3041214048862457,
+              -0.30000001192092896,
+              0
+            ],
+            "max": [
+              0.30000001192092896,
+              0.30000001192092896,
+              0.8799999952316284
+            ]
+          },
+          "triangles": 1110,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 14784,
+          "shadowDecodedBytes": 2220
+        },
+        {
+          "id": "planter-pot",
+          "name": "Clay planter",
+          "kind": "prop",
+          "frame": "planter-pot",
+          "shadowFrame": "planter-pot-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.375,
+              "minY": -0.375,
+              "width": 0.75,
+              "depth": 0.75
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.2683022916316986,
+              -0.2683022916316986,
+              0
+            ],
+            "max": [
+              0.2683022916316986,
+              0.2683022916316986,
+              0.6600000262260437
+            ]
+          },
+          "triangles": 1460,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 7800,
+          "shadowDecodedBytes": 972
+        },
+        {
+          "id": "supplies-crates",
+          "name": "Stacked crates",
+          "kind": "prop",
+          "frame": "supplies-crates",
+          "shadowFrame": "supplies-crates-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.5,
+              "minY": -0.5,
+              "width": 1,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.4099999964237213,
+              -0.24798135459423065,
+              0
+            ],
+            "max": [
+              0.4479813575744629,
+              0.3100000023841858,
+              0.7599999904632568
+            ]
+          },
+          "triangles": 2436,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 16384,
+          "shadowDecodedBytes": 2220
+        },
+        {
+          "id": "supplies-barrels",
+          "name": "Barrels",
+          "kind": "prop",
+          "frame": "supplies-barrels",
+          "shadowFrame": "supplies-barrels-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.5,
+              "minY": -0.5,
+              "width": 1,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.43140918016433716,
+              -0.2514091730117798,
+              0
+            ],
+            "max": [
+              0.4586166739463806,
+              0.33861666917800903,
+              0.6399999856948853
+            ]
+          },
+          "triangles": 2624,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 11904,
+          "shadowDecodedBytes": 2112
+        },
+        {
+          "id": "supplies-logs-sacks",
+          "name": "Log pile and sacks",
+          "kind": "prop",
+          "frame": "supplies-logs-sacks",
+          "shadowFrame": "supplies-logs-sacks-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.8,
+              "minY": -0.6,
+              "width": 1.6,
+              "depth": 1.2
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.44999998807907104,
+              -0.42527079582214355,
+              0
+            ],
+            "max": [
+              0.6672550439834595,
+              0.42527079582214355,
+              0.4952707886695862
+            ]
+          },
+          "triangles": 3658,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 19520,
+          "shadowDecodedBytes": 6996
+        },
+        {
+          "id": "garden-pumpkins",
+          "name": "Pumpkin and cabbage patch",
+          "kind": "prop",
+          "frame": "garden-pumpkins",
+          "shadowFrame": "garden-pumpkins-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.8,
+              "minY": -0.6,
+              "width": 1.6,
+              "depth": 1.2
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.7624300122261047,
+              -0.5206815004348755,
+              -0.019999999552965164
+            ],
+            "max": [
+              0.7579547762870789,
+              0.546578049659729,
+              0.3959999978542328
+            ]
+          },
+          "triangles": 2652,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 18360,
+          "shadowDecodedBytes": 3116
+        },
+        {
+          "id": "well",
+          "name": "Small well",
+          "kind": "prop",
+          "frame": "well",
+          "shadowFrame": "well-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.7,
+              "minY": -0.7,
+              "width": 1.4,
+              "depth": 1.4
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "boundsLogical": {
+            "min": [
+              -0.6000000238418579,
+              -0.5321115255355835,
+              0
+            ],
+            "max": [
+              0.6000000238418579,
+              0.5321115255355835,
+              1.7814483642578125
+            ]
+          },
+          "triangles": 2004,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 47000,
+          "shadowDecodedBytes": 7884
+        }
+      ],
+      "memory": {
+        "pagesDecodedMiB": 0.431,
+        "framesDecodedMiBByKind": {
+          "prop": 0.313
+        }
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_structures.py": "322e969127553531534b162fda7e4a63b2eb8e358b0f4da65a2997c719f63878",
+        "props.py": "9c164f8b56d30a839a38249b6681f2e4a81da4a0aed3d632fbf6f1c21b1a5726",
+        "cv_arch.py": "752528c615713ef79dd9d36381d7ea13ed3352a940907229917ca7e0e2010191",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "freestylePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+    },
+    "cv-artlab-zone-samples-01": {
+      "version": "cv-artlab-zone-samples-01",
+      "studyOnly": true,
+      "library": "props",
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "pages": [
+        {
+          "image": "cv-artlab-zone-samples-01.png",
+          "spritesheet": "cv-artlab-zone-samples-01.json",
+          "width": 240,
+          "height": 228,
+          "decodedBytes": 218880,
+          "pngBytes": 46596,
+          "sha256": "6cf3615cb670bad4d40d9dd511e725964c23d02fd5292ed624c9ea30f0ff699d",
+          "spritesheetSha256": "a4ee8689be6e37b48d585c2fc9ad311b8e52e888d9b6c08724b98e4fceefed00",
+          "occupancy": 0.831,
+          "frames": 4
+        }
+      ],
+      "placement": {
+        "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+        "anchor": "spritesheet frame anchor",
+        "scale": "assetScale * renderScale (per asset, per shadow)",
+        "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+      },
+      "assets": [
+        {
+          "id": "footbridge",
+          "name": "Plank footbridge (Brookside sample)",
+          "kind": "prop",
+          "frame": "footbridge",
+          "shadowFrame": "footbridge-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -2.2,
+              "minY": -0.7,
+              "width": 4.4,
+              "depth": 1.4
+            },
+            "orientation": 0,
+            "status": "PROPOSED: spans a 2-3 cell creek along x; needs walkable-bridge support in navigation (not in LW1/WF2 today)"
+          },
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -2.0784897804260254,
+              -0.5706305503845215,
+              0
+            ],
+            "max": [
+              2.086027145385742,
+              0.556491494178772,
+              1.2026959657669067
+            ]
+          },
+          "triangles": 6852,
+          "animation": null,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 136476,
+          "shadowDecodedBytes": 27840
+        },
+        {
+          "id": "reeds",
+          "name": "Reed clump (shoreline sample)",
+          "kind": "prop",
+          "frame": "reeds",
+          "shadowFrame": "reeds-shadow",
+          "textureScale": 0.5,
+          "renderScale": 2,
+          "shadowRenderScale": 4,
+          "footprint": {
+            "envelope": {
+              "minX": -0.5,
+              "minY": -0.5,
+              "width": 1,
+              "depth": 1
+            },
+            "orientation": 0,
+            "status": "PROPOSED decoration cell"
+          },
+          "emitters": null,
+          "boundsLogical": {
+            "min": [
+              -0.3911031484603882,
+              -0.44199755787849426,
+              -0.019999999552965164
+            ],
+            "max": [
+              0.4363403022289276,
+              0.44685497879981995,
+              0.9322788119316101
+            ]
+          },
+          "triangles": 1262,
+          "animation": null,
+          "anchorRule": "placement point (0,0,0)",
+          "decodedBytes": 15008,
+          "shadowDecodedBytes": 2520
+        }
+      ],
+      "memory": {
+        "pagesDecodedMiB": 0.209,
+        "framesDecodedMiBByKind": {
+          "prop": 0.173
+        }
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "sourceHashes": {
+        "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+        "props.py": "674a97e78c39818eea7e97cc821fb18d486cc94e4566e6ed8270ee470ad886db",
+        "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+        "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 64,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "freestylePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+    },
+    "cv-artlab-batch-c-effects-01": {
+      "version": "cv-artlab-batch-c-effects-01",
+      "studyOnly": true,
+      "optional": true,
+      "pages": [
+        {
+          "image": "cv-artlab-batch-c-effects-01.png",
+          "spritesheet": "cv-artlab-batch-c-effects-01.json",
+          "width": 176,
+          "height": 60,
+          "decodedBytes": 42240,
+          "pngBytes": 10036,
+          "sha256": "02c5cef96145ff9a9f56a2d2567c444f54bc4bfdd01df75bf94a81a6c5cb9463",
+          "spritesheetSha256": "a69313fd8d9856c6d5bd9b8b9753eca58a632c4f7c7cfec3606c4887292269d2",
+          "occupancy": 0.655,
+          "frames": 9
+        }
+      ],
+      "effects": {
+        "butterfly": {
+          "flapFps": 12,
+          "frames": 4,
+          "flipXWhenMovingLeft": true,
+          "path": "x(t)=x0+Ax*sin(w1*t+p), y(t)=y0+Ay*sin(w2*t+q), z(t)=0.7+0.25*sin(w3*t); A~0.8-1.6 units, w~0.3-0.7 rad/s",
+          "placement": "sprite.position = terrainProject(x, y, z); sprite.anchor = frame anchor (body centre); scale = assetScale",
+          "budget": "<= 6 visible; only near flower beds/blossom trees in daylight",
+          "reducedMotion": "do not spawn (or show one resting sprite on a flower bed, frame 3, no path motion)",
+          "depth": "draw above all objects in the same tile band (x+y+0.5) - purely decorative, never occludes UI"
+        },
+        "firefly": {
+          "blend": "add",
+          "frames": 1,
+          "path": "x(t)=x0+0.6*sin(0.5t+p)+0.25*sin(1.3t+q), y likewise, z(t)=0.4+0.5*sin(0.7t+r)",
+          "alpha": "0.15 + 0.85*max(0, sin(1.1t + phase))^2  (slow pulse)",
+          "placement": "sprite.position = terrainProject(x, y, z); anchor (0.5,0.5); scale = assetScale * 2",
+          "budget": "<= 24 visible; evening/night presentation only; skip when zoomed below 0.45",
+          "reducedMotion": "static glows at fixed positions with constant alpha 0.6, no wander or pulse",
+          "depth": "a single top layer above objects (additive light, no sorting needed)"
+        }
+      },
+      "butterflyCell": [
+        39,
+        36
+      ],
+      "butterflyAnchor": [
+        0.461538,
+        0.341752
+      ],
+      "memory": {
+        "pagesDecodedMiB": 0.0403
+      },
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "source": {
+        "rect": [
+          1234,
+          824,
+          1326,
+          915
+        ],
+        "groundAnchor": [
+          1280,
+          959.9995422363281
+        ],
+        "renderHeightUnits": 0.9,
+        "phasesDeg": [
+          70,
+          30,
+          -10,
+          30
+        ],
+        "colourways": [
+          "amber",
+          "sky"
+        ],
+        "outputs": {
+          "butterfly-amber-0.png": "7d86a965b91d6c15744dc2c94aa7b41c2431e282cea0cd6673bef2ac2e515fb2",
+          "butterfly-amber-1.png": "f25de83669987fce9aac04c3efbac87bad9f459849392d05ca07a205d3da117e",
+          "butterfly-amber-2.png": "aca1226459352693fe1b91baf7ee485c81e6160f4e2f18518bfaec14c31c7c6c",
+          "butterfly-amber-3.png": "6e4c5b837d0ada2e270edd56f9ddd95f1f5dc76922fab2e99cb123f48907df5f",
+          "butterfly-sky-0.png": "c97a4be11b3cba44afacc2c2de7c3f3a6357e3995a00f2bee11d66849745d0a0",
+          "butterfly-sky-1.png": "cffc15e7e06e95a168b4173a27dccd31cb1adfb98672bf42f8a9e3c51ec75700",
+          "butterfly-sky-2.png": "ce7db0c7c9b874568cc18cb1c70b57e8c6bfabdf4b4b790c07a43d1962313a85",
+          "butterfly-sky-3.png": "cffc15e7e06e95a168b4173a27dccd31cb1adfb98672bf42f8a9e3c51ec75700"
+        },
+        "blender": "4.5.15 LTS",
+        "renderPxPerUnit": 82.2815163562528,
+        "sourceSha256": "e7e8400b2e623063cb24fc61fc841389b36b758bb9fa0ff5d577c0e4f1693512"
+      },
+      "provenance": "Original art-lab butterfly geometry; procedural firefly glow. No third-party assets."
+    },
+    "cv-artlab-ambient-02": {
+      "version": "cv-artlab-ambient-02",
+      "studyOnly": true,
+      "optional": true,
+      "pages": [
+        {
+          "image": "cv-artlab-ambient-02.png",
+          "spritesheet": "cv-artlab-ambient-02.json",
+          "width": 96,
+          "height": 108,
+          "decodedBytes": 41472,
+          "pngBytes": 4723,
+          "sha256": "be6da1780bc0b26c048a02ca7d90c9b9e7bfcae501d2e590d9d5d789f2a97897",
+          "spritesheetSha256": "733d3671fe4dd4cdadab753c0de953357787f1f85ffdd14e5bae06178d02bc89",
+          "occupancy": 0.644,
+          "frames": 8
+        }
+      ],
+      "integrity": {
+        "framesLossless": true,
+        "overlapsWithPadding": []
+      },
+      "builds": "cv-artlab-batch-c-effects-01 (butterflies, firefly) - reused, not regenerated",
+      "effects": {
+        "lanternGlow": {
+          "sprite": "glow-warm",
+          "blend": "add",
+          "anchor": [
+            0.5,
+            0.5
+          ],
+          "scale": "assetScale * 2.4",
+          "alpha": "0.55 + 0.10*sin(7.3t+p) + 0.06*sin(13.1t+2p)  (soft flicker, never < 0.4)",
+          "when": "evening/night presentation; daytime alpha 0",
+          "budget": "one per lantern emitter, culled off-screen",
+          "reducedMotion": "constant alpha 0.6, no flicker",
+          "layer": "top light layer (above objects, below UI)"
+        },
+        "chimneySmoke": {
+          "sprites": [
+            "smoke-0",
+            "smoke-1",
+            "smoke-2"
+          ],
+          "blend": "normal",
+          "spawn": "one puff every 1.6-2.4 s per chimney emitter (deterministic phase from building id)",
+          "motion": "rise 0.35 units/s, drift +0.12 units/s along logical (+x,-y) wind, scale 0.6->1.6, alpha 0.55->0 over 3.5 s",
+          "budget": "<= 3 live puffs per chimney; skip below zoom 0.45",
+          "reducedMotion": "no puffs",
+          "layer": "above the emitting building (depth key + 0.01)"
+        },
+        "leaves": {
+          "sprites": [
+            "leaf-0",
+            "leaf-1",
+            "petal-0"
+          ],
+          "blend": "normal",
+          "spawn": "near tree placements (petal-0 only near blossom trees), 1 per ~4 s per tree, max 12 on screen",
+          "motion": "fall 0.25 units/s from canopy height with sin sway (amp 0.3, 0.8 rad/s) and spin 1.5 rad/s; fade on landing",
+          "reducedMotion": "none",
+          "layer": "top decorative layer"
+        },
+        "dustMotes": {
+          "sprite": "mote",
+          "blend": "add",
+          "motion": "slow wander like fireflies, alpha 0.15-0.35, daylight only in sunbeam areas",
+          "budget": "<= 16 on screen; only at zoom >= 1.4",
+          "reducedMotion": "none",
+          "layer": "top decorative layer"
+        },
+        "butterflies": "unchanged: cv-artlab-batch-c-effects-01 (flap frames + runtime path); budget <= 6 in daylight",
+        "fireflies": "unchanged: cv-artlab-batch-c-effects-01 (glow + runtime wander/pulse); budget <= 24 at evening",
+        "global": {
+          "maxEffectSpritesOnScreen": 60,
+          "pauseWhenTabHidden": true,
+          "respectPrefersReducedMotion": true,
+          "zoomGate": "all ambient effects off below zoom 0.45 except lantern glow",
+          "drawCalls": "all ambient sprites share one atlas page with the effects-01 page => 1-2 batches",
+          "gameplay": "purely decorative; never block picking, never imply real users or presence"
+        }
+      },
+      "emitters": {
+        "rule": "terrainProject(px + ex, py + ey, h + ez) where (px, py, h) is the asset placement",
+        "byAsset": {
+          "lodge": {
+            "chimney": [
+              [
+                2.5,
+                0.55,
+                3.98
+              ]
+            ],
+            "lantern": [
+              [
+                0.85,
+                2.3,
+                1.72
+              ]
+            ]
+          },
+          "workshop": {
+            "chimney": [
+              [
+                -1.48,
+                -0.95,
+                5.8
+              ]
+            ],
+            "lantern": [
+              [
+                -1.03,
+                2.77,
+                1.7
+              ]
+            ]
+          },
+          "cottage": {
+            "chimney": [
+              [
+                0.66,
+                -0.65,
+                4.760000000000001
+              ]
+            ],
+            "lantern": [
+              [
+                -0.62,
+                1.6099999999999999,
+                1.42
+              ]
+            ]
+          },
+          "hall": {
+            "chimney": [
+              [
+                -1.63,
+                -1,
+                5.88
+              ]
+            ],
+            "lantern": []
+          },
+          "lantern-post": {
+            "lantern": [
+              [
+                0.36,
+                0,
+                1.6
+              ]
+            ]
+          }
+        }
+      },
+      "memory": {
+        "pagesDecodedMiB": 0.0396
+      }
+    },
+    "cv-artlab-ap4-shelter-01": {
+      "version": "cv-artlab-ap4-shelter-01",
+      "studyOnly": true,
+      "width": 2560,
+      "height": 1920,
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "layers": [
+        {
+          "id": "shelter-shadow",
+          "url": "shelter-shadow.png",
+          "left": 1046,
+          "top": 784,
+          "width": 313,
+          "height": 151,
+          "scale": 2,
+          "kind": "shadow",
+          "blend": "normal",
+          "defaultAlpha": 1,
+          "tint": "#3a283e",
+          "alphaFloor": 6,
+          "decodedBytes": 189052
+        },
+        {
+          "id": "shelter",
+          "url": "shelter.png",
+          "left": 1081,
+          "top": 591,
+          "width": 298,
+          "height": 348,
+          "scale": 1.3333333333333333,
+          "kind": "building",
+          "decodedBytes": 414816,
+          "mask": [
+            "00000000000000000000111000000000",
+            "00000000000000000011111000000000",
+            "00000000000000011111111100000000",
+            "00000000000001111111111110000000",
+            "00000000000111111111111110000000",
+            "00000000011111111111111111000000",
+            "00000001111111111111111111100000",
+            "00000111111111111111111111110000",
+            "00111111111111111111111111110000",
+            "11111111111111111111111111111000",
+            "11111111111111111111111111111100",
+            "00011111101111111111111111111110",
+            "00011111111111111111111111111111",
+            "00011111111111111111111111111111",
+            "00011111011111111111111111111110",
+            "00011111110111111111111111111000",
+            "00011111001111111111111111111000",
+            "00011100111111111111111111111000",
+            "00011111111111111111111111111000",
+            "01111111111111111111111111111000",
+            "11111111111111111111111111111000",
+            "01111111111111111111111111111000",
+            "01111111111111111111111111111000",
+            "01111111111111111111111111111000",
+            "01111111111111111111111111111100",
+            "00001111111111111111111111111110",
+            "00000011111111111111111111111110",
+            "00000000111111111111111111111100",
+            "00000000000111111111111111110000",
+            "00000000000001111111111111000000",
+            "00000000000000011111111000000000",
+            "00000000000000000011100000000000"
+          ]
+        }
+      ],
+      "buildings": [
+        {
+          "id": "shelter",
+          "name": "The Gathering Shelter",
+          "template": "gathering-shelter-1",
+          "footprintReference": {
+            "envelope": {
+              "minX": -1.5,
+              "minY": -1,
+              "width": 3,
+              "depth": 2
+            },
+            "entrance": [
+              0,
+              1.5
+            ],
+            "orientation": 0,
+            "units": "logical tiles relative to footprint centre; source packages/world/src/founding-spatial.ts foundingStructure() x=-1.5 y=-1 width=3 depth=2 entrance (0,1.5)"
+          },
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "anchorRule": "rendered px of footprint centre (0,0) at base height (z=0)",
+          "layer": "shelter",
+          "shadow": "shelter-shadow",
+          "detail": {
+            "id": "shelter-detail",
+            "url": "shelter-detail.png",
+            "left": 1082,
+            "top": 591.3333333333334,
+            "width": 594,
+            "height": 694,
+            "scale": 0.6666666666666666,
+            "kind": "building",
+            "decodedBytes": 1648944,
+            "mask": [
+              "00000000000000000000111000000000",
+              "00000000000000000011111000000000",
+              "00000000000000011111111100000000",
+              "00000000000001111111111110000000",
+              "00000000000111111111111110000000",
+              "00000000011111111111111111000000",
+              "00000001111111111111111111100000",
+              "00000111111111111111111111110000",
+              "00111111111111111111111111110000",
+              "11111111111111111111111111111000",
+              "11111111111111111111111111111100",
+              "00011111101111111111111111111110",
+              "00011111111111111111111111111111",
+              "00011111111111111111111111111111",
+              "00011111011111111111111111111110",
+              "00011111110111111111111111111000",
+              "00011111001111111111111111111000",
+              "00011100111111111111111111111000",
+              "00011111101111111111111111111000",
+              "01111110111111111111111111111000",
+              "11111111111111111111111111111000",
+              "01111111111111111111111111111000",
+              "01111111111111111111111111111000",
+              "01111111111111111111111111111000",
+              "01111111111111111111111111111100",
+              "00001111111111111111111111111110",
+              "00000011111111111111111111111110",
+              "00000000111111111111111111111100",
+              "00000000000111111111111111110000",
+              "00000000000001111111111111000000",
+              "00000000000000011111111100000000",
+              "00000000000000000011100000000000"
+            ]
+          },
+          "envelopeAudit": {
+            "min": [
+              -1.4798133373260498,
+              -0.9574477076530457,
+              0
+            ],
+            "max": [
+              1.4991732835769653,
+              0.9800000190734863,
+              3.2531850337982178
+            ],
+            "triangles": 27564,
+            "fitsEnvelope": true
+          },
+          "emitters": {
+            "lantern": [
+              [
+                1.1400000000000001,
+                0.88,
+                1.42
+              ]
+            ]
+          },
+          "drawOrder": [
+            "shelter-shadow",
+            "shelter"
+          ],
+          "depthRule": "one sort key per structure (footprint centre x+y, as workshop-03); ground decal and shadow go in the ground band beneath every depth-sorted object"
+        }
+      ],
+      "baseDecodedBytes": 603868,
+      "focusDecodedBytes": 1648944,
+      "identity": {
+        "structureId": "founding-shelter",
+        "template": "gathering-shelter-1",
+        "name": "The Gathering Shelter",
+        "replaces": "hearthside-hero-01/commons (open notice shelter) as presentation only",
+        "keeps": "saved footprint x=-1.5 y=-1 3x2, entrance (0,1.5), height, appearance string unchanged"
+      },
+      "sourceHashes": {
+        "build": "a3e34bd8a1e633dfa241c51bf78b2b990ded5d85e9449c642a89d81ac382bbb5",
+        "recipe": "d6f9f4f51aa1a36ccc5ef279b98bfb2c5685f6de6d59baedf019a28c07c680f2",
+        "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "arch": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+        "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "render": {
+        "engine": "Cycles CPU",
+        "samples": 96,
+        "denoiser": "OpenImageDenoise",
+        "color": "AgX - Punchy, exposure +0.35",
+        "outlinePx": 5
+      },
+      "blender": "4.5.15 LTS",
+      "lightDirection": [
+        0.2283295840024948,
+        -0.6008673310279846,
+        -0.7660444378852844
+      ],
+      "outputs": [
+        {
+          "file": "shelter.png",
+          "width": 298,
+          "height": 348,
+          "bytes": 133225,
+          "sha256": "5e1cac6cfb996b496e003c61c08da2013d07292034e7dda9ce9a57c4dab97797",
+          "decodedBytes": 414816
+        },
+        {
+          "file": "shelter-detail.png",
+          "width": 594,
+          "height": 694,
+          "bytes": 406386,
+          "sha256": "a174f21e2c24f1eb2e474abb996431ce5fac39dcccfc7f0f9826f3bc2f6b0078",
+          "decodedBytes": 1648944
+        },
+        {
+          "file": "shelter-shadow.png",
+          "width": 313,
+          "height": 151,
+          "bytes": 12193,
+          "sha256": "544f735e7976656bde0eee7404d493a8359ea420c52829fb317c30ca715c3b9f",
+          "decodedBytes": 189052
+        }
+      ],
+      "provenance": "Original art-lab geometry/materials/procedural textures (AP4). No third-party assets, no generative-model output; reference boards used as direction only. Release licence pending owner."
+    },
+    "cv-artlab-ap4-construction-01": {
+      "version": "cv-artlab-ap4-construction-01",
+      "studyOnly": true,
+      "width": 2560,
+      "height": 1920,
+      "camera": {
+        "width": 2560,
+        "height": 1920,
+        "scale": 22,
+        "axes": "(x,y,z)->(y,x,z)",
+        "plan": 45,
+        "elevation": 30
+      },
+      "runtimeAssetScale": 0.3889087296526012,
+      "layers": [
+        {
+          "id": "foundation-ground",
+          "url": "foundation-ground.png",
+          "left": 931,
+          "top": 801,
+          "width": 324,
+          "height": 170,
+          "scale": 2,
+          "kind": "ground-decal",
+          "decodedBytes": 220320
+        },
+        {
+          "id": "foundation-shadow",
+          "url": "foundation-shadow.png",
+          "left": 805,
+          "top": 707,
+          "width": 502,
+          "height": 245,
+          "scale": 2,
+          "kind": "shadow",
+          "blend": "normal",
+          "defaultAlpha": 1,
+          "tint": "#3a283e",
+          "alphaFloor": 6,
+          "decodedBytes": 491960
+        },
+        {
+          "id": "foundation",
+          "url": "foundation.png",
+          "left": 805,
+          "top": 658,
+          "width": 712,
+          "height": 404,
+          "scale": 1.3333333333333333,
+          "kind": "building",
+          "decodedBytes": 1150592,
+          "mask": [
+            "00000000000000000000000000000000",
+            "00000000000000010000000000000000",
+            "00000000000000000000000000000000",
+            "00000000000001000010000000000000",
+            "00000000000010000001000000000000",
+            "00000000000100000000100000000000",
+            "00000000001000110000010000000000",
+            "00000000010001111000001000000000",
+            "00000000000111111100000000000000",
+            "00000000001111111110000000000000",
+            "00000100011111111111100000100000",
+            "00001000111111111111110000010000",
+            "00010001111111111111111000001000",
+            "00100011111111111111111100000100",
+            "11000111111111111111111110000011",
+            "10010111111111111111111111000001",
+            "11011111111111111111111111100011",
+            "10111111111111111111111111100101",
+            "00011101111111111111111111100000",
+            "00011100111111111111111111100000",
+            "00000011111111111111111111000000",
+            "00000001111111111111111110000000",
+            "00000011111111111111111100000000",
+            "00000001011111111111111000000000",
+            "00000000101101111111110000000000",
+            "00000000001000111111000000000000",
+            "00000000000010001110000000000000",
+            "00000000000000100101000000000000",
+            "00000000000000011000000000000000",
+            "00000000000000000000000000000000",
+            "00000000000000000000000000000000",
+            "00000000000000000000000000000000"
+          ]
+        },
+        {
+          "id": "framing-ground",
+          "url": "framing-ground.png",
+          "left": 930,
+          "top": 801,
+          "width": 325,
+          "height": 168,
+          "scale": 2,
+          "kind": "ground-decal",
+          "decodedBytes": 218400
+        },
+        {
+          "id": "framing-shadow",
+          "url": "framing-shadow.png",
+          "left": 845,
+          "top": 713,
+          "width": 535,
+          "height": 250,
+          "scale": 2,
+          "kind": "shadow",
+          "blend": "normal",
+          "defaultAlpha": 1,
+          "tint": "#3a283e",
+          "alphaFloor": 6,
+          "decodedBytes": 535000
+        },
+        {
+          "id": "framing",
+          "url": "framing.png",
+          "left": 867,
+          "top": 437,
+          "width": 603,
+          "height": 549,
+          "scale": 1.3333333333333333,
+          "kind": "building",
+          "decodedBytes": 1324188,
+          "mask": [
+            "00000000011000000000000000000000",
+            "00000000011100000000000000000000",
+            "00000000111111000000000000000000",
+            "00000001011011110000000000000000",
+            "00000001011100111100000000000000",
+            "00000010011101111111000000000000",
+            "00000010111001111111100000000000",
+            "00000101011111111110111000000000",
+            "00000001011100111011101100000000",
+            "00001011111101111101111110000000",
+            "00010111101101111111001110000000",
+            "00011111001110111111001111100000",
+            "00101111011100111111001111111110",
+            "00001011101101111111001110111110",
+            "00001010111101111111001111111110",
+            "00001101111111111111001111111110",
+            "00001110111111111111011111111110",
+            "00001110111111111111111111011110",
+            "00011111111111111111111110111111",
+            "00111111111111111111111111011110",
+            "01111111111111111111111111111110",
+            "00111111111111111111111111111110",
+            "01001111111111111111111111111110",
+            "11111111111111111111111111111110",
+            "00111101111111111111111111110110",
+            "00001101111111111111111111000010",
+            "00000000011111111111111110000000",
+            "00000001001111111111111000000000",
+            "00000000010111011111100000000000",
+            "00000000000111100111101000000000",
+            "00000000000111100001100000000000",
+            "00000000000000000001000000000000"
+          ]
+        }
+      ],
+      "buildings": [
+        {
+          "id": "foundation",
+          "name": "Workshop foundation",
+          "template": "wf2-workshop-1",
+          "footprintReference": {
+            "envelope": {
+              "minX": -3,
+              "minY": -3,
+              "width": 6,
+              "depth": 6
+            },
+            "entrance": [
+              0,
+              3.5
+            ],
+            "apron": {
+              "minX": -0.75,
+              "minY": 3,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "units": "logical tiles relative to footprint centre; matches cv-artlab-ve01-workshop-03"
+          },
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "anchorRule": "rendered px of footprint centre (0,0) at base height (z=0)",
+          "layer": "foundation",
+          "shadow": "foundation-shadow",
+          "detail": {
+            "id": "foundation-detail",
+            "url": "foundation-detail.png",
+            "left": 804.6666666666666,
+            "top": 658,
+            "width": 1423,
+            "height": 808,
+            "scale": 0.6666666666666666,
+            "kind": "building",
+            "decodedBytes": 4599136,
+            "mask": [
+              "00000000000000000000000000000000",
+              "00000000000000010000000000000000",
+              "00000000000000000000000000000000",
+              "00000000000001000010000000000000",
+              "00000000000010000001000000000000",
+              "00000000000100000000100000000000",
+              "00000000001000110000010000000000",
+              "00000000010001111000000000000000",
+              "00000000000111111100000000000000",
+              "00000000001111111110000000000000",
+              "00000000011111111111100000100000",
+              "00001000111111111111110000010000",
+              "00010001111111111111111000001000",
+              "00100011111111111111111100000100",
+              "11000111111111111111111110000011",
+              "10010111111111111111111111000001",
+              "11011111111111111111111111100011",
+              "10011111111111111111111111100101",
+              "00011101111111111111111111100000",
+              "00011100111111111111111111100000",
+              "00000011111111111111111111000000",
+              "00000001111111111111111110000000",
+              "00000011111111111111111100000000",
+              "00000001011111111111111000000000",
+              "00000000101101111111110000000000",
+              "00000000001000111111000000000000",
+              "00000000000010001110000000000000",
+              "00000000000000100101000000000000",
+              "00000000000000011000000000000000",
+              "00000000000000000000000000000000",
+              "00000000000000000000000000000000",
+              "00000000000000000000000000000000"
+            ]
+          },
+          "envelopeAudit": {
+            "min": [
+              -2.884056568145752,
+              -2.8681132793426514,
+              -0.001135777565650642
+            ],
+            "max": [
+              2.8670451641082764,
+              2.8748703002929688,
+              0.6403772234916687
+            ],
+            "triangles": 11480,
+            "fitsEnvelope": true,
+            "clearOfApron": true
+          },
+          "emitters": {},
+          "drawOrder": [
+            "foundation-ground",
+            "foundation-shadow",
+            "foundation"
+          ],
+          "depthRule": "one sort key per structure (footprint centre x+y, as workshop-03); ground decal and shadow go in the ground band beneath every depth-sorted object",
+          "phase": "foundation",
+          "ground": "foundation-ground"
+        },
+        {
+          "id": "framing",
+          "name": "Workshop framing",
+          "template": "wf2-workshop-1",
+          "footprintReference": {
+            "envelope": {
+              "minX": -3,
+              "minY": -3,
+              "width": 6,
+              "depth": 6
+            },
+            "entrance": [
+              0,
+              3.5
+            ],
+            "apron": {
+              "minX": -0.75,
+              "minY": 3,
+              "width": 1.5,
+              "depth": 1
+            },
+            "orientation": 0,
+            "units": "logical tiles relative to footprint centre; matches cv-artlab-ve01-workshop-03"
+          },
+          "screenAnchor": [
+            1280,
+            959.9995422363281
+          ],
+          "anchorRule": "rendered px of footprint centre (0,0) at base height (z=0)",
+          "layer": "framing",
+          "shadow": "framing-shadow",
+          "detail": {
+            "id": "framing-detail",
+            "url": "framing-detail.png",
+            "left": 866.6666666666666,
+            "top": 437.3333333333333,
+            "width": 1205,
+            "height": 1097,
+            "scale": 0.6666666666666666,
+            "kind": "building",
+            "decodedBytes": 5287540,
+            "mask": [
+              "00000000011000000000000000000000",
+              "00000000011100000000000000000000",
+              "00000000111111000000000000000000",
+              "00000001011011110000000000000000",
+              "00000001010100111100000000000000",
+              "00000010010101111111000000000000",
+              "00000010111001111111100000000000",
+              "00000101011111111111111000000000",
+              "00000001011100111011101100000000",
+              "00001011111101111101111110000000",
+              "00010111101101111111001110000000",
+              "00011111001110111111001111100000",
+              "00101111011100111111001111111110",
+              "00001011111101111111001110111110",
+              "00001010111101111111001111111110",
+              "00001101111111111111001111111110",
+              "00001110111111111111011111111110",
+              "00001110111111111111111111001110",
+              "00011111111111111111111110101111",
+              "00111111111111111111111111011110",
+              "01111111111111111111111111111110",
+              "00111111111111111111111111111110",
+              "01001111111111111111111111111110",
+              "11110111111111111111111111111110",
+              "00111101111111111111111111110110",
+              "00001101111111111111111111000010",
+              "00000000011111111111111110000000",
+              "00000001001111111111111000000000",
+              "00000000010111011111100000000000",
+              "00000000000111100111101000000000",
+              "00000000000111100001100000000000",
+              "00000000000000000001000000000000"
+            ]
+          },
+          "envelopeAudit": {
+            "min": [
+              -2.796933650970459,
+              -2.6500000953674316,
+              -0.015260729007422924
+            ],
+            "max": [
+              2.973972797393799,
+              2.920551061630249,
+              4.25
+            ],
+            "triangles": 21378,
+            "fitsEnvelope": true,
+            "clearOfApron": true
+          },
+          "emitters": {},
+          "drawOrder": [
+            "framing-ground",
+            "framing-shadow",
+            "framing"
+          ],
+          "depthRule": "one sort key per structure (footprint centre x+y, as workshop-03); ground decal and shadow go in the ground band beneath every depth-sorted object",
+          "phase": "building",
+          "ground": "framing-ground"
+        }
+      ],
+      "completed": {
+        "bundle": "cv-artlab-ve01-workshop-03",
+        "layer": "workshop",
+        "note": "the completed phase uses the approved workshop-03 bundle unchanged; same anchor rule and centre"
+      },
+      "phaseMap": {
+        "foundation": "foundation",
+        "building": "framing",
+        "awaiting-structure": "framing",
+        "completed": "cv-artlab-ve01-workshop-03",
+        "hidden": null
+      },
+      "baseDecodedBytes": 3940460,
+      "outputs": [
+        {
+          "file": "foundation.png",
+          "width": 712,
+          "height": 404,
+          "bytes": 219037,
+          "sha256": "7c4b31915f92af93dd80bd613b983a2f7eeb356f3bd6887696f8c018b0d1a54f",
+          "decodedBytes": 1150592
+        },
+        {
+          "file": "foundation-detail.png",
+          "width": 1423,
+          "height": 808,
+          "bytes": 742112,
+          "sha256": "c3714c3b5e012d464bbb3faf7555c420c7dad65af1784607362dba704d90a114",
+          "decodedBytes": 4599136
+        },
+        {
+          "file": "foundation-shadow.png",
+          "width": 502,
+          "height": 245,
+          "bytes": 23652,
+          "sha256": "2094eddcc8ac5055f6c00b78bb6bd25976772426f69261de370574e9a144cfbe",
+          "decodedBytes": 491960
+        },
+        {
+          "file": "foundation-ground.png",
+          "width": 324,
+          "height": 170,
+          "bytes": 50369,
+          "sha256": "329ba83abbd75dc0b221c1ed855df0bcce34013ee82e2c9a775c5d4932046658",
+          "decodedBytes": 220320
+        },
+        {
+          "file": "framing.png",
+          "width": 603,
+          "height": 549,
+          "bytes": 378945,
+          "sha256": "4a72a4eeb7b55167d618226f54272fe2b9e14fb845de5442e1f23ae8158b623c",
+          "decodedBytes": 1324188
+        },
+        {
+          "file": "framing-detail.png",
+          "width": 1205,
+          "height": 1097,
+          "bytes": 1179822,
+          "sha256": "fef2113b38239f1ee324e5ebe17ede464c3ae0880601ad82da446d69bbb0f405",
+          "decodedBytes": 5287540
+        },
+        {
+          "file": "framing-shadow.png",
+          "width": 535,
+          "height": 250,
+          "bytes": 36336,
+          "sha256": "c9a78e49e3946cd60864feb1f277e8a4f4cd1b4189d18ab0050ab3b9f8df1a64",
+          "decodedBytes": 535000
+        },
+        {
+          "file": "framing-ground.png",
+          "width": 325,
+          "height": 168,
+          "bytes": 49350,
+          "sha256": "7a1e1a1686d469ce8fd15762bc4177d9479b5f17c8954679b6e39ac87f0e85c1",
+          "decodedBytes": 218400
+        }
+      ],
+      "provenance": "Original art-lab geometry/materials/procedural textures (AP4). No third-party assets, no generative-model output; reference boards used as direction only. Release licence pending owner."
+    },
+    "cv-artlab-ap4-terrain-01": {
+      "version": "cv-artlab-ap4-terrain-01",
+      "studyOnly": true,
+      "colorSpace": "sRGB",
+      "alpha": "straight (unpremultiplied)",
+      "projection": {
+        "sx": "(x - y) * 32",
+        "sy": "(x + y) * 16 - z * 32 * sqrt(1.5)",
+        "runtimeAssetScale": 0.3889087296526012
+      },
+      "files": [
+        {
+          "file": "grass.png",
+          "width": 1024,
+          "height": 512,
+          "bytes": 392608,
+          "sha256": "e6678b715fc5cd03c359b4b3bf8ddd94f53f632f286b4ec63987f214b1983a9c",
+          "decodedBytes": 2097152,
+          "kind": "ground-tile",
+          "periodWorld": 8,
+          "density": 2,
+          "screenPeriodPx": [
+            512,
+            256
+          ]
+        },
+        {
+          "file": "woodland.png",
+          "width": 1024,
+          "height": 512,
+          "bytes": 354183,
+          "sha256": "3ca56f33768c77f8a8140730e93501a73bd3f2bd10854f5ac7a95562ea450b79",
+          "decodedBytes": 2097152,
+          "kind": "ground-tile",
+          "periodWorld": 8,
+          "density": 2,
+          "screenPeriodPx": [
+            512,
+            256
+          ]
+        },
+        {
+          "file": "path-dirt.png",
+          "width": 1024,
+          "height": 512,
+          "bytes": 165525,
+          "sha256": "a43683e7bfdc0569e15ce6cfd28d09a04edb7b379a791877e7be006106d84f2d",
+          "decodedBytes": 2097152,
+          "kind": "ground-tile",
+          "periodWorld": 8,
+          "density": 2,
+          "screenPeriodPx": [
+            512,
+            256
+          ]
+        },
+        {
+          "file": "bank.png",
+          "width": 512,
+          "height": 256,
+          "bytes": 62004,
+          "sha256": "47576e2cf5b95be99dd92ae9e1d0970375ba59bcccdd6be90eea97cdf91c9be2",
+          "decodedBytes": 524288,
+          "kind": "ground-tile",
+          "periodWorld": 8,
+          "density": 1,
+          "screenPeriodPx": [
+            512,
+            256
+          ]
+        },
+        {
+          "file": "water.png",
+          "width": 512,
+          "height": 256,
+          "bytes": 21793,
+          "sha256": "b2747a7cb22396436ed62dd7b763bac215431b95e1d70ed16ae3e79298d0b243",
+          "decodedBytes": 524288,
+          "kind": "ground-tile",
+          "periodWorld": 8,
+          "density": 1,
+          "screenPeriodPx": [
+            512,
+            256
+          ]
+        },
+        {
+          "file": "path-fringe.png",
+          "width": 384,
+          "height": 55,
+          "bytes": 10013,
+          "sha256": "8905765427e6f747ba79ce66ca0d9e57ca4eecfe63ae6d4cdfda222a730b5a9d",
+          "decodedBytes": 84480,
+          "kind": "edge-strip",
+          "alongUnits": 4,
+          "acrossUnits": [
+            -0.15,
+            0.42
+          ],
+          "pxPerUnit": 96,
+          "u": "world distance along edge / alongUnits (repeat)",
+          "v": "0 at -inner (inside) .. 1 at +outer (outside)"
+        },
+        {
+          "file": "woodland-fringe.png",
+          "width": 384,
+          "height": 58,
+          "bytes": 8959,
+          "sha256": "c8ea82b81e1492145e06511eb93d5e068e2cd1266112959de07015eae4ba2319",
+          "decodedBytes": 89088,
+          "kind": "edge-strip",
+          "alongUnits": 4,
+          "acrossUnits": [
+            0,
+            0.6
+          ],
+          "pxPerUnit": 96,
+          "u": "world distance along edge / alongUnits (repeat)",
+          "v": "0 at -inner (inside) .. 1 at +outer (outside)"
+        },
+        {
+          "file": "path-joint.png",
+          "width": 225,
+          "height": 225,
+          "bytes": 23860,
+          "sha256": "5f1ba41e22adb0951b0128b0df3c92047986bd541f0891609d270bfadea3c90c",
+          "decodedBytes": 202500,
+          "kind": "joint",
+          "spanUnits": 2.34,
+          "pxPerUnit": 96
+        },
+        {
+          "file": "shore-strip.png",
+          "width": 192,
+          "height": 48,
+          "bytes": 7593,
+          "sha256": "1e6c867f85a9d84c8e303146c7687b32de54f6a05a690bfe77e7291443847f5d",
+          "decodedBytes": 36864,
+          "kind": "edge-strip",
+          "alongUnits": 2,
+          "acrossUnits": [
+            0,
+            0.5
+          ],
+          "pxPerUnit": 96,
+          "u": "world distance along edge / alongUnits (repeat)",
+          "v": "0 at -inner (inside) .. 1 at +outer (outside)"
+        },
+        {
+          "file": "shore-corner.png",
+          "width": 48,
+          "height": 48,
+          "bytes": 1397,
+          "sha256": "bbd228bc78d994dfe88ce7f6c4ad5b4d065c4110bf6bb404c1a65b42d93c50a7",
+          "decodedBytes": 9216,
+          "kind": "quarter",
+          "spanUnits": 0.5,
+          "pxPerUnit": 96
+        },
+        {
+          "file": "patch-clover.png",
+          "width": 227,
+          "height": 113,
+          "bytes": 32024,
+          "sha256": "69857eb9525e4ec28aa96560b0f934d864e5d56c043a165df6ea96d2486c7a26",
+          "decodedBytes": 102604,
+          "kind": "ground-patch",
+          "density": 2,
+          "worldRadius": [
+            1.4,
+            1.1
+          ],
+          "anchor": [
+            0.5,
+            0.5
+          ],
+          "anchorRule": "sprite centre = projected patch centre on the ground"
+        },
+        {
+          "file": "patch-dry.png",
+          "width": 199,
+          "height": 101,
+          "bytes": 23580,
+          "sha256": "ecbfe0fa8352ecec1eb601eeb00b802e9f5696ca52f53a4e9ee289e54797f58c",
+          "decodedBytes": 80396,
+          "kind": "ground-patch",
+          "density": 2,
+          "worldRadius": [
+            1.2,
+            1
+          ],
+          "anchor": [
+            0.5,
+            0.5
+          ],
+          "anchorRule": "sprite centre = projected patch centre on the ground"
+        },
+        {
+          "file": "patch-moss.png",
+          "width": 152,
+          "height": 75,
+          "bytes": 16199,
+          "sha256": "e0441567120bb11ada1a300df9e5bed61260b0624a605ff251bc00fd8f27d920",
+          "decodedBytes": 45600,
+          "kind": "ground-patch",
+          "density": 2,
+          "worldRadius": [
+            1,
+            0.9
+          ],
+          "anchor": [
+            0.5,
+            0.5
+          ],
+          "anchorRule": "sprite centre = projected patch centre on the ground"
+        },
+        {
+          "file": "patch-worn.png",
+          "width": 125,
+          "height": 65,
+          "bytes": 12226,
+          "sha256": "9e45220acab34409221d74d3e643f243fd6acea62d8b18e8a4256639d706ca7b",
+          "decodedBytes": 32500,
+          "kind": "ground-patch",
+          "density": 2,
+          "worldRadius": [
+            0.8,
+            0.7
+          ],
+          "anchor": [
+            0.5,
+            0.5
+          ],
+          "anchorRule": "sprite centre = projected patch centre on the ground"
+        },
+        {
+          "file": "water-glint.png",
+          "width": 160,
+          "height": 20,
+          "bytes": 237,
+          "sha256": "3a3aecf3d6a336f990eb73eb4267c7e8499cac1ec7385f8c29950b665b5b0b43",
+          "decodedBytes": 12800,
+          "kind": "frames",
+          "frames": 4,
+          "frameSize": [
+            40,
+            20
+          ],
+          "density": 2,
+          "fps": 6,
+          "stillFrame": 0
+        },
+        {
+          "file": "decor.png",
+          "width": 128,
+          "height": 262,
+          "bytes": 39409,
+          "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971",
+          "decodedBytes": 134144,
+          "kind": "atlas-page",
+          "spritesheet": "decor.json",
+          "spritesheetSha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459"
+        }
+      ],
+      "decor": {
+        "items": {
+          "tuft-a": {
+            "frame": "tuft-a",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.14271791279315948,
+                -0.11733104288578033,
+                -0.0070589459501206875
+              ],
+              [
+                0.12754999101161957,
+                0.17123180627822876,
+                0.3321380913257599
+              ]
+            ],
+            "shadowFrame": "tuft-a-shadow",
+            "shadowRenderScale": 4
+          },
+          "tuft-b": {
+            "frame": "tuft-b",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.16866229474544525,
+                -0.22357426583766937,
+                -0.009016401134431362
+              ],
+              [
+                0.21388237178325653,
+                0.2302473783493042,
+                0.4375753700733185
+              ]
+            ],
+            "shadowFrame": "tuft-b-shadow",
+            "shadowRenderScale": 4
+          },
+          "tuft-c": {
+            "frame": "tuft-c",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.19714303314685822,
+                -0.17544019222259521,
+                -0.00765201123431325
+              ],
+              [
+                0.16151472926139832,
+                0.17952866852283478,
+                0.24562019109725952
+              ]
+            ],
+            "shadowFrame": "tuft-c-shadow",
+            "shadowRenderScale": 4
+          },
+          "flowers-daisy": {
+            "frame": "flowers-daisy",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.2004901021718979,
+                -0.19492968916893005,
+                -0.005910608451813459
+              ],
+              [
+                0.1307256519794464,
+                0.21561653912067413,
+                0.3031670153141022
+              ]
+            ],
+            "shadowFrame": "flowers-daisy-shadow",
+            "shadowRenderScale": 4
+          },
+          "flowers-butter": {
+            "frame": "flowers-butter",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.15516561269760132,
+                -0.17090032994747162,
+                -0.006984816398471594
+              ],
+              [
+                0.19923147559165955,
+                0.13036024570465088,
+                0.3639112412929535
+              ]
+            ],
+            "shadowFrame": "flowers-butter-shadow",
+            "shadowRenderScale": 4
+          },
+          "flowers-clover": {
+            "frame": "flowers-clover",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.15699726343154907,
+                -0.1805512011051178,
+                -0.006725604645907879
+              ],
+              [
+                0.15352466702461243,
+                0.15810821950435638,
+                0.2358471304178238
+              ]
+            ],
+            "shadowFrame": "flowers-clover-shadow",
+            "shadowRenderScale": 4
+          },
+          "flowers-violet": {
+            "frame": "flowers-violet",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.1777341663837433,
+                -0.13509806990623474,
+                -0.0056474157609045506
+              ],
+              [
+                0.09560246020555496,
+                0.18392688035964966,
+                0.24792857468128204
+              ]
+            ],
+            "shadowFrame": "flowers-violet-shadow",
+            "shadowRenderScale": 4
+          },
+          "pebbles-a": {
+            "frame": "pebbles-a",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.17120644450187683,
+                -0.18826241791248322,
+                -0.01924999989569187
+              ],
+              [
+                0.19284239411354065,
+                0.18600021302700043,
+                0.0507499985396862
+              ]
+            ],
+            "shadowFrame": "pebbles-a-shadow",
+            "shadowRenderScale": 4
+          },
+          "pebbles-b": {
+            "frame": "pebbles-b",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.20693668723106384,
+                -0.15901221334934235,
+                -0.016499999910593033
+              ],
+              [
+                0.16255958378314972,
+                0.11365735530853271,
+                0.04349999874830246
+              ]
+            ],
+            "shadowFrame": "pebbles-b-shadow",
+            "shadowRenderScale": 4
+          },
+          "rock-a": {
+            "frame": "rock-a",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.35429656505584717,
+                -0.351374089717865,
+                -0.12262683361768723
+              ],
+              [
+                0.3871643543243408,
+                0.3486563563346863,
+                0.344048410654068
+              ]
+            ],
+            "shadowFrame": "rock-a-shadow",
+            "shadowRenderScale": 4
+          },
+          "rock-b": {
+            "frame": "rock-b",
+            "kind": "dry",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.2958482801914215,
+                -0.26838189363479614,
+                -0.15969055891036987
+              ],
+              [
+                0.22959771752357483,
+                0.26648834347724915,
+                0.4261143207550049
+              ]
+            ],
+            "shadowFrame": "rock-b-shadow",
+            "shadowRenderScale": 4
+          },
+          "reeds-a": {
+            "frame": "reeds-a",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.17013676464557648,
+                -0.14247365295886993,
+                -0.05262939631938934
+              ],
+              [
+                0.15462949872016907,
+                0.14015628397464752,
+                1.1068040132522583
+              ]
+            ]
+          },
+          "reeds-b": {
+            "frame": "reeds-b",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.23968257009983063,
+                -0.15312355756759644,
+                -0.05405586212873459
+              ],
+              [
+                0.3279776871204376,
+                0.1500297635793686,
+                0.6837036609649658
+              ]
+            ]
+          },
+          "lilypads-a": {
+            "frame": "lilypads-a",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.19945943355560303,
+                -0.19201421737670898,
+                0.006000000052154064
+              ],
+              [
+                0.4197308123111725,
+                0.42478853464126587,
+                0.006000000052154064
+              ]
+            ]
+          },
+          "lilypads-b": {
+            "frame": "lilypads-b",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.33168795704841614,
+                -0.20560741424560547,
+                0.006000000052154064
+              ],
+              [
+                0.15965862572193146,
+                0.16600409150123596,
+                0.006000000052154064
+              ]
+            ]
+          },
+          "waterlily-a": {
+            "frame": "waterlily-a",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.20148515701293945,
+                -0.264803409576416,
+                0.006000000052154064
+              ],
+              [
+                0.3919842541217804,
+                0.20638716220855713,
+                0.10999999940395355
+              ]
+            ]
+          },
+          "waterlily-b": {
+            "frame": "waterlily-b",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.17252381145954132,
+                -0.16320769488811493,
+                0.006000000052154064
+              ],
+              [
+                0.17134132981300354,
+                0.17534735798835754,
+                0.09350000321865082
+              ]
+            ]
+          },
+          "shore-stones": {
+            "frame": "shore-stones",
+            "kind": "water",
+            "renderScale": 2,
+            "boundsLogical": [
+              [
+                -0.2634264826774597,
+                -0.17304128408432007,
+                -0.1312999278306961
+              ],
+              [
+                0.3469557762145996,
+                0.23185785114765167,
+                0.14300000667572021
+              ]
+            ]
+          }
+        },
+        "atlas": [
+          {
+            "image": "decor.png",
+            "spritesheet": "decor.json",
+            "width": 128,
+            "height": 262,
+            "decodedBytes": 134144,
+            "pngBytes": 39409,
+            "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971",
+            "spritesheetSha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459",
+            "occupancy": 0.577,
+            "frames": 29
+          }
+        ],
+        "atlasCheck": {
+          "framesLossless": true,
+          "overlapsWithPadding": []
+        }
+      },
+      "materials": {
+        "mapping": "Global, world-anchored: in the terrain container's local (projected) coordinates, uv = (sx / 512, sy / 256) for every ground tile, where (sx, sy) is the drawn vertex position (z already applied). Tiles are one world period (8 x 8 units) of a world-periodic pattern, so they repeat on screen every 512 x 256 px at Pixi scale 1. No camera term, so no swimming; the same mapping on every chunk and LOD block, so no seams. Height shifts the pattern by z*32*sqrt(1.5) px, which is static and continuous.",
+        "sampler": {
+          "addressMode": "repeat",
+          "scaleMode": "linear",
+          "autoGenerateMipmaps": true,
+          "note": "power-of-two tiles; mipmaps prevent overview shimmer (Pixi otherwise minifies without them)"
+        },
+        "rules": [
+          {
+            "material": "water",
+            "file": "water.png",
+            "when": "flags != 255 && (flags & 1)",
+            "z": "fixed water plane 0.5"
+          },
+          {
+            "material": "woodland",
+            "file": "woodland.png",
+            "when": "flags != 255 && !(flags & 1) && (flags & (8 | 2))"
+          },
+          {
+            "material": "grass",
+            "file": "grass.png",
+            "when": "flags != 255 && !(flags & 1) (everything else, including ROCK cells)"
+          },
+          {
+            "material": "bank",
+            "file": "bank.png",
+            "when": "the existing coastEdges() bank faces"
+          },
+          {
+            "material": "none",
+            "when": "flags == 255 (missing): draw nothing, exactly as today"
+          }
+        ],
+        "tint": "Keep terrainMaterial()'s deterministic shade s = clamp(round(slope*9) + variation, -8, 9) but apply it as a multiplicative grey tint: rgb = 236 + 2*s per channel (range 220..254). Water: 0xF2FFFC when waterNeighbors < 4, else 0xFFFFFF.",
+        "classification": "Unchanged. The material is chosen from the persisted flags; nothing here alters flags, heights, the triangle split, walkability or LOD subdivision."
+      },
+      "edges": {
+        "path": {
+          "geometry": "Authoritative centreline points and width w = widthQ/256 (founding path: width 1.5). Segments are axis-aligned. Subdivide each segment into pieces no longer than 1 unit and project every vertex with terrainReader.height (as the current stroke does).",
+          "core": {
+            "file": "path-dirt.png",
+            "mapping": "global (same as materials)",
+            "shape": "per segment: rectangle of width w - 0.30 along the segment; per vertex: square of side w - 0.30 centred on it (covers joins, T-junctions and crossings)"
+          },
+          "fringe": {
+            "file": "path-fringe.png",
+            "shape": "per segment and side: quad from w/2 - 0.15 to w/2 + 0.42 off the centreline, outward",
+            "u": "distance along the segment from its first point / 4 (repeat)",
+            "v": "0 at the inner edge, 1 at the outer edge"
+          },
+          "joint": {
+            "file": "path-joint.png",
+            "shape": "per vertex (corners, junctions and both ends): square of side 2.34 * (w / 1.5) centred on the vertex",
+            "uv": "0..1 across the square"
+          },
+          "drawOrder": "joints, then fringes, then cores (cores opaque on top), all in the terrain layer below groundBand",
+          "result": "The 50% alpha line of the soft edge sits on the authoritative edge (w/2); the core never leaves the saved width; nothing links unconnected paths or invents curves.",
+          "entranceEnds": "WF2 paths end in a butt cap at the protected entrance. The end joint extends about 0.4 units under the apron and building step; it is a flat decal in the terrain layer and never changes occupancy."
+        },
+        "woodland": {
+          "strip": {
+            "file": "woodland-fringe.png",
+            "shape": "for every grass cell (dry, not flag 8/2) edge shared with a woodland cell (dry, flag 8 or 2): quad on the grass side spanning that unit edge and extending 0.6 units into the grass cell, heights from terrainReader.height",
+            "u": "world coordinate along the edge / 4 (repeat)",
+            "v": "0 at the shared edge, 1 at 0.6 units into the grass"
+          },
+          "purpose": "softens the cell-staircase boundary between the two ground materials; drawn right after the ground fill, before banks and paths",
+          "missing": "no strip against missing (255) or water cells"
+        },
+        "shore": {
+          "strip": {
+            "file": "shore-strip.png",
+            "shape": "for every land cell edge returned by coastEdges(x, y, read.cell): quad on the water plane (z 0.5) spanning that unit edge and extending 0.5 units into the water cell",
+            "u": "world coordinate along the edge / 2 (repeat)",
+            "v": "0 at the land edge, 1 at 0.5 units into the water"
+          },
+          "corner": {
+            "file": "shore-corner.png",
+            "shape": "for each water cell corner whose diagonal neighbour is land and whose two orthogonal neighbours sharing that corner are water: a 0.5 x 0.5 square in that corner on the water plane",
+            "uv": "(0,0) at the land corner, axes pointing into the water cell"
+          },
+          "concave": "Where a water cell has land on two orthogonal sides the two strips overlap in the corner square; this is intended (a slightly brighter shallow).",
+          "missing": "A neighbour with flags 255 is neither land nor water: emit no strip, corner or bank against it.",
+          "drawOrder": "water fill, then bank faces, then shore strips and corners",
+          "geometry": "Purely cosmetic overlays on the existing water plane: no bank height, collision, walkability or navigable land changes."
+        }
+      },
+      "placement": {
+        "hash": "h(x, y, salt) = (Math.imul(x, 73856093) ^ Math.imul(y, 19349663) ^ Math.imul(salt, 83492791)) >>> 0, with x, y the integer cell coordinates",
+        "excluded": "Never place on: missing cells (255); any structure, project/construction site or claim footprint including its entrance apron; any path rectangle expanded by 0.25 units; outside the active terrain window.",
+        "offsetInCell": "x + 0.2 + 0.6 * ((h >>> 12) & 255) / 255, y + 0.2 + 0.6 * ((h >>> 20) & 255) / 255",
+        "lod": "Decorations only when the chunk is drawn at step 1 (close zoom). Ground patches at every step. Water glints only at step 1.",
+        "dry": {
+          "eligible": "flags != 255 && (flags & 7) == 0 (dry, not tree, not rock)",
+          "salt": 1,
+          "rules": [
+            {
+              "range": [
+                0,
+                7
+              ],
+              "items": [
+                "tuft-a",
+                "tuft-b",
+                "tuft-c"
+              ],
+              "pick": "(h >>> 8) % 3"
+            },
+            {
+              "range": [
+                7,
+                12
+              ],
+              "items": [
+                "flowers-daisy",
+                "flowers-butter",
+                "flowers-clover"
+              ],
+              "pick": "(h >>> 8) % 3",
+              "woodland": [
+                "flowers-violet"
+              ]
+            },
+            {
+              "range": [
+                12,
+                14
+              ],
+              "items": [
+                "pebbles-a",
+                "pebbles-b"
+              ],
+              "pick": "(h >>> 8) % 2"
+            }
+          ],
+          "test": "h % 100 within range"
+        },
+        "rock": {
+          "eligible": "flags & 4 (authoritative ROCK cells, replacing the grey ellipse)",
+          "items": [
+            "rock-a",
+            "rock-b"
+          ],
+          "pick": "h(x,y,2) % 2",
+          "position": "cell centre (unchanged from today)"
+        },
+        "patches": {
+          "eligible": "dry cells as above",
+          "salt": 3,
+          "test": "h % 997 < 12",
+          "items": [
+            "patch-clover.png",
+            "patch-dry.png",
+            "patch-moss.png",
+            "patch-worn.png"
+          ],
+          "pick": "(h >>> 10) % 4",
+          "woodland": [
+            "patch-moss.png",
+            "patch-worn.png"
+          ],
+          "layer": "groundBand, before every shadow container",
+          "anchor": "sprite centre at the projected cell centre, sprite.scale = 0.5 (patches are authored at 2 px per runtime px, not on the Blender render scale)"
+        },
+        "water": {
+          "eligible": "flags & 1 and none of the 4 orthogonal neighbours is 255",
+          "salt": 4,
+          "shoreRule": {
+            "when": "at least one orthogonal neighbour is land",
+            "rules": [
+              {
+                "range": [
+                  0,
+                  22
+                ],
+                "items": [
+                  "reeds-a",
+                  "reeds-b"
+                ]
+              },
+              {
+                "range": [
+                  22,
+                  28
+                ],
+                "items": [
+                  "shore-stones"
+                ]
+              }
+            ],
+            "position": "0.3 units from the first land edge in N, E, S, W order, centred along it"
+          },
+          "openRule": {
+            "when": "all 8 neighbours are water",
+            "rules": [
+              {
+                "range": [
+                  0,
+                  3
+                ],
+                "items": [
+                  "lilypads-a",
+                  "lilypads-b"
+                ]
+              },
+              {
+                "range": [
+                  3,
+                  4
+                ],
+                "items": [
+                  "waterlily-a",
+                  "waterlily-b"
+                ]
+              }
+            ]
+          },
+          "anchor": "terrainProject(x, y, 0.5): the frame anchor is the waterline"
+        },
+        "sprites": "artSprite(texture, renderScale) exactly as trees: scale ASSET_SCALE * renderScale; dry items also get their '-shadow' frame (renderScale 4) in naturalShadows at alpha 0.45. Depth key x + y like trees.",
+        "budgets": {
+          "maxDecorSprites": 700,
+          "maxPatches": 160,
+          "maxGlints": 24,
+          "rule": "stop placing when a cap is reached; caps never change world facts"
+        }
+      },
+      "animation": {
+        "waterGlint": {
+          "file": "water-glint.png",
+          "frames": 4,
+          "frameSize": [
+            40,
+            20
+          ],
+          "density": 2,
+          "fps": 6,
+          "sequence": [
+            1,
+            2,
+            3,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "eligible": "open-water cells (all 8 neighbours water) with h(x,y,5) % 61 == 0",
+          "phase": "h(x,y,5) % 18 frames",
+          "reducedMotion": "do not create glints (frame 0 is the empty still)",
+          "emitter": "none; fixed sprites updated from the existing ticker, no per-frame texture creation"
+        }
+      },
+      "budgets": {
+        "maxSimultaneousTextures": 16,
+        "note": "5 ground tiles (mipmapped) + 2 path edge + 1 woodland edge + 2 shore edge + 4 patches + 1 glint strip + 1 decor atlas page; decoded RGBA totals are recorded in the manifest"
+      },
+      "decodedBytes": 8170224,
+      "sourceHashes": {
+        "terrain": "cc4b6b7163e25cc6c0046f609d14604aee647d37c2940cc8430a196b18cf8bef",
+        "build": "1922cab6e249a9051e1281dcb2e85a91c411308dc51759108bda36cb7e7e67fd",
+        "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+        "foliage": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+        "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+      },
+      "provenance": "Original art-lab geometry/materials/procedural textures (AP4). No third-party assets, no generative-model output; reference boards used as direction only. Release licence pending owner.",
+      "atlas": {
+        "image": "decor.png",
+        "spritesheet": "decor.json",
+        "width": 128,
+        "height": 262,
+        "decodedBytes": 134144,
+        "pngBytes": 39409,
+        "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971",
+        "spritesheetSha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459",
+        "occupancy": 0.577,
+        "frames": 29
+      }
+    }
+  },
+  "files": [
+    {
+      "source": "assets/generated/cv-artlab-batch-a-structures-02/cv-artlab-batch-a-structures-02.png",
+      "url": "/assets/cv-artlab-batch-a-structures-02/cv-artlab-batch-a-structures-02.png",
+      "sha256": "f73046aa262bcb7fce33ad128614ea8630a032f649a782a86cfb7a32eef1cc0e",
+      "bytes": 573590,
+      "width": 624,
+      "height": 1124,
+      "decodedBytes": 2805504
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-a-structures-02/cv-artlab-batch-a-structures-02.json",
+      "url": "/assets/cv-artlab-batch-a-structures-02/cv-artlab-batch-a-structures-02.json",
+      "sha256": "fd6f46024b79d4ceda36eff8407615275e10aee956d1d5fa886c662bb575f15e",
+      "bytes": 2000
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-b-structures-02/cv-artlab-batch-b-structures-02.png",
+      "url": "/assets/cv-artlab-batch-b-structures-02/cv-artlab-batch-b-structures-02.png",
+      "sha256": "f9f706b11c1e0a705393ea43b5d63a1a4dbad89d0e345ed6650ab0b96f4edbce",
+      "bytes": 648121,
+      "width": 720,
+      "height": 1142,
+      "decodedBytes": 3288960
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-b-structures-02/cv-artlab-batch-b-structures-02.json",
+      "url": "/assets/cv-artlab-batch-b-structures-02/cv-artlab-batch-b-structures-02.json",
+      "sha256": "4aab3712edaff9daa7530002a7e9a7a115abfff061e77ed8bb468f865d6e6a83",
+      "bytes": 2001
+    },
+    {
+      "source": "assets/generated/cv-artlab-ve01-workshop-03/workshop-shadow.png",
+      "url": "/assets/cv-artlab-ve01-workshop-03/workshop-shadow.png",
+      "sha256": "547fafb0021f935f2e1144c3fb947d606386e9a1c9b497dd3fc950f1dc2f46af",
+      "bytes": 35448,
+      "width": 566,
+      "height": 540,
+      "decodedBytes": 1222560
+    },
+    {
+      "source": "assets/generated/cv-artlab-ve01-workshop-03/workshop.png",
+      "url": "/assets/cv-artlab-ve01-workshop-03/workshop.png",
+      "sha256": "881edcad3550e01ffb73f2d6ab6bf0eacaae4ffa141dfa2ada3cf2bf3fc3ca6b",
+      "bytes": 387399,
+      "width": 616,
+      "height": 680,
+      "decodedBytes": 1675520
+    },
+    {
+      "source": "assets/generated/cv-artlab-ve01-workshop-03/workshop-detail.png",
+      "url": "/assets/cv-artlab-ve01-workshop-03/workshop-detail.png",
+      "sha256": "b5427b8b1ab9fd77cdf7a9b3a8ead40fc00ee097363abdc7405b7701f063a67f",
+      "bytes": 1330112,
+      "width": 1233,
+      "height": 1359,
+      "decodedBytes": 6702588
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-loco.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-maker-loco.png",
+      "sha256": "a3076dabee2c2aa26d86282c73fe025c486f73f6f3fe03e0231941405db335d9",
+      "bytes": 426281,
+      "width": 240,
+      "height": 1259,
+      "decodedBytes": 1208640
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-loco.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-maker-loco.json",
+      "sha256": "3796823a503ed5be252006498bfb242e24c2b7fd6bf038b3dcda20c98c11d3c8",
+      "bytes": 31587
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-act.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-maker-act.png",
+      "sha256": "0cbb30dccbcdd0ba3c365668dccdb2d631c27dd6f015f4e0d0dd24afced2c279",
+      "bytes": 395880,
+      "width": 1248,
+      "height": 239,
+      "decodedBytes": 1193088
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-maker-act.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-maker-act.json",
+      "sha256": "7caea2f0db2c7f0b046f02c0621adbf0476ace3657ca32a88ec693ca2edd1fbd",
+      "bytes": 28270
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-loco.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-gardener-loco.png",
+      "sha256": "f993d943b1d31b08bdc9c9cb25567bb5ad30c3c1d375b98eedb966226aba088a",
+      "bytes": 448449,
+      "width": 1072,
+      "height": 324,
+      "decodedBytes": 1389312
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-loco.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-gardener-loco.json",
+      "sha256": "3ee49176a29b0d5c3ba053ec1ebd5e2a9caedaf746418dfb7612646097bdf5d7",
+      "bytes": 32254
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-act.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-gardener-act.png",
+      "sha256": "417a2320b218a9d5d4c2d4ee34b618a2fb8ada8980de5e17518b6d0a574441b5",
+      "bytes": 348708,
+      "width": 1360,
+      "height": 247,
+      "decodedBytes": 1343680
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-gardener-act.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-gardener-act.json",
+      "sha256": "fdeccb3b88c211efbbe05fc825c728e01ec7f9b1eea50d94d5d3f22b7d5995a8",
+      "bytes": 28915
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-loco.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-courier-loco.png",
+      "sha256": "47444242fc01d359c5321ffcdf6d4b41031331c8b5529b00264ed93414d336bf",
+      "bytes": 330020,
+      "width": 416,
+      "height": 603,
+      "decodedBytes": 1003392
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-loco.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-courier-loco.json",
+      "sha256": "b3befff0466f07466bb0cb13f6df97970712d527d8bea213cc0be231d9d86b12",
+      "bytes": 31765
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-act.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-courier-act.png",
+      "sha256": "55c8ba798076bf805ba5eba676f0a6cfa4503ec5e9ee45fc602c1e8b4ac64fd6",
+      "bytes": 296006,
+      "width": 656,
+      "height": 381,
+      "decodedBytes": 999744
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-courier-act.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-courier-act.json",
+      "sha256": "3f03a477f628c76a5b0a02ebf5a1aed827015d3c4ed92372efe9648682b5a91b",
+      "bytes": 28450
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-loco.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-loco.png",
+      "sha256": "a8146b769bdfa2b6b9b84a82e014a47ae73b599369c26ffa461fc589dadc73b9",
+      "bytes": 467130,
+      "width": 432,
+      "height": 867,
+      "decodedBytes": 1498176
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-loco.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-loco.json",
+      "sha256": "49cbaebd30a164cd6b59fc1424fd2bb5329062292ec897e9ccb39529fd3272b2",
+      "bytes": 32558
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-act.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-act.png",
+      "sha256": "18747d0bf412cf95069e61a07c9dbb8103e15aec888ef3ed09773603ee5e9357",
+      "bytes": 466510,
+      "width": 1072,
+      "height": 386,
+      "decodedBytes": 1655168
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-act.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-caretaker-act.json",
+      "sha256": "b963ac7430e78a5acde0490bd91db6468a927d8b1bd9ac774ac11dd8d18756d2",
+      "bytes": 29199
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-loco.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-builder-loco.png",
+      "sha256": "2f18ea5873311b5bbd694284567dafbb440091d189628fb6df5aea2b48933df1",
+      "bytes": 476107,
+      "width": 336,
+      "height": 1312,
+      "decodedBytes": 1763328
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-loco.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-builder-loco.json",
+      "sha256": "f2f46b86d26b0d57a78b196b61816f636c2277f5f92845e907db83fc6df2d5dd",
+      "bytes": 32103
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-act.png",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-builder-act.png",
+      "sha256": "8b5592764dc49cb2d932d575d4e9a79a59f26f483f392cf2ee03486cf21c8214",
+      "bytes": 415953,
+      "width": 1008,
+      "height": 403,
+      "decodedBytes": 1624896
+    },
+    {
+      "source": "assets/generated/cv-artlab-cast-02/cv-artlab-cast-02-builder-act.json",
+      "url": "/assets/cv-artlab-cast-02/cv-artlab-cast-02-builder-act.json",
+      "sha256": "f12898b77fb379cf06c801df3e64cf41a14af0eb91cafe7697f90e892a570324",
+      "bytes": 28793
+    },
+    {
+      "source": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-wanderer-loco.png",
+      "url": "/assets/cv-artlab-visitors-01/cv-artlab-visitors-01-wanderer-loco.png",
+      "sha256": "42a2ca7095f6dade0300e00d462bcf1aff227687e6233841fd00a9b83f599879",
+      "bytes": 461707,
+      "width": 976,
+      "height": 473,
+      "decodedBytes": 1846592
+    },
+    {
+      "source": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-wanderer-loco.json",
+      "url": "/assets/cv-artlab-visitors-01/cv-artlab-visitors-01-wanderer-loco.json",
+      "sha256": "a8e1bef55ae240365b2194feb04f7e2a4e55581b75306e490de53ade9b846116",
+      "bytes": 32116
+    },
+    {
+      "source": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-traveller-loco.png",
+      "url": "/assets/cv-artlab-visitors-01/cv-artlab-visitors-01-traveller-loco.png",
+      "sha256": "374e259e40018323eac5b1f4c75a094e3ae3deb5eb380bcff13e92cbc3ba1034",
+      "bytes": 463814,
+      "width": 496,
+      "height": 755,
+      "decodedBytes": 1497920
+    },
+    {
+      "source": "assets/generated/cv-artlab-visitors-01/cv-artlab-visitors-01-traveller-loco.json",
+      "url": "/assets/cv-artlab-visitors-01/cv-artlab-visitors-01-traveller-loco.json",
+      "sha256": "b2c4008ffe090dd426e39400d4f83c060c12a3d323617e66f91f58e13d1accb4",
+      "bytes": 32048
+    },
+    {
+      "source": "assets/generated/cv-artlab-windmill-01/cv-artlab-windmill-01.png",
+      "url": "/assets/cv-artlab-windmill-01/cv-artlab-windmill-01.png",
+      "sha256": "b7b4f11828cacb33451719df8aabfb306997762a5149c4250f9f205bfd2c9a9a",
+      "bytes": 414480,
+      "width": 592,
+      "height": 1458,
+      "decodedBytes": 3452544
+    },
+    {
+      "source": "assets/generated/cv-artlab-windmill-01/cv-artlab-windmill-01.json",
+      "url": "/assets/cv-artlab-windmill-01/cv-artlab-windmill-01.json",
+      "sha256": "14742843dfd57c8d30cbe78a43af08d65e6b0ad686e6bcb640993fa03b236aab",
+      "bytes": 6438
+    },
+    {
+      "source": "assets/generated/cv-artlab-ve02-broadleaf-01/vegetation-atlas.png",
+      "url": "/assets/cv-artlab-ve02-broadleaf-01/vegetation-atlas.png",
+      "sha256": "b38689bacf0f3fb6d59caed01c6c15a0d5f146a291ebb8259488b8b05d83de7a",
+      "bytes": 346276,
+      "width": 736,
+      "height": 720,
+      "decodedBytes": 2119680
+    },
+    {
+      "source": "assets/generated/cv-artlab-ve02-broadleaf-01/vegetation-atlas.json",
+      "url": "/assets/cv-artlab-ve02-broadleaf-01/vegetation-atlas.json",
+      "sha256": "c315af00a62e9d9606549e0aa6117cce40ade08add6223f992f8477ee6380fab",
+      "bytes": 9877
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-c-vegetation-01/cv-artlab-batch-c-vegetation-01.png",
+      "url": "/assets/cv-artlab-batch-c-vegetation-01/cv-artlab-batch-c-vegetation-01.png",
+      "sha256": "a7ecce6d273637c99537127eb942786e3be7567b2c109f25f36b7df4931a6a43",
+      "bytes": 82694,
+      "width": 400,
+      "height": 295,
+      "decodedBytes": 472000
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-c-vegetation-01/cv-artlab-batch-c-vegetation-01.json",
+      "url": "/assets/cv-artlab-batch-c-vegetation-01/cv-artlab-batch-c-vegetation-01.json",
+      "sha256": "d62046f06d723409b550f1e959d98e906254613e791ecd068d93deb448967bdb",
+      "bytes": 2872
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-c-props-01/cv-artlab-batch-c-props-01.png",
+      "url": "/assets/cv-artlab-batch-c-props-01/cv-artlab-batch-c-props-01.png",
+      "sha256": "cbf3a0aacdc633e9eb01e01455ea9dbb90b37ad2889e19693ea4337632be6e77",
+      "bytes": 108506,
+      "width": 192,
+      "height": 589,
+      "decodedBytes": 452352
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-c-props-01/cv-artlab-batch-c-props-01.json",
+      "url": "/assets/cv-artlab-batch-c-props-01/cv-artlab-batch-c-props-01.json",
+      "sha256": "c7ac8336caa115d1c57fb2ce4c1f2c99dfad1005cfc2b129b832319136888b4b",
+      "bytes": 12394
+    },
+    {
+      "source": "assets/generated/cv-artlab-zone-samples-01/cv-artlab-zone-samples-01.png",
+      "url": "/assets/cv-artlab-zone-samples-01/cv-artlab-zone-samples-01.png",
+      "sha256": "6cf3615cb670bad4d40d9dd511e725964c23d02fd5292ed624c9ea30f0ff699d",
+      "bytes": 46596,
+      "width": 240,
+      "height": 228,
+      "decodedBytes": 218880
+    },
+    {
+      "source": "assets/generated/cv-artlab-zone-samples-01/cv-artlab-zone-samples-01.json",
+      "url": "/assets/cv-artlab-zone-samples-01/cv-artlab-zone-samples-01.json",
+      "sha256": "a4ee8689be6e37b48d585c2fc9ad311b8e52e888d9b6c08724b98e4fceefed00",
+      "bytes": 1986
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-c-effects-01/cv-artlab-batch-c-effects-01.png",
+      "url": "/assets/cv-artlab-batch-c-effects-01/cv-artlab-batch-c-effects-01.png",
+      "sha256": "02c5cef96145ff9a9f56a2d2567c444f54bc4bfdd01df75bf94a81a6c5cb9463",
+      "bytes": 10036,
+      "width": 176,
+      "height": 60,
+      "decodedBytes": 42240
+    },
+    {
+      "source": "assets/generated/cv-artlab-batch-c-effects-01/cv-artlab-batch-c-effects-01.json",
+      "url": "/assets/cv-artlab-batch-c-effects-01/cv-artlab-batch-c-effects-01.json",
+      "sha256": "a69313fd8d9856c6d5bd9b8b9753eca58a632c4f7c7cfec3606c4887292269d2",
+      "bytes": 4451
+    },
+    {
+      "source": "assets/generated/cv-artlab-ambient-02/cv-artlab-ambient-02.png",
+      "url": "/assets/cv-artlab-ambient-02/cv-artlab-ambient-02.png",
+      "sha256": "be6da1780bc0b26c048a02ca7d90c9b9e7bfcae501d2e590d9d5d789f2a97897",
+      "bytes": 4723,
+      "width": 96,
+      "height": 108,
+      "decodedBytes": 41472
+    },
+    {
+      "source": "assets/generated/cv-artlab-ambient-02/cv-artlab-ambient-02.json",
+      "url": "/assets/cv-artlab-ambient-02/cv-artlab-ambient-02.json",
+      "sha256": "733d3671fe4dd4cdadab753c0de953357787f1f85ffdd14e5bae06178d02bc89",
+      "bytes": 3576
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-shelter-01/shelter.png",
+      "url": "/assets/cv-artlab-ap4-shelter-01/shelter.png",
+      "sha256": "5e1cac6cfb996b496e003c61c08da2013d07292034e7dda9ce9a57c4dab97797",
+      "bytes": 133225,
+      "width": 298,
+      "height": 348,
+      "decodedBytes": 414816
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-shelter-01/shelter-detail.png",
+      "url": "/assets/cv-artlab-ap4-shelter-01/shelter-detail.png",
+      "sha256": "a174f21e2c24f1eb2e474abb996431ce5fac39dcccfc7f0f9826f3bc2f6b0078",
+      "bytes": 406386,
+      "width": 594,
+      "height": 694,
+      "decodedBytes": 1648944
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-shelter-01/shelter-shadow.png",
+      "url": "/assets/cv-artlab-ap4-shelter-01/shelter-shadow.png",
+      "sha256": "544f735e7976656bde0eee7404d493a8359ea420c52829fb317c30ca715c3b9f",
+      "bytes": 12193,
+      "width": 313,
+      "height": 151,
+      "decodedBytes": 189052
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/foundation.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/foundation.png",
+      "sha256": "7c4b31915f92af93dd80bd613b983a2f7eeb356f3bd6887696f8c018b0d1a54f",
+      "bytes": 219037,
+      "width": 712,
+      "height": 404,
+      "decodedBytes": 1150592
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/foundation-detail.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/foundation-detail.png",
+      "sha256": "c3714c3b5e012d464bbb3faf7555c420c7dad65af1784607362dba704d90a114",
+      "bytes": 742112,
+      "width": 1423,
+      "height": 808,
+      "decodedBytes": 4599136
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/foundation-shadow.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/foundation-shadow.png",
+      "sha256": "2094eddcc8ac5055f6c00b78bb6bd25976772426f69261de370574e9a144cfbe",
+      "bytes": 23652,
+      "width": 502,
+      "height": 245,
+      "decodedBytes": 491960
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/foundation-ground.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/foundation-ground.png",
+      "sha256": "329ba83abbd75dc0b221c1ed855df0bcce34013ee82e2c9a775c5d4932046658",
+      "bytes": 50369,
+      "width": 324,
+      "height": 170,
+      "decodedBytes": 220320
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/framing.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/framing.png",
+      "sha256": "4a72a4eeb7b55167d618226f54272fe2b9e14fb845de5442e1f23ae8158b623c",
+      "bytes": 378945,
+      "width": 603,
+      "height": 549,
+      "decodedBytes": 1324188
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/framing-detail.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/framing-detail.png",
+      "sha256": "fef2113b38239f1ee324e5ebe17ede464c3ae0880601ad82da446d69bbb0f405",
+      "bytes": 1179822,
+      "width": 1205,
+      "height": 1097,
+      "decodedBytes": 5287540
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/framing-shadow.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/framing-shadow.png",
+      "sha256": "c9a78e49e3946cd60864feb1f277e8a4f4cd1b4189d18ab0050ab3b9f8df1a64",
+      "bytes": 36336,
+      "width": 535,
+      "height": 250,
+      "decodedBytes": 535000
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-construction-01/framing-ground.png",
+      "url": "/assets/cv-artlab-ap4-construction-01/framing-ground.png",
+      "sha256": "7a1e1a1686d469ce8fd15762bc4177d9479b5f17c8954679b6e39ac87f0e85c1",
+      "bytes": 49350,
+      "width": 325,
+      "height": 168,
+      "decodedBytes": 218400
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/grass.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/grass.png",
+      "sha256": "e6678b715fc5cd03c359b4b3bf8ddd94f53f632f286b4ec63987f214b1983a9c",
+      "bytes": 392608,
+      "width": 1024,
+      "height": 512,
+      "decodedBytes": 2097152
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/woodland.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/woodland.png",
+      "sha256": "3ca56f33768c77f8a8140730e93501a73bd3f2bd10854f5ac7a95562ea450b79",
+      "bytes": 354183,
+      "width": 1024,
+      "height": 512,
+      "decodedBytes": 2097152
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/path-dirt.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/path-dirt.png",
+      "sha256": "a43683e7bfdc0569e15ce6cfd28d09a04edb7b379a791877e7be006106d84f2d",
+      "bytes": 165525,
+      "width": 1024,
+      "height": 512,
+      "decodedBytes": 2097152
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/bank.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/bank.png",
+      "sha256": "47576e2cf5b95be99dd92ae9e1d0970375ba59bcccdd6be90eea97cdf91c9be2",
+      "bytes": 62004,
+      "width": 512,
+      "height": 256,
+      "decodedBytes": 524288
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/water.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/water.png",
+      "sha256": "b2747a7cb22396436ed62dd7b763bac215431b95e1d70ed16ae3e79298d0b243",
+      "bytes": 21793,
+      "width": 512,
+      "height": 256,
+      "decodedBytes": 524288
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/path-fringe.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/path-fringe.png",
+      "sha256": "8905765427e6f747ba79ce66ca0d9e57ca4eecfe63ae6d4cdfda222a730b5a9d",
+      "bytes": 10013,
+      "width": 384,
+      "height": 55,
+      "decodedBytes": 84480
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/woodland-fringe.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/woodland-fringe.png",
+      "sha256": "c8ea82b81e1492145e06511eb93d5e068e2cd1266112959de07015eae4ba2319",
+      "bytes": 8959,
+      "width": 384,
+      "height": 58,
+      "decodedBytes": 89088
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/path-joint.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/path-joint.png",
+      "sha256": "5f1ba41e22adb0951b0128b0df3c92047986bd541f0891609d270bfadea3c90c",
+      "bytes": 23860,
+      "width": 225,
+      "height": 225,
+      "decodedBytes": 202500
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/shore-strip.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/shore-strip.png",
+      "sha256": "1e6c867f85a9d84c8e303146c7687b32de54f6a05a690bfe77e7291443847f5d",
+      "bytes": 7593,
+      "width": 192,
+      "height": 48,
+      "decodedBytes": 36864
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/shore-corner.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/shore-corner.png",
+      "sha256": "bbd228bc78d994dfe88ce7f6c4ad5b4d065c4110bf6bb404c1a65b42d93c50a7",
+      "bytes": 1397,
+      "width": 48,
+      "height": 48,
+      "decodedBytes": 9216
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/patch-clover.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/patch-clover.png",
+      "sha256": "69857eb9525e4ec28aa96560b0f934d864e5d56c043a165df6ea96d2486c7a26",
+      "bytes": 32024,
+      "width": 227,
+      "height": 113,
+      "decodedBytes": 102604
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/patch-dry.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/patch-dry.png",
+      "sha256": "ecbfe0fa8352ecec1eb601eeb00b802e9f5696ca52f53a4e9ee289e54797f58c",
+      "bytes": 23580,
+      "width": 199,
+      "height": 101,
+      "decodedBytes": 80396
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/patch-moss.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/patch-moss.png",
+      "sha256": "e0441567120bb11ada1a300df9e5bed61260b0624a605ff251bc00fd8f27d920",
+      "bytes": 16199,
+      "width": 152,
+      "height": 75,
+      "decodedBytes": 45600
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/patch-worn.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/patch-worn.png",
+      "sha256": "9e45220acab34409221d74d3e643f243fd6acea62d8b18e8a4256639d706ca7b",
+      "bytes": 12226,
+      "width": 125,
+      "height": 65,
+      "decodedBytes": 32500
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/water-glint.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/water-glint.png",
+      "sha256": "3a3aecf3d6a336f990eb73eb4267c7e8499cac1ec7385f8c29950b665b5b0b43",
+      "bytes": 237,
+      "width": 160,
+      "height": 20,
+      "decodedBytes": 12800
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/decor.png",
+      "url": "/assets/cv-artlab-ap4-terrain-01/decor.png",
+      "sha256": "f769da08c56575f40203c6bb36e64341883740cee5dbdb6793210d62158d5971",
+      "bytes": 39409,
+      "width": 128,
+      "height": 262,
+      "decodedBytes": 134144
+    },
+    {
+      "source": "assets/generated/cv-artlab-ap4-terrain-01/decor.json",
+      "url": "/assets/cv-artlab-ap4-terrain-01/decor.json",
+      "sha256": "32170681865d920627b8b4e44b27116bb0b26211e2ad7a7fe4fc3ab67945c459",
+      "bytes": 12704
+    }
+  ]
+}

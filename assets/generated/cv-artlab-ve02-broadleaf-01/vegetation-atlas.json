@@ -1,0 +1,543 @@
+{
+  "frames": {
+    "bush-flowering": {
+      "frame": {
+        "x": 2,
+        "y": 598,
+        "w": 84,
+        "h": 74
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 84,
+        "h": 74
+      },
+      "sourceSize": {
+        "w": 84,
+        "h": 74
+      },
+      "anchor": {
+        "x": 0.52381,
+        "y": 0.790537
+      }
+    },
+    "bush-flowering-shadow": {
+      "frame": {
+        "x": 252,
+        "y": 676,
+        "w": 53,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 24
+      },
+      "anchor": {
+        "x": 0.433962,
+        "y": 0.468745
+      }
+    },
+    "bush-low": {
+      "frame": {
+        "x": 504,
+        "y": 598,
+        "w": 83,
+        "h": 54
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 83,
+        "h": 54
+      },
+      "sourceSize": {
+        "w": 83,
+        "h": 54
+      },
+      "anchor": {
+        "x": 0.451807,
+        "y": 0.740737
+      }
+    },
+    "bush-low-shadow": {
+      "frame": {
+        "x": 309,
+        "y": 676,
+        "w": 52,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 52,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 52,
+        "h": 24
+      },
+      "anchor": {
+        "x": 0.403846,
+        "y": 0.499995
+      }
+    },
+    "bush-round": {
+      "frame": {
+        "x": 90,
+        "y": 598,
+        "w": 78,
+        "h": 71
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 78,
+        "h": 71
+      },
+      "sourceSize": {
+        "w": 78,
+        "h": 71
+      },
+      "anchor": {
+        "x": 0.544872,
+        "y": 0.781687
+      }
+    },
+    "bush-round-shadow": {
+      "frame": {
+        "x": 197,
+        "y": 676,
+        "w": 51,
+        "h": 25
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 25
+      },
+      "anchor": {
+        "x": 0.431373,
+        "y": 0.459995
+      }
+    },
+    "oak-old": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 220,
+        "h": 226
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 220,
+        "h": 226
+      },
+      "sourceSize": {
+        "w": 220,
+        "h": 226
+      },
+      "anchor": {
+        "x": 0.497727,
+        "y": 0.858406
+      }
+    },
+    "oak-old-shadow": {
+      "frame": {
+        "x": 340,
+        "y": 598,
+        "w": 160,
+        "h": 67
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 67
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 67
+      },
+      "anchor": {
+        "x": 0.332813,
+        "y": 0.548506
+      }
+    },
+    "oak-round": {
+      "frame": {
+        "x": 226,
+        "y": 2,
+        "w": 194,
+        "h": 223
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 194,
+        "h": 223
+      },
+      "sourceSize": {
+        "w": 194,
+        "h": 223
+      },
+      "anchor": {
+        "x": 0.541237,
+        "y": 0.908071
+      }
+    },
+    "oak-round-autumn": {
+      "frame": {
+        "x": 424,
+        "y": 2,
+        "w": 185,
+        "h": 217
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 185,
+        "h": 217
+      },
+      "sourceSize": {
+        "w": 185,
+        "h": 217
+      },
+      "anchor": {
+        "x": 0.518919,
+        "y": 0.900921
+      }
+    },
+    "oak-round-autumn-shadow": {
+      "frame": {
+        "x": 408,
+        "y": 442,
+        "w": 181,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 181,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 181,
+        "h": 140
+      },
+      "anchor": {
+        "x": 0.160221,
+        "y": 0.871428
+      }
+    },
+    "oak-round-shadow": {
+      "frame": {
+        "x": 212,
+        "y": 442,
+        "w": 192,
+        "h": 147
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 192,
+        "h": 147
+      },
+      "sourceSize": {
+        "w": 192,
+        "h": 147
+      },
+      "anchor": {
+        "x": 0.191406,
+        "y": 0.853741
+      }
+    },
+    "oak-tall": {
+      "frame": {
+        "x": 613,
+        "y": 2,
+        "w": 120,
+        "h": 216
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 120,
+        "h": 216
+      },
+      "sourceSize": {
+        "w": 120,
+        "h": 216
+      },
+      "anchor": {
+        "x": 0.504167,
+        "y": 0.905092
+      }
+    },
+    "oak-tall-shadow": {
+      "frame": {
+        "x": 2,
+        "y": 676,
+        "w": 119,
+        "h": 42
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 119,
+        "h": 42
+      },
+      "sourceSize": {
+        "w": 119,
+        "h": 42
+      },
+      "anchor": {
+        "x": 0.130252,
+        "y": 0.738093
+      }
+    },
+    "oak-twin": {
+      "frame": {
+        "x": 446,
+        "y": 232,
+        "w": 194,
+        "h": 192
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 194,
+        "h": 192
+      },
+      "sourceSize": {
+        "w": 194,
+        "h": 192
+      },
+      "anchor": {
+        "x": 0.474227,
+        "y": 0.903645
+      }
+    },
+    "oak-twin-shadow": {
+      "frame": {
+        "x": 591,
+        "y": 598,
+        "w": 139,
+        "h": 45
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 139,
+        "h": 45
+      },
+      "sourceSize": {
+        "w": 139,
+        "h": 45
+      },
+      "anchor": {
+        "x": 0.192446,
+        "y": 0.644442
+      }
+    },
+    "oak-wide": {
+      "frame": {
+        "x": 2,
+        "y": 232,
+        "w": 221,
+        "h": 206
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 221,
+        "h": 206
+      },
+      "sourceSize": {
+        "w": 221,
+        "h": 206
+      },
+      "anchor": {
+        "x": 0.472851,
+        "y": 0.881067
+      }
+    },
+    "oak-wide-autumn": {
+      "frame": {
+        "x": 227,
+        "y": 232,
+        "w": 215,
+        "h": 206
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 215,
+        "h": 206
+      },
+      "sourceSize": {
+        "w": 215,
+        "h": 206
+      },
+      "anchor": {
+        "x": 0.488372,
+        "y": 0.885921
+      }
+    },
+    "oak-wide-autumn-shadow": {
+      "frame": {
+        "x": 2,
+        "y": 442,
+        "w": 206,
+        "h": 152
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 206,
+        "h": 152
+      },
+      "sourceSize": {
+        "w": 206,
+        "h": 152
+      },
+      "anchor": {
+        "x": 0.243932,
+        "y": 0.820723
+      }
+    },
+    "oak-wide-shadow": {
+      "frame": {
+        "x": 172,
+        "y": 598,
+        "w": 164,
+        "h": 70
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 164,
+        "h": 70
+      },
+      "sourceSize": {
+        "w": 164,
+        "h": 70
+      },
+      "anchor": {
+        "x": 0.339939,
+        "y": 0.55357
+      }
+    },
+    "oak-young": {
+      "frame": {
+        "x": 593,
+        "y": 442,
+        "w": 80,
+        "h": 132
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 132
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 132
+      },
+      "anchor": {
+        "x": 0.525,
+        "y": 0.893938
+      }
+    },
+    "oak-young-shadow": {
+      "frame": {
+        "x": 125,
+        "y": 676,
+        "w": 68,
+        "h": 26
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 68,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 68,
+        "h": 26
+      },
+      "anchor": {
+        "x": 0.132353,
+        "y": 0.749996
+      }
+    }
+  },
+  "meta": {
+    "app": "creators-village-art-lab pack_vegetation.py",
+    "version": "1.0",
+    "image": "vegetation-atlas.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 736,
+      "h": 720
+    },
+    "scale": "1"
+  }
+}

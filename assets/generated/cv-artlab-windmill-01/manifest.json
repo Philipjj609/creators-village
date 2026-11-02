@@ -1,0 +1,329 @@
+{
+  "version": "cv-artlab-windmill-01",
+  "studyOnly": true,
+  "library": "buildings",
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-windmill-01.png",
+      "spritesheet": "cv-artlab-windmill-01.json",
+      "width": 592,
+      "height": 1458,
+      "decodedBytes": 3452544,
+      "pngBytes": 414480,
+      "sha256": "b7b4f11828cacb33451719df8aabfb306997762a5149c4250f9f205bfd2c9a9a",
+      "spritesheetSha256": "14742843dfd57c8d30cbe78a43af08d65e6b0ad686e6bcb640993fa03b236aab",
+      "occupancy": 0.77,
+      "frames": 14
+    }
+  ],
+  "placement": {
+    "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+    "anchor": "spritesheet frame anchor",
+    "scale": "assetScale * renderScale (per asset, per shadow)",
+    "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+  },
+  "assets": [
+    {
+      "id": "windmill",
+      "name": "Windmill",
+      "kind": "building",
+      "frame": "windmill",
+      "shadowFrame": "windmill-shadow",
+      "textureScale": 0.75,
+      "renderScale": 1.3333333333333333,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -2,
+          "minY": -2,
+          "width": 4,
+          "depth": 4
+        },
+        "entrance": [
+          0,
+          2.5
+        ],
+        "apron": {
+          "minX": -0.75,
+          "minY": 2,
+          "width": 1.5,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED new 4x4 landmark template; sails overhang the envelope above 2.2 units height"
+      },
+      "emitters": {
+        "rotorHub": [
+          [
+            1.02,
+            1.02,
+            4.55
+          ]
+        ]
+      },
+      "boundsLogical": {
+        "min": [
+          -1.3360416889190674,
+          -1.3360416889190674,
+          -0.12000000476837158
+        ],
+        "max": [
+          1.861209511756897,
+          1.8680474758148193,
+          5.938575267791748
+        ]
+      },
+      "triangles": 6198,
+      "animation": null,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 806780,
+      "shadowDecodedBytes": 50432
+    },
+    {
+      "id": "windmill-rotor-0",
+      "name": "Windmill rotor frame 0",
+      "kind": "rotor",
+      "frame": "windmill-rotor-0",
+      "shadowFrame": "windmill-rotor-0-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.4825367331504822,
+          -0.6121582984924316,
+          2.2657246589660645
+        ],
+        "max": [
+          2.691188097000122,
+          2.8208093643188477,
+          6.860987186431885
+        ]
+      },
+      "triangles": 1180,
+      "animation": {
+        "frame": 0,
+        "frames": 6,
+        "stepDeg": 15.0,
+        "fps": 6
+      },
+      "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+      "decodedBytes": 282624,
+      "shadowDecodedBytes": 25620
+    },
+    {
+      "id": "windmill-rotor-1",
+      "name": "Windmill rotor frame 1",
+      "kind": "rotor",
+      "frame": "windmill-rotor-1",
+      "shadowFrame": "windmill-rotor-1-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.2532748281955719,
+          -0.45122841000556946,
+          2.5519919395446777
+        ],
+        "max": [
+          2.518845796585083,
+          2.6598799228668213,
+          6.57472038269043
+        ]
+      },
+      "triangles": 1180,
+      "animation": {
+        "frame": 1,
+        "frames": 6,
+        "stepDeg": 15.0,
+        "fps": 6
+      },
+      "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+      "decodedBytes": 218700,
+      "shadowDecodedBytes": 23188
+    },
+    {
+      "id": "windmill-rotor-2",
+      "name": "Windmill rotor frame 2",
+      "kind": "rotor",
+      "frame": "windmill-rotor-2",
+      "shadowFrame": "windmill-rotor-2-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.4705534875392914,
+          -0.2930799722671509,
+          2.4492897987365723
+        ],
+        "max": [
+          2.7361247539520264,
+          2.5586509704589844,
+          6.687438488006592
+        ]
+      },
+      "triangles": 1180,
+      "animation": {
+        "frame": 2,
+        "frames": 6,
+        "stepDeg": 15.0,
+        "fps": 6
+      },
+      "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+      "decodedBytes": 240640,
+      "shadowDecodedBytes": 23892
+    },
+    {
+      "id": "windmill-rotor-3",
+      "name": "Windmill rotor frame 3",
+      "kind": "rotor",
+      "frame": "windmill-rotor-3",
+      "shadowFrame": "windmill-rotor-3-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.5795487761497498,
+          -0.49455270171165466,
+          2.2310028076171875
+        ],
+        "max": [
+          2.8456058502197266,
+          2.7589941024780273,
+          6.905725955963135
+        ]
+      },
+      "triangles": 1180,
+      "animation": {
+        "frame": 3,
+        "frames": 6,
+        "stepDeg": 15.0,
+        "fps": 6
+      },
+      "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+      "decodedBytes": 294320,
+      "shadowDecodedBytes": 23616
+    },
+    {
+      "id": "windmill-rotor-4",
+      "name": "Windmill rotor frame 4",
+      "kind": "rotor",
+      "frame": "windmill-rotor-4",
+      "shadowFrame": "windmill-rotor-4-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.6567909121513367,
+          -0.5910982489585876,
+          2.1598904132843018
+        ],
+        "max": [
+          2.8654417991638184,
+          2.8502728939056396,
+          6.966821193695068
+        ]
+      },
+      "triangles": 1180,
+      "animation": {
+        "frame": 4,
+        "frames": 6,
+        "stepDeg": 15.0,
+        "fps": 6
+      },
+      "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+      "decodedBytes": 308652,
+      "shadowDecodedBytes": 22200
+    },
+    {
+      "id": "windmill-rotor-5",
+      "name": "Windmill rotor frame 5",
+      "kind": "rotor",
+      "frame": "windmill-rotor-5",
+      "shadowFrame": "windmill-rotor-5-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": null,
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.6268174648284912,
+          -0.6592954993247986,
+          2.134226083755493
+        ],
+        "max": [
+          2.8354692459106445,
+          2.8679466247558594,
+          6.992485523223877
+        ]
+      },
+      "triangles": 1180,
+      "animation": {
+        "frame": 5,
+        "frames": 6,
+        "stepDeg": 15.0,
+        "fps": 6
+      },
+      "anchorRule": "windmill placement point (draw directly after the windmill sprite, same depth key + 0.001)",
+      "decodedBytes": 314192,
+      "shadowDecodedBytes": 25308
+    }
+  ],
+  "memory": {
+    "pagesDecodedMiB": 3.293,
+    "framesDecodedMiBByKind": {
+      "building": 0.818,
+      "rotor": 1.719
+    }
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+    "buildings.py": "dbf7ec5bdcb580da8351ec81f3cbcd94627f3ddda2b30b3d1e0d11351fd0b9e5",
+    "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "freestylePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+}

@@ -163,6 +163,29 @@ export async function registerProduct(
               : owned.rowCount
                 ? "existing-world"
                 : "available";
+      // Enrich only this actor's already-authorized entries, never public entry
+      // lookups or pending/rejected request history.
+      const entries = [...own, ...joined];
+      if (entries.length) {
+        const names = await pool.query<{
+          id: string;
+          version: number;
+          display_name: string;
+        }>(
+          "SELECT w.id,1 AS version,p.display_name FROM worlds w JOIN people p ON p.id=w.creator_id WHERE w.id=ANY($1::uuid[]) UNION ALL SELECT w.id,2 AS version,p.display_name FROM founding_worlds w JOIN people p ON p.id=w.creator_id WHERE w.id=ANY($2::uuid[])",
+          [
+            entries.filter((w) => w.version === 1).map((w) => w.id),
+            entries.filter((w) => w.version === 2).map((w) => w.id),
+          ],
+        );
+        const creators = new Map(
+          names.rows.map((r) => [r.version + ":" + r.id, r.display_name]),
+        );
+        for (const entry of entries) {
+          const name = creators.get(entry.version + ":" + entry.id);
+          if (name !== undefined) entry.creatorDisplayName = name;
+        }
+      }
       return {
         own,
         joined,

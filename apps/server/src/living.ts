@@ -103,7 +103,25 @@ export async function readLivingVillage(
         )
       ).rows[0].now,
     );
-    const plan = planResidentGoals(world, chunks, solids, places, time);
+    const construction = id.startsWith("showcase-")
+      ? []
+      : (
+          await db.query(
+            "SELECT id,qx,qy FROM wf2_projects WHERE world_id=$1 AND published_at IS NOT NULL AND state IN ('open','ready','blocked') ORDER BY id",
+            [id],
+          )
+        ).rows.map((p) => ({
+          id: p.id,
+          entrance: { x: p.qx / 256, y: p.qy / 256 + 3.5 },
+        }));
+    const plan = planResidentGoals(
+      world,
+      chunks,
+      solids,
+      places,
+      time,
+      construction,
+    );
     await db.query("COMMIT");
     return plan;
   } catch (e) {

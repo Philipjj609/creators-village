@@ -1,0 +1,111 @@
+{
+  "frames": {
+    "hall": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 705,
+        "h": 703
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 705,
+        "h": 703
+      },
+      "sourceSize": {
+        "w": 705,
+        "h": 703
+      },
+      "anchor": {
+        "x": 0.499645,
+        "y": 0.779871
+      }
+    },
+    "hall-shadow": {
+      "frame": {
+        "x": 392,
+        "y": 709,
+        "w": 288,
+        "h": 125
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 288,
+        "h": 125
+      },
+      "sourceSize": {
+        "w": 288,
+        "h": 125
+      },
+      "anchor": {
+        "x": 0.350694,
+        "y": 0.595999
+      }
+    },
+    "market": {
+      "frame": {
+        "x": 2,
+        "y": 709,
+        "w": 386,
+        "h": 355
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 386,
+        "h": 355
+      },
+      "sourceSize": {
+        "w": 386,
+        "h": 355
+      },
+      "anchor": {
+        "x": 0.499352,
+        "y": 0.759154
+      }
+    },
+    "market-shadow": {
+      "frame": {
+        "x": 2,
+        "y": 1068,
+        "w": 173,
+        "h": 72
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 173,
+        "h": 72
+      },
+      "sourceSize": {
+        "w": 173,
+        "h": 72
+      },
+      "anchor": {
+        "x": 0.346821,
+        "y": 0.597221
+      }
+    }
+  },
+  "meta": {
+    "app": "creators-village-art-lab atlas.py",
+    "version": "1.0",
+    "image": "cv-artlab-batch-b-structures-02.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 720,
+      "h": 1142
+    },
+    "scale": "1"
+  }
+}

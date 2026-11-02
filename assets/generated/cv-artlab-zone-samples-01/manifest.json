@@ -1,0 +1,144 @@
+{
+  "version": "cv-artlab-zone-samples-01",
+  "studyOnly": true,
+  "library": "props",
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-zone-samples-01.png",
+      "spritesheet": "cv-artlab-zone-samples-01.json",
+      "width": 240,
+      "height": 228,
+      "decodedBytes": 218880,
+      "pngBytes": 46596,
+      "sha256": "6cf3615cb670bad4d40d9dd511e725964c23d02fd5292ed624c9ea30f0ff699d",
+      "spritesheetSha256": "a4ee8689be6e37b48d585c2fc9ad311b8e52e888d9b6c08724b98e4fceefed00",
+      "occupancy": 0.831,
+      "frames": 4
+    }
+  ],
+  "placement": {
+    "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+    "anchor": "spritesheet frame anchor",
+    "scale": "assetScale * renderScale (per asset, per shadow)",
+    "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+  },
+  "assets": [
+    {
+      "id": "footbridge",
+      "name": "Plank footbridge (Brookside sample)",
+      "kind": "prop",
+      "frame": "footbridge",
+      "shadowFrame": "footbridge-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -2.2,
+          "minY": -0.7,
+          "width": 4.4,
+          "depth": 1.4
+        },
+        "orientation": 0,
+        "status": "PROPOSED: spans a 2-3 cell creek along x; needs walkable-bridge support in navigation (not in LW1/WF2 today)"
+      },
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -2.0784897804260254,
+          -0.5706305503845215,
+          0.0
+        ],
+        "max": [
+          2.086027145385742,
+          0.556491494178772,
+          1.2026959657669067
+        ]
+      },
+      "triangles": 6852,
+      "animation": null,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 136476,
+      "shadowDecodedBytes": 27840
+    },
+    {
+      "id": "reeds",
+      "name": "Reed clump (shoreline sample)",
+      "kind": "prop",
+      "frame": "reeds",
+      "shadowFrame": "reeds-shadow",
+      "textureScale": 0.5,
+      "renderScale": 2.0,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -0.5,
+          "minY": -0.5,
+          "width": 1.0,
+          "depth": 1.0
+        },
+        "orientation": 0,
+        "status": "PROPOSED decoration cell"
+      },
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -0.3911031484603882,
+          -0.44199755787849426,
+          -0.019999999552965164
+        ],
+        "max": [
+          0.4363403022289276,
+          0.44685497879981995,
+          0.9322788119316101
+        ]
+      },
+      "triangles": 1262,
+      "animation": null,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 15008,
+      "shadowDecodedBytes": 2520
+    }
+  ],
+  "memory": {
+    "pagesDecodedMiB": 0.209,
+    "framesDecodedMiBByKind": {
+      "prop": 0.173
+    }
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+    "props.py": "674a97e78c39818eea7e97cc821fb18d486cc94e4566e6ed8270ee470ad886db",
+    "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "freestylePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+}

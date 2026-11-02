@@ -1,0 +1,111 @@
+{
+  "frames": {
+    "cottage": {
+      "frame": {
+        "x": 2,
+        "y": 529,
+        "w": 468,
+        "h": 478
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 468,
+        "h": 478
+      },
+      "sourceSize": {
+        "w": 468,
+        "h": 478
+      },
+      "anchor": {
+        "x": 0.499466,
+        "y": 0.796547
+      }
+    },
+    "cottage-shadow": {
+      "frame": {
+        "x": 257,
+        "y": 1011,
+        "w": 212,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 212,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 212,
+        "h": 82
+      },
+      "anchor": {
+        "x": 0.29717,
+        "y": 0.606706
+      }
+    },
+    "lodge": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 616,
+        "h": 523
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 616,
+        "h": 523
+      },
+      "sourceSize": {
+        "w": 616,
+        "h": 523
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.760516
+      }
+    },
+    "lodge-shadow": {
+      "frame": {
+        "x": 2,
+        "y": 1011,
+        "w": 251,
+        "h": 111
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 251,
+        "h": 111
+      },
+      "sourceSize": {
+        "w": 251,
+        "h": 111
+      },
+      "anchor": {
+        "x": 0.381474,
+        "y": 0.567567
+      }
+    }
+  },
+  "meta": {
+    "app": "creators-village-art-lab atlas.py",
+    "version": "1.0",
+    "image": "cv-artlab-batch-a-structures-02.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 624,
+      "h": 1124
+    },
+    "scale": "1"
+  }
+}

@@ -1,3 +1,5 @@
+import { refundOrbs, ensureOrbPolicy } from "./orb-storage.js";
+import type { OrbDraftCommand } from "@creators-village/contracts";
 import { randomUUID } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
 import { isWf2Batch, type Wf2Command } from "@creators-village/contracts";
@@ -69,7 +71,8 @@ export async function projectCommand(
   pool: Pool,
   actor: Actor,
   world: string,
-  command: Wf2Command,
+  command: Wf2Command | OrbDraftCommand,
+  requireOrbFunding = false,
 ) {
   const p = command.payload as Record<string, any>,
     recognition = command.kind === "SetRecognition";
@@ -78,7 +81,9 @@ export async function projectCommand(
       db,
       world,
       actor,
-      recognition || Boolean(p.recognitionOptIn),
+      recognition ||
+        Boolean(p.recognitionOptIn) ||
+        command.kind === "CreateDraft",
       !["Contribute", "SetRecognition"].includes(command.kind),
     );
     if (command.kind === "Contribute" && !b.membership.can_contribute)
@@ -86,6 +91,20 @@ export async function projectCommand(
     const input = { worldId: world, ...command },
       old = await priorReceipt(db, actor, command.commandId, input);
     if (old) return old;
+    if (
+      (requireOrbFunding ||
+        Boolean(
+          (
+            await db.query(
+              "SELECT 1 FROM f3_orb_communities WHERE community_id=$1 UNION SELECT 1 FROM wf2_projects WHERE community_id=$1 AND ruleset_id='community-orbs-1' UNION SELECT 1 FROM f3_orb_wallets WHERE community_id=$1 LIMIT 1",
+              [b.community_id],
+            )
+          ).rowCount,
+        )) &&
+      command.kind === "CreateDraft" &&
+      command.commandSchema !== "f3-command-1"
+    )
+      fail("FUNDING_VERSION_REQUIRED");
     const spatial = [
       "PublishProject",
       "CancelProject",
@@ -109,7 +128,18 @@ export async function projectCommand(
     let result: Record<string, unknown>;
     if (command.kind === "CreateDraft" || command.kind === "ReviseDraft") {
       if (project && project.state !== "draft") fail("PROJECT_NOT_OPEN");
-      const plan = await planAt(db, world, p.site.qx, p.site.qy);
+      const orb = command.commandSchema === "f3-command-1";
+      if (orb) await ensureOrbPolicy(db, b.community_id);
+      if (project && (project.ruleset_id === "community-orbs-1") !== orb)
+        fail("FUNDING_VERSION_MISMATCH");
+      const plan = await planAt(
+        db,
+        world,
+        p.site.qx,
+        p.site.qy,
+        undefined,
+        orb ? "community-orbs-1" : undefined,
+      );
       const {
         claims: _claims,
         rect: _rect,
@@ -127,7 +157,7 @@ export async function projectCommand(
               b.community_id,
               actor.person_id,
               ...columns.map((k) =>
-                k === "path_points"
+                k === "path_points" || k === "path_extension"
                   ? JSON.stringify((fields as any)[k])
                   : (fields as any)[k],
               ),
@@ -197,6 +227,8 @@ export async function projectCommand(
         committedCursor: cursor,
       };
     } else if (command.kind === "Contribute") {
+      if (project.ruleset_id === "community-orbs-1")
+        fail("FUNDING_VERSION_MISMATCH", 400);
       const prior = (
         await db.query(
           "SELECT id,command_id FROM wf2_contributions WHERE world_id=$1 AND project_id=$2 AND person_id=$3",
@@ -286,6 +318,7 @@ export async function projectCommand(
         "DELETE FROM wf2_claims WHERE world_id=$1 AND project_id=$2 AND kind='reserved'",
         [world, project.id],
       );
+      await refundOrbs(db, project);
       const draft = project.state === "draft";
       project = (
         await db.query(
@@ -341,7 +374,7 @@ export async function withdrawRecognition(
   // Resolve own contribution only; do not reveal another private world's existence.
   const c = (
     await pool.query(
-      "SELECT world_id FROM wf2_contributions WHERE project_id=$1 AND person_id=$2",
+      "SELECT world_id FROM wf2_contributions WHERE project_id=$1 AND person_id=$2 UNION SELECT world_id FROM f3_orb_contributions WHERE project_id=$1 AND person_id=$2",
       [p.projectId, actor.person_id],
     )
   ).rows[0];
@@ -377,8 +410,15 @@ async function changeConsent(
   person: string,
   optedIn: boolean,
 ) {
+  const orb = (
+    await db.query(
+      "SELECT 1 FROM f3_orb_participants WHERE world_id=$1 AND project_id=$2 AND person_id=$3",
+      [world, project, person],
+    )
+  ).rowCount;
+  const table = orb ? "f3_orb_participants" : "wf2_credit_consents";
   const changed = await db.query(
-    "UPDATE wf2_credit_consents SET opted_in=$1,revision=revision+1,changed_at=now() WHERE world_id=$2 AND project_id=$3 AND person_id=$4 AND opted_in IS DISTINCT FROM $1 RETURNING revision",
+    `UPDATE ${table} SET opted_in=$1,revision=revision+1,changed_at=now() WHERE world_id=$2 AND project_id=$3 AND person_id=$4 AND opted_in IS DISTINCT FROM $1 RETURNING revision`,
     [optedIn, world, project, person],
   );
   if (changed.rowCount) {
@@ -387,7 +427,7 @@ async function changeConsent(
   }
   const prior = (
     await db.query(
-      "SELECT revision FROM wf2_credit_consents WHERE world_id=$1 AND project_id=$2 AND person_id=$3",
+      `SELECT revision FROM ${table} WHERE world_id=$1 AND project_id=$2 AND person_id=$3`,
       [world, project, person],
     )
   ).rows[0];
@@ -476,6 +516,19 @@ export async function completeConstruction(
         [p.world_id, pathId, p.path_width_q, JSON.stringify(p.path_points)],
       )
     ).rows[0]!;
+    const frontage = p.path_extension
+      ? (
+          await db.query(
+            "INSERT INTO founding_paths(world_id,id,width,geometry) VALUES($1,$2,$3,$4) RETURNING *",
+            [
+              p.world_id,
+              pathId + "-frontage",
+              p.path_width_q,
+              JSON.stringify(p.path_extension),
+            ],
+          )
+        ).rows[0]
+      : null;
     await db.query(
       "UPDATE wf2_claims SET kind='solid',structure_id=$1,project_id=NULL WHERE world_id=$2 AND project_id=$3",
       [structureId, p.world_id, p.id],
@@ -499,6 +552,7 @@ export async function completeConstruction(
         { type: "project", value: projectDto(done) },
         { type: "structure", value: structureDto(s, p.asset_manifest_hash) },
         { type: "path", value: pathDto(path) },
+        ...(frontage ? [{ type: "path", value: pathDto(frontage) }] : []),
       ],
       true,
     );

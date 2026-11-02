@@ -1,4 +1,5 @@
 export type Config = {
+  orbEconomy?: boolean;
   databaseUrl: string;
   clientId: string;
   clientSecret: string;
@@ -19,6 +20,10 @@ export function loadConfig(): Config {
       "Local database/encryption configuration missing. Run local-setup and load ignored runtime.env.",
     );
   const production = process.env.NODE_ENV === "production";
+  // Explicit opt-in for the reviewed version; never infer economy activation from schema.
+  const orbVersion = process.env.COMMUNITY_ORBS;
+  if (orbVersion && orbVersion !== "community-orbs-1")
+    throw Error("Unsupported COMMUNITY_ORBS policy version");
   const webOrigin = process.env.WEB_ORIGIN ?? "http://localhost:5173";
   const redirectUri =
     process.env.TWITCH_REDIRECT_URI ??
@@ -68,6 +73,7 @@ export function loadConfig(): Config {
     webOrigin,
     secureCookies: production,
     production,
+    orbEconomy: orbVersion === "community-orbs-1",
     writesPaused: production && process.env.GAMEPLAY_WRITES === "paused",
     trustProxy: process.env.TRUST_PROXY_HOPS === "1" ? 1 : 0,
     ...(process.env.WF2_APPROVED_WORLD_ID

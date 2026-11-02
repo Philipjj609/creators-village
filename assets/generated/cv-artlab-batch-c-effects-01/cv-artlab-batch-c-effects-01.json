@@ -1,0 +1,245 @@
+{
+  "frames": {
+    "butterfly-amber-0": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 24,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 8,
+        "w": 24,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-amber-1": {
+      "frame": {
+        "x": 58,
+        "y": 2,
+        "w": 35,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 8,
+        "w": 35,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-amber-2": {
+      "frame": {
+        "x": 69,
+        "y": 34,
+        "w": 39,
+        "h": 21
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 21
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-amber-3": {
+      "frame": {
+        "x": 97,
+        "y": 2,
+        "w": 35,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 8,
+        "w": 35,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-sky-0": {
+      "frame": {
+        "x": 30,
+        "y": 2,
+        "w": 24,
+        "h": 28
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 8,
+        "w": 24,
+        "h": 28
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-sky-1": {
+      "frame": {
+        "x": 136,
+        "y": 2,
+        "w": 35,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 8,
+        "w": 35,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-sky-2": {
+      "frame": {
+        "x": 112,
+        "y": 34,
+        "w": 39,
+        "h": 21
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 39,
+        "h": 21
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "butterfly-sky-3": {
+      "frame": {
+        "x": 2,
+        "y": 34,
+        "w": 35,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 8,
+        "w": 35,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 39,
+        "h": 36
+      },
+      "anchor": {
+        "x": 0.461538,
+        "y": 0.341752
+      }
+    },
+    "firefly": {
+      "frame": {
+        "x": 41,
+        "y": 34,
+        "w": 24,
+        "h": 24
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 24
+      },
+      "sourceSize": {
+        "w": 24,
+        "h": 24
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "creators-village-art-lab atlas.py",
+    "version": "1.0",
+    "image": "cv-artlab-batch-c-effects-01.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 176,
+      "h": 60
+    },
+    "scale": "1"
+  },
+  "animations": {
+    "butterfly-amber": [
+      "butterfly-amber-0",
+      "butterfly-amber-1",
+      "butterfly-amber-2",
+      "butterfly-amber-3"
+    ],
+    "butterfly-sky": [
+      "butterfly-sky-0",
+      "butterfly-sky-1",
+      "butterfly-sky-2",
+      "butterfly-sky-3"
+    ]
+  }
+}

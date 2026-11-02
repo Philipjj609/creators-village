@@ -18,6 +18,7 @@ export const WorldEntrySchema = object({
     Type.Literal("participation"),
   ]),
   isCreator: Type.Boolean(),
+  creatorDisplayName: Type.Optional(Type.String()),
   capabilities: object({
     contribute: Type.Boolean(),
     plan: Type.Boolean(),

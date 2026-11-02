@@ -46,6 +46,23 @@ for (const family of ["woodland-vector-1", "hearthside-hero-01"]) {
     if (name.endsWith(".png") || name === "manifest.json")
       await add(`${dir}/${name}`, `/assets/${family}/${name}`, true);
 }
+// UI-5 uses an explicit hash-pinned list: no source manifests or arbitrary files exposed.
+const artCatalogPath = "assets/generated/cv-ap4-01/catalog.json";
+const artCatalog = JSON.parse(await fs.readFile(artCatalogPath, "utf8"));
+for (const file of artCatalog.files) {
+  if (
+    !/^assets\/generated\/cv-artlab-[a-z0-9-]+\/[a-z0-9-]+\.(png|json)$/.test(
+      file.source,
+    ) ||
+    file.url !== "/assets/" + file.source.slice("assets/generated/".length)
+  )
+    throw Error("Invalid art allowlist path");
+  const bytes = await fs.readFile(file.source);
+  if (createHash("sha256").update(bytes).digest("hex") !== file.sha256)
+    throw Error("Art release hash mismatch: " + file.source);
+  await add(file.source, file.url, true);
+}
+await add(artCatalogPath, "/assets/cv-ap4-01/catalog.json", true);
 await fs.writeFile(
   "release-manifest.json",
   JSON.stringify({ format: 1, files }, null, 2) + "\n",

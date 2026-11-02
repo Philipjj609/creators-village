@@ -278,8 +278,13 @@ export async function admissionCommand(
         "UPDATE wf2_credit_consents SET opted_in=false,revision=revision+1,changed_at=now() WHERE world_id=$1 AND person_id=$2 AND opted_in RETURNING project_id",
         [world, m.person_id],
       );
+      const orbChanged = await db.query(
+        "UPDATE f3_orb_participants SET opted_in=false,revision=revision+1,changed_at=now() WHERE world_id=$1 AND person_id=$2 AND opted_in RETURNING project_id",
+        [world, m.person_id],
+      );
+      changed.rows.push(...orbChanged.rows);
       // Invalidation is projected separately from private membership changes.
-      if (changed.rowCount)
+      if (changed.rows.length)
         await suppressCredit(
           db,
           world,

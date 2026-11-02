@@ -1,0 +1,238 @@
+{
+  "version": "cv-artlab-ve01-workshop-03",
+  "studyOnly": true,
+  "width": 2560,
+  "height": 1920,
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "layers": [
+    {
+      "id": "workshop-shadow",
+      "url": "workshop-shadow.png",
+      "left": 768,
+      "top": 145,
+      "width": 566,
+      "height": 540,
+      "scale": 2,
+      "kind": "shadow",
+      "blend": "normal",
+      "defaultAlpha": 1.0,
+      "tint": "#3a283e",
+      "alphaFloor": 6,
+      "decodedBytes": 1222560
+    },
+    {
+      "id": "workshop",
+      "url": "workshop.png",
+      "left": 826.0,
+      "top": 258.0,
+      "width": 616,
+      "height": 680,
+      "scale": 1.3333333333333333,
+      "kind": "building",
+      "decodedBytes": 1675520,
+      "mask": [
+        "00000000000000011000000000000000",
+        "00000000000001111110000000000000",
+        "00000000000000111100000000000000",
+        "00000000000000111100000000000000",
+        "00000000000000111100000000000000",
+        "00000000001000011110000000000000",
+        "00000000011110011110000000000000",
+        "00000000011111111110000000000000",
+        "00000000111111111110000000000000",
+        "00000000111111111111000000000000",
+        "00000001111111111111110000000000",
+        "00000011111111111111111100000000",
+        "00000011111111111111111111000000",
+        "00000111111111111111111111100000",
+        "00001111111111111111111111111000",
+        "00011111111111111111111111111110",
+        "00001111111111111111111111111111",
+        "00000111111111111111111111111100",
+        "00000111111111111111111111111100",
+        "00000111111111111111111111111110",
+        "00000111111111111111111111111111",
+        "00000111111111111111111111111111",
+        "11111111111111111111111111111101",
+        "11111111111111111111111111111111",
+        "11111111111111111111111111111101",
+        "00001111111111111111111111111101",
+        "00000011111111111111111111111001",
+        "00000000011111111111111111100000",
+        "00000000000011111111111101000000",
+        "00000000000011101111110001000000",
+        "00000000000000000011111000000000",
+        "00000000000000000001100000000000"
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "id": "workshop",
+      "name": "The Maker's Workshop",
+      "kind": "workshop",
+      "template": "wf2-workshop-1",
+      "orientation": 0,
+      "footprintReference": {
+        "envelope": {
+          "minX": -3,
+          "minY": -3,
+          "width": 6,
+          "depth": 6
+        },
+        "entrance": [
+          0,
+          3.5
+        ],
+        "apron": {
+          "minX": -0.75,
+          "minY": 3,
+          "width": 1.5,
+          "depth": 1
+        },
+        "orientation": 0,
+        "units": "logical tiles relative to footprint centre; source apps/server/src/participation-spatial.ts"
+      },
+      "screenAnchor": [
+        1280.0,
+        959.9995422363281
+      ],
+      "anchorRule": "rendered px of footprint centre (0,0) at base height (z=0)",
+      "layer": "workshop",
+      "shadow": "workshop-shadow",
+      "detail": {
+        "id": "workshop-detail",
+        "url": "workshop-detail.png",
+        "left": 826.0,
+        "top": 258.0,
+        "width": 1233,
+        "height": 1359,
+        "scale": 0.6666666666666666,
+        "kind": "building",
+        "decodedBytes": 6702588,
+        "mask": [
+          "00000000000000011000000000000000",
+          "00000000000001111110000000000000",
+          "00000000000000111100000000000000",
+          "00000000000000111100000000000000",
+          "00000000000000111110000000000000",
+          "00000000001000011110000000000000",
+          "00000000011110011110000000000000",
+          "00000000011111111110000000000000",
+          "00000000111111111110000000000000",
+          "00000000111111111111000000000000",
+          "00000001111111111111110000000000",
+          "00000011111111111111111100000000",
+          "00000011111111111111111111000000",
+          "00000111111111111111111111100000",
+          "00001111111111111111111111111000",
+          "00011111111111111111111111111110",
+          "00001111111111111111111111111111",
+          "00000111111111111111111111111100",
+          "00000111111111111111111111111100",
+          "00000111111111111111111111111110",
+          "00000111111111111111111111111111",
+          "00000111111111111111111111111111",
+          "11011111111111111111111111111101",
+          "11111111111111111111111111111111",
+          "11111111111111111111111111111101",
+          "00001111111111111111111111111101",
+          "00000011111111111111111111111001",
+          "00000000001111111111111111100000",
+          "00000000000011111111111101000000",
+          "00000000000011101111110001000000",
+          "00000000000000000011111000000000",
+          "00000000000000000001100000000000"
+        ]
+      },
+      "drawOrder": [
+        "workshop-shadow",
+        "workshop"
+      ],
+      "depthRule": "unchanged: one sort key per building; shadow is drawn in the ground band beneath all structures",
+      "emitters": {
+        "chimney": [
+          [
+            -1.48,
+            -0.95,
+            5.8
+          ]
+        ],
+        "lantern": [
+          [
+            -1.03,
+            2.77,
+            1.7
+          ]
+        ]
+      }
+    }
+  ],
+  "baseDecodedBytes": 2898080,
+  "focusDecodedBytes": 6702588,
+  "sourceHashes": {
+    "build": "962e51a6eeca8599f82940168cffd39e33c287973476ca757cb0f408aee76e5f",
+    "recipe": "2ecb3d7dee17fb3cb8695b8da84f40ec9692236371aed10e13f1e2aab0af2fab",
+    "style": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "contract": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 96,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "outlinePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "envelopeAudit": {
+    "min": [
+      -2.9747884273529053,
+      -2.0956501960754395,
+      -0.017000000923871994
+    ],
+    "max": [
+      2.9637656211853027,
+      2.869999885559082,
+      5.8026838302612305
+    ],
+    "triangles": 83620,
+    "fitsEnvelope": true,
+    "clearOfApron": true
+  },
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "outputs": [
+    {
+      "file": "workshop-shadow.png",
+      "bytes": 35448,
+      "sha256": "547fafb0021f935f2e1144c3fb947d606386e9a1c9b497dd3fc950f1dc2f46af"
+    },
+    {
+      "file": "workshop.png",
+      "bytes": 387399,
+      "sha256": "881edcad3550e01ffb73f2d6ab6bf0eacaae4ffa141dfa2ada3cf2bf3fc3ca6b"
+    },
+    {
+      "file": "workshop-detail.png",
+      "bytes": 1330112,
+      "sha256": "b5427b8b1ab9fd77cdf7a9b3a8ead40fc00ee097363abdc7405b7701f063a67f"
+    }
+  ],
+  "provenance": "Original art-lab geometry/materials (VE-01). No third-party assets, no generative-model output; reference boards used as direction only. Release license pending owner.",
+  "lineage": {
+    "derivedFrom": "cv-artlab-ve01-workshop-02",
+    "change": "v03 geometry: knee walls to the roof underside, gable walls following the real roof profile, gable overhang .5->.28, eave overhang .58->.45, corbels and braces under the overhangs; overview at 0.75 scale like -02",
+    "source": "experiments/ve01-workshop/build.py (v01 source archived in experiments/ve01-workshop/archive/)"
+  }
+}

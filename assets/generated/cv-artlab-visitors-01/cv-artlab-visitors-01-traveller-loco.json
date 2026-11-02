@@ -1,0 +1,1729 @@
+{
+  "frames": {
+    "traveller/idle-ne-0": {
+      "frame": {
+        "x": 238,
+        "y": 480,
+        "w": 57,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 12,
+        "w": 57,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-1": {
+      "frame": {
+        "x": 248,
+        "y": 392,
+        "w": 57,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 11,
+        "w": 57,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-2": {
+      "frame": {
+        "x": 309,
+        "y": 392,
+        "w": 58,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 11,
+        "w": 58,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-3": {
+      "frame": {
+        "x": 371,
+        "y": 392,
+        "w": 57,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 11,
+        "w": 57,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-4": {
+      "frame": {
+        "x": 299,
+        "y": 480,
+        "w": 57,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 12,
+        "w": 57,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-5": {
+      "frame": {
+        "x": 126,
+        "y": 566,
+        "w": 57,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 13,
+        "w": 57,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-6": {
+      "frame": {
+        "x": 187,
+        "y": 566,
+        "w": 57,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 13,
+        "w": 57,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-ne-7": {
+      "frame": {
+        "x": 248,
+        "y": 566,
+        "w": 57,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 13,
+        "w": 57,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-0": {
+      "frame": {
+        "x": 360,
+        "y": 480,
+        "w": 57,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 12,
+        "w": 57,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-1": {
+      "frame": {
+        "x": 432,
+        "y": 392,
+        "w": 57,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 11,
+        "w": 57,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-2": {
+      "frame": {
+        "x": 2,
+        "y": 480,
+        "w": 57,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 11,
+        "w": 57,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-3": {
+      "frame": {
+        "x": 63,
+        "y": 480,
+        "w": 57,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 11,
+        "w": 57,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-4": {
+      "frame": {
+        "x": 421,
+        "y": 480,
+        "w": 57,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 12,
+        "w": 57,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-5": {
+      "frame": {
+        "x": 309,
+        "y": 566,
+        "w": 57,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 13,
+        "w": 57,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-6": {
+      "frame": {
+        "x": 175,
+        "y": 651,
+        "w": 58,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 14,
+        "w": 58,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-nw-7": {
+      "frame": {
+        "x": 370,
+        "y": 566,
+        "w": 57,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 13,
+        "w": 57,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-0": {
+      "frame": {
+        "x": 369,
+        "y": 2,
+        "w": 57,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 57,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-1": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 57,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 57,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-2": {
+      "frame": {
+        "x": 63,
+        "y": 2,
+        "w": 57,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 57,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-3": {
+      "frame": {
+        "x": 124,
+        "y": 2,
+        "w": 57,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 57,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-4": {
+      "frame": {
+        "x": 430,
+        "y": 2,
+        "w": 57,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 1,
+        "w": 57,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-5": {
+      "frame": {
+        "x": 236,
+        "y": 101,
+        "w": 57,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 2,
+        "w": 57,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-6": {
+      "frame": {
+        "x": 2,
+        "y": 296,
+        "w": 58,
+        "h": 92
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 3,
+        "w": 58,
+        "h": 92
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-se-7": {
+      "frame": {
+        "x": 297,
+        "y": 101,
+        "w": 57,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 2,
+        "w": 57,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-0": {
+      "frame": {
+        "x": 2,
+        "y": 101,
+        "w": 57,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 1,
+        "w": 57,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-1": {
+      "frame": {
+        "x": 185,
+        "y": 2,
+        "w": 57,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 0,
+        "w": 57,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-2": {
+      "frame": {
+        "x": 246,
+        "y": 2,
+        "w": 58,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 0,
+        "w": 58,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-3": {
+      "frame": {
+        "x": 308,
+        "y": 2,
+        "w": 57,
+        "h": 95
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 0,
+        "w": 57,
+        "h": 95
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-4": {
+      "frame": {
+        "x": 63,
+        "y": 101,
+        "w": 57,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 1,
+        "w": 57,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-5": {
+      "frame": {
+        "x": 358,
+        "y": 101,
+        "w": 57,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 2,
+        "w": 57,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-6": {
+      "frame": {
+        "x": 64,
+        "y": 296,
+        "w": 57,
+        "h": 92
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 3,
+        "w": 57,
+        "h": 92
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/idle-sw-7": {
+      "frame": {
+        "x": 419,
+        "y": 101,
+        "w": 57,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 2,
+        "w": 57,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/shadow-ne": {
+      "frame": {
+        "x": 106,
+        "y": 735,
+        "w": 42,
+        "h": 14
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 42,
+        "h": 14
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 14
+      },
+      "anchor": {
+        "x": 0.154762,
+        "y": 0.678563
+      }
+    },
+    "traveller/shadow-nw": {
+      "frame": {
+        "x": 152,
+        "y": 735,
+        "w": 53,
+        "h": 14
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 14
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 14
+      },
+      "anchor": {
+        "x": 0.132075,
+        "y": 0.678563
+      }
+    },
+    "traveller/shadow-se": {
+      "frame": {
+        "x": 2,
+        "y": 735,
+        "w": 43,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 43,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 43,
+        "h": 18
+      },
+      "anchor": {
+        "x": 0.174419,
+        "y": 0.805549
+      }
+    },
+    "traveller/shadow-sw": {
+      "frame": {
+        "x": 49,
+        "y": 735,
+        "w": 53,
+        "h": 18
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 53,
+        "h": 18
+      },
+      "sourceSize": {
+        "w": 53,
+        "h": 18
+      },
+      "anchor": {
+        "x": 0.136792,
+        "y": 0.805549
+      }
+    },
+    "traveller/walk-ne-0": {
+      "frame": {
+        "x": 237,
+        "y": 651,
+        "w": 52,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 12,
+        "w": 52,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-1": {
+      "frame": {
+        "x": 431,
+        "y": 566,
+        "w": 51,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 51,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-2": {
+      "frame": {
+        "x": 124,
+        "y": 480,
+        "w": 53,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 11,
+        "w": 53,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-3": {
+      "frame": {
+        "x": 128,
+        "y": 392,
+        "w": 56,
+        "h": 83
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 11,
+        "w": 56,
+        "h": 83
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-4": {
+      "frame": {
+        "x": 2,
+        "y": 392,
+        "w": 59,
+        "h": 84
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 12,
+        "w": 59,
+        "h": 84
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-5": {
+      "frame": {
+        "x": 2,
+        "y": 566,
+        "w": 58,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 11,
+        "w": 58,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-6": {
+      "frame": {
+        "x": 2,
+        "y": 651,
+        "w": 55,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 10,
+        "w": 55,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-ne-7": {
+      "frame": {
+        "x": 293,
+        "y": 651,
+        "w": 52,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 11,
+        "w": 52,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-0": {
+      "frame": {
+        "x": 65,
+        "y": 392,
+        "w": 59,
+        "h": 84
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 12,
+        "w": 59,
+        "h": 84
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-1": {
+      "frame": {
+        "x": 64,
+        "y": 566,
+        "w": 58,
+        "h": 81
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 11,
+        "w": 58,
+        "h": 81
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-2": {
+      "frame": {
+        "x": 61,
+        "y": 651,
+        "w": 55,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 10,
+        "w": 55,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-3": {
+      "frame": {
+        "x": 349,
+        "y": 651,
+        "w": 52,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 11,
+        "w": 52,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-4": {
+      "frame": {
+        "x": 405,
+        "y": 651,
+        "w": 52,
+        "h": 79
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 12,
+        "w": 52,
+        "h": 79
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-5": {
+      "frame": {
+        "x": 120,
+        "y": 651,
+        "w": 51,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 12,
+        "w": 51,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-6": {
+      "frame": {
+        "x": 181,
+        "y": 480,
+        "w": 53,
+        "h": 82
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 11,
+        "w": 53,
+        "h": 82
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-nw-7": {
+      "frame": {
+        "x": 188,
+        "y": 392,
+        "w": 56,
+        "h": 83
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 11,
+        "w": 56,
+        "h": 83
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-0": {
+      "frame": {
+        "x": 2,
+        "y": 199,
+        "w": 59,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 3,
+        "w": 59,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-1": {
+      "frame": {
+        "x": 65,
+        "y": 199,
+        "w": 58,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 2,
+        "w": 58,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-2": {
+      "frame": {
+        "x": 127,
+        "y": 199,
+        "w": 55,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 2,
+        "w": 55,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-3": {
+      "frame": {
+        "x": 124,
+        "y": 101,
+        "w": 52,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 3,
+        "y": 2,
+        "w": 52,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-4": {
+      "frame": {
+        "x": 186,
+        "y": 199,
+        "w": 52,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 3,
+        "w": 52,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-5": {
+      "frame": {
+        "x": 125,
+        "y": 296,
+        "w": 51,
+        "h": 92
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 2,
+        "w": 51,
+        "h": 92
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-6": {
+      "frame": {
+        "x": 180,
+        "y": 296,
+        "w": 53,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 1,
+        "w": 53,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-se-7": {
+      "frame": {
+        "x": 237,
+        "y": 296,
+        "w": 56,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 2,
+        "w": 56,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-0": {
+      "frame": {
+        "x": 242,
+        "y": 199,
+        "w": 52,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 13,
+        "y": 3,
+        "w": 52,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-1": {
+      "frame": {
+        "x": 297,
+        "y": 296,
+        "w": 51,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 2,
+        "w": 51,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-2": {
+      "frame": {
+        "x": 352,
+        "y": 296,
+        "w": 53,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 10,
+        "y": 1,
+        "w": 53,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-3": {
+      "frame": {
+        "x": 409,
+        "y": 296,
+        "w": 56,
+        "h": 91
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 2,
+        "w": 56,
+        "h": 91
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-4": {
+      "frame": {
+        "x": 298,
+        "y": 199,
+        "w": 59,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 3,
+        "w": 59,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-5": {
+      "frame": {
+        "x": 361,
+        "y": 199,
+        "w": 58,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 2,
+        "w": 58,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-6": {
+      "frame": {
+        "x": 423,
+        "y": 199,
+        "w": 55,
+        "h": 93
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 12,
+        "y": 2,
+        "w": 55,
+        "h": 93
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    },
+    "traveller/walk-sw-7": {
+      "frame": {
+        "x": 180,
+        "y": 101,
+        "w": 52,
+        "h": 94
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 14,
+        "y": 2,
+        "w": 52,
+        "h": 94
+      },
+      "sourceSize": {
+        "w": 69,
+        "h": 96
+      },
+      "anchor": {
+        "x": 0.5,
+        "y": 0.901039
+      }
+    }
+  },
+  "meta": {
+    "app": "creators-village-art-lab atlas.py",
+    "version": "1.0",
+    "image": "cv-artlab-visitors-01-traveller-loco.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 496,
+      "h": 755
+    },
+    "scale": "1"
+  },
+  "animations": {
+    "traveller/idle-se": [
+      "traveller/idle-se-0",
+      "traveller/idle-se-1",
+      "traveller/idle-se-2",
+      "traveller/idle-se-3",
+      "traveller/idle-se-4",
+      "traveller/idle-se-5",
+      "traveller/idle-se-6",
+      "traveller/idle-se-7"
+    ],
+    "traveller/walk-se": [
+      "traveller/walk-se-0",
+      "traveller/walk-se-1",
+      "traveller/walk-se-2",
+      "traveller/walk-se-3",
+      "traveller/walk-se-4",
+      "traveller/walk-se-5",
+      "traveller/walk-se-6",
+      "traveller/walk-se-7"
+    ],
+    "traveller/idle-sw": [
+      "traveller/idle-sw-0",
+      "traveller/idle-sw-1",
+      "traveller/idle-sw-2",
+      "traveller/idle-sw-3",
+      "traveller/idle-sw-4",
+      "traveller/idle-sw-5",
+      "traveller/idle-sw-6",
+      "traveller/idle-sw-7"
+    ],
+    "traveller/walk-sw": [
+      "traveller/walk-sw-0",
+      "traveller/walk-sw-1",
+      "traveller/walk-sw-2",
+      "traveller/walk-sw-3",
+      "traveller/walk-sw-4",
+      "traveller/walk-sw-5",
+      "traveller/walk-sw-6",
+      "traveller/walk-sw-7"
+    ],
+    "traveller/idle-nw": [
+      "traveller/idle-nw-0",
+      "traveller/idle-nw-1",
+      "traveller/idle-nw-2",
+      "traveller/idle-nw-3",
+      "traveller/idle-nw-4",
+      "traveller/idle-nw-5",
+      "traveller/idle-nw-6",
+      "traveller/idle-nw-7"
+    ],
+    "traveller/walk-nw": [
+      "traveller/walk-nw-0",
+      "traveller/walk-nw-1",
+      "traveller/walk-nw-2",
+      "traveller/walk-nw-3",
+      "traveller/walk-nw-4",
+      "traveller/walk-nw-5",
+      "traveller/walk-nw-6",
+      "traveller/walk-nw-7"
+    ],
+    "traveller/idle-ne": [
+      "traveller/idle-ne-0",
+      "traveller/idle-ne-1",
+      "traveller/idle-ne-2",
+      "traveller/idle-ne-3",
+      "traveller/idle-ne-4",
+      "traveller/idle-ne-5",
+      "traveller/idle-ne-6",
+      "traveller/idle-ne-7"
+    ],
+    "traveller/walk-ne": [
+      "traveller/walk-ne-0",
+      "traveller/walk-ne-1",
+      "traveller/walk-ne-2",
+      "traveller/walk-ne-3",
+      "traveller/walk-ne-4",
+      "traveller/walk-ne-5",
+      "traveller/walk-ne-6",
+      "traveller/walk-ne-7"
+    ]
+  }
+}

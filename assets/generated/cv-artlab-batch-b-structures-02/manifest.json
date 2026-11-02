@@ -1,0 +1,171 @@
+{
+  "version": "cv-artlab-batch-b-structures-02",
+  "studyOnly": true,
+  "library": "buildings",
+  "camera": {
+    "width": 2560,
+    "height": 1920,
+    "scale": 22.0,
+    "axes": "(x,y,z)->(y,x,z)",
+    "plan": 45,
+    "elevation": 30
+  },
+  "runtimeAssetScale": 0.3889087296526012,
+  "pages": [
+    {
+      "image": "cv-artlab-batch-b-structures-02.png",
+      "spritesheet": "cv-artlab-batch-b-structures-02.json",
+      "width": 720,
+      "height": 1142,
+      "decodedBytes": 3288960,
+      "pngBytes": 648121,
+      "sha256": "f9f706b11c1e0a705393ea43b5d63a1a4dbad89d0e345ed6650ab0b96f4edbce",
+      "spritesheetSha256": "4aab3712edaff9daa7530002a7e9a7a115abfff061e77ed8bb468f865d6e6a83",
+      "occupancy": 0.828,
+      "frames": 4
+    }
+  ],
+  "placement": {
+    "position": "terrainProject(x, y, height) of the asset's placement point (footprint centre for buildings)",
+    "anchor": "spritesheet frame anchor",
+    "scale": "assetScale * renderScale (per asset, per shadow)",
+    "drawOrder": "<id>-shadow frames in a ground band below all objects; objects sorted by x+y of the placement point"
+  },
+  "assets": [
+    {
+      "id": "hall",
+      "name": "Community Hall",
+      "kind": "building",
+      "frame": "hall",
+      "shadowFrame": "hall-shadow",
+      "textureScale": 0.75,
+      "renderScale": 1.3333333333333333,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -4,
+          "minY": -4,
+          "width": 8,
+          "depth": 8
+        },
+        "entrance": [
+          0,
+          4.5
+        ],
+        "apron": {
+          "minX": -1,
+          "minY": 4,
+          "width": 2,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED new 8x8 civic template"
+      },
+      "emitters": {
+        "chimney": [
+          [
+            -1.63,
+            -1.0,
+            5.88
+          ]
+        ],
+        "lantern": []
+      },
+      "boundsLogical": {
+        "min": [
+          -3.1968023777008057,
+          -2.480358123779297,
+          -0.019999999552965164
+        ],
+        "max": [
+          3.1968023777008057,
+          3.2467763423919678,
+          6.960000038146973
+        ]
+      },
+      "triangles": 96248,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 1982460,
+      "shadowDecodedBytes": 144000
+    },
+    {
+      "id": "market",
+      "name": "Market Stall",
+      "kind": "building",
+      "frame": "market",
+      "shadowFrame": "market-shadow",
+      "textureScale": 0.75,
+      "renderScale": 1.3333333333333333,
+      "shadowRenderScale": 4.0,
+      "footprint": {
+        "envelope": {
+          "minX": -2,
+          "minY": -1.5,
+          "width": 4,
+          "depth": 3
+        },
+        "entrance": [
+          0,
+          2.0
+        ],
+        "apron": {
+          "minX": -1,
+          "minY": 1.5,
+          "width": 2,
+          "depth": 1
+        },
+        "orientation": 0,
+        "status": "PROPOSED new 4x3 open-structure template"
+      },
+      "emitters": null,
+      "boundsLogical": {
+        "min": [
+          -1.7000000476837158,
+          -1.3890124559402466,
+          -0.0011413751635700464
+        ],
+        "max": [
+          1.7000000476837158,
+          1.4600000381469727,
+          2.8030340671539307
+        ]
+      },
+      "triangles": 18134,
+      "anchorRule": "placement point (0,0,0)",
+      "decodedBytes": 548120,
+      "shadowDecodedBytes": 49824
+    }
+  ],
+  "memory": {
+    "pagesDecodedMiB": 3.137,
+    "framesDecodedMiBByKind": {
+      "building": 2.598
+    }
+  },
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "sourceHashes": {
+    "render_structures.py": "c3c883618ec6931f534d1320207e1b7334dac583cad29960685a958aa78fbf19",
+    "buildings.py": "8ee8f0578183c364b3e8f0cdfed8507d65b878aa9a019c52ea8c4f4998da5c1c",
+    "cv_arch.py": "4838a536618d4a1dadc8ec99613b974c99d63756a63c042e89da01e18682d9b3",
+    "cv_style.py": "61ae2e4694d05782c1739f16a5561ef116caa3e413c137b6bb5f475495e58210",
+    "cv_foliage.py": "60a24b4d314fe14c30125e861e3faefde13107e0ddbe62781b58463bc0508914",
+    "cv_contract.py": "6a4e51708472909141d943883abcfed757998770f40aa6217b2cac9405b5c5f6"
+  },
+  "render": {
+    "engine": "Cycles CPU",
+    "samples": 64,
+    "denoiser": "OpenImageDenoise",
+    "color": "AgX - Punchy, exposure +0.35",
+    "freestylePx": 5.0
+  },
+  "blender": "4.5.15 LTS",
+  "lightDirection": [
+    0.2283295840024948,
+    -0.6008673310279846,
+    -0.7660444378852844
+  ],
+  "provenance": "Original art-lab procedural geometry; no third-party assets or generative-model output. Reference boards used as direction only. Release license pending owner."
+}

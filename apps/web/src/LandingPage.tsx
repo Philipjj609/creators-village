@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "./routing.js";
 import { useSession } from "./session.js";
 import { Icon, Notice } from "./ui.js";
 import "./landing.css";
-import { Brand as LandingBrand, VillageMark } from "./brand.js";
+import { Wordmark } from "./brand.js";
 import { SectionLink } from "./section-link.js";
+const art = "/landing-art/ui1-01/";
+function LandingBrand() {
+  return (
+    <Link className="cv-brand" href="/" aria-label="Creator’s Village home">
+      {/* Corrected owner-supplied SVG belongs in this lockup when available. */}
+      <span className="cv-brand-lockup" data-logo-slot="awaiting-corrected-svg">
+        <Wordmark />
+      </span>
+    </Link>
+  );
+}
 
 function Connection({ closing = false }: { closing?: boolean }) {
   const { person, loaded } = useSession();
@@ -21,6 +32,14 @@ function Connection({ closing = false }: { closing?: boolean }) {
     </span>
   ) : (
     <a className="cv-button cv-primary" href="/auth/twitch">
+      <img
+        className="cv-twitch-icon"
+        src={art + "twitch-glitch-white.svg"}
+        width="19"
+        height="22"
+        alt=""
+        aria-hidden="true"
+      />
       Join with Twitch <span aria-hidden="true">↗</span>
     </a>
   );
@@ -30,19 +49,25 @@ function PlazaIllustration() {
   return (
     <figure className={`cv-hero-art ${failed ? "cv-art-failed" : ""}`}>
       {!failed ? (
-        <img
-          src="/landing-art/village-plaza-554.webp"
-          srcSet="/landing-art/village-plaza-400.webp 400w, /landing-art/village-plaza-554.webp 554w"
-          sizes="(max-width: 600px) 100vw, (max-width: 1000px) 65vw, 800px"
-          width="554"
-          height="386"
-          fetchPriority="high"
-          alt="A storybook village plaza beside a river, with warm rooftops, garden paths and neighbors gathering around a fountain."
-          onError={() => setFailed(true)}
-        />
+        <picture>
+          <source
+            media="(max-width: 899px)"
+            srcSet={`${art}cv-hero-village-mobile-800.webp 800w, ${art}cv-hero-village-mobile-1100.webp 1100w`}
+            sizes="100vw"
+          />
+          <img
+            src={art + "cv-hero-village-1200.webp"}
+            srcSet={`${art}cv-hero-village-800.webp 800w, ${art}cv-hero-village-1200.webp 1200w, ${art}cv-hero-village-1600.webp 1600w, ${art}cv-hero-village-2400.webp 2400w`}
+            sizes="(max-width: 899px) 100vw, 72vw"
+            width="1200"
+            height="759"
+            fetchPriority="high"
+            alt="A composed village illustration: timber homes, a shared hall and workshop linked by paths among autumn trees."
+            onError={() => setFailed(true)}
+          />
+        </picture>
       ) : (
         <div className="cv-art-fallback">
-          <VillageMark />
           <p>
             The illustration couldn’t load. You can still explore the current
             village example.
@@ -50,10 +75,6 @@ function PlazaIllustration() {
           <Link href="/villages/showcase-fern">Explore the world ↗</Link>
         </div>
       )}
-      <figcaption>
-        Our illustrated vision <span aria-hidden="true">·</span> not a gameplay
-        screenshot
-      </figcaption>
     </figure>
   );
 }
@@ -61,39 +82,68 @@ const ideas = [
   {
     name: "A place to belong",
     icon: "people",
-    image: "gathering-312.webp",
-    width: 312,
-    height: 181,
-    alt: "Illustrated woodland neighbors sharing a campfire.",
-    copy: "Bring your community together around a place that feels like yours.",
+    image: "belong-720.webp",
+    width: 720,
+    height: 451,
+    alt: "A shared hall beside a market and tree-lined paths, from the promotional village render.",
   },
   {
-    name: "Built together",
+    name: "Build together",
     icon: "hammer",
-    image: "shared-place-315.webp",
-    width: 315,
-    height: 179,
-    alt: "An illustrated shared building, with a welcoming doorway and a planted courtyard.",
-    copy: "Creator-approved projects turn deliberate contributions into buildings and paths.",
+    image: "build-720.webp",
+    width: 720,
+    height: 451,
+    alt: "A timber workshop and connecting path, from the promotional village render.",
   },
   {
     name: "A world that remembers",
     icon: "leaf",
-    image: "community-corner-301.webp",
-    width: 301,
-    height: 178,
-    alt: "An illustrated community corner with timber structures, plants and warm lanterns.",
-    copy: "The village keeps what you build, ready for the next time you return.",
+    image: "remember-720.webp",
+    width: 720,
+    height: 451,
+    alt: "Connected homes and community buildings in the composed village illustration.",
   },
 ];
 export function Landing() {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const elements = root.current?.querySelectorAll<HTMLElement>(".cv-reveal");
+    if (!elements || !window.IntersectionObserver) return;
+    const motion = matchMedia("(prefers-reduced-motion: reduce)");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries)
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("cv-reveal-waiting");
+            observer.unobserve(entry.target);
+          }
+      },
+      { threshold: 0.08 },
+    );
+    if (!motion.matches)
+      for (const element of elements) {
+        if (element.getBoundingClientRect().top > window.innerHeight)
+          element.classList.add("cv-reveal-waiting");
+        observer.observe(element);
+      }
+    const reveal = () => {
+      if (motion.matches)
+        for (const element of elements)
+          element.classList.remove("cv-reveal-waiting");
+    };
+    motion.addEventListener("change", reveal);
+    return () => {
+      observer.disconnect();
+      motion.removeEventListener("change", reveal);
+    };
+  }, []);
   const location = useLocation();
   const { error, refresh } = useSession();
   const declined =
     new URL(location, window.location.origin).searchParams.get("auth") ===
     "declined";
   return (
-    <div className="pi-site cv-landing">
+    <div className="pi-site cv-landing" ref={root}>
       <SectionLink className="cv-skip" targetId="main-content">
         Skip to content
       </SectionLink>
@@ -107,8 +157,8 @@ export function Landing() {
             <SectionLink className="cv-nav-link" targetId="the-village">
               The village
             </SectionLink>
-            <Connection />
           </nav>
+          <Connection />
         </div>
       </header>
       <main id="main-content" tabIndex={-1}>
@@ -137,8 +187,8 @@ export function Landing() {
               <em>community.</em>
             </h1>
             <p className="cv-hero-description">
-              A living world where creators and their communities come together,
-              build, and grow something that lasts beyond the stream.
+              A persistent world where creators and their communities come
+              together, build, and grow something that lasts beyond the stream.
             </p>
             <div className="cv-actions">
               <Connection />
@@ -161,16 +211,21 @@ export function Landing() {
           tabIndex={-1}
           aria-label="What makes a village"
         >
+          <div className="cv-section-intro cv-reveal">
+            <p className="cv-eyebrow">MORE THAN A MOMENT ON STREAM</p>
+            <h2>
+              <span>A little world.</span> <span>A place to belong.</span>
+            </h2>
+          </div>
           <div className="cv-ideas-inner">
             {ideas.map((idea) => (
-              <article className="cv-idea" key={idea.name}>
+              <article className="cv-idea cv-reveal" key={idea.name}>
                 <div className="cv-idea-heading">
                   <Icon name={idea.icon} />
-                  <h2>{idea.name}</h2>
+                  <h3>{idea.name}</h3>
                 </div>
-                <p>{idea.copy}</p>
                 <img
-                  src={"/landing-art/" + idea.image}
+                  src={art + idea.image}
                   width={idea.width}
                   height={idea.height}
                   alt={idea.alt}
@@ -180,67 +235,75 @@ export function Landing() {
               </article>
             ))}
           </div>
-          <p className="cv-art-note">
-            Concept illustrations show the direction we’re growing toward. The
-            current village example shows what runs today.
-          </p>
         </section>
         <section
-          className="cv-growth"
+          className="cv-growth cv-reveal"
           id="the-village"
           tabIndex={-1}
           aria-labelledby="cv-growth-title"
         >
-          <div className="cv-growth-intro">
-            <p className="cv-eyebrow">
-              SMALL BEGINNINGS. SHARED POSSIBILITIES.
-            </p>
-            <h2 id="cv-growth-title">
-              One place.
-              <br />A story you build together.
-            </h2>
-            <p>
-              A village starts with a gathering place and room to grow.
-              Community effort changes that same saved landscape.
-            </p>
-            <Link className="cv-inline-link" href="/villages/showcase-fern">
-              Step into the current founding example{" "}
-              <span aria-hidden="true">→</span>
-            </Link>
+          <figure className="cv-story-art">
+            <img
+              src={art + "cv-hero-village-mobile-1100.webp"}
+              width="1100"
+              height="696"
+              alt="A promotional village composition showing homes, shared spaces and the paths between them."
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>Promotional village composition</figcaption>
+          </figure>
+          <div className="cv-growth-content">
+            <div className="cv-growth-intro">
+              <p className="cv-eyebrow">CREATOR · COMMUNITY · VILLAGE</p>
+              <h2 id="cv-growth-title">A story you build together</h2>
+              <p>
+                A creator starts a village. Approved members help build it, and
+                completed work stays for the next visit.
+              </p>
+              <Link className="cv-inline-link" href="/villages/showcase-fern">
+                Step into the current founding example{" "}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+            <ol className="cv-growth-steps">
+              <li>
+                <span className="cv-step-marker">01</span>
+                <div>
+                  <h3>Start a village</h3>
+                  <p>
+                    A gathering shelter and first path give your community a
+                    place to begin.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span className="cv-step-marker">02</span>
+                <div>
+                  <h3>Build with your members</h3>
+                  <p>
+                    The creator publishes a workshop plan. Approved members each
+                    contribute once.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span className="cv-step-marker">03</span>
+                <div>
+                  <h3>Come back to what you built</h3>
+                  <p>
+                    The completed workshop and connecting path stay saved in the
+                    same village.
+                  </p>
+                </div>
+              </li>
+            </ol>
           </div>
-          <ol className="cv-growth-steps">
-            <li>
-              <span className="cv-step-marker">01</span>
-              <div>
-                <h3>Find your clearing</h3>
-                <p>
-                  A distinctive landscape, a founding shelter, and a first path.
-                </p>
-              </div>
-            </li>
-            <li>
-              <span className="cv-step-marker">02</span>
-              <div>
-                <h3>Choose a shared project</h3>
-                <p>
-                  In the private playtest, the creator approves participants and
-                  publishes a fixed workshop plan.
-                </p>
-              </div>
-            </li>
-            <li>
-              <span className="cv-step-marker">03</span>
-              <div>
-                <h3>Leave something lasting</h3>
-                <p>
-                  Accepted contributions complete a workshop and connecting path
-                  in the same village.
-                </p>
-              </div>
-            </li>
-          </ol>
         </section>
-        <section className="cv-closing" aria-labelledby="cv-closing-title">
+        <section
+          className="cv-closing cv-reveal"
+          aria-labelledby="cv-closing-title"
+        >
           <div>
             <p className="cv-eyebrow">A LITTLE WORLD. A SHARED FUTURE.</p>
             <h2 id="cv-closing-title">Make room for belonging.</h2>
@@ -257,11 +320,17 @@ export function Landing() {
         </section>
       </main>
       <footer className="cv-footer">
-        <LandingBrand />
-        <p>A persistent world, made together.</p>
-        <Link href="/villages/showcase-fern">
-          Explore the current example ↗
-        </Link>
+        <div className="cv-footer-top">
+          <div>
+            <LandingBrand />
+            <p>A persistent world, made together.</p>
+          </div>
+          <nav aria-label="Footer navigation">
+            <SectionLink targetId="how-it-grows">How it grows</SectionLink>
+            <SectionLink targetId="the-village">The village</SectionLink>
+            <Link href="/villages/showcase-fern">Explore the world ↗</Link>
+          </nav>
+        </div>
       </footer>
     </div>
   );

@@ -1,0 +1,158 @@
+{
+  "version": "cv-artlab-ambient-02",
+  "studyOnly": true,
+  "optional": true,
+  "pages": [
+    {
+      "image": "cv-artlab-ambient-02.png",
+      "spritesheet": "cv-artlab-ambient-02.json",
+      "width": 96,
+      "height": 108,
+      "decodedBytes": 41472,
+      "pngBytes": 4723,
+      "sha256": "be6da1780bc0b26c048a02ca7d90c9b9e7bfcae501d2e590d9d5d789f2a97897",
+      "spritesheetSha256": "733d3671fe4dd4cdadab753c0de953357787f1f85ffdd14e5bae06178d02bc89",
+      "occupancy": 0.644,
+      "frames": 8
+    }
+  ],
+  "integrity": {
+    "framesLossless": true,
+    "overlapsWithPadding": []
+  },
+  "builds": "cv-artlab-batch-c-effects-01 (butterflies, firefly) - reused, not regenerated",
+  "effects": {
+    "lanternGlow": {
+      "sprite": "glow-warm",
+      "blend": "add",
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "scale": "assetScale * 2.4",
+      "alpha": "0.55 + 0.10*sin(7.3t+p) + 0.06*sin(13.1t+2p)  (soft flicker, never < 0.4)",
+      "when": "evening/night presentation; daytime alpha 0",
+      "budget": "one per lantern emitter, culled off-screen",
+      "reducedMotion": "constant alpha 0.6, no flicker",
+      "layer": "top light layer (above objects, below UI)"
+    },
+    "chimneySmoke": {
+      "sprites": [
+        "smoke-0",
+        "smoke-1",
+        "smoke-2"
+      ],
+      "blend": "normal",
+      "spawn": "one puff every 1.6-2.4 s per chimney emitter (deterministic phase from building id)",
+      "motion": "rise 0.35 units/s, drift +0.12 units/s along logical (+x,-y) wind, scale 0.6->1.6, alpha 0.55->0 over 3.5 s",
+      "budget": "<= 3 live puffs per chimney; skip below zoom 0.45",
+      "reducedMotion": "no puffs",
+      "layer": "above the emitting building (depth key + 0.01)"
+    },
+    "leaves": {
+      "sprites": [
+        "leaf-0",
+        "leaf-1",
+        "petal-0"
+      ],
+      "blend": "normal",
+      "spawn": "near tree placements (petal-0 only near blossom trees), 1 per ~4 s per tree, max 12 on screen",
+      "motion": "fall 0.25 units/s from canopy height with sin sway (amp 0.3, 0.8 rad/s) and spin 1.5 rad/s; fade on landing",
+      "reducedMotion": "none",
+      "layer": "top decorative layer"
+    },
+    "dustMotes": {
+      "sprite": "mote",
+      "blend": "add",
+      "motion": "slow wander like fireflies, alpha 0.15-0.35, daylight only in sunbeam areas",
+      "budget": "<= 16 on screen; only at zoom >= 1.4",
+      "reducedMotion": "none",
+      "layer": "top decorative layer"
+    },
+    "butterflies": "unchanged: cv-artlab-batch-c-effects-01 (flap frames + runtime path); budget <= 6 in daylight",
+    "fireflies": "unchanged: cv-artlab-batch-c-effects-01 (glow + runtime wander/pulse); budget <= 24 at evening",
+    "global": {
+      "maxEffectSpritesOnScreen": 60,
+      "pauseWhenTabHidden": true,
+      "respectPrefersReducedMotion": true,
+      "zoomGate": "all ambient effects off below zoom 0.45 except lantern glow",
+      "drawCalls": "all ambient sprites share one atlas page with the effects-01 page => 1-2 batches",
+      "gameplay": "purely decorative; never block picking, never imply real users or presence"
+    }
+  },
+  "emitters": {
+    "rule": "terrainProject(px + ex, py + ey, h + ez) where (px, py, h) is the asset placement",
+    "byAsset": {
+      "lodge": {
+        "chimney": [
+          [
+            2.5,
+            0.55,
+            3.98
+          ]
+        ],
+        "lantern": [
+          [
+            0.85,
+            2.3,
+            1.72
+          ]
+        ]
+      },
+      "workshop": {
+        "chimney": [
+          [
+            -1.48,
+            -0.95,
+            5.8
+          ]
+        ],
+        "lantern": [
+          [
+            -1.03,
+            2.77,
+            1.7
+          ]
+        ]
+      },
+      "cottage": {
+        "chimney": [
+          [
+            0.66,
+            -0.65,
+            4.760000000000001
+          ]
+        ],
+        "lantern": [
+          [
+            -0.62,
+            1.6099999999999999,
+            1.42
+          ]
+        ]
+      },
+      "hall": {
+        "chimney": [
+          [
+            -1.63,
+            -1.0,
+            5.88
+          ]
+        ],
+        "lantern": []
+      },
+      "lantern-post": {
+        "lantern": [
+          [
+            0.36,
+            0,
+            1.6
+          ]
+        ]
+      }
+    }
+  },
+  "memory": {
+    "pagesDecodedMiB": 0.0396
+  }
+}

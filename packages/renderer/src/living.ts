@@ -1,4 +1,11 @@
-import { Container, Graphics, type Application } from "pixi.js";
+import { registerPick } from "./picking.js";
+import {
+  Container,
+  Graphics,
+  Sprite,
+  type Spritesheet,
+  type Application,
+} from "pixi.js";
 import type {
   FoundingWorld,
   LivingVillage,
@@ -8,32 +15,61 @@ import { evaluateResidents } from "@creators-village/world/living";
 import { terrainProject } from "./founding-projection.js";
 import type { attachCamera } from "./camera.js";
 
+import {
+  ART,
+  artSprite,
+  setArtFrame,
+  type ArtLibrary,
+  type Cast,
+} from "./art.js";
+import {
+  residentArtwork,
+  prepareResidentArtwork,
+  artDirection,
+  semanticAnimation,
+  walkFrame,
+} from "./resident-art.js";
+
 export type LivingViewState = { plan: LivingVillage; states: ResidentState[] };
-/** Four original provisional vector puppets; no textures, atlas edits or per-frame allocation of display nodes. */
+/** Four persisted fictional identities, rendered through versioned art without changing their routes or timing. */
 export function attachResidents(
   app: Application,
   objects: Container,
   world: FoundingWorld,
   host: HTMLElement,
   camera: ReturnType<typeof attachCamera>,
+  art: ArtLibrary,
+  shadows: Container,
   onSelect: (id: string) => void,
   onState?: (state: LivingViewState | null) => void,
   viewport?: () => { x: number; y: number; width: number; height: number },
   heightAt?: (x: number, y: number) => number | null,
+  onFollowChange?: (id: string | null) => void,
 ) {
   const actors = new Map<
     string,
     {
       node: Container;
       body: Container;
-      left: Graphics;
-      right: Graphics;
-      arm: Graphics;
+      sprite: Sprite;
+      shadow: Sprite;
       ring: Graphics;
       cue: Graphics;
-      eyes: Graphics;
+      model: Cast;
+      loco: Spritesheet;
+      activity?: Spritesheet;
+      activityLoading: boolean;
+      activityFailed: boolean;
+      distance: number;
+      previous: { x: number; y: number } | null;
+      completed: number | null;
+      reactAt: number;
+      animation: string;
     }
   >();
+  const completionReactions = new Set<string>();
+  let drawCpuMs = 0,
+    maxDrawCpuMs = 0;
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   let plan: LivingVillage | null = null,
     states: ResidentState[] = [],
@@ -46,75 +82,58 @@ export function attachResidents(
     lastDraw = -Infinity,
     lastNotify = -Infinity;
   function clear() {
-    for (const a of actors.values()) a.node.destroy({ children: true });
+    for (const a of actors.values()) {
+      a.node.destroy({ children: true });
+      a.shadow.destroy();
+    }
     actors.clear();
     states = [];
     plan = null;
     onState?.(null);
     camera.invalidate();
   }
-  function puppet(id: string, color: number, index: number) {
+  async function character(id: string) {
+    const key = residentArtwork(id);
+    if (!key) throw Error("Unmapped fictional resident");
+    const model = art.bundle(ART.cast).cast!.find((c) => c.id === key)!;
+    const loco = await art.sheet(ART.cast, key, "loco");
     const node = new Container(),
-      body = new Container(),
-      ring = new Graphics()
-        .ellipse(0, 0, 11, 4)
-        .stroke({ color: 0xffe8aa, width: 2 });
+      body = new Container();
+    const sprite = artSprite(
+      loco.textures[key + "/idle-se-0"]!,
+      model.renderScale,
+    );
+    const shadow = artSprite(
+      loco.textures[key + "/shadow-se"]!,
+      model.shadowRenderScale,
+    );
+    shadow.alpha = 0.45;
+    const ring = new Graphics()
+      .ellipse(0, 0, 11, 4)
+      .stroke({ color: 0xffe8aa, width: 2 });
+    const cue = new Graphics();
     ring.visible = false;
     node.label = id;
-    node.addChild(
-      new Graphics().ellipse(0, 0, 8, 3).fill({ color: 0x302f36, alpha: 0.22 }),
-      ring,
+    registerPick(node, id, body);
+    body.addChild(sprite);
+    node.addChild(ring, body, cue);
+    return {
+      node,
       body,
-    );
-    const left = new Graphics().roundRect(-5, -11, 4, 11, 2).fill(0x3c4146);
-    const right = new Graphics().roundRect(1, -11, 4, 11, 2).fill(0x3c4146);
-    const arm = new Graphics().roundRect(5, -25, 4, 14, 2).fill(color);
-    const eyes = new Graphics()
-      .circle(-2, -33, 0.7)
-      .circle(2, -33, 0.7)
-      .fill(0x332e36);
-    const cue = new Graphics();
-    body.addChild(
-      left,
-      right,
-      new Graphics()
-        .roundRect(-7, -27, 14, 19, 4)
-        .fill(color)
-        .stroke({ color: 0x433d46, width: 1.2 }),
-      new Graphics().roundRect(-10, -25, 4, 14, 2).fill(color),
-      arm,
-      new Graphics()
-        .circle(0, -33, 6)
-        .fill([0xe2b08a, 0xba8668, 0xefc19c, 0x9c715c][index]!),
-      new Graphics()
-        .ellipse(0, -38, 7, 3)
-        .fill(
-          index === 0
-            ? 0x76554b
-            : index === 1
-              ? 0xd6b773
-              : index === 2
-                ? 0x59483e
-                : 0x475549,
-        ),
-      eyes,
-    );
-    node.addChild(cue);
-    // Role silhouettes: brim, mender's apron and field tender's satchel.
-    if (index === 0 || index === 1)
-      body.addChild(
-        new Graphics()
-          .ellipse(0, -37, 10, 2)
-          .fill(index === 0 ? 0x76554b : 0xd6b773),
-      );
-    if (index === 2)
-      body.addChild(
-        new Graphics().poly([-4, -22, 4, -22, 6, -9, -6, -9]).fill(0xe6d5b4),
-      );
-    if (index === 3)
-      body.addChild(new Graphics().roundRect(4, -18, 7, 8, 2).fill(0xad7950));
-    objects.addChild(node);
-    return { node, body, left, right, arm, ring, cue, eyes };
+      sprite,
+      shadow,
+      ring,
+      cue,
+      model,
+      loco,
+      activityLoading: false,
+      activityFailed: false,
+      distance: 0,
+      previous: null,
+      completed: null,
+      reactAt: -Infinity,
+      animation: "idle-se",
+    };
   }
   async function reload(invalidate = true) {
     const token = ++request;
@@ -131,22 +150,42 @@ export function attachResidents(
       const next = (await r.json()) as LivingVillage;
       if (disposed || token !== request) return;
       if (
-        !["lw1-routines-1", "lw1-goals-1"].includes(next.rules) ||
+        ![
+          "lw1-routines-1",
+          "lw1-goals-1",
+          "cv-f1-goals-1",
+          "cv-f2-goals-1",
+        ].includes(next.rules) ||
         next.worldId !== world.id ||
         next.baselineHash !== world.baseline.hash ||
-        next.residents.length > 4
+        next.residents.length > 4 ||
+        new Set(next.residents.map((r) => r.id)).size !== next.residents.length
       )
         throw Error("Resident version mismatch");
-      plan = next;
-      received = performance.now();
+      const fetchedAt = performance.now();
       for (const [id, actor] of actors)
         if (!next.residents.some((r) => r.id === id)) {
           actor.node.destroy({ children: true });
+          actor.shadow.destroy();
           actors.delete(id);
         }
-      next.residents.forEach((r, i) => {
-        if (!actors.has(r.id)) actors.set(r.id, puppet(r.id, r.color, i));
-      });
+      const missing = await prepareResidentArtwork(
+        next.residents.filter((r) => !actors.has(r.id)).map((r) => r.id),
+        character,
+        () => !disposed && token === request,
+        (actor) => {
+          actor.node.destroy({ children: true });
+          actor.shadow.destroy();
+        },
+      );
+      if (!missing) return;
+      for (const { id, actor } of missing) {
+        actors.set(id, actor);
+        objects.addChild(actor.node);
+        shadows.addChild(actor.shadow);
+      }
+      plan = next;
+      received = fetchedAt;
       delete host.dataset.residentError;
       lastDraw = lastNotify = -Infinity;
       draw();
@@ -166,11 +205,13 @@ export function attachResidents(
       now - lastDraw < (motion.matches ? 1000 : 1000 / 30)
     )
       return;
+    const began = performance.now();
     lastDraw = now;
     const time = plan.serverTimeMs + now - received;
     states = evaluateResidents(plan, time, motion.matches);
     for (const s of states) {
-      const a = actors.get(s.id)!;
+      const a = actors.get(s.id);
+      if (!a) continue;
       const p = terrainProject(
         s.position.x,
         s.position.y,
@@ -178,90 +219,91 @@ export function attachResidents(
       );
       a.node.position.set(p.x, p.y);
       a.node.zIndex = s.position.x + s.position.y;
-      const walk =
-        !motion.matches && s.activity === "travel"
-          ? Math.sin(time / 120) * 3
-          : 0;
-      a.left.y = walk;
-      a.right.y = -walk;
-      a.body.y = motion.matches
-        ? 0
-        : s.activity === "travel"
-          ? -Math.abs(walk) * 0.35
-          : Math.sin(time / 650) * 0.5;
-      a.body.scale.y = s.activity === "rest" ? 0.85 : 1;
-      const facing = s.direction.x - s.direction.y;
-      a.body.scale.x = facing < 0 ? -1 : 1;
-      a.eyes.x = Math.abs(facing) > 0.05 ? 2 : 0;
-      a.eyes.visible = s.direction.x + s.direction.y >= 0;
-      a.cue.scale.x = a.body.scale.x;
-      const acting = s.actionPhase
-        ? s.actionPhase === "performing"
-        : s.activity !== "travel";
-      const progress = s.phaseProgress ?? 0;
-      a.cue.clear();
-      if (acting && s.activity === "work") {
-        // Held tool and deliberate strokes at the actual interaction position.
-        const stroke = motion.matches ? 0 : Math.sin(time / 210) * 3;
-        a.cue
-          .moveTo(8, -20 + stroke)
-          .lineTo(14, -13 + stroke)
-          .stroke({ color: 0x735746, width: 2.5 });
-        a.cue.roundRect(12, -15 + stroke, 7, 3, 1).fill(0xc8bda1);
-      } else if (acting && s.activity === "rest") {
-        a.body.y = 5;
-        a.body.scale.y = 0.7;
-        a.cue
-          .moveTo(-11, 1)
-          .lineTo(11, 1)
-          .stroke({ color: 0x756f56, width: 2 });
-        a.cue
-          .moveTo(6, -40)
-          .lineTo(11, -40)
-          .lineTo(6, -36)
-          .lineTo(11, -36)
-          .stroke({ color: 0xf4e5be, width: 1.4 });
-      } else if (acting && s.activity === "gather") {
-        const speak = motion.matches
-          ? true
-          : Math.floor(
-              time / 1900 +
-                (s.id.endsWith("mira") || s.id.endsWith("nell") ? 0 : 1),
-            ) %
-              2 ===
-            0;
-        if (speak) {
-          a.cue.roundRect(5, -49, 19, 11, 4).fill(0xfff2d6);
-          a.cue.poly([7, -39, 7, -35, 12, -39]).fill(0xfff2d6);
-          a.cue
-            .circle(10, -43, 1)
-            .circle(14, -43, 1)
-            .circle(18, -43, 1)
-            .fill(0x786d5b);
-        }
-      } else if (acting && s.activity === "observe") {
-        a.cue
-          .moveTo(7, -31)
-          .lineTo(13, -34)
-          .stroke({ color: 0xc69b79, width: 3 });
-        a.cue.circle(16, -37, 4).stroke({ color: 0x676e64, width: 1.8 });
+      a.shadow.position.copyFrom(a.node.position);
+      const direction = artDirection(s.direction);
+      if (a.previous && s.activity === "travel") {
+        const delta = Math.hypot(
+          s.position.x - a.previous.x,
+          s.position.y - a.previous.y,
+        );
+        // Ignore topology reload/hidden-tab discontinuities; never change authoritative movement.
+        if (delta < 1) a.distance += delta;
       }
+      a.previous = { x: s.position.x, y: s.position.y };
+      if (
+        a.completed !== null &&
+        s.completedActions !== undefined &&
+        s.completedActions > a.completed
+      )
+        a.reactAt = now;
+      a.completed = s.completedActions ?? null;
+      let animation = semanticAnimation(s, now - a.reactAt < 600);
+      const spec = a.model.animations[animation]!;
+      // No rear activity artwork supplied: retain honest facing with same-direction idle.
+      if (!spec.directions.includes(direction)) animation = "idle";
+      if (
+        animation !== "idle" &&
+        animation !== "walk" &&
+        !a.activity &&
+        !a.activityLoading &&
+        !a.activityFailed
+      ) {
+        a.activityLoading = true;
+        void art
+          .sheet(ART.cast, a.model.id, "act")
+          .then((sheet) => {
+            if (!disposed && actors.get(s.id) === a) {
+              a.activity = sheet;
+              camera.invalidate();
+            }
+          })
+          .catch(() => {
+            a.activityFailed = true;
+            host.dataset.residentArtError = "activity-unavailable";
+          })
+          .finally(() => {
+            a.activityLoading = false;
+          });
+      }
+      const sheet =
+        animation === "idle" || animation === "walk" ? a.loco : a.activity;
+      if (!sheet) animation = "idle";
+      const table = a.model.animations[animation]!,
+        textures = (
+          animation === "idle" || animation === "walk" ? a.loco : a.activity
+        )!.animations[a.model.id + "/" + animation + "-" + direction]!;
+      const frame = motion.matches
+        ? 0
+        : animation === "walk"
+          ? walkFrame(
+              a.distance,
+              a.model.locomotion.strideUnits,
+              textures.length,
+            )
+          : animation === "react"
+            ? Math.min(
+                textures.length - 1,
+                Math.floor(((now - a.reactAt) / 1000) * table.fps),
+              )
+            : Math.floor((time / 1000) * table.fps) % textures.length;
+      setArtFrame(a.sprite, textures[frame]!);
+      setArtFrame(
+        a.shadow,
+        a.loco.textures[a.model.id + "/shadow-" + direction]!,
+      );
+      a.animation = animation + "-" + direction;
+      a.cue.clear();
       if (s.actionPhase === "arriving")
         a.cue
-          .ellipse(0, 0, 9, 3)
-          .stroke({ color: 0xe6d4a0, alpha: 0.7, width: 1 });
-      if (s.actionPhase === "complete" && !motion.matches)
-        a.body.y = -Math.sin(progress * Math.PI) * 2;
-      a.arm.rotation =
-        !motion.matches && (s.activity === "work" || s.activity === "gather")
-          ? Math.sin(time / 260) * 0.12
-          : 0;
+          .moveTo(-4, 1)
+          .lineTo(4, 1)
+          .stroke({ color: 0x756f56, alpha: 0.6, width: 1 });
       a.ring.visible = s.id === selected;
       if (following === s.id) {
         const frame = viewport?.();
         camera.follow(
           { x: p.x, y: p.y - 20 },
-          2.2,
+          Math.max(1.6, camera.stats().scale),
           frame
             ? { x: frame.x + frame.width / 2, y: frame.y + frame.height / 2 }
             : undefined,
@@ -272,6 +314,8 @@ export function attachResidents(
       onState?.({ plan, states });
       lastNotify = now;
     }
+    drawCpuMs = performance.now() - began;
+    maxDrawCpuMs = Math.max(maxDrawCpuMs, drawCpuMs);
     camera.invalidate();
   }
   const timer = setInterval(draw, 1000 / 30);
@@ -286,22 +330,41 @@ export function attachResidents(
   void reload();
   return {
     reload,
+    reactToCompletion(projectId: string) {
+      if (completionReactions.has(projectId)) return;
+      completionReactions.add(projectId);
+      if (completionReactions.size > 32)
+        completionReactions.delete(completionReactions.values().next().value!);
+      host.dataset.residentMilestone = projectId;
+      for (const a of actors.values()) a.reactAt = performance.now();
+      lastDraw = -Infinity;
+      draw();
+    },
     nodes: () => [...actors.values()].map((a) => a.node),
     cancelFollow: () => {
-      following = "";
+      if (following) {
+        following = "";
+        onFollowChange?.(null);
+      }
     },
     select(id: string) {
+      if (selected !== id && following) {
+        following = "";
+        onFollowChange?.(null);
+      }
       selected = id;
-      following = "";
+      for (const [key, a] of actors) a.ring.visible = key === id;
+      camera.invalidate();
     },
     focus(id: string) {
       if (actors.has(id)) {
         selected = following = id;
+        onFollowChange?.(id);
         const a = actors.get(id)!,
           frame = viewport?.();
         camera.focus(
           { x: a.node.x, y: a.node.y - 20 },
-          2.2,
+          Math.max(1.6, camera.stats().scale),
           frame
             ? { x: frame.x + frame.width / 2, y: frame.y + frame.height / 2 }
             : undefined,
@@ -310,35 +373,49 @@ export function attachResidents(
         draw();
       }
     },
-    pick(p: { x: number; y: number }) {
-      const candidates = [...actors.entries()].sort(
-        (a, b) => b[1].node.zIndex - a[1].node.zIndex,
-      );
-      for (const [id, a] of candidates) {
-        const b = a.node.getBounds(),
-          pad = Math.max(3, 9 - b.width / 2);
-        if (
-          p.x >= b.x - pad &&
-          p.x <= b.x + b.width + pad &&
-          p.y >= b.y - pad &&
-          p.y <= b.y + b.height + pad
-        ) {
-          selected = id;
-          following = "";
-          onSelect(id);
-          return true;
-        }
-      }
-      return false;
+    locate(id: string, mode: "frame" | "nudge" = "frame") {
+      const a = actors.get(id);
+      if (!a) return;
+      const frame = viewport?.() ?? {
+        x: 12,
+        y: 12,
+        width: host.clientWidth - 24,
+        height: host.clientHeight - 24,
+      };
+      camera.locate({ x: a.node.x, y: a.node.y - 20 }, frame, mode, 1.6, {
+        width: 24,
+        height: 46,
+      });
     },
     stats: () => ({
+      residentDrawCpuMs: drawCpuMs,
+      residentMaxDrawCpuMs: maxDrawCpuMs,
+      completionReactions: [...completionReactions],
       residents: actors.size,
       residentDisplayNodes: [...actors.values()].reduce(
-        (n, a) => n + a.body.children.length + a.node.children.length + 1,
+        (n, a) => n + a.body.children.length + a.node.children.length + 2,
         0,
       ),
-      residentTextureBytes: 0,
+      residentTextureBytes: art.decodedBytes(ART.cast),
+      residentArtwork: [...actors.entries()].map(([id, a]) => ({
+        id,
+        art: a.model.id,
+        appearanceInstances: objects.children.filter((n) => n === a.node)
+          .length,
+        bodySprites: a.body.children.length,
+        textureFrame: {
+          x: a.sprite.texture.frame.x,
+          y: a.sprite.texture.frame.y,
+          width: a.sprite.texture.frame.width,
+          height: a.sprite.texture.frame.height,
+        },
+        animation: a.animation,
+        activityLoaded: !!a.activity,
+      })),
       followingResident: following || null,
+      selectedResident: selected || null,
+      residentSelectionRings: [...actors.values()].filter((a) => a.ring.visible)
+        .length,
       reducedMotion: motion.matches,
       residentStates: states,
       residentRules: plan?.rules ?? null,

@@ -18,13 +18,13 @@ Sign in with Twitch, walk into a hand-lit isometric village, pool a shared curre
 
 [**Live application**](https://creators-village.onrender.com/) ·
 [**Explore the public example**](https://creators-village.onrender.com/villages/showcase-fern) ·
+[**Watch the demo**](https://youtu.be/MAb2qgJZCYA) ·
+[**Hackathon submission**](https://devpost.com/software/creator-s-village) ·
 [Judging guide](JUDGING.md) ·
 [Release notes](RELEASE.md) ·
 [R1 tag](https://github.com/Philipjj609/creators-village/tree/hackathon-2026-11-02-r1)
 
 </div>
-
-<!-- Demo video and Devpost project links: add them to the line above once their final URLs are public. -->
 
 ![A hand-lit village: timber-framed houses, a market stall, paths and woodland residents](apps/web/public/landing-art/ui1-01/cv-hero-village-1600.webp)
 

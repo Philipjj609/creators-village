@@ -192,9 +192,9 @@ The monorepo has two apps and four packages:
 - **Idempotent commands with receipts.** Each mutating command has a client-chosen ID and a stored receipt; the same request returns the same result and a changed request with the same ID is refused.
 - **Locks where order matters.** Joins, funding, completion and topology changes take row or advisory locks in a fixed order. Anything that could change connectivity serialises behind a topology guard.
 - **Additive migrations and a strict schema fence.** Migrations never rewrite history. The server verifies the exact applied migration set (with checksums) at startup and **never migrates automatically in production**; a separate, bounded, backed-up migration step does that.
-- **Pause switch.** `GAMEPLAY_WRITES=paused` makes the server reject mutations while reads keep working, which is how the R1 deployment was migrated safely.
-- **Privacy by projection.** Anonymous visitors, pending requests, rejected people and former members all get the same "unavailable" answer as a missing village, and member names appear only with current consent.
-- **Immutable art.** Runtime art is hash-pinned. A release packages exactly 157 allow-listed runtime files and refuses to start if one differs.
+- **Pause switch.** `GAMEPLAY_WRITES=paused` makes a production server reject gameplay mutations while reads keep working, which is how the R1 deployment was migrated safely.
+- **Privacy by projection.** Anonymous visitors, pending requests, rejected people and former members all get the same "unavailable" answer as a missing village, and project contribution recognition appears only with current consent. Authorised membership administration shows account identities.
+- **Immutable art.** Runtime art is hash-pinned. A release packages exactly 157 allow-listed web runtime files and refuses to start if one differs.
 
 More detail is in [`docs/architecture`](docs/architecture) and [`docs/decisions`](docs/decisions).
 
@@ -251,7 +251,7 @@ Open `http://localhost:5173`. The local launcher migrates your local database; p
 docker build --platform linux/amd64 -t creators-village:r1 .
 ```
 
-The image contains only the allow-listed runtime files, runs as a non-root user, and is verified read-only with no network in release checks. Production deployment, migration and recovery steps are in [RELEASE.md](RELEASE.md) and [`docs/architecture/production-runbook.md`](docs/architecture/production-runbook.md).
+The image holds the server code, dependencies, migrations and tooling alongside the allow-listed web runtime files, runs as a non-root user, and is verified read-only with no network in release checks. Production deployment, migration and recovery steps are in [RELEASE.md](RELEASE.md) and [`docs/architecture/production-runbook.md`](docs/architecture/production-runbook.md).
 
 ## Configuration
 
@@ -266,7 +266,7 @@ Values come from the environment. **No secret belongs in the repository.**
 | `WEB_ORIGIN` | The single allowed browser origin (HTTPS in production) |
 | `WF2_APPROVED_WORLD_ID` | The one village on which private participation is enabled |
 | `COMMUNITY_ORBS` | `community-orbs-1` turns the Orb economy on; empty means off; any other value fails startup |
-| `GAMEPLAY_WRITES` | `paused` rejects all mutations (maintenance mode) |
+| `GAMEPLAY_WRITES` | In production, `paused` rejects gameplay API mutations (maintenance mode); authentication and logout remain available |
 | `TRUST_PROXY_HOPS` | `1` when behind exactly one proxy |
 | `NODE_ENV`, `AUTH_MODE` | Production must use `twitch`; test authentication is refused |
 
@@ -276,7 +276,7 @@ Values come from the environment. **No secret belongs in the repository.**
 
 - **161 tests in 34 files** pass on the R1 snapshot, together with typecheck, build and release packaging. The same results were reproduced from a separate judging snapshot and from a fresh clone of the release commit.
 - **Real PostgreSQL.** Concurrency, exactly-once funding, refunds, privacy, migration and recovery tests run against a disposable local PostgreSQL 18 instance, never a shared database. [JUDGING.md](JUDGING.md) gives the exact steps.
-- **Release checks.** The packaged image is built, its 157 files are hash-verified, and it is started read-only without network access.
+- **Release checks.** The packaged image is built, its 157 web runtime files are hash-verified, and it is started read-only without network access.
 - **Migration rehearsals.** Migrations 007 to 009 were rehearsed on a restored copy of production-shaped data, with every historical table compared before and after.
 - **Browser checks.** Isolated synthetic creator and member sessions were exercised in a real browser during development: funding, synchronisation, reconnection, responsive layouts and reduced motion. The Playwright specs in `tests/browser` were not re-run for R1.
 
@@ -289,7 +289,7 @@ What the tests do **not** establish: the behaviour of independent people using r
 - Server-side authorisation on every read and command; the web router grants nothing.
 - Bounded request bodies and queries, parameterised SQL, validated identifiers, and statement, lock and transaction timeouts.
 - Operational logs are sanitised, and no chat, email or follow data is collected in R1.
-- Private by default: names, receipts and membership are visible only with current authorisation and, for names, consent.
+- Private by default: names, receipts and membership are visible only with current authorisation; project contribution recognition also needs current consent, and authorised membership administration shows account identities.
 
 There is no formal security policy yet. Please report a vulnerability to the repository owner privately rather than in a public issue.
 
